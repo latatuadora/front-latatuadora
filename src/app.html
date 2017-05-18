@@ -1,3 +1,11 @@
 <template>
-  <h1>${message}</h1>
+  <require from="./main.css"></require>
+  <require from="./components/unlogged-navbar/unlogged-navbar.html"></require>
+  <require from="./components/site-footer/site-footer.html"></require>
+  <div id="page">
+    <unlogged-navbar></unlogged-navbar>
+    <main id="main">
+    </main>
+    <site-footer></site-footer>
+  </div>
 </template>
