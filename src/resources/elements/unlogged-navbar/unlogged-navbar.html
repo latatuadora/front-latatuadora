@@ -1,2 +1,29 @@
 <template>
+  <require from="./unlogged-navbar.css"></require>
+  <nav class="site-navbar">
+    <div class="site-navbar__desktop-logo-container">
+      <a href="/"><img src="{% static 'img/logos/logo-text-golden.png' %}" alt="La Tatuadora"></a>
+    </div>
+    <div class="site-navbar__menu-trigger">
+      <img src="{% static 'img/icons/hamburguer.svg' %}" alt="Hamburguer menu">
+    </div>
+    <div class="site-navbar__menu-container">
+      <div class="site-navbar__mobile-logo-container">
+        <a href="/"><img src="{% static 'img/logos/logo-golden.png' %}" alt="La Tatuadora"></a>
+      </div>
+      <div class="site-navbar__menu">
+        <a href="/" class="site-navbar__menu-link {% if request.path == '/' %}active{% endif %}">Inicio</a>
+        <a href="#" class="site-navbar__menu-link">News</a>
+        <a href="{{ inspirate }}" class="site-navbar__menu-link {% if request.path == inspirate %}active{% endif %}">Inspírate</a>
+        <a href="#" class="site-navbar__menu-link">Busca un tatuador</a>
+        <a href="#" class="site-navbar__menu-link">Tatúate</a>
+      </div>
+      <form action="." method="post" class="site-navbar__search" id="navbar-search-form">
+        {% csrf_token %}
+        <input id="navbar-search-input" class="site-navbar__search-input" type="search" name="search" placeholder="Buscar...">
+        <button type="submit" class="site-navbar__search-button fa fa-search" name="submit"></button>
+      </form>
+      <a href="#" class="site-button site-navbar__signup-button">Registrarme</a>
+    </div>
+  </nav>
 </template>
