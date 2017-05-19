@@ -1,0 +1,55 @@
+<template>
+  <require from="./site-footer.css"></require>
+  <footer class="site-footer">
+    <div class="site-footer__inner">
+      <div class="site-footer__left">
+        <nav class="site-footer__nav">
+          <a href="#" class="site-footer__nav-item">Cómo funciona</a>
+          <a href="#" class="site-footer__nav-item">Acerca de nosotros</a>
+          <a href="#" class="site-footer__nav-item">Contacto</a>
+          <a href="#" class="site-footer__nav-item">Preguntas frecuentes</a>
+        </nav>
+        <form id="footer-newsletter" class="site-footer__newsletter" method="post" action=".">
+          <span class="site-footer__newsletter-title">Inscríbete a nuestro Newsletter:</span>
+          <div class="site-footer__newsletter-div">
+            <div class="input-wrapper">
+              <input id="footer-newsletter-email" class="site-footer__newsletter-input" type="email" name="email" required placeholder="Correo electrónico">
+            </div>
+            <div class="form-message"></div>
+            <div class="button-wrapper">
+              <button class="site-button" type="submit" name="submit">Enviar</button>
+            </div>
+            <div class="loader custom-loader">
+              <div class="ball-pulse-sync">
+                <div></div>
+                <div></div>
+                <div></div>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+      <div class="site-footer__middle">
+        <a href="/" class="site-footer__logo"><img src="src/assets/images/logos/logo-golden.png" alt="La tatuadora"></a>
+        <nav class="site-footer__terms-privacy">
+          <a href="#" class="site-footer__terms-privacy-item">Términos y condiciones</a>
+          <a href="#" class="site-footer__terms-privacy-item">Aviso de privacidad</a>
+        </nav>
+      </div>
+      <div class="site-footer__right">
+        <div class="site-footer__signup">
+          <span class="site-footer__signup-title">¿Eres estudio o artista tatuador?</span>
+          <a href="#" class="site-button">Regístrate</a>
+        </div>
+        <div class="site-footer__social">
+          <span class="site-footer__social-title">Síguenos en:</span>
+          <div class="site-footer__social-items">
+            <a href="https://www.facebook.com/LaTatuadoraMexico/?fref=ts" class="site-footer__social-item"><i class="fa fa-facebook"></i></a>
+            <a href="https://twitter.com/La_tatuadora" class="site-footer__social-item"><i class="fa fa-twitter"></i></a>
+            <a href="https://www.instagram.com/la_tatuadora/" class="site-footer__social-item"><i class="fa fa-instagram"></i></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+</template>
