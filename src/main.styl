@@ -2,22 +2,22 @@
 @import './assets/styles/mixins'
 @import './assets/styles/fonts'
 @import './assets/styles/utils'
-
 *
   box-sizing border-box
 
 html
-  font-size $baseFontSize
+  font-size unit($baseFontSize, 'px')
 
   @media screen and (max-width: 768px)
-    font-size 14.5px
+    font-size 14px
 
   @media screen and (max-width: 480px)
-    font-size 13px
+    font-size 12px
 
 body
   font-size inherit
-  margin 0
+  font-family 'Lato'
+  color #4a4a4a
 
   &.noscroll
     overflow hidden
@@ -33,32 +33,11 @@ a
 
 #page
   margin 0
-  font-family 'Lato'
   overflow hidden
   padding 0
 
-  #main
-    display flex
-
-    .container
-      display inline-block
-      padding 50px 0 0 0
-      width calc(100% - 231px)
-      position relative
-
-      .content
-        min-height calc(100% - 155px)
-        text-align center
-
-  h1
-    font-size 1.125em
-    color #4a4a4a
-    font-weight bold
-
-  h2
-    font-size .875em
-    color #9b9b9b
-    font-weight bold
+.golden-text
+  color #a08b59
 
 // LOADERS //
 .custom-loader
@@ -106,8 +85,6 @@ label.error
     margin-top 1em
 
 input, textarea, button, select
-  font-family inherit
-
   &, &:hover, &:active &:focus
     box-shadow none
     outline none
@@ -115,3 +92,35 @@ input, textarea, button, select
 textarea
   resize none
 // END FORMS //
+
+.site-button
+  background $dustColor
+  display inline-block
+  border-radius 2px
+  text-transform uppercase
+  color white
+  outline none
+  cursor pointer
+  border none
+  font-family 'Lato'
+  font-weight normal
+  transition background 0.2s
+
+  &:hover,
+  &:active,
+  &:focus
+  &.active
+    background lightness($dustColor, 45%)
+
+.site-button--inverse
+  background transparent
+  color $dustColor
+  simple-border('all', 1px, $dustColor)
+  transition background 0.2s, color 0.2s
+
+  &:hover,
+  &:active,
+  &:focus
+  &.active
+    color white
+    background $dustColor
