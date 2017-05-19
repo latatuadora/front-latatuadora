@@ -2,6 +2,8 @@ import gulp from 'gulp';
 import merge from 'merge-stream';
 import changedInPlace from 'gulp-changed-in-place';
 import project from '../aurelia.json';
+import gulpCleanCss from 'gulp-clean-css';
+import gulpConcatCss from 'gulp-concat-css';
 
 export default function copyDependenciesFiles() {
   const sources = [
@@ -23,6 +25,8 @@ export default function copyDependenciesFiles() {
 
   const taskCss = gulp.src(cssSources)
     .pipe(changedInPlace({ firstPass: true }))
+    .pipe(gulpConcatCss('libs.css', { rebaseUrls: false }))
+    .pipe(gulpCleanCss())
     .pipe(gulp.dest(`${project.platform.output}/styles`));
 
   const taskFonts = gulp.src(fontSources)
