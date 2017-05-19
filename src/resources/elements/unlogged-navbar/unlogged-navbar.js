@@ -1,6 +1,6 @@
 import {Menu} from 'utils/menu';
 
-export class UnloggedNavbarCustomElement {
+export class UnloggedNavbar {
   constructor() {
   }
 
