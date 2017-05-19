@@ -11,6 +11,10 @@ export default function copyDependenciesFiles() {
       lib: 'node_modules/font-awesome',
       main: '/css/font-awesome.css',
       fonts: '/fonts/*'
+    },
+    {
+      lib: 'node_modules/normalize.css',
+      main: '/normalize.css'
     }
   ];
   let cssSources = [];
