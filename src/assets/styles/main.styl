@@ -1,0 +1,116 @@
+@import './vars'
+@import './mixins'
+@import './fonts'
+@import './utils'
+
+*
+  box-sizing border-box
+
+html
+  font-size $baseFontSize
+
+  @media screen and (max-width: 768px)
+    font-size 14.5px
+
+  @media screen and (max-width: 480px)
+    font-size 13px
+
+body
+  font-size inherit
+  margin 0
+
+  &.noscroll
+    overflow hidden
+
+    &::after
+      content ' '
+      opacity 1
+      z-index 9
+
+a
+  &, &:focus, &:hover, &:active
+    text-decoration none
+
+#page
+  margin 0
+  overflow hidden
+  padding 0
+
+  #main
+    display flex
+
+    .container
+      display inline-block
+      padding 50px 0 0 0
+      width calc(100% - 231px)
+      position relative
+
+      .content
+        min-height calc(100% - 155px)
+        text-align center
+
+  h1
+    font-size 1.125em
+    color #4a4a4a
+    font-weight bold
+
+  h2
+    font-size .875em
+    color #9b9b9b
+    font-weight bold
+
+// LOADERS //
+.custom-loader
+  display none
+  text-align center
+  width 100%
+
+  .ball-pulse-sync
+    div
+      background white
+
+.button-wrapper.disabled,
+button[type="submit"][disabled]
+  display none
+
+  & + .custom-loader
+    &:not(.vertical-center)
+      display block
+
+    &.vertical-center
+      display flex
+      height 100%
+// END LOADERS //
+
+// FORMS //
+label.error
+  color $errorColor
+  display block
+  padding-top 0.3em
+
+.form-message
+  i, span
+    display inline-block
+
+  span
+    margin-left 0.5em
+
+  &.error
+    color $errorColor
+
+  &.success
+    color $successColor
+
+  &.success, &.error
+    margin-top 1em
+
+input, textarea, button, select
+  font-family inherit
+
+  &, &:hover, &:active &:focus
+    box-shadow none
+    outline none
+
+textarea
+  resize none
+// END FORMS //
