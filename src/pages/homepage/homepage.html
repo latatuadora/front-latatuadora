@@ -1,5 +1,6 @@
 <template>
   <require from="./homepage.css"></require>
+  <require from="../../resources/elements/featured-artist/featured-artist"></require>
   <div class="homepage-hero">
     <div class="homepage-hero__left">
       <a class="homepage-hero__small-item cover" href="#">
@@ -73,6 +74,27 @@
       <button type="button" class="homepage-featured__button site-button">Recomendados</button>
     </div>
     <div class="homepage-featured__items" id="homepage-featured-items">
+      <div repeat.for="artist of featuredArtists" class="homepage-featured__item-wrapper">
+        <div class="homepage-featured__item">
+          <a href="${artist.profileURL}" class="homepage-featured__item-front cover" style="background-image: url(${artist.imageURL})"></a>
+          <div class="homepage-featured__item-back">
+            <div class="homepage-featured__item-back-content">
+              <a href="${artist.profileURL}" class="homepage-featured__item-title">${artist.name}</a>
+              <div class="homepage-featured__item-stars">
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star-half-o"></i>
+                <i class="fa fa-star-o"></i>
+              </div>
+              <span class="homepage-featured__item-location">${artist.location}</span>
+              <div class="homepage-featured__item-tags">
+                <a repeat.for="tag of tags" href="#" class="homepage-featured__item-tag">${tag}</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
     <a href="#" class="site-button homepage-featured__main-button">Ver todos los estudios</a>
   </section>
