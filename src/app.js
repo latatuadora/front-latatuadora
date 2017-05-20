@@ -7,6 +7,11 @@ export class App {
         route: ['', 'home'],
         name: 'home',
         moduleId: 'pages/homepage/homepage'
+      },
+      {
+        route: 'inspirate',
+        name: 'inspirate',
+        moduleId: 'pages/inspirate/inspirate'
       }
     ]);
   }
