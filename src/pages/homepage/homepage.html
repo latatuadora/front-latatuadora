@@ -76,16 +76,13 @@
     <div class="homepage-featured__items" id="homepage-featured-items">
       <div repeat.for="artist of featuredArtists" class="homepage-featured__item-wrapper">
         <div class="homepage-featured__item">
-          <a href="${artist.profileURL}" class="homepage-featured__item-front cover" style="background-image: url(${artist.imageURL})"></a>
+          <a href="${artist.profileURL}" class="homepage-featured__item-front cover" css="background-image: url(${artist.imageURL})"></a>
           <div class="homepage-featured__item-back">
             <div class="homepage-featured__item-back-content">
               <a href="${artist.profileURL}" class="homepage-featured__item-title">${artist.name}</a>
               <div class="homepage-featured__item-stars">
-                <i class="fa fa-star"></i>
-                <i class="fa fa-star"></i>
-                <i class="fa fa-star"></i>
-                <i class="fa fa-star-half-o"></i>
-                <i class="fa fa-star-o"></i>
+
+                <i repeat.for="i of 5" class="fa ${artist.rating > i ? (artist.rating > i + 0.9 ? 'fa-star' : 'fa-star-half-o') : 'fa-star-o'}"></i>
               </div>
               <span class="homepage-featured__item-location">${artist.location}</span>
               <div class="homepage-featured__item-tags">
