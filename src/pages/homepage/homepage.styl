@@ -367,8 +367,8 @@ a.homepage-hero__small-item
 
 .homepage-want-to__inner
   center-block()
-  padding-right 110px
-  width 407px
+  position relative
+  width 582px
 
 .homepage-want-to__buttons
   display flex
@@ -424,7 +424,7 @@ a.homepage-hero__small-item
 
 .homepage-want-to__title
   rfont-size 45px 767px 44px
-  color black
+  color $dustColor
   font-family 'BebasNeue'
   margin 0
   width remify(168)
@@ -436,13 +436,15 @@ a.homepage-hero__small-item
   line-height 1.4
   margin-top 19px
   margin-bottom 0
+  width remify(293)
+  simple-border('left', 1px, $dustColor)
+  padding-left remify(8)
 
 .homepage-want-to__img
   position absolute
   right 0
-  top 50%
-  transform translateY(-50%)
-  height remify(260)
+  top remify(40)
+  height remify(289)
   z-index -1
 
 .homepage-bottom-cover
@@ -560,9 +562,19 @@ a.homepage-hero__small-item
     width 293px
     padding-right 0
 
+  .homepage-want-to__title
+    color black
+
+  .homepage-want-to__text
+    padding-left 0
+    border none
+    width 100%
+
   .homepage-want-to__img
-    height 128px
-    right -45px
+    height 139px
+    bottom -50px
+    right -10px
+    top initial
 
   .home-bottom-search
     display block
@@ -592,12 +604,6 @@ a.homepage-hero__small-item
 
   .homepage-bottom-cover
     margin-top 67.7px
-
-@media screen and (max-width: 590px)
-  .homepage-want-to__img
-    top initial
-    transform none
-    bottom 0
 
 @media screen and (max-width: 530px)
   .homepage-featured__buttons
@@ -652,7 +658,3 @@ a.homepage-hero__small-item
 
     &:last-child
       background-image url('src/assets/images/backgrounds/home-hero-5-responsive.jpg')
-
-@media screen and (max-width: 430px)
-  .homepage-want-to__img
-    bottom -47px
