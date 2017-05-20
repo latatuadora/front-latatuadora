@@ -11,8 +11,4 @@ export class UnloggedNavbar {
   attached() {
     let menu = new Menu(992);
   }
-
-  getRoute() {
-    return this.router.currentInstruction.config.name;
-  }
 }
