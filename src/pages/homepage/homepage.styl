@@ -373,8 +373,25 @@ a.homepage-hero__small-item
         top 0
         left 50%
 
+@keyframes fadeIn
+  0%
+    opacity 0
+  50%
+    opacity 50%
+  99%
+    opacity 100%
+  100%
+    display block
+
 .homepage-want-to__div
   margin-top remify(64)
+
+  &.active
+    display block
+    animation fadeIn 0.7s
+
+  &:not(.active)
+    display none
 
   .site-button
     margin-top 64px
@@ -384,9 +401,6 @@ a.homepage-hero__small-item
 
     &:hover, &:active, &:focus
       background lightness(#7e888e, 44%)
-
-#homepage-want-to-tattooist
-  display none
 
 .homepage-want-to__title
   rfont-size 45px 767px 44px
