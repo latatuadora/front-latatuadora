@@ -1,5 +1,92 @@
 let latency = 200;
 
+let tattoos = [
+  {
+    votes: 0,
+    tags: ['tag1', 'tag2'],
+    artist_name: 'Enrique Lopez',
+    artist_picture: '/src/assets/images/mock/artist1.png',
+    artist_rating: 4.5,
+    artist_url: '#',
+    description: 'Description',
+    tattoo_url: '#',
+    element_name: 'Brazo Robot',
+    body_part_name: 'Oreja',
+    style_name: 'Dark',
+    image: '/src/assets/images/mock/tattoo1.png'
+  },
+  {
+    votes: 0,
+    tags: ['tag1', 'tag2'],
+    artist_name: 'Enrique Lopez',
+    artist_picture: '/src/assets/images/mock/artist1.png',
+    artist_rating: 4.5,
+    artist_url: '#',
+    description: 'Description',
+    tattoo_url: '#',
+    element_name: 'Brazo Robot',
+    body_part_name: 'Pierna',
+    style_name: 'Dark',
+    image: '/src/assets/images/mock/tattoo2.png'
+  },
+  {
+    votes: 0,
+    tags: ['tag1', 'tag2'],
+    artist_name: 'Enrique Lopez',
+    artist_picture: '/src/assets/images/mock/artist1.png',
+    artist_rating: 4.5,
+    artist_url: '#',
+    description: 'Description',
+    tattoo_url: '#',
+    element_name: 'Brazo Robot',
+    body_part_name: 'Oreja',
+    style_name: 'Dark',
+    image: '/src/assets/images/mock/tattoo3.png'
+  },
+  {
+    votes: 0,
+    tags: ['tag1', 'tag2'],
+    artist_name: 'Enrique Lopez',
+    artist_picture: '/src/assets/images/mock/artist1.png',
+    artist_rating: 4.5,
+    artist_url: '#',
+    description: 'Description',
+    tattoo_url: '#',
+    element_name: 'Brazo Robot',
+    body_part_name: 'Oreja',
+    style_name: 'Dark',
+    image: '/src/assets/images/mock/tattoo4.png'
+  },
+  {
+    votes: 0,
+    tags: ['tag1', 'tag2'],
+    artist_name: 'Enrique Lopez',
+    artist_picture: '/src/assets/images/mock/artist1.png',
+    artist_rating: 4.5,
+    artist_url: '#',
+    description: 'Description',
+    tattoo_url: '#',
+    element_name: 'Brazo Robot',
+    body_part_name: 'Oreja',
+    style_name: 'Religioso',
+    image: '/src/assets/images/mock/tattoo5.png'
+  },
+  {
+    votes: 0,
+    tags: ['tag1', 'tag2'],
+    artist_name: 'Enrique Lopez',
+    artist_picture: '/src/assets/images/mock/artist1.png',
+    artist_rating: 4.5,
+    artist_url: '#',
+    description: 'Description',
+    tattoo_url: '#',
+    element_name: 'Brazo Robot',
+    body_part_name: 'Oreja',
+    style_name: 'Religioso',
+    image: '/src/assets/images/mock/tattoo6.png'
+  }
+]
+
 let featuredArtists = [
   {
     name: 'Mock Artist 1',
@@ -69,6 +156,31 @@ let featuredArtists = [
 
 export class MockAPI {
   isRequesting = false;
+
+  getTattoos(data = {}) {
+    this.isRequesting = true;
+
+    let results = tattoos.filter((obj) => {
+      if (data.style && data.style !== obj.style_name) {
+        return false;
+      }
+      if (data.element && data.element !== obj.element_name) {
+        return false;
+      }
+      if (data.part && data.part !== obj.body_part_name) {
+        return false;
+      }
+
+      return true;
+    });
+
+    return new Promise(resolve => {
+      setTimeout(() => {
+        resolve(results);
+        this.isRequesting = false;
+      })
+    }, latency);
+  }
 
   getFeaturedArtists(type = 'featured') {
     this.isRequesting = true;

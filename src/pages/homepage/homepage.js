@@ -12,6 +12,10 @@ export class Homepage {
 
   created() {
     this.getFeaturedArtists();
+    this.api.getTattoos()
+      .then(tattoos => {
+        console.log(tattoos);
+      });
   }
 
   getFeaturedArtists(type = 'featured') {
