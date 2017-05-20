@@ -70,7 +70,7 @@ let featuredArtists = [
 export class MockAPI {
   isRequesting = false;
 
-  getFeaturedArtists() {
+  getFeaturedArtists(type = 'featured') {
     this.isRequesting = true;
 
     return new Promise(resolve => {

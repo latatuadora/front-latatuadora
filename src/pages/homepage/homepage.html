@@ -68,10 +68,10 @@
   <section class="homepage-featured">
     <h2 class="homepage-subtitle">Tatuadores destacados y <span class="golden-text">nuevos</span>.</h2>
     <div class="homepage-featured__buttons">
-      <button type="button" class="homepage-featured__button site-button">Destacados</button>
-      <button type="button" class="homepage-featured__button site-button">Nuevos</button>
-      <button type="button" class="homepage-featured__button site-button">Cercanos</button>
-      <button type="button" class="homepage-featured__button site-button">Recomendados</button>
+      <button type="button" click.delegate="getFeaturedArtists()" class="homepage-featured__button site-button ${featuredOption == 1 ? 'active' : ''}">Destacados</button>
+      <button type="button" click.delegate="getFeaturedArtists('newest')" class="homepage-featured__button site-button ${featuredOption == 2 ? 'active' : ''}">Nuevos</button>
+      <button type="button" click.delegate="getFeaturedArtists('closest')" class="homepage-featured__button site-button ${featuredOption == 3 ? 'active' : ''}">Cercanos</button>
+      <button type="button" click.delegate="getFeaturedArtists('recommended')" class="homepage-featured__button site-button ${featuredOption == 4 ? 'active' : ''}">Recomendados</button>
     </div>
     <div class="homepage-featured__items" id="homepage-featured-items">
       <div repeat.for="artist of featuredArtists" class="homepage-featured__item-wrapper">

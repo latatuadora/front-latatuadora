@@ -6,12 +6,32 @@ export class Homepage {
   constructor(api) {
     this.api = api;
     this.iWantTo = 1;
+    this.featuredOption = 1;
     this.featuredArtists = [];
   }
 
   created() {
-    this.api.getFeaturedArtists()
-      .then(artists => this.featuredArtists = artists);
+    this.getFeaturedArtists();
+  }
+
+  getFeaturedArtists(type = 'featured') {
+    this.api.getFeaturedArtists(type)
+      .then(artists => {
+        this.featuredArtists = artists;
+        this.changeFeaturedOption(type);
+      });
+  }
+
+  changeFeaturedOption(type) {
+    if (type == 'featured') {
+      this.featuredOption = 1;
+    } else if (type == 'newest') {
+      this.featuredOption = 2;
+    } else if (type == 'closest') {
+      this.featuredOption = 3;
+    } else if (type == 'recommended') {
+      this.featuredOption = 4;
+    }
   }
 
   changeIWantTo(iWantToOption) {
