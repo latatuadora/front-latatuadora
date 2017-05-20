@@ -1,6 +1,5 @@
 <template>
   <require from="./homepage.css"></require>
-  <require from="../../resources/elements/featured-artist/featured-artist"></require>
   <div class="homepage-hero">
     <div class="homepage-hero__left">
       <a class="homepage-hero__small-item cover" href="#">
@@ -63,7 +62,7 @@
       </div>
     </form>
     <div class="homepage-trending__items">
-      <a href="#" repeat.for="tattoo of tattoos" class="homepage-trending__item cover" css="background-image: url(${tattoo.image_url})">
+      <a href="#" repeat.for="tattoo of tattoos" class="homepage-trending__item cover" css="background-image: url(${tattoo.image})">
         <div if.bind="$index == 0 || $index == 5" class="homepage-trengind__item-layer vertical-center">${tattoo.style_name}</div>
         <div if.bind="$index == 1 || $index == 3" class="homepage-trengind__item-layer vertical-center">${tattoo.element_name}</div>
         <div if.bind="$index == 2 || $index == 4" class="homepage-trengind__item-layer vertical-center">${tattoo.body_part_name}</div>
