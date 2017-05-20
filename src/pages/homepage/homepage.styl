@@ -145,6 +145,34 @@ a.homepage-hero__small-item
   color #1d1d1d
   font-weight $regular
 
+
+.homepage-divider
+  background $dustColor
+  border none
+  height 1px
+  max-width 903px
+  width 85%
+  center-block()
+  position relative
+
+  &::before, &::after
+    content ' '
+    display block
+    border-radius 50%
+    background white
+    position absolute
+    top 0
+    height 7px
+    width 7px
+    transform translateY(-50%)
+    border 1px $dustColor solid
+
+  &::before
+    left 0
+
+  &::after
+    right 0
+
 .homepage-trending
   padding-top remify(70)
 
@@ -182,6 +210,7 @@ a.homepage-hero__small-item
   width 100%
   max-width 727px
   center-block()
+  margin-bottom remify(64)
 
 .homepage-trending__item
   flex-basis 235px
@@ -199,7 +228,8 @@ a.homepage-hero__small-item
   background rgba(black, 0.4)
 
 .homepage-featured
-  margin-top 109px
+  margin-top 57px
+  margin-bottom 87px
   text-align center
 
   .homepage-subtitle
@@ -332,7 +362,7 @@ a.homepage-hero__small-item
   letter-spacing unit(0.5/13, 'em')
 
 .homepage-want-to
-  margin-top 161px
+  margin-top 67px
   position relative
 
 .homepage-want-to__inner
@@ -488,6 +518,9 @@ a.homepage-hero__small-item
 
   .homepage-hero__discount-text
     line-height 0.9
+
+  .homepage-divider
+    display none
 
   .homepage-trending__form
     margin-top 24px
