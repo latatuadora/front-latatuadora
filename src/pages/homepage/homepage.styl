@@ -450,19 +450,40 @@ a.homepage-hero__small-item
 .homepage-bottom-cover
   background-image url('src/assets/images/backgrounds/home-bottom.jpg')
   margin-top remify(112)
-  height 21.87vw
+  height 22.65vw
   min-height 150px
-  max-height 320px
+  max-height 232px
 
 .homepage-bottom-cover__text
-  color white
-  font-family 'Master of break'
-  rfont-size remify(40) 740px 22px
-  line-height 1.35
-  display block
-  width 90%
-  center-block()
+  color $dustColor
+  font-family 'Lato'
+  display flex
+  line-height 1.2
+  text-transform uppercase
+  align-items center
+  justify-content center
   text-align center
+  width calc(100% - 62px)
+  center-block()
+  border 1px $dustColor solid
+  height calc(100% - 48px)
+
+  > div
+    flex-basis 100%
+
+.homepage-bottom-cover__quote,
+.homepage-bottom-cover__quote-author
+  display block
+
+.homepage-bottom-cover__quote
+  rfont-size remify(27) 740px 21px
+
+.homepage-bottom-cover__quote-author
+  rfont-size remify(19) 740px 14px
+  margin-top 8px
+
+  &::before
+    content '- '
 
 .home-bottom-search
   display none
@@ -643,7 +664,8 @@ a.homepage-hero__small-item
     height 224px
 
   .homepage-bottom-cover__text
-    width 251px
+    width calc(100% - 38px)
+    height calc(100% - 40px)
 
   .homepage-hero__left .homepage-hero__small-item
     &:first-child
