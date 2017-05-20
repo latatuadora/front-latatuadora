@@ -1,0 +1,330 @@
+@import '../../assets/styles/vars'
+@import '../../assets/styles/mixins'
+
+.gallery-title
+  rfont-size 29px 767px 30px
+  text-align center
+  letter-spacing -0.3px
+  margin-top 49px
+  font-weight normal
+  margin-bottom 0
+  color $blackColor
+
+.gallery-subtitle
+  rfont-size 18px 767px 21.5px
+  text-align center
+  display block
+  color $blackColor
+  margin-top 8px
+
+.gallery-filters-toggle
+  display none
+  font-size 15px
+  letter-spacing -0.2px
+  border-radius 100px
+  text-transform none
+  center-block()
+  padding 8px 32px
+  font-weight $bold
+  margin-top 35px
+  margin-bottom 34px
+
+.gallery-filters
+  text-align center
+  margin-top 62px
+  margin-bottom 40px
+
+.gallery-filter-wrapper
+  background white
+  position relative
+  display inline-block
+  text-align left
+  overflow hidden
+
+  &::after
+    position absolute
+    top 50%
+    right 0
+    width 0
+    height 0
+    content ' '
+    border-left 3.3px solid transparent
+    border-right 3.3px solid transparent
+    border-top 4.5px solid $dustColor
+    z-index 0
+    transform translateY(-50%)
+
+  &:not(:first-child)
+    margin-left 47px
+
+  &:first-child
+    width 88px
+
+  &:nth-child(2)
+    width 115px
+
+  &:last-child
+    width 150px
+
+.gallery-filter
+  border none
+  background transparent
+  rfont-size 22px 767px 19px
+  appearance none
+  position relative
+  z-index 1
+  width 100%
+  color #1d1d1d
+  padding-right 17px
+  padding-left 9px
+
+  option:not(:first-child)
+    font-size 18px
+
+.tattoos-grid-container
+  background #f5f5f5
+  padding-top 76px
+  padding-bottom 81px
+
+.tattoos-grid
+  center-block()
+  width 810px
+
+  &.hide-elements .tattoos-grid__element
+    opacity 0
+
+.tattoos-grid__element
+  width 242px
+  text-align center
+  margin 16px 14px 0 14px
+  transition margin-top 0.25s, opacity 0.2s
+
+.tattoos-grid__element-thumbnail
+  width 100%
+  position relative
+
+  .tattoos-grid__element-thumbnail-img-wrapper, img
+    display block
+    width 100%
+
+  &:hover .fa
+    text-shadow 0 0 8px rgba(black, 0.5)
+
+.tattoos-grid__element-thumbnail-actions
+  position absolute
+  z-index 2
+  right 13px
+  top 13px
+
+  .fa
+    border none
+    text-shadow none
+    background none
+    cursor pointer
+    padding 0
+    font-size 14px
+    color white
+    margin-left 4px
+    transition text-shadow 0.3s
+
+.tattoos-grid__element-info-wrapper
+  background $blackColor
+  color white
+  padding 10px 13px 18.3px 10px
+  display flex
+  align-items flex-start
+  justify-content space-between
+  position relative
+
+.tattoos-grid__element-author-pic
+  width 22px
+  height 22px
+
+.tattoos-grid__element-info
+  width 188px
+  text-align left
+
+  .site-button
+    font-size 6px
+    line-height 1
+    letter-spacing 0.15px
+    padding 1em 1.6em
+    font-family 'SFNSText'
+
+    &:last-of-type
+      margin-left 4.5px
+
+.tattoos-grid__element-location,
+.tattoos-grid__element-author
+  display block
+
+.tattoos-grid__element-author
+  color white
+  font-size 12px
+  letter-spacing -0.1px
+
+.tattoos-grid__element-location
+  color $dustColor
+  font-size 11px
+  letter-spacing -0.2px
+
+.tattoos-grid__element-stars
+  color #f7c42a
+  font-size 7px
+  margin-top 3px
+
+  .fa
+    display inline-block
+
+    &:not(:first-child)
+      margin-left 1px
+
+.tattoos-grid__element-tags
+  margin-top 14px
+  margin-bottom 13px
+  font-size 8px
+
+.tattoos-grid__element-tag
+  color white
+  letter-spacing 0
+  display inline-block
+
+  &:not(:last-child)::after
+    content '|'
+    font-weight bold
+    display inline-block
+    vertical-align middle
+    font-size 11px
+    color $dustColor
+    margin 0 3px
+
+.tattoos-grid__element-info-likes
+  position absolute
+  top 11px
+  right 7px
+  padding 0
+  background none
+  cursor pointer
+  color white
+  border none
+  outline none
+  font-family 'Lato'
+  font-size 8px
+  line-height 10px
+  letter-spacing -0.2px
+
+  &::before
+    font-family 'FontAwesome'
+    font-size 10px
+    margin-right 7px
+
+@media screen and (max-width: 810px)
+  .tattoos-grid-container
+    padding-top 30px
+
+  .tattoos-grid
+    width 680px
+
+  .tattoos-grid__element
+    width 320px
+    margin 16px 10px 0 10px
+
+  .tattoos-grid__element-thumbnail-actions
+    top 16px
+    right 16px
+
+    .fa
+      font-size 15px
+      margin-left 5px
+
+  .tattoos-grid__element-info-wrapper
+    padding 12.2px 15px 17.2px 13.2px
+
+  .tattoos-grid__element-info
+    width 250px
+
+    .site-button
+      font-size 7px
+      letter-spacing 0
+
+      &:last-of-type
+        margin-left 10.5px
+
+  .tattoos-grid__element-author-pic
+    width 29.1px
+    height 29.1px
+
+  .tattoos-grid__element-author
+    font-size 13px
+    margin-bottom 2.2px
+
+  .tattoos-grid__element-stars
+    margin-top 8.2px
+    font-size 9px
+
+  .tattoos-grid__element-tags
+    font-size 10.5px
+    margin 18.5px 0
+
+  .tattoos-grid__element-info-likes
+    right 17px
+    top 13.6px
+
+    &::before
+      font-size 15px
+      vertical-align bottom
+      margin-right 13px
+
+.tattoos-grid-loader,
+.tattoos-grid-icon
+  width 60px
+  center-block()
+  display block
+
+.tattoos-grid-loader
+  width 60px
+
+.tattoos-grid-icon
+  width 55px
+  margin-top 50px
+
+@media screen and (max-width: 767px)
+  .gallery-title
+    margin-top 43px
+
+  .gallery-subtitle
+    margin-top 12px
+
+@media screen and (max-width: 700px)
+  .tattoos-grid
+    width 320px
+
+  .tattoos-grid__element
+    margin 0 0 35px 0
+
+@media screen and (max-width: 500px)
+  .tattoos-grid-container
+    padding-top 0
+    padding-bottom 50px
+
+  .tattoos-grid-icon
+    margin-top 15px
+
+  .gallery-filters-toggle
+    display block
+
+  .gallery-filters
+    display none
+    margin-top 40px
+
+  .gallery-filter-wrapper
+    display block
+    width 85% !important
+    center-block()
+
+    &:not(:first-child)
+      margin-left auto
+      margin-top 30px
+
+  .gallery-filter
+    padding-left 0
