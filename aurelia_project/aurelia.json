@@ -116,6 +116,11 @@
           "text",
           "jquery",
           {
+            "name": "masonry-layout",
+            "path": "../node_modules/masonry-layout/dist",
+            "main": "masonry.pkgd"
+          },
+          {
             "name": "aurelia-templating-resources",
             "path": "../node_modules/aurelia-templating-resources/dist/amd",
             "main": "aurelia-templating-resources"
