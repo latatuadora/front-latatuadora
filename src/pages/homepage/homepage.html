@@ -81,12 +81,11 @@
             <div class="homepage-featured__item-back-content">
               <a href="${artist.profileURL}" class="homepage-featured__item-title">${artist.name}</a>
               <div class="homepage-featured__item-stars">
-
                 <i repeat.for="i of 5" class="fa ${artist.rating > i ? (artist.rating > i + 0.9 ? 'fa-star' : 'fa-star-half-o') : 'fa-star-o'}"></i>
               </div>
               <span class="homepage-featured__item-location">${artist.location}</span>
               <div class="homepage-featured__item-tags">
-                <a repeat.for="tag of tags" href="#" class="homepage-featured__item-tag">${tag}</a>
+                <a repeat.for="tag of artist.tags" href="#" class="homepage-featured__item-tag">${tag}</a>
               </div>
             </div>
           </div>
