@@ -79,17 +79,17 @@
   <section class="homepage-want-to">
     <div class="homepage-want-to__inner">
       <div class="homepage-want-to__buttons">
-        <button type="button" id="homepage-want-to-client-button" class="site-button homepage-want-to__button active">Quiero tatuarme</button>
-        <button type="button" id="homepage-want-to-tattooist-button" class="site-button homepage-want-to__button">Soy tatuador</button>
+        <button type="button" click.delegate="changeIWantTo(1)" class="site-button ${iWantTo == 1 ? 'active' : ''}">Quiero tatuarme</button>
+        <button type="button" click.delegate="changeIWantTo(2)" class="site-button homepage-want-to__button ${iWantTo == 2 ? 'active' : ''}">Soy tatuador</button>
       </div>
-      <div id="homepage-want-to-client" class="homepage-want-to__div">
+      <div class="homepage-want-to__div ${iWantTo == 1 ? 'active' : ''}">
         <h2 class="homepage-want-to__title">Quiero tatuarme<span class="golden-text">.</span></h2>
         <p class="homepage-want-to__text">
           Encuentra el tatuaje que siempre haz querido, agenda una cita en el mejor estudio con los mejores artistas tatuadores.
         </p>
         <a href="#" class="site-button">Ver estudios</a>
       </div>
-      <div id="homepage-want-to-tattooist" class="homepage-want-to__div">
+      <div class="homepage-want-to__div ${iWantTo == 2 ? 'active' : ''}">
         <h2 class="homepage-want-to__title">Soy tatuador<span class="golden-text">.</span></h2>
         <p class="homepage-want-to__text"></p>
         <a href="#" class="site-button"></a>
