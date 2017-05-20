@@ -8,14 +8,19 @@ export class Homepage {
     this.iWantTo = 1;
     this.featuredOption = 1;
     this.featuredArtists = [];
+    this.tattoos = [];
   }
 
   created() {
     this.getFeaturedArtists();
+    this.getTattoos();
+  }
+
+  getTattoos() {
     this.api.getTattoos()
       .then(tattoos => {
-        console.log(tattoos);
-      });
+        this.tattoos = tattoos;
+      })
   }
 
   getFeaturedArtists(type = 'featured') {
