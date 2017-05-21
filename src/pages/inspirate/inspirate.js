@@ -15,8 +15,6 @@ export class Inspirate {
     this.tattoos = [];
     this.showLoader = false;
     this.grid = {};
-
-    this.loadMore();
   }
 
   bind() {
@@ -24,8 +22,8 @@ export class Inspirate {
   }
 
   filterTattoos() {
-    this.params.page = 1;
     this.tattoos = [];
+    this.params.page = 1;
     this.loadMore();
   }
 
@@ -36,7 +34,7 @@ export class Inspirate {
   loadMore() {
     if (!this.showLoader) {
       this.showLoader = true;
-      this.api.getTattoos(this.filters, this.params.page)
+      this.api.getTattoos(this.params, this.params.page)
         .then(tattoos => {
           tattoos.forEach(tattoo => {
             this.tattoos.push(tattoo);
@@ -45,5 +43,26 @@ export class Inspirate {
           this.params.page += 1;
         });
     }
+  }
+
+  activate(params, routeConfig) {
+    let previousParams = {
+      style: this.params.style,
+      element: this.params.element,
+      part: this.params.part,
+      page: this.params.page
+    };
+    if (params) {
+      if (params.style) {
+        this.params.style = params.style;
+      }
+      if (params.element) {
+        this.params.element = params.element;
+      }
+      if (params.element) {
+        this.params.part = params.part;
+      }
+    }
+    this.loadMore();
   }
 }
