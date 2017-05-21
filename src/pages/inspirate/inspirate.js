@@ -17,58 +17,6 @@ export class Inspirate {
     this.grid = {};
   }
 
-  bind() {
-    this.grid = new masonry(this.tattoosGrid);
-  }
-
-  filterTattoos() {
-    this.tattoos = [];
-    this.params.page = 1;
-    this.showLoader = true;
-
-    for (let i = 0; i < this.grid.colYs.length; i++) {
-      this.grid.colYs[i] = 0;
-    }
-    this.tattoosGrid.style.height = 0;
-    this.grid.maxY = 0;
-
-    this.showLoader = false;
-    this.loadMore();
-  }
-
-  removeItem(item) {
-    this.grid.remove(item);
-  }
-
-  resetFilters() {
-    this.params = {
-      style: '',
-      element: '',
-      part: '',
-      page: 1
-    }
-    this.filterTattoos();
-  }
-
-  appendItem(item) {
-    this.grid.appended(item);
-    this.grid.reloadItems();
-  }
-
-  loadMore() {
-    if (!this.showLoader) {
-      this.showLoader = true;
-      this.api.getTattoos(this.params, this.params.page)
-        .then(tattoos => {
-          tattoos.forEach(tattoo => {
-            this.tattoos.push(tattoo);
-          });
-          this.showLoader = false;
-          this.params.page += 1;
-        });
-    }
-  }
-
   activate(params, routeConfig) {
     let previousParams = {
       style: this.params.style,
@@ -88,5 +36,78 @@ export class Inspirate {
       }
     }
     this.loadMore();
+  }
+
+  bind() {
+    this.grid = new masonry(this.tattoosGrid);
+  }
+
+  appendItem(item) {
+    this.grid.appended(item);
+    this.grid.reloadItems();
+  }
+
+  removeItem(item) {
+    this.grid.remove(item);
+  }
+
+  setStyle(style) {
+    if (style !== this.params.style) {
+      this.params.style = style;
+      this.filterTattoos();
+    }
+  }
+
+  setElement(element) {
+    if (element !== this.params.element) {
+      this.params.element = element;
+      this.filterTattoos();
+    }
+  }
+
+  setBodyPart(part) {
+    if (part !== this.params.part) {
+      this.params.part = part;
+      this.filterTattoos();
+    }
+  }
+
+  resetFilters() {
+    this.params = {
+      style: '',
+      element: '',
+      part: '',
+      page: 1
+    }
+    this.filterTattoos();
+  }
+
+  filterTattoos() {
+    this.tattoos = [];
+    this.params.page = 1;
+    this.showLoader = true;
+
+    for (let i = 0; i < this.grid.colYs.length; i++) {
+      this.grid.colYs[i] = 0;
+    }
+    this.tattoosGrid.style.height = 0;
+    this.grid.maxY = 0;
+
+    this.showLoader = false;
+    this.loadMore();
+  }
+
+  loadMore() {
+    if (!this.showLoader) {
+      this.showLoader = true;
+      this.api.getTattoos(this.params, this.params.page)
+        .then(tattoos => {
+          tattoos.forEach(tattoo => {
+            this.tattoos.push(tattoo);
+          });
+          this.showLoader = false;
+          this.params.page += 1;
+        });
+    }
   }
 }
