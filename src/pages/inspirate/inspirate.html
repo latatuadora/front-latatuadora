@@ -6,9 +6,18 @@
   <span class="gallery-subtitle">Galería de <span class="golden-text">tatuajes</span></span>
   <button type="button" class="gallery-filters-toggle site-button">Filtrar</button>
   <div class="gallery-filters">
-    <div class="gallery-filter-wrapper"></div>
-    <div class="gallery-filter-wrapper"></div>
-    <div class="gallery-filter-wrapper"></div>
+    <div class="gallery-filter-wrapper no-arrow ${params.style || params.element || params.part ? '' : 'active'}">
+      <div class="gallery-filter" click.delegate="resetFilters()">Todos</div>
+    </div>
+    <div class="gallery-filter-wrapper ${params.style ? 'active' : ''}">
+      <div class="gallery-filter">${params.style ? params.style : 'Estilo'}</div>
+    </div>
+    <div class="gallery-filter-wrapper ${params.element ? 'active' : ''}">
+      <div class="gallery-filter">${params.element ? params.element : 'Elemento'}</div>
+    </div>
+    <div class="gallery-filter-wrapper ${params.part ? 'active' : ''}">
+      <div class="gallery-filter">${params.part ? params.part : 'Parte del cuerpo'}</div>
+    </div>
   </div>
   <section class="tattoos-grid-container">
     <div class="tattoos-grid" ref="tattoosGrid" infinite-scroll="callback.call: loadMore()">

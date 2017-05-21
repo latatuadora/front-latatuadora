@@ -36,11 +36,16 @@
 .gallery-filter-wrapper
   background white
   position relative
+  color #1d1d1d
   display inline-block
   text-align left
   overflow hidden
+  cursor pointer
 
-  &::after
+  &.active
+    color $dustColor
+
+  &:not(.no-arrow)::after
     position absolute
     top 50%
     right 0
@@ -56,14 +61,14 @@
   &:not(:first-child)
     margin-left 47px
 
-  &:first-child
-    width 88px
-
   &:nth-child(2)
-    width 115px
+    width 85px
+
+  &:nth-child(3)
+    width 120px
 
   &:last-child
-    width 150px
+    width 185px
 
 .gallery-filter
   border none
@@ -73,7 +78,9 @@
   position relative
   z-index 1
   width 100%
-  color #1d1d1d
+  text-overflow ellipsis
+  overflow hidden
+  color inherit
   padding-right 17px
   padding-left 9px
 
