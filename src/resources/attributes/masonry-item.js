@@ -14,11 +14,14 @@ export class MasonryItem {
 
   attached() {
     this.parent.appendItem(this.element);
-
     if (this.index == 0) {
       let evt = document.createEvent("HTMLEvents");
       evt.initEvent('resize', true, false);
       window.dispatchEvent(evt);
     }
+  }
+
+  detached() {
+    this.parent.removeItem(this.element);
   }
 }

@@ -24,11 +24,35 @@ export class Inspirate {
   filterTattoos() {
     this.tattoos = [];
     this.params.page = 1;
+    this.showLoader = true;
+
+    for (let i = 0; i < this.grid.colYs.length; i++) {
+      this.grid.colYs[i] = 0;
+    }
+    this.tattoosGrid.style.height = 0;
+    this.grid.maxY = 0;
+
+    this.showLoader = false;
     this.loadMore();
+  }
+
+  removeItem(item) {
+    this.grid.remove(item);
+  }
+
+  resetFilters() {
+    this.params = {
+      style: '',
+      element: '',
+      part: '',
+      page: 1
+    }
+    this.filterTattoos();
   }
 
   appendItem(item) {
     this.grid.appended(item);
+    this.grid.reloadItems();
   }
 
   loadMore() {
