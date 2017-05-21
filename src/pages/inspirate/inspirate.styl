@@ -323,13 +323,31 @@
     display block
 
   .gallery-filters
-    display none
-    margin-top 40px
+    transition margin-top 0.2s, margin-bottom 0.2s
+
+    &.show
+      margin-top 40px
+      margin-bottom 40px
+
+      .gallery-filter-wrapper
+        max-height 21px
+
+        &:not(:first-child)
+          margin-top 21px
+
+    &.hide
+      margin-top 0
+      margin-bottom 0
+
+      .gallery-filter-wrapper
+        max-height 0
+        margin-top 0
 
   .gallery-filter-wrapper
     display block
     width 85% !important
     center-block()
+    transition max-height 0.2s, margin-top 0.2s
 
     &:not(:first-child)
       margin-left auto

@@ -15,6 +15,7 @@ export class Inspirate {
     this.tattoos = [];
     this.showLoader = false;
     this.grid = {};
+    this.showFilters = false;
   }
 
   activate(params, routeConfig) {
@@ -40,6 +41,10 @@ export class Inspirate {
 
   bind() {
     this.grid = new masonry(this.tattoosGrid);
+  }
+
+  toggleFilters() {
+    this.showFilters = !this.showFilters;
   }
 
   appendItem(item) {
