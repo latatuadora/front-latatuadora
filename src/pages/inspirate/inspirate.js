@@ -19,12 +19,6 @@ export class Inspirate {
   }
 
   activate(params, routeConfig) {
-    let previousParams = {
-      style: this.params.style,
-      element: this.params.element,
-      part: this.params.part,
-      page: this.params.page
-    };
     if (params) {
       if (params.style) {
         this.params.style = params.style;
