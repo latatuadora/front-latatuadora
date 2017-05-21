@@ -9,19 +9,18 @@ export class MasonryItem {
 
   bind(bindingContext, overridingContext) {
     this.parent = overridingContext.parentOverrideContext.bindingContext;
+    this.grid = this.parent.__masonry_grid__;
     this.index = overridingContext.$index;
   }
 
   attached() {
-    this.parent.appendItem(this.element);
+    this.grid.appendItem(this.element);
     if (this.index == 0) {
-      let evt = document.createEvent("HTMLEvents");
-      evt.initEvent('resize', true, false);
-      window.dispatchEvent(evt);
+      this.grid.triggerResize();
     }
   }
 
   detached() {
-    this.parent.removeItem(this.element);
+    this.grid.removeItem(this.element);
   }
 }
