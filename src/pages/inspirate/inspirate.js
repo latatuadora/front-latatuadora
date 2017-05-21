@@ -1,5 +1,6 @@
 import {inject} from 'aurelia-framework';
 import {MockAPI} from 'utils/mock-api';
+import masonry from 'masonry-layout';
 
 @inject(MockAPI)
 export class Inspirate {
@@ -13,13 +14,23 @@ export class Inspirate {
     }
     this.tattoos = [];
     this.showLoader = false;
+    this.grid = {};
+
     this.loadMore();
+  }
+
+  bind() {
+    this.grid = new masonry(this.tattoosGrid);
   }
 
   filterTattoos() {
     this.page = 1;
     this.tattoos = [];
     this.loadMore();
+  }
+
+  appendItem(item) {
+    this.grid.appended(item);
   }
 
   loadMore() {
