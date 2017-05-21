@@ -1,6 +1,9 @@
 export class App {
   configureRouter(config, router) {
+    var postRender = new PostRenderStep();
     this.router = router;
+
+    config.addPostRenderStep(postRender);
     config.title = 'La Tatuadora';
     config.map([
       {
@@ -39,5 +42,12 @@ export class App {
         nav: true
       }
     ]);
+  }
+}
+
+class PostRenderStep {
+  run(instruction, next) {
+    window.scrollTo(0, 0);
+    return next();
   }
 }
