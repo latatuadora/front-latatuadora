@@ -4,7 +4,7 @@ import masonry from 'masonry-layout';
 
 @inject(MockAPI)
 export class Inspirate {
-  constructor(api) {
+  constructor(api, router) {
     this.api = api;
     this.params = {
       style: '',
@@ -32,7 +32,7 @@ export class Inspirate {
       if (params.element) {
         this.params.element = params.element;
       }
-      if (params.element) {
+      if (params.part) {
         this.params.part = params.part;
       }
     }

@@ -62,11 +62,11 @@
       </div>
     </form>
     <div class="homepage-trending__items">
-      <a href="#" repeat.for="tattoo of tattoos" class="homepage-trending__item cover" css="background-image: url(${tattoo.image})">
-        <div if.bind="$index == 0 || $index == 5" class="homepage-trengind__item-layer vertical-center">${tattoo.style_name}</div>
-        <div if.bind="$index == 1 || $index == 3" class="homepage-trengind__item-layer vertical-center">${tattoo.element_name}</div>
-        <div if.bind="$index == 2 || $index == 4" class="homepage-trengind__item-layer vertical-center">${tattoo.body_part_name}</div>
-      </a>
+      <div repeat.for="tattoo of tattoos" class="homepage-trending__item cover" css="background-image: url(${tattoo.image})">
+        <div if.bind="$index == 0 || $index == 5" route-href="route: inspirate; params: {syle: tattoo.style_name}" class="homepage-trengind__item-layer vertical-center" click.delegate="goToGallery('style', tattoo.style_name)">${tattoo.style_name}</div>
+        <div if.bind="$index == 1 || $index == 3" class="homepage-trengind__item-layer vertical-center" click.delegate="goToGallery('element', tattoo.element_name)">${tattoo.element_name}</div>
+        <div if.bind="$index == 2 || $index == 4" class="homepage-trengind__item-layer vertical-center" click.delegate="goToGallery('part', tattoo.body_part_name)">${tattoo.body_part_name}</div>
+      </div>
     </div>
   </section>
   <hr class="homepage-divider">
