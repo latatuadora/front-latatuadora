@@ -43,7 +43,6 @@ export class Inspirate {
 
   appendItem(item) {
     this.grid.appended(item);
-    this.grid.reloadItems();
   }
 
   removeItem(item) {
