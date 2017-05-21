@@ -9,6 +9,6 @@ export class UnloggedNavbar {
   }
 
   attached() {
-    let menu = new Menu(992);
+    let menu = new Menu(975);
   }
 }
