@@ -18,6 +18,10 @@ export class MasonryGrid {
     this.masonry.appended(item);
   }
 
+  reLayout() {
+    this.masonry.layout();
+  }
+
   removeItem(item) {
     this.masonry.remove(item);
   }
