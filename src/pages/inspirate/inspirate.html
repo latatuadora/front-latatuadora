@@ -1,6 +1,7 @@
 <template>
   <require from="./inspirate.css"></require>
   <require from="../../resources/attributes/masonry-item"></require>
+  <require from="../../resources/attributes/infinite-scroll"></require>
   <h1 class="gallery-title">Inspírate</h1>
   <span class="gallery-subtitle">Galería de <span class="golden-text">tatuajes</span></span>
   <button type="button" class="gallery-filters-toggle site-button">Filtrar</button>
@@ -10,7 +11,7 @@
     <div class="gallery-filter-wrapper"></div>
   </div>
   <section class="tattoos-grid-container">
-    <div class="tattoos-grid" ref="tattoosGrid">
+    <div class="tattoos-grid" ref="tattoosGrid" infinite-scroll="callback.call: loadMore()">
       <div repeat.for="tattoo of tattoos" class="tattoos-grid__element" masonry-item>
         <div class="tattoos-grid__element-thumbnail">
           <div class="tattoos-grid__element-thumbnail-actions">
