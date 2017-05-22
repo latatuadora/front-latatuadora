@@ -19,8 +19,8 @@
     </div>
   </div>
   <section class="tattoos-grid-container">
-    <div class="tattoos-grid" masonry-grid infinite-scroll="callback.call: loadMore()">
-      <div repeat.for="tattoo of items" class="tattoos-grid__element flashes-element" masonry-item>
+    <div class="tattoos-grid flashes-grid" masonry-grid infinite-scroll="callback.call: loadMore()">
+      <div repeat.for="tattoo of items" class="tattoos-grid__element flashes-grid__flash-element" masonry-item>
         <div class="tattoos-grid__element-thumbnail">
           <div class="tattoos-grid__element-thumbnail-actions">
             <button type="button" class="fa fa-heart vote-btn"></button>
