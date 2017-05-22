@@ -23,7 +23,7 @@ export class BaseGallery {
     this.loadMore();
   }
 
-  checkParams() {
+  checkParams(params) {
     if (params.style) {
       this.params.style = params.style;
     }
