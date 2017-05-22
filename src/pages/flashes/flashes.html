@@ -47,8 +47,14 @@
             <button type="button" class="tattoos-grid__element-info-likes vote-btn fa fa-heart">${tattoo.votes + ' Likes'}</button>
           </div>
           <div class="tattoos-grid__element-characteristics">
-            <div class="tattoos-grid__element-price">${tattoo.price | currency: tattoo.currency}</div>
-            <div class="tattoos-grid__element-dimensions">${tattoo.dimensions.length} x ${tattoo.dimensions.width}</div>
+            <div class="tattoos-grid__element-price">
+              <i class="fa fa-usd"></i>
+              ${tattoo.price | currency: tattoo.currency}
+            </div>
+            <div class="tattoos-grid__element-dimensions">
+              <i class="fa fa-arrows-alt"></i>
+              ${tattoo.dimensions.length} x ${tattoo.dimensions.width}
+            </div>
           </div>
           <div class="tattoos-grid__element-buttons">
             <div class="site-button site-button--black">Comprar flash</div>
