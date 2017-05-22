@@ -35,11 +35,18 @@ export class App {
         nav: true
       },
       {
-        route: 'getTattoo',
+        route: 'tatuate',
         name: 'get_tattoo',
         moduleId: 'pages/homepage/homepage',
         title: 'Tatúate',
         nav: true
+      },
+      {
+        route: 'flashes',
+        name: 'flashes',
+        moduleId: 'pages/flashes/flashes',
+        title: 'Flashes',
+        nav: false
       }
     ]);
   }
