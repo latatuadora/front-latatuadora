@@ -18,7 +18,7 @@ export class BaseGallery {
 
   activate(params, routeConfig) {
     if (params) {
-      checkParams(params);
+      this.checkParams(params);
     }
     this.loadMore();
   }
