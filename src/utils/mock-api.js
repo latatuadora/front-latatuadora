@@ -14,8 +14,8 @@ let tattoos = [
     price: '300',
     currency: 'mxn',
     dimensions: {
-      length: '12cm',
-      width: '12cm'
+      length: '12 cm',
+      width: '12 cm'
     },
     slug: 'ab4Yc1',
     element_name: 'Brazo Robot',
@@ -36,8 +36,8 @@ let tattoos = [
     price: '300',
     currency: 'mxn',
     dimensions: {
-      length: '12cm',
-      width: '12cm'
+      length: '12 cm',
+      width: '12 cm'
     },
     slug: 'ab4Yc1',
     element_name: 'Brazo Robot',
@@ -58,8 +58,8 @@ let tattoos = [
     price: '300',
     currency: 'mxn',
     dimensions: {
-      length: '12cm',
-      width: '12cm'
+      length: '12 cm',
+      width: '12 cm'
     },
     slug: 'ab4Yc1',
     element_name: 'Brazo Robot',
@@ -80,8 +80,8 @@ let tattoos = [
     price: '300',
     currency: 'mxn',
     dimensions: {
-      length: '12cm',
-      width: '12cm'
+      length: '12 cm',
+      width: '12 cm'
     },
     slug: 'ab4Yc1',
     element_name: 'Brazo Robot',
@@ -102,8 +102,8 @@ let tattoos = [
     price: '300',
     currency: 'mxn',
     dimensions: {
-      length: '12cm',
-      width: '12cm'
+      length: '12 cm',
+      width: '12 cm'
     },
     slug: 'ab4Yc1',
     element_name: 'Brazo Robot',
@@ -124,8 +124,8 @@ let tattoos = [
     price: '300',
     currency: 'mxn',
     dimensions: {
-      length: '12cm',
-      width: '12cm'
+      length: '12 cm',
+      width: '12 cm'
     },
     slug: 'ab4Yc1',
     element_name: 'Brazo Robot',
