@@ -1,10 +1,12 @@
 import {MockAPI} from 'utils/mock-api';
 import {inject} from 'aurelia-framework';
+import {Router} from 'aurelia-router';
 
-@inject(MockAPI)
+@inject(MockAPI, Router)
 export class Homepage {
-  constructor(api) {
+  constructor(api, router) {
     this.api = api;
+    this.router = router;
     this.iWantTo = 1;
     this.featuredOption = 1;
     this.featuredArtists = [];
@@ -21,6 +23,12 @@ export class Homepage {
       .then(tattoos => {
         this.tattoos = tattoos;
       })
+  }
+
+  goToGallery(param, value) {
+    let query = {};
+    query[param] = value;
+    this.router.navigateToRoute('inspirate', query);
   }
 
   getFeaturedArtists(type = 'featured') {

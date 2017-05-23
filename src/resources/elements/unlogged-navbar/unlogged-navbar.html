@@ -2,21 +2,17 @@
   <require from="./unlogged-navbar.css"></require>
   <nav class="site-navbar">
     <div class="site-navbar__desktop-logo-container">
-      <a href="/"><img src="src/assets/images/logos/logo-text-golden.png" alt="La Tatuadora"></a>
+      <a route-href="route: home"><img src="src/assets/images/logos/logo-text-golden.png" alt="La Tatuadora"></a>
     </div>
     <div class="site-navbar__menu-trigger">
       <img src="src/assets/images/icons/hamburguer.svg" alt="Hamburguer menu">
     </div>
     <div class="site-navbar__menu-container">
       <div class="site-navbar__mobile-logo-container">
-        <a href="/"><img src="src/assets/images/logos/logo-golden.png" alt="La Tatuadora"></a>
+        <a route-href="route: home"><img src="src/assets/images/logos/logo-golden.png" alt="La Tatuadora"></a>
       </div>
       <div class="site-navbar__menu">
-        <a href="/" class="site-navbar__menu-link">Inicio</a>
-        <a href="#" class="site-navbar__menu-link">News</a>
-        <a href="#" class="site-navbar__menu-link">Inspírate</a>
-        <a href="#" class="site-navbar__menu-link">Busca un tatuador</a>
-        <a href="#" class="site-navbar__menu-link">Tatúate</a>
+        <a repeat.for="item of router.navigation" href.bind="item.href" class="site-navbar__menu-link ${item.isActive ? 'active' : ''}">${item.title}</a>
       </div>
       <form action="." method="post" class="site-navbar__search" id="navbar-search-form">
         <input id="navbar-search-input" class="site-navbar__search-input" type="search" name="search" placeholder="Buscar...">
