@@ -15,7 +15,7 @@
       <div class="tattoos-grid__element-info-top">
         <a href="#"><img class="tattoos-grid__element-author-pic circle" src="${item.artist_picture}" alt="${item.artist_name}"></a>
         <div class="tattoos-grid__element-info">
-          <a ng-href="${item.artist_url}" class="tattoos-grid__element-author">${item.artist_name}</a>
+          <a href="#" class="tattoos-grid__element-author">${item.artist_name}</a>
           <span class="tattoos-grid__element-location">${item.artist_location}</span>
           <div class="tattoos-grid__element-stars">
             <i repeat.for="i of 5" class="fa ${item.artist_rating > i ? (item.artist_rating > i + 0.9 ? 'fa-star' : 'fa-star-half-o') : 'fa-star-o'}"></i>
