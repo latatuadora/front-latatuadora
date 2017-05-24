@@ -4,9 +4,9 @@
   <require from="../../value-converters/currency"></require>
   <div class="tattoo-modal">
     <div class="tattoo-modal__header" style="color:white">
-      <div class="tattoo-modal__prev" click.delegate="goPrev()">atras</div>
-      <div class="tattoo-modal__next" click.delegate="goNext()">adelante</div>
-      <div class="tattoo-modal__close" click.delegate="close()">cerrar</div>
+      <img class="tattoo-modal__prev" src="src/assets/images/icons/left-arrow.png" click.delegate="goPrev()">
+      <img class="tattoo-modal__next" src="src/assets/images/icons/right-arrow.png" click.delegate="goNext()">
+      <img class="tattoo-modal__close" src="src/assets/images/icons/close.png" click.delegate="close()">
     </div>
     <div class="tattoos-grid__element tattoo-modal__element ${type=='flash' ? 'flashes-grid__flash-element' : ''}">
       <div class="tattoos-grid__element-thumbnail">
