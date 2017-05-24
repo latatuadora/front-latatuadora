@@ -1,10 +1,11 @@
 <template>
-  <require from="./inspirate.css"></require>
+  <require from="../inspirate/inspirate.css"></require>
   <require from="../../resources/attributes/masonry-grid"></require>
   <require from="../../resources/attributes/masonry-item"></require>
   <require from="../../resources/attributes/infinite-scroll"></require>
-  <h1 class="gallery-title">Inspírate</h1>
-  <span class="gallery-subtitle">Galería de <span class="golden-text">tatuajes</span></span>
+  <require from="../../resources/value-converters/currency"></require>
+  <h1 class="gallery-title">Flashes</h1>
+  <span class="gallery-subtitle">Galería de <span class="golden-text">Flashes</span></span>
   <button type="button" click.delegate="toggleFilters()" class="gallery-filters-toggle site-button">${showFilters ? 'Ocultar filtros' : 'Filtrar'}</button>
   <div class="gallery-filters ${showFilters ? 'show' : 'hide'}">
     <div class="gallery-filter-wrapper no-arrow ${params.style || params.element || params.part ? '' : 'active'}">
@@ -16,13 +17,10 @@
     <div class="gallery-filter-wrapper ${params.element ? 'active' : ''}">
       <div class="gallery-filter">${params.element ? params.element : 'Elemento'}</div>
     </div>
-    <div class="gallery-filter-wrapper ${params.part ? 'active' : ''}">
-      <div class="gallery-filter">${params.part ? params.part : 'Parte del cuerpo'}</div>
-    </div>
   </div>
   <section class="tattoos-grid-container">
-    <div class="tattoos-grid" masonry-grid infinite-scroll="callback.call: loadMore()">
-      <div repeat.for="tattoo of items" class="tattoos-grid__element" masonry-item>
+    <div class="tattoos-grid flashes-grid" masonry-grid infinite-scroll="callback.call: loadMore()">
+      <div repeat.for="tattoo of items" class="tattoos-grid__element flashes-grid__flash-element" masonry-item>
         <div class="tattoos-grid__element-thumbnail">
           <div class="tattoos-grid__element-thumbnail-actions">
             <button type="button" class="fa fa-heart vote-btn"></button>
@@ -48,17 +46,23 @@
             </div>
             <button type="button" class="tattoos-grid__element-info-likes vote-btn fa fa-heart">${tattoo.votes + ' Likes'}</button>
           </div>
-          <div class="tattoos-grid__element-tags">
-            <a repeat.for="tag of tattoo.tags" href="#" class="tattoos-grid__element-tag">${tag}</a>
+          <div class="tattoos-grid__element-characteristics">
+            <div class="tattoos-grid__element-price">
+              <i class="fa fa-usd circle"></i>
+              <span>${tattoo.price | currency: tattoo.currency}</span>
+            </div>
+            <div class="tattoos-grid__element-dimensions">
+              <i class="fa fa-arrows-alt"></i>
+              <span>${tattoo.dimensions.length} x ${tattoo.dimensions.width}</span>
+            </div>
           </div>
           <div class="tattoos-grid__element-buttons">
-            <a href="#" class="site-button">Cotizar tatuaje similar</a>
-            <a href="#" class="site-button">Ver perfil</a>
+            <div class="site-button site-button--black">Comprar flash</div>
           </div>
         </div>
       </div>
     </div>
     <img if.bind="showLoader" class="tattoos-grid-loader" src="src/assets/images/icons/loader.gif" alt="Loader">
-    <img class="tattoos-grid-icon" src="src/assets/images/icons/tattoos-gallery-icon.svg" alt="Inspírate">
+    <img class="tattoos-grid-icon" src="src/assets/images/icons/tattoos-gallery-icon.svg" alt="Flashes">
   </section>
 </template>

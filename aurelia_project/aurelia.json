@@ -115,6 +115,7 @@
           "aurelia-templating-binding",
           "text",
           "jquery",
+          "numeral",
           {
             "name": "masonry-layout",
             "path": "../node_modules/masonry-layout/dist",

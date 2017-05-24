@@ -31,7 +31,7 @@ export class InfiniteScrollCustomAttribute {
     let clientRect = self.element.getBoundingClientRect();
     self.top = self.top ? self.top : clientRect.top;
 
-    let triggerAt = clientRect.height - (self.top / 2) + 150;
+    let triggerAt = clientRect.height - (self.top / 2);
     let trigger = triggerAt < scroll;
 
     if (trigger && clientRect.height) {
