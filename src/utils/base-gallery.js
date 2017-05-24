@@ -1,7 +1,3 @@
-import {inject} from 'aurelia-framework';
-import {MockAPI} from 'utils/mock-api';
-
-@inject(MockAPI)
 export class BaseGallery {
   constructor(api) {
     this.api = api;
