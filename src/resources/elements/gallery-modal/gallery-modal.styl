@@ -51,7 +51,7 @@
     padding 33px 36px 45px 36px
 
   .tattoos-grid__element-info-left
-    flex-basis 600px
+    flex-basis calc(100% - 240px)
 
   .tattoos-grid__element-info-right
     flex-basis 144px
@@ -63,8 +63,36 @@
   .tattoos-grid__element-info-top
     justify-content left
 
+  .tattoos-grid__element-info
+    width 100%
+    margin-left 19px
+
   .tattoos-grid__element-tags
     text-align left
 
   .tattoos-grid__element-comments
     flex-basis 100%
+
+  .tattoos-grid__element-author-pic
+    width 53px
+    height 53px
+
+  .tattoos-grid__element-author
+    font-size 33px
+    max-width none
+
+  .tattoos-grid__element-location
+    font-size 22px
+
+  .tattoos-grid__element-stars
+    font-size 12.5px
+    margin-top 8px
+
+    .fa:not(:first-child)
+      margin-left 0.4em
+
+  .tattoos-grid__element-tags
+    font-size 13px
+
+  .tattoos-grid__element-tag:not(:first-child)
+    margin-left 0.65em
