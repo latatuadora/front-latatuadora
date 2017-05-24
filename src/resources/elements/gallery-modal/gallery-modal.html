@@ -55,7 +55,7 @@
         </div>
         <div class="tattoos-grid__element-comments">
           <form role="form" class="tattoos-grid__new-comment-form">
-            <textarea class="tattoos-grid__new-comment-input" placeholder="Escribe un comentario" textarea-resize></textarea>
+            <textarea class="tattoos-grid__new-comment-input" placeholder="Escribe un comentario" value.bind="item.newComment" textarea-resize="text.bind: item.newComment"></textarea>
             <button class="site-button">Enviar</button>
           </form>
         </div>
