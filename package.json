@@ -17,7 +17,7 @@
     "numeral": "^2.0.6",
     "requirejs": "^2.3.2",
     "text": "github:requirejs/text#latest",
-    "tingle.js": "^0.10.0"
+    "vanilla-modal": "^1.6.4"
   },
   "peerDependencies": {},
   "devDependencies": {
