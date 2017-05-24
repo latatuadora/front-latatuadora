@@ -14,25 +14,23 @@ export class SimpleModalCustomAttribute {
     let self = this;
     let body = document.getElementsByTagName('body')[0];
     let modal = document.createElement('div');
+    let exists = document.getElementById(this.containerId) ? true : false;
 
-    try {
-      let exists = document.getElementById(this.containerId) ? true : false;
-      if (exists) {
-        throw new Error('The specified id is already being used by other DOM element.');
-      }
+    if (exists) {
+      modal = document.getElementById(this.containerId);
+    } else {
       modal.classList.add('modal');
       modal.id = this.containerId;
       modal.innerHTML = '<div class="modal-inner">' +
           '<div class="modal-content"></div>' +
         '</div>';
       body.appendChild(modal);
-      this.modal = new VanillaModal({
-        modal: '#' + this.containerId + '.modal',
-        onClose: () => {this.close(self);}
-      });
-    } catch(error) {
-      console.error('ModalInstanceError:', error.message);
     }
+
+    this.modal = new VanillaModal({
+      modal: '#' + this.containerId + '.modal',
+      onClose: () => {this.close(self);}
+    });
   }
 
   showChanged(newValue, oldValue) {
