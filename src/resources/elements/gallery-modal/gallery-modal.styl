@@ -35,7 +35,7 @@
   .tattoos-grid__element
     margin 26px 45px 0 45px
     max-width 865px
-    width 85vw
+    width 80vw
     min-width 320px
 
   .tattoos-grid__element-thumbnail-img
@@ -137,3 +137,161 @@
     width 100%
     text-align left
     overflow-y hidden
+
+@media screen and (max-width: 767px)
+  .tattoo-modal__header
+    text-align center
+    padding-right 0
+
+  .tattoo-modal__close,
+  .tattoo-modal__prev,
+  .tattoo-modal__next
+    height 23px
+    width auto
+    margin 0 18px
+
+  .tattoo-modal__prev,
+  .tattoo-modal__next
+    position relative
+    top initial
+    left initial
+    right initial
+    transform none
+
+  .tattoo-modal
+    .tattoos-grid__element
+      margin-right 0
+      margin-left 0
+      width 93vw
+
+    .tattoos-grid__element-thumbnail-actions
+      top 20px
+      right 25px
+
+      .fa
+        font-size 20px
+        margin-left 6px
+
+    .tattoos-grid__element-info-wrapper
+      padding 25px 30px
+
+    .tattoos-grid__element-info-left
+      flex-basis calc(100% - 185px)
+
+    .tattoos-grid__element-info-right
+      flex-basis 160px
+
+    .tattoos-grid__element-info
+      margin-left 15px
+
+    .tattoos-grid__element-tags
+      margin-top 23px
+
+    .tattoos-grid__element-author-pic
+      width 45px
+      height 45px
+
+    .tattoos-grid__element-author
+      font-size 23px
+
+    .tattoos-grid__element-location
+      font-size 17px
+
+    .tattoos-grid__element-stars
+      font-size 11px
+      margin-top 6px
+
+    .tattoos-grid__element-tags
+      font-size 11px
+
+    .tattoos-grid__element-info-likes
+      font-size 12px
+
+    .tattoos-grid__element-buttons
+      margin-top 25px
+
+      .site-button
+        font-size 9.5px
+        width 160px
+
+    .tattoos-grid__element-comments
+      margin-top 30px
+
+    .tattoos-grid__new-comment-input
+      font-size 14px
+
+@media screen and (max-width: 520px)
+  .tattoo-modal
+    .tattoos-grid__element
+      margin-right 0
+      margin-left 0
+
+    .tattoos-grid__element-thumbnail-actions
+      top 12px
+      right 15px
+
+      .fa
+        font-size 14px
+        margin-left 8px
+
+    .tattoos-grid__element-info-wrapper
+      padding 12px 16.5px
+
+    .tattoos-grid__element-info
+      margin-left 10px
+
+    .tattoos-grid__element-info-left
+      flex-basis calc(100% - 135px)
+
+    .tattoos-grid__element-info-right
+      flex-basis 115px
+
+    .tattoos-grid__element-tags
+      margin-top 23px
+
+    .tattoos-grid__element-author-pic
+      width 22px
+      height 22px
+
+    .tattoos-grid__element-author
+      font-size 16px
+
+    .tattoos-grid__element-location
+      font-size 14px
+
+    .tattoos-grid__element-stars
+      font-size 8px
+      margin-top 3px
+
+    .tattoos-grid__element-tags
+      font-size 9px
+      margin-left -30px
+      margin-top 14px
+
+    .tattoos-grid__element-info-likes
+      font-size 10px
+
+      &::before
+        font-size 13px
+        margin-right 6px
+
+    .tattoos-grid__element-buttons
+      margin-top 17px
+
+      .site-button
+        width 100%
+        font-size 9px
+        line-height 1.25
+
+    .tattoos-grid__element-comments
+      margin-top 15px
+
+    .tattoos-grid__new-comment-form
+      padding 10px
+
+      .site-button
+        padding-top 6px
+        padding-bottom 6px
+
+    .tattoos-grid__new-comment-input
+      font-size 12px
