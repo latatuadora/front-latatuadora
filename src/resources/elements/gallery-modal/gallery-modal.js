@@ -7,4 +7,5 @@ export class GalleryModal {
   @bindable comment;
   @bindable goPrev;
   @bindable goNext;
+  @bindable close;
 }

@@ -19,7 +19,7 @@
       <div class="gallery-filter">${params.element ? params.element : 'Elemento'}</div>
     </div>
   </div>
-  <gallery-modal id="ga" simple-modal="show.two-way: showModal" css="${showModal ? 'display: block' : 'display: none'}" item.bind="currentItem" close.call="closeModal(currentItem.index)" go-next.call="nextItem()" go-prev.call="previousItem()" type="flash"></gallery-modal>
+  <gallery-modal id="ga" simple-modal="show.two-way: showModal" css="${showModal ? 'display: block' : 'display: none'}" item.bind="currentItem" close.call="closeModal(currentItem.index)" go-next.call="nextItem()" go-prev.call="previousItem()" type="flash" close.call="closeModal()"></gallery-modal>
   <section class="tattoos-grid-container">
     <div class="tattoos-grid flashes-grid" masonry-grid infinite-scroll="callback.call: loadMore()">
       <gallery-item repeat.for="item of items" open.call="openModal($index)" item.bind="item" type="flash" masonry-item>
