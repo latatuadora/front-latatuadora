@@ -11,7 +11,7 @@ export class BaseGallery {
     this.showLoader = false;
     this.showFilters = false;
     this.showModal = false;
-    this.currentItem = 0;
+    this.currentItem = {};
   }
 
   activate(params, routeConfig) {
