@@ -1,2 +1,31 @@
 @import '../../../assets/styles/vars'
 @import '../../../assets/styles/mixins'
+
+.tattoo-modal
+  position relative
+
+.tattoo-modal__header
+  text-align right
+
+.tattoo-modal__prev,
+.tattoo-modal__next,
+.tattoo-modal__close
+  cursor pointer
+
+.tattoo-modal__close
+  height 23px
+  width 25.5px
+
+.tattoo-modal__prev,
+.tattoo-modal__next
+  position absolute
+  top 50%
+  transform translateY(-50%)
+  height 36px
+  width 18px
+
+.tattoo-modal__prev
+  left 0
+
+.tattoo-modal__next
+  right 0
