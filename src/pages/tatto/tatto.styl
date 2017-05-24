@@ -1,20 +1,22 @@
 @import '../../assets/styles/vars'
 
-.page
-  background-image url('src/assets/images/backgrounds/tatuate.png')
-  background-repeat no-repeat
-  background-position center
-  background-size cover
+
+
 
 .title
   text-align: center
 
 .tatuate
+  padding-top 3em
+  background-image url('src/assets/images/backgrounds/tatuate.png')
+  background-repeat no-repeat
+  background-position: center
+  background-size cover
 
   &__title
     color #FFF
     font-weight 400
-    margin 1.5em 0 1em 0
+    margin 0 0 1em 0
 
   &__divider
     height 1px
@@ -22,7 +24,6 @@
 
     border none
     border-bottom 1px solid $dustColor
-
 
     position relative
 
@@ -50,14 +51,14 @@
 
 .steps
   margin-top 3rem
-  margin-bottom 3rem
+  margin-bottom 5rem
 
   padding 0.5em
 
   display grid
   grid-template-columns 1fr 1fr
   grid-template-rows 1fr 1fr
-  grid-gap 3rem 1rem
+
 
   @media screen and (min-width 32rem)
     display grid
@@ -103,13 +104,14 @@
   text-align: center
 
   &__item
+    margin 3em 0
     text-align: center
 
   &__number
     font-size 1.2em
 
-    height 3rem
-    width 3rem
+    height 4rem
+    width 4rem
     margin 0 auto
 
     border-radius 50%
@@ -121,28 +123,29 @@
     align-items center
     justify-content center
 
-
   &__title
-    font-size 1.5rem
+    font-size 2.2rem
     color #fff
     text-transform uppercase
+    font-family: 'BebasNeue';
 
   &__link
     display inline-block
-    padding: 0.5em 1em
+    padding: 1em 1em
+
+    text-transform: uppercase
 
     border-radius 2px
-    width:  80%
+    width:  125px
     background-color: $dustColor
     color #FFF
 
     @media screen and (min-width 32rem)
-      width: 60%
+      width: 175px
 
   &__icon
-    width 80%
-    height 10rem
-
+    width 125px
+    height: 125px
     margin 2em auto
 
     border 2px solid $dustColor
@@ -151,14 +154,16 @@
     align-items center
     justify-content center
 
+    position relative
+
     background-color: rbga(0,0,0,0.5)
     background-repeat no-repeat
     background-position center
     background-size cover
 
     @media screen and (min-width 32rem)
-      width 60%
-      height 12rem
+      width: 175px
+      height: 175px
 
     &--1
       @extends .step__icon
@@ -172,14 +177,14 @@
       background-image url('src/assets/images/backgrounds/tatuate__cotiza@2x.png')
 
       @media screen and (min-width 32rem)
-           background-image url('src/assets/images/backgrounds/tatuate__cotiza@3x.png')
+        background-image url('src/assets/images/backgrounds/tatuate__cotiza@3x.png')
 
     &--3
       @extends .step__icon
       background-image url('src/assets/images/backgrounds/tatuate__flashes@2x.png')
 
       @media screen and (min-width 32rem)
-          background-image url('src/assets/images/backgrounds/tatuate__flashes@3x.png')
+        background-image url('src/assets/images/backgrounds/tatuate__flashes@3x.png')
 
 
     &--4
@@ -187,7 +192,7 @@
       background-image url('src/assets/images/backgrounds/tatuate__agenda@2x.png')
 
       @media screen and (min-width 32rem)
-           background-image url('src/assets/images/backgrounds/tatuate__agenda@3x.png')
+        background-image url('src/assets/images/backgrounds/tatuate__agenda@3x.png')
 
 .about
   padding: 2em 0 3em 0
@@ -213,7 +218,28 @@
     text-align: center
 
   &__link
-    font-size: 1em
+    font-size: 1.2em
     color $blackColor
-    padding: 1em
+    padding: 0.2em
+
     border-bottom 2px solid $dustColor
+    text-transform: uppercase
+
+    @media screen and (min-width 32rem)
+      margin-left: 1em
+
+
+.number
+
+  &--mobile
+    @media screen and (min-width: 52rem)
+      display none
+
+  &--desktop
+    display none
+    position absolute
+    top 0
+    left 0
+    transform translate(-50%,-50%)
+    @media screen and (min-width: 52rem)
+      display flex
