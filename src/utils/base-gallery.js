@@ -88,9 +88,26 @@ export class BaseGallery {
   openModal(index) {
     this.showModal = true;
     this.currentItem = this.items[index];
+    this.currentItem.index = index;
   }
 
   closeModal() {
     this.showModal = false;
+  }
+
+  previousItem() {
+    let lastItem = this.items.length - 1;
+    let currentItem = this.currentItem.index;
+    let newIndex = currentItem > 0 ? currentItem - 1 : lastItem;
+    this.currentItem = this.items[newIndex];
+    this.currentItem.index = newIndex;
+  }
+
+  nextItem() {
+    let lastItem = this.items.length - 1;
+    let currentItem = this.currentItem.index;
+    let newIndex = currentItem < lastItem ? currentItem + 1 : 0;
+    this.currentItem = this.items[newIndex];
+    this.currentItem.index = newIndex;
   }
 }
