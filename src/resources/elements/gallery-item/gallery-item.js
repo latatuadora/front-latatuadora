@@ -4,4 +4,5 @@ export class GalleryItem {
   @bindable item;
   @bindable type = 'tattoo';
   @bindable vote;
+  @bindable open;
 }
