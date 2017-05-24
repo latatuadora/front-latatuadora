@@ -1,0 +1,178 @@
+@import '../../assets/styles/vars'
+
+/** BASE **/
+
+
+
+/** LOGIN **/
+
+.login
+
+  display flex
+  flex-direction column
+  align-items center
+
+  margin: 3rem 0 0 0
+
+  &__item
+
+    &:nth-child(2), &:nth-child(4)
+      width 80%
+
+    &:nth-child(2)
+      @media screen and (min-width 32em)
+        width: 25%
+
+    &:nth-child(4)
+      @media screen and (min-width 32em)
+        width: 50%
+
+.divider
+  margin 3rem 0
+  display flex
+  height: 1px
+  width: 100%
+
+  @media screen and (min-width 32em)
+    width: 50%
+
+  &__item
+
+    &:nth-child(even)
+      text-align: center
+      flex: 1 1 10%
+
+    &:nth-child(odd)
+      flex: 2 1 40%
+      height: 1px
+      border-bottom 1px solid $borderColor
+
+.social
+
+
+  &__button
+    display block
+    width: 100%
+    margin 1rem 0
+    padding: 1rem
+    border: none
+    font-size: 1.2rem
+    @media screen and (min-width 32em)
+      font-size: 1rem
+
+    &--facebook
+      @extends .social__button
+      background-color: $facebookColor
+      color: #FFF
+
+    &--google
+      @extends .social__button
+      background-color: #FFF
+      color: $blackColor
+      border: 1px solid $borderColor
+
+.title
+  line-height 1.6
+  letter-spacing -0.1px
+
+  &__item
+    @extends .title
+    font-size: 2em
+    margin-bottom 2rem
+
+
+
+.input
+  width 100%
+
+
+  &--label
+    @extends .input
+    font-size: 1.2em
+    display block
+    margin 0.5rem 0
+
+    @media screen and (min-width 32em)
+      display inline
+      text-align: right
+      font-size: 1rem
+      margin-right  1rem
+
+      flex 1 2 30%
+
+
+  &--email, &--password
+    @extends .input
+    border 1px solid $borderColor
+    padding 1rem
+
+    @media screen and (min-width 32em)
+      flex 2 1 70%
+
+  &--group
+    margin 1rem 0
+
+    @media screen and (min-width 32em)
+      display flex
+      justify-content center
+      align-items center
+
+    &:nth-child(3)
+      display flex
+      align-content center
+      align-items center
+      margin 2rem 0
+
+    &:nth-child(n+2)
+      @media screen and (min-width 32em)
+        margin: 2em 0
+
+  &--label-checkbox
+    margin-left 1rem
+    font-size: 1.2em
+
+    @media screen and (min-width 32em)
+      font-size: 1rem
+
+  &--submit
+    padding 0.5rem 1rem
+    color: #fff
+    background-color: $dustColor
+    border-radius 2px
+    border none
+    font-size: 1.2rem
+
+    @media screen and (min-width 32em)
+      font-size: 1rem
+
+.signup
+  margin: 1rem 0
+  text-align: center
+  font-size: 1.2rem
+
+  @media screen and (min-width 32em)
+    font-size: 1rem
+
+  &__link
+    @extends .signup
+    text-decoration underline
+    text-transform: capitalize
+    margin 0 0 0 0.5em
+
+.logo
+  align-self flex-end
+  margin: 0.5em
+
+
+.forgotten
+  visibility hidden
+  text-decoration: underline
+  text-align: center
+
+  @media screen and (min-width 32em)
+    visibility visible
+
+
+
+
+
