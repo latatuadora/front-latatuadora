@@ -16,9 +16,7 @@ export class SimpleModalCustomAttribute {
     let modal = document.createElement('div');
     let exists = document.getElementById(this.containerId) ? true : false;
 
-    if (exists) {
-      modal = document.getElementById(this.containerId);
-    } else {
+    if (!exists) {
       modal.classList.add('modal');
       modal.id = this.containerId;
       modal.innerHTML = '<div class="modal-inner">' +
