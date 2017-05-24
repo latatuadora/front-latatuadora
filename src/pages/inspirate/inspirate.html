@@ -1,5 +1,6 @@
 <template>
   <require from="./inspirate.css"></require>
+  <require from="../../resources/elements/gallery-item/gallery-item"></require>
   <require from="../../resources/attributes/masonry-grid"></require>
   <require from="../../resources/attributes/masonry-item"></require>
   <require from="../../resources/attributes/infinite-scroll"></require>
@@ -22,41 +23,8 @@
   </div>
   <section class="tattoos-grid-container">
     <div class="tattoos-grid" masonry-grid infinite-scroll="callback.call: loadMore()">
-      <div repeat.for="tattoo of items" class="tattoos-grid__element" masonry-item>
-        <div class="tattoos-grid__element-thumbnail">
-          <div class="tattoos-grid__element-thumbnail-actions">
-            <button type="button" class="fa fa-heart vote-btn"></button>
-            <button type="button" class="fa fa-share"></button>
-          </div>
-          <a class="tattoos-grid__element-thumbnail-img-wrapper" href="#">
-            <img class="tattoos-grid__element-thumbnail-img" src="${tattoo.image}" alt="Tatuaje de ${tattoo.artist_name}">
-          </a>
-        </div>
-        <div class="tattoos-grid__element-info-wrapper">
-          <div class="tattoos-grid__element-info-top">
-            <a href="#"><img class="tattoos-grid__element-author-pic circle" src="${tattoo.artist_picture}" alt="${tattoo.artist_name}"></a>
-            <div class="tattoos-grid__element-info">
-              <a ng-href="${tattoo.artist_url}" class="tattoos-grid__element-author">${tattoo.artist_name}</a>
-              <span class="tattoos-grid__element-location">${tattoo.artist_location}</span>
-              <div class="tattoos-grid__element-stars">
-                <i class="fa fa-star"></i>
-                <i class="fa fa-star"></i>
-                <i class="fa fa-star"></i>
-                <i class="fa fa-star-o"></i>
-                <i class="fa fa-star-o"></i>
-              </div>
-            </div>
-            <button type="button" class="tattoos-grid__element-info-likes vote-btn fa fa-heart">${tattoo.votes + ' Likes'}</button>
-          </div>
-          <div class="tattoos-grid__element-tags">
-            <a repeat.for="tag of tattoo.tags" href="#" class="tattoos-grid__element-tag">${tag}</a>
-          </div>
-          <div class="tattoos-grid__element-buttons">
-            <a href="#" class="site-button">Cotizar tatuaje similar</a>
-            <a href="#" class="site-button">Ver perfil</a>
-          </div>
-        </div>
-      </div>
+      <gallery-item repeat.for="item of items" item.bind="item" masonry-item>
+      </gallery-item>
     </div>
     <img if.bind="showLoader" class="tattoos-grid-loader" src="src/assets/images/icons/loader.gif" alt="Loader">
     <img class="tattoos-grid-icon" src="src/assets/images/icons/tattoos-gallery-icon.svg" alt="Inspírate">
