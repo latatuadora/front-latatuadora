@@ -4,6 +4,7 @@ import VanillaModal from 'vanilla-modal';
 @inject(Element)
 export class SimpleModalCustomAttribute {
   @bindable show;
+  @bindable containerId = 'modal';
 
   constructor(element) {
     this.element = element;
@@ -13,14 +14,25 @@ export class SimpleModalCustomAttribute {
     let self = this;
     let body = document.getElementsByTagName('body')[0];
     let modal = document.createElement('div');
-    modal.classList.add('modal');
-    modal.innerHTML = '<div class="modal-inner">' +
-        '<div class="modal-content"></div>' +
-      '</div>';
-    body.appendChild(modal);
-    this.modal = new VanillaModal({
-      onClose: () => {this.close(self);}
-    });
+
+    try {
+      let exists = document.getElementById(this.containerId) ? true : false;
+      if (exists) {
+        throw new Error('The specified id is already being used by other DOM element.');
+      }
+      modal.classList.add('modal');
+      modal.id = this.containerId;
+      modal.innerHTML = '<div class="modal-inner">' +
+          '<div class="modal-content"></div>' +
+        '</div>';
+      body.appendChild(modal);
+      this.modal = new VanillaModal({
+        modal: '#' + this.containerId + '.modal',
+        onClose: () => {this.close(self);}
+      });
+    } catch(error) {
+      console.error('ModalInstanceError:', error.message);
+    }
   }
 
   showChanged(newValue, oldValue) {
@@ -35,5 +47,10 @@ export class SimpleModalCustomAttribute {
   close(self = this) {
     self.show = false;
     self.modal.close();
+  }
+
+  detached() {
+    let modal = document.getElementById(this.containerId);
+    modal.parentNode.removeChild(modal);
   }
 }
