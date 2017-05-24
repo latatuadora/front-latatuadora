@@ -116,7 +116,11 @@
           "text",
           "jquery",
           "numeral",
-          "tingle.js",
+          {
+            "name": "tingle-js",
+            "path": "../node_modules/tingle.js/dist",
+            "main": "tingle.js"
+          },
           {
             "name": "masonry-layout",
             "path": "../node_modules/masonry-layout/dist",
