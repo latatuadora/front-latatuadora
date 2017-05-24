@@ -10,6 +10,8 @@ export class BaseGallery {
     this.items = [];
     this.showLoader = false;
     this.showFilters = false;
+    this.showModal = false;
+    this.currentItem = 0;
   }
 
   activate(params, routeConfig) {
@@ -81,5 +83,14 @@ export class BaseGallery {
           this.params.page += 1;
         });
     }
+  }
+
+  openModal(index) {
+    this.showModal = true;
+    this.currentItem = this.items[index];
+  }
+
+  closeModal() {
+    this.showModal = false;
   }
 }
