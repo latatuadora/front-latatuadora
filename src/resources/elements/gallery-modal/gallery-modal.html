@@ -1,6 +1,7 @@
 <template>
   <require from="../gallery-item/gallery-item.css"></require>
   <require from="./gallery-modal.css"></require>
+  <require from="../../attributes/textarea-resize"></require>
   <require from="../../value-converters/currency"></require>
   <div class="tattoo-modal">
     <div class="tattoo-modal__header" style="color:white">
@@ -54,7 +55,7 @@
         </div>
         <div class="tattoos-grid__element-comments">
           <form role="form" class="tattoos-grid__new-comment-form">
-            <textarea class="tattoos-grid__new-comment-input" placeholder="Escribe un comentario"></textarea>
+            <textarea class="tattoos-grid__new-comment-input" placeholder="Escribe un comentario" textarea-resize></textarea>
             <button class="site-button">Enviar</button>
           </form>
         </div>
