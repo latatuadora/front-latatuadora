@@ -1,0 +1,160 @@
+<template>
+  <!-- REQUIRE STYLES -->
+  <require from="./membership.css"></require>
+  <!-- - - - - - - - -->
+
+  <div class="membership">
+
+    <!-- HEADER -->
+    <header class="membership__item header">
+      <h1 class="header__title">Registro</h1>
+    </header>
+    <!-- - - - -->
+
+    <!-- DIVIDER -->
+    <hr class="membership__item divider">
+    <!-- - - - - -->
+
+    <!-- TYPE OF MEMBERSHIP -->
+    <div class="membership__item type">
+
+      <p class="type__text">Selecciona tu tipo de <span class="type__text--decoration">membresia</span></p>
+      <div class="type__form">
+
+        <div class="type__item">
+          <input class="input--checkbox" type="checkbox" name="checkbox" id="checkbox">
+          <label for="checkbox">Estudio</label>
+        </div>
+        <div class="type__item">
+          <input class="input--checkbox" type="checkbox" name="freelance" id="freelance">
+          <label for="freelance">Freelance</label>
+        </div>
+
+      </div>
+    </div>
+    <!-- - - - - - - - - - - -->
+
+    <!-- USER - DATA -->
+    <div class="membership__item user-data">
+
+      <div class="user-data__item">
+        <label class="input--label" for="name">Nombre del Estudio</label>
+        <input class="input--text" id="name" type="text">
+      </div>
+
+      <div class="user-data__item">
+        <label class="input--label" for="email">Correo Electronico</label>
+        <input class="input--email" id="email" type="email">
+      </div>
+
+      <div class="user-data__item">
+        <label class="input--label" for="password">Password</label>
+        <input class="input--password" id="password" type="password">
+      </div>
+
+      <div class="user-data__item">
+        <label class="input--label" for="confirm-password">Confirmar Contraseña</label>
+        <input class="input--password" id="confirm-password" type="password">
+      </div>
+
+    </div>
+
+    <!-- DIVIDER -->
+    <hr class="membership__item divider">
+    <!-- - - - - -->
+
+    <!-- ADDRESS DATA -->
+    <div class="membership__item address-data">
+      <h2 class="address-data__text">Ingresa tú <span class="address-data__text--decoration">domicilio</span></h2>
+
+      <div class="address-data__item">
+        <label class="input--label" for="street">Calle</label>
+        <input class="input--text" id="street" type="text">
+      </div>
+
+      <div class="address-data__item">
+        <div class="address-data--number" >
+          <label class="input--label" for="ext-number">Numero Ext</label>
+          <input class="input--text" id="ext-number" type="text">
+        </div>
+        <div class="address-data--number" >
+          <label class="input--label" for="int-number">Int</label>
+          <input class="input--text" id="int-number" type="text">
+        </div>
+        <div class="address-data--number" >
+          <label class="input--label" for="postal">C.P</label>
+          <input class="input--text" id="postal" type="text">
+        </div>
+      </div>
+
+      <div class="address-data__item">
+        <label class="input--label" for="country">Estado</label>
+        <select class="input--select" id="contry">
+
+        </select>
+      </div>
+
+      <div class="address-data__item">
+        <label class="input--label" for="town">Delegacion/Municiopio</label>
+        <select class="input--select" id="town">
+
+        </select>
+      </div>
+
+      <div class="address-data__item">
+        <label class="input--label" for="distric">Colonial</label>
+        <select class="input--select" id="district"x>
+
+        </select>
+      </div>
+
+    </div>
+    <!-- - - - - - - -->
+
+    <!-- DIVIDER -->
+    <hr class="membership__item divider">
+    <!-- - - - - -->
+
+
+    <!-- Cofepris -->
+    <div class="membership__item cofepris">
+
+      <p class="cofepris__text">Cuentas con certificado de la <span class="cofepris__text--decoration">Cofepris</span></p>
+      <div class="cofepris__form">
+
+        <div class="cofepris__item">
+          <input class="input--checkbox" type="checkbox" name="checkbox" id="checkbox">
+          <label for="checkbox">Si</label>
+        </div>
+        <div class="cofepris__item">
+          <input class="input--checkbox" type="checkbox" name="freelance" id="freelance">
+          <label for="freelance">No</label>
+        </div>
+
+      </div>
+    </div>
+    <!-- - - - - - -->
+
+    <!-- DIVIDER -->
+    <hr class="membership__item divider">
+    <!-- - - - - -->
+
+    <div class="membership__item styles">
+      <h2>¿Qué <span>estilos</span> manejas?</h2>
+
+      <div class="styles__item input__group--checkbox">
+        <input type="checkbox" name="" id="" class="input--checkbox-tag">
+        <input type="checkbox" name="" id="" class="input--checkbox-tag">
+        <input type="checkbox" name="" id="" class="input--checkbox-tag">
+        <input type="checkbox" name="" id="" class="input--checkbox-tag">
+        <input type="checkbox" name="" id="" class="input--checkbox-tag">
+      </div>
+      <div class="styles__item input__group--checkbox">
+
+      </div>
+    </div>
+
+
+
+  </div>
+</template>

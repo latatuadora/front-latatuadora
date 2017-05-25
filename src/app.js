@@ -47,6 +47,20 @@ export class App {
         moduleId: 'pages/tatto/tatto',
         title: 'Tatuate',
         nav: true
+      },
+      {
+        route: 'flashes',
+        name: 'flashes',
+        moduleId: 'pages/flashes/flashes',
+        title: 'Flashes',
+        nav: false
+      },
+      {
+        route: 'membership',
+        name: 'membership',
+        moduleId: 'pages/membership/membership',
+        title: 'Registrate',
+        nav: true
       }
     ])
   }

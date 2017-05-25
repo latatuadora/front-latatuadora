@@ -1,0 +1,124 @@
+.gallery-title
+  rfont-size 35px 767px 30px
+  text-align center
+  letter-spacing -0.3px
+  margin-top 49px
+  font-weight normal
+  margin-bottom 0
+  color $blackColor
+
+.gallery-subtitle
+  rfont-size 22px 767px 21.5px
+  text-align center
+  display block
+  color $blackColor
+  margin-top 16px
+
+.gallery-filters-toggle
+  display none
+  font-size 15px
+  letter-spacing -0.2px
+  border-radius 100px
+  text-transform none
+  center-block()
+  padding 8px 32px
+  margin-top 35px
+  margin-bottom 34px
+
+.gallery-filters
+  text-align center
+  margin-top 62px
+  margin-bottom 40px
+
+.gallery-filter-wrapper
+  background white
+  position relative
+  color #1d1d1d
+  display inline-block
+  text-align left
+  overflow hidden
+  cursor pointer
+
+  &.active
+    color $dustColor
+
+  &:not(.no-arrow)::after
+    position absolute
+    top 50%
+    right 0
+    width 0
+    height 0
+    content ' '
+    border-left 3.3px solid transparent
+    border-right 3.3px solid transparent
+    border-top 4.5px solid $dustColor
+    z-index 0
+    transform translateY(-50%)
+
+  &:not(:first-child)
+    margin-left 47px
+
+  &:nth-child(2)
+    width 85px
+
+  &:nth-child(3)
+    width 120px
+
+  &:nth-child(4)
+    width 185px
+
+.gallery-filter
+  border none
+  background transparent
+  rfont-size 22px 767px 19px
+  appearance none
+  position relative
+  z-index 1
+  width 100%
+  text-overflow ellipsis
+  white-space nowrap
+  overflow hidden
+  color inherit
+  padding-right 17px
+  padding-left 9px
+
+  option:not(:first-child)
+    font-size 18px
+
+@media screen and (max-width: 500px)
+  .gallery-filters-toggle
+    display block
+
+  .gallery-filters
+    transition margin-top 0.2s, margin-bottom 0.2s
+
+    &.show
+      margin-top 40px
+      margin-bottom 40px
+
+      .gallery-filter-wrapper
+        max-height 21px
+
+        &:not(:first-child)
+          margin-top 21px
+
+    &.hide
+      margin-top 0
+      margin-bottom 0
+
+      .gallery-filter-wrapper
+        max-height 0
+        margin-top 0
+
+  .gallery-filter-wrapper
+    display block
+    width 85% !important
+    center-block()
+    transition max-height 0.2s, margin-top 0.2s
+
+    &:not(:first-child)
+      margin-left auto
+      margin-top 30px
+
+  .gallery-filter
+    padding-left 0
