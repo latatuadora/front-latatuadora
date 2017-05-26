@@ -12,10 +12,11 @@ export class Quotation extends BaseMultiStep {
       'pages/quotation/step-1',
       'pages/quotation/step-2'
     ];
-    this.resultsModel = {};
     this.shared = {
-      changeHeight: (height) => {this.resultsModel.height = height;},
-      changeWidth: (width) => {this.resultsModel.width = width;},
+      height: 10,
+      width: 10,
+      changeHeight: (height) => {this.shared.height = height;},
+      changeWidth: (width) => {this.shared.width = width;},
       artist: null
     }
   }
