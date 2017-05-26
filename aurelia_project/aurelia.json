@@ -117,6 +117,7 @@
           "jquery",
           "numeral",
           "vanilla-modal",
+          "nouislider",
           {
             "name": "masonry-layout",
             "path": "../node_modules/masonry-layout/dist",
