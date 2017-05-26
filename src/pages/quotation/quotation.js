@@ -7,6 +7,7 @@ export class Quotation extends BaseMultiStep {
   constructor(router) {
     super();
     this.router = router;
+    this.artist = null;
     this.completeDestination = '';
     this.viewModels = [
       'pages/quotation/step-1'
