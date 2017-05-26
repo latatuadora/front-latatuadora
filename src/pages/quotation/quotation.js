@@ -15,7 +15,6 @@ export class Quotation extends BaseMultiStep {
   }
 
   cancel() {
-
   }
 
   complete() {
