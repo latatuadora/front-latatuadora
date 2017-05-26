@@ -1,1 +1,12 @@
-<template></template>
+<template>
+  <img src="src/assets/images/icons/ancle.svg" alt="Icon">
+  <h2 class="quotation-instructions quotation-instructions--step-1-main">
+    Selecciona el <span class="golden-text">estilo de tatuaje</span> que sea de tu agrado
+  </h2>
+  <div class="quotation-step-2__items">
+    <div repeat.for="item of items" class="quotation-step-2__item">
+      <div class="quotation-step-2__item-image cover ${item.active ? 'active' : ''}" css="background-image: url(${item.image})"></div>
+      <span class="quotation-step-2__item-text">${item.name}</span>
+    </div>
+  </div>
+</template>
