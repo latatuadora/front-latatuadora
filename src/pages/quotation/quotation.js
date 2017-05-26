@@ -13,7 +13,8 @@ export class Quotation extends BaseMultiStep {
     ];
     this.resultsModel = {};
     this.shared = {
-      changeHeight: (height) => {this.model.height = height;},
+      changeHeight: (height) => {this.resultsModel.height = height;},
+      changeWidth: (width) => {this.resultsModel.width = width;},
       artist: null
     }
   }
