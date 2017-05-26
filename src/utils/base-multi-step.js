@@ -14,13 +14,13 @@ export class BaseMultiStep {
 
   bind() {
     if (!this.cancel) {
-      throw new Error('bindable property `cancel` must be defined on ViewModel');
+      throw new Error(`bindable property 'cancel' must be defined on ${this.constructor.name} class.`);
     }
     if (!this.complete) {
-      throw new Error('bindable property `complete` must be defined on ViewModel');
+      throw new Error(`bindable property 'complete' must be defined on ${this.constructor.name} class.`);
     }
     if (!this.viewModels) {
-      throw new Error('bindable property `viewModels` must be defined on ViewModel');
+      throw new Error(`bindable property 'viewModels' must be defined on ${this.constructor.name} class.`);
     }
     this.totalSteps = this.viewModels.length;
     this.update();
