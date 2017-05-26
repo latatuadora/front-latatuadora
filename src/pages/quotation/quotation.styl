@@ -63,7 +63,8 @@
 .quotation-footer
   text-align center
   clear both
-  width 864px
+  max-width 864px
+  width 88%
   center-block()
   padding-bottom 61px
   overflow auto
@@ -78,3 +79,38 @@
 
 .quotation-back
   float left
+
+@media screen and (max-width: 767px)
+  .quotation-progress
+    height 11.4px
+
+  .quotation-content
+    padding-bottom 88px
+
+  .quotation-instructions--step-1-main
+    margin-top 17px
+    width auto
+    center-block()
+    max-width 205px
+
+  .quotation-instructions--step-1-sub
+    font-size 20px
+    width 230px
+
+  .quotation-instructions--step-1-height
+    margin-top 54px
+    margin-bottom 36px
+
+  .quotation-instructions--step-1-width
+    margin-top 33px
+    margin-bottom 37px
+
+  .quotation-step-1-icon
+    margin-top 38px
+    margin-bottom 36px
+
+  .quotation-back + .quotation-next
+    float right
+
+  .quotation-next
+    float none
