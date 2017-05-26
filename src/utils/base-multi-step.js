@@ -1,56 +1,58 @@
 export class BaseMultiStep {
-  backButtonActive = false;
-  completeButtonActive = false;
-  nextButtonActive = true;
+  constructor() {
+    this.backButtonActive = false;
+    this.completeButtonActive = false;
+    this.nextButtonActive = true;
 
-  currentViewModelPath;
-  currentStep = 1;
-  totalSteps = 0;
+    this.currentViewModelPath;
+    this.currentStep = 1;
+    this.totalSteps = 0;
 
-  composeRef;
-  model = {};
+    this.composeRef;
+    this.model = {};
+  }
 
   bind() {
     if (!this.cancel) {
-      throw new Error('bindable property `cancel` must be defined on MultiStepViewCustomElement');
+      throw new Error('bindable property `cancel` must be defined on ViewModel');
     }
     if (!this.complete) {
-      throw new Error('bindable property `complete` must be defined on MultiStepViewCustomElement');
+      throw new Error('bindable property `complete` must be defined on ViewModel');
     }
     if (!this.viewModels) {
-      throw new Error('bindable property `viewModels` must be defined on MultiStepViewCustomElement');
+      throw new Error('bindable property `viewModels` must be defined on ViewModel');
     }
     this.totalSteps = this.viewModels.length;
-    this._update();
+    this.update();
   }
 
   back() {
     this.currentStep--;
-    this._update();
+    this.update();
   }
 
   next() {
-    if (!this._isValidView()) return;
+    if (!this.isValidView()) return;
     this.currentStep++;
-    this._update();
+    this.update();
   }
 
-  _update() {
-    this._setButtons();
-    this._setViewModel();
+  update() {
+    this.setButtons();
+    this.setViewModel();
   }
 
-  _setViewModel() {
+  setViewModel() {
     this.currentViewModelPath = this.viewModels[this.currentStep - 1];
   }
 
-  _setButtons() {
+  setButtons() {
     this.backButtonActive = this.currentStep > 1;
     this.nextButtonActive = this.currentStep < this.totalSteps;
     this.completeButtonActive = this.currentStep === this.totalSteps;
   }
 
-  _isValidView() {
+  isValidView() {
     if (!this.composeRef.currentViewModel.isValid) {
       throw new Error(`${this.composeRef.viewModel} must implement an isValid method returning a boolean`);
     }
