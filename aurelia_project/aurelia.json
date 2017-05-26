@@ -134,6 +134,11 @@
             "main": "aurelia-validation"
           },
           {
+            "name": "aurelia-files",
+            "path": "../node_modules/aurelia-files/dist/amd",
+            "main": "index"
+          },
+          {
             "name": "aurelia-templating-resources",
             "path": "../node_modules/aurelia-templating-resources/dist/amd",
             "main": "aurelia-templating-resources"
