@@ -5,8 +5,8 @@
       <div class="quotation-progress__inner" css="width: ${currentStep*100/totalSteps}%"></div>
     </div>
     <div class="quotation-content">
-      <h1 class="quotation-title">Cotiza</h1>
-      <compose view-model="${currentViewModelPath}" model.bind="artist" compose.ref="composeRef" containerless></compose>
+      <h1 class="quotation-title">Cotiza ${model.height}</h1>
+      <compose view-model="${currentViewModelPath}" model.bind="shared" compose.ref="composeRef" containerless></compose>
     </div>
     <div class="quotation-footer">
       <button class="site-button quotation-back" if.bind="backButtonActive" click.delegate="back()">Anterior</button>
