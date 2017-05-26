@@ -9,6 +9,9 @@
       <compose view-model="${currentViewModelPath}" model.bind="model" compose.ref="composeRef" containerless></compose>
     </div>
     <div class="quotation-footer">
+      <button class="site-button quotation-back" if.bind="backButtonActive" click.delegate="back()">Anterior</button>
+      <button class="site-button quotation-next" if.bind="nextButtonActive" click.delegate="next()">Siguiente</button>
+      <button class="site-button quotation-finish" if.bind="completeButtonActive" click.delegate="complete({multiStepViewData: model})">Agendar cita</button>
     </div>
   </div>
 </template>
