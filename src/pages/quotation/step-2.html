@@ -6,7 +6,9 @@
   </h2>
   <div class="quotation-step-2__items">
     <div repeat.for="item of items" class="quotation-step-2__item">
-      <div class="quotation-step-2__item-image cover ${item.active ? 'active' : ''}" css="background-image: url(${item.image})"></div>
+      <div class="quotation-step-2__item-image cover vertical-center" css="background-image: url(${item.image})">
+        <img src="src/assets/images/icons/check.svg" if.bind="item.active" class="quotation-step-2__check">
+      </div>
       <span class="quotation-step-2__item-text">${item.style_name}</span>
     </div>
   </div>
