@@ -49,7 +49,7 @@ export class App {
         nav: false
       },
       {
-        route: 'cotiza',
+        route: 'cotiza/:artist?',
         name: 'quotation',
         moduleId: 'pages/quotation/quotation',
         title: 'Cotiza',
