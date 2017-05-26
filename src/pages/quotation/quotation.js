@@ -24,7 +24,12 @@ export class Quotation extends BaseMultiStep {
       changeHeight: (height) => {this.shared.height = height;},
       changeWidth: (width) => {this.shared.width = width;},
       changeStyle: (style) => {this.shared.style = style;},
-      changeFile: (file) => {this.shared.referenceFile = file;},
+      changeFile: (file, data) => {
+        this.shared.referenceFile = {
+          file: file,
+          data: data
+        }
+      },
       changeComment: (comment) => {this.shared.additionalComment = comment;}
     }
   }
@@ -33,12 +38,15 @@ export class Quotation extends BaseMultiStep {
   }
 
   complete() {
-    for (let i = 0; i < this.router.routes.length; i++) {
-      if (this.router.routes[i].name == this.completeDestination) {
-        this.router.routes[i].settings.resultsModel = this.resultsModel;
-        break;
+    let valid = super.complete();
+    if (valid) {
+      for (let i = 0; i < this.router.routes.length; i++) {
+        if (this.router.routes[i].name == this.completeDestination) {
+          this.router.routes[i].settings.resultsModel = this.resultsModel;
+          break;
+        }
       }
+      this.router.navigateToRoute(this.completeDestination);
     }
-    this.router.navigateToRoute(this.completeDestination);
   }
 }
