@@ -1,5 +1,7 @@
 <template>
   <require from="../../resources/elements/gallery-item/gallery-item"></require>
+  <require from="../../resources/elements/gallery-modal/gallery-modal"></require>
+  <require from="../../resources/attributes/simple-modal"></require>
   <require from="../../resources/attributes/masonry-grid"></require>
   <require from="../../resources/attributes/masonry-item"></require>
   <require from="../../resources/attributes/infinite-scroll"></require>
@@ -17,9 +19,10 @@
       <div class="gallery-filter">${params.element ? params.element : 'Elemento'}</div>
     </div>
   </div>
+  <gallery-modal id="flashes-content" simple-modal="show.two-way: showModal" css="${showModal ? 'display: block' : 'display: none'}" item.bind="currentItem" close.call="closeModal(currentItem.index)" go-next.call="nextItem()" go-prev.call="previousItem()" type="flash" close.call="closeModal()"></gallery-modal>
   <section class="tattoos-grid-container">
     <div class="tattoos-grid flashes-grid" masonry-grid infinite-scroll="callback.call: loadMore()">
-      <gallery-item repeat.for="item of items" item.bind="item" type="flash" masonry-item>
+      <gallery-item repeat.for="item of items" open.call="openModal($index)" item.bind="item" type="flash" masonry-item>
       </gallery-item>
     </div>
     <img if.bind="showLoader" class="tattoos-grid-loader" src="src/assets/images/icons/loader.gif" alt="Loader">

@@ -16,7 +16,8 @@
     "masonry-layout": "^4.2.0",
     "numeral": "^2.0.6",
     "requirejs": "^2.3.2",
-    "text": "github:requirejs/text#latest"
+    "text": "github:requirejs/text#latest",
+    "vanilla-modal": "^1.6.4"
   },
   "peerDependencies": {},
   "devDependencies": {

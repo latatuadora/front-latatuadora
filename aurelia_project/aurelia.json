@@ -116,6 +116,7 @@
           "text",
           "jquery",
           "numeral",
+          "vanilla-modal",
           {
             "name": "masonry-layout",
             "path": "../node_modules/masonry-layout/dist",

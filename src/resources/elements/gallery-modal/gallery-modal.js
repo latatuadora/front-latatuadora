@@ -1,8 +1,11 @@
 import {bindable} from 'aurelia-framework';
 
-export class GalleryItem {
+export class GalleryModal {
   @bindable item;
   @bindable type = 'tattoo';
   @bindable vote;
-  @bindable open;
+  @bindable comment;
+  @bindable goPrev;
+  @bindable goNext;
+  @bindable close;
 }

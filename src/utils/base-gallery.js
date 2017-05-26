@@ -1,7 +1,3 @@
-import {inject} from 'aurelia-framework';
-import {MockAPI} from 'utils/mock-api';
-
-@inject(MockAPI)
 export class BaseGallery {
   constructor(api) {
     this.api = api;
@@ -14,6 +10,8 @@ export class BaseGallery {
     this.items = [];
     this.showLoader = false;
     this.showFilters = false;
+    this.showModal = false;
+    this.currentItem = {};
   }
 
   activate(params, routeConfig) {
@@ -85,5 +83,31 @@ export class BaseGallery {
           this.params.page += 1;
         });
     }
+  }
+
+  openModal(index) {
+    this.showModal = true;
+    this.currentItem = this.items[index];
+    this.currentItem.index = index;
+  }
+
+  closeModal() {
+    this.showModal = false;
+  }
+
+  previousItem() {
+    let lastItem = this.items.length - 1;
+    let currentItem = this.currentItem.index;
+    let newIndex = currentItem > 0 ? currentItem - 1 : lastItem;
+    this.currentItem = this.items[newIndex];
+    this.currentItem.index = newIndex;
+  }
+
+  nextItem() {
+    let lastItem = this.items.length - 1;
+    let currentItem = this.currentItem.index;
+    let newIndex = currentItem < lastItem ? currentItem + 1 : 0;
+    this.currentItem = this.items[newIndex];
+    this.currentItem.index = newIndex;
   }
 }
