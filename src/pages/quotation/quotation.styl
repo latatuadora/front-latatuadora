@@ -1,2 +1,19 @@
 @import '../../assets/styles/vars'
 @import '../../assets/styles/mixins'
+
+.quotation-container
+  position relative
+
+.quotation-progress
+  background #cacaca
+  height 12px
+  position absolute
+  top 0
+  left 0
+  width 100%
+
+.quotation-progress__inner
+  background $dustColor
+  height 100%
+  transition width 0.3s
+  width 0
