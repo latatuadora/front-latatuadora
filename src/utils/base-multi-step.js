@@ -1,4 +1,4 @@
-export class MultiStepViewCustomElement {
+export class BaseMultiStep {
   backButtonActive = false;
   completeButtonActive = false;
   nextButtonActive = true;
