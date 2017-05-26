@@ -16,13 +16,14 @@ export class RangeSliderCustomAttribute {
   bind() {
     nouislider.create(this.element, {
       start: this.start,
+      tooltips: true,
       range: {
         min: this.min,
         max: this.max
       },
       format: {
         from: (value) => {return value.replace(` ${this.unit}`, '');},
-        to: (value) => {return value + ` ${this.unit}`;}
+        to: (value) => {return parseInt(value) + ` ${this.unit}`;}
       },
       step: 1
     });
