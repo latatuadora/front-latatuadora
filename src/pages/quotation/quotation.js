@@ -9,7 +9,8 @@ export class Quotation extends BaseMultiStep {
     this.router = router;
     this.completeDestination = '';
     this.viewModels = [
-      'pages/quotation/step-1'
+      'pages/quotation/step-1',
+      'pages/quotation/step-2'
     ];
     this.resultsModel = {};
     this.shared = {

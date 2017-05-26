@@ -4,4 +4,8 @@ export class Step1 {
     this.general = model.artist == null ? true : false;
     this.artist = model.artist;
   }
+
+  isValid() {
+    return true;
+  }
 }
