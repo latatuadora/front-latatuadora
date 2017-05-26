@@ -1,0 +1,15 @@
+<template>
+  <require from="./step-2.css"></require>
+  <img class="quotation-step-2__icon" src="src/assets/images/icons/ancle.svg" alt="Icon">
+  <h2 class="quotation-instructions quotation-instructions--step-2-main">
+    Selecciona el <span class="golden-text">estilo de tatuaje</span> que sea de tu agrado
+  </h2>
+  <div class="quotation-step-2__items">
+    <div repeat.for="item of items" class="quotation-step-2__item" click.delegate="changeStyle($index)">
+      <div class="quotation-step-2__item-image cover vertical-center" css="background-image: url(${item.image})">
+        <img src="src/assets/images/icons/check.svg" if.bind="activeIndex == $index" class="quotation-step-2__check">
+      </div>
+      <span class="quotation-step-2__item-text">${item.style_name}</span>
+    </div>
+  </div>
+</template>

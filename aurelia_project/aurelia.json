@@ -117,6 +117,12 @@
           "jquery",
           "numeral",
           "vanilla-modal",
+          "nouislider",
+          {
+            "name": "tippy-js",
+            "path": "../node_modules/tippy.js/dist",
+            "main": "tippy"
+          },
           {
             "name": "masonry-layout",
             "path": "../node_modules/masonry-layout/dist",

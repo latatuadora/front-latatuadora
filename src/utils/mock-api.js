@@ -205,6 +205,17 @@ let featuredArtists = [
 export class MockAPI {
   isRequesting = false;
 
+  getStyles() {
+    this.isRequesting = true;
+
+    return new Promise(resolve => {
+      setTimeout(() => {
+        resolve(tattoos);
+        this.isRequesting = false;
+      })
+    }, latency);
+  }
+
   getTattoos(data = {}) {
     this.isRequesting = true;
 
