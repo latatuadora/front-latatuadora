@@ -6,6 +6,7 @@ export class Step2 {
   constructor(api) {
     this.api = api;
     this.items = [];
+    this.activeIndex = 0;
   }
 
   activate(model) {
@@ -13,15 +14,17 @@ export class Step2 {
     this.getItems();
   }
 
+  changeStyle(index) {
+    this.model.changeStyle(this.items[index].style_name);
+    this.activeIndex = index;
+  }
+
   getItems() {
     this.api.getStyles()
       .then((styles) => {
-        if (this.model.style == null) {
-          styles[0].active = true;
-        }
-        styles.forEach((style) => {
+        styles.forEach((style, index) => {
           if (this.model.style == style.style_name) {
-            style.active = true;
+            this.activeIndex = index;
           }
           this.items.push(style);
         });
