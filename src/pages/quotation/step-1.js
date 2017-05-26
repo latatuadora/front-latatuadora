@@ -1,6 +1,6 @@
 export class Step1 {
-  activate(model) {
-    this.general = model == null ? true : false;
-    this.model = model;
+  activate(artist) {
+    this.general = artist == null ? true : false;
+    this.artist = artist;
   }
 }
