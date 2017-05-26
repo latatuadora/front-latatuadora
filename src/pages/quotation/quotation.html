@@ -4,7 +4,7 @@
     <div class="quotation-progress">
       <div class="quotation-progress__inner" css="width: ${currentStep*100/totalSteps}%"></div>
     </div>
-    <div></div>
+    <compose view-model="${currentViewModelPath}" model.bind="model" compose.ref="composeRef" containerless></compose>
     <div class="quotation-footer">
     </div>
   </div>
