@@ -15,6 +15,10 @@ export default function copyDependenciesFiles() {
     {
       lib: 'node_modules/normalize.css',
       main: '/normalize.css'
+    },
+    {
+      lib: 'node_modules/nouislider',
+      main: '/distribute/nouislider.min.css'
     }
   ];
   let cssSources = [];
