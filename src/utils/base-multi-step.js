@@ -40,6 +40,7 @@ export class BaseMultiStep {
   update() {
     this.setButtons();
     this.setViewModel();
+    window.scrollTo(0, 0);
   }
 
   setViewModel() {
