@@ -32,6 +32,6 @@ export class Step2 {
   }
 
   isValid() {
-    return typeof this.items[activeIndex] != 'undefined';
+    return typeof this.items[this.activeIndex] != 'undefined';
   }
 }
