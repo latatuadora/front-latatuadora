@@ -47,6 +47,13 @@ export class App {
         moduleId: 'pages/flashes/flashes',
         title: 'Flashes',
         nav: false
+      },
+      {
+        route: 'cotiza',
+        name: 'quotation',
+        moduleId: 'pages/quotation/quotation',
+        title: 'Cotiza',
+        nav: false
       }
     ]);
   }
