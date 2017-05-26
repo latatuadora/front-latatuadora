@@ -135,3 +135,53 @@ textarea
   &:focus
   &.active
     background $blackColor
+
+.noUi-tooltip
+  background transparent
+  border none
+  color white
+  font-size 14px
+  font-family 'Lato'
+  letter-spacing 0.1px
+  padding 0 0 10px 0
+  width 100px
+
+.noUi-handle
+  background white
+  border 2px solid $dustColor
+  border-radius 50%
+  box-shadow 0 2px 4px 0 rgba(black, 0.5)
+
+  &::before,
+  &::after
+    content ''
+    display none
+
+.noUi-connect
+  background $dustColor
+  box-shadow none
+
+.noUi-target
+  background white
+  border none
+  box-shadow none
+  width 400px
+  border-radius 4.5px
+  height 9.2px
+
+.noUi-horizontal .noUi-handle
+  height 26px
+  width 26px
+  top -8px
+
+@media screen and (max-width: 767px)
+  .noUi-horizontal .noUi-handle
+    height 17.6px
+    width 17.6px
+    top -6px
+
+  .noUi-target
+    height 6px
+
+  .noUi-tooltip
+    padding-bottom 8.5px
