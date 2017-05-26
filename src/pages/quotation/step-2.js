@@ -30,4 +30,8 @@ export class Step2 {
         });
       });
   }
+
+  isValid() {
+    return typeof this.items[activeIndex] != 'undefined';
+  }
 }
