@@ -12,7 +12,7 @@ export class Quotation extends BaseMultiStep {
       'pages/quotation/step-1/step-1',
       'pages/quotation/step-2/step-2',
       'pages/quotation/step-3/step-3',
-      'pages/quotation/step-3/step-4'
+      'pages/quotation/step-4/step-4'
     ];
     this.shared = {
       height: 10,
