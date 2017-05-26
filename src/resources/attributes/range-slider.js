@@ -17,6 +17,7 @@ export class RangeSliderCustomAttribute {
     nouislider.create(this.element, {
       start: this.start,
       tooltips: true,
+      connect: [true, false],
       range: {
         min: this.min,
         max: this.max
