@@ -1,15 +1,17 @@
 <template>
   <require from="./step-4.css"></require>
-  <img src="src/assets/images/icons/image.svg" alt="Icon">
+  <img src="src/assets/images/icons/image.svg" alt="Icon" class="quotation-instructions__main-icon">
   <h2 class="quotation-instructions quotation-instructions--step-4-main">
     Sube tu <span class="golden-text">refencia</span> favorita
   </h2>
   <div class="quotation-instructions__input-file-container" css="background: ${model.referenceFile.data ? 'url(' + model.referenceFile.data + ')' : '#b09c6c'}">
-    <div class="quotation-instructions__input-file">
-      <img src="src/assets/images/icons/np-upload-file.svg" alt="Icon">
-      <span class="quotation-instructions__input-file-span">Arrastra tu archivo</span>
-      <span class="site-button site-button--black">Sube tu archivo</span>
-      <input type="file" accept="image/*" files="on-loaded.bind: onLoaded; file-filter.bind: 'image.*'; on-error.bind: onError; max-file-size.bind: maxFileSize; allow-drop: true">
+    <div class="quotation-instructions__input-file vertical-center">
+      <div>
+        <img src="src/assets/images/icons/np-upload-file.svg" alt="Icon">
+        <span class="quotation-instructions__input-file-span">Arrastra tu archivo</span>
+        <span class="site-button site-button--black">Sube tu archivo</span>
+        <input type="file" accept="image/*" files="on-loaded.bind: onLoaded; file-filter.bind: 'image.*'; on-error.bind: onError; max-file-size.bind: maxFileSize; allow-drop: true">
+      </div>
     </div>
   </div>
   <span class="quotation-instructions__input-note quotation-instructions__file-note">* Este campo es opcional</span>
