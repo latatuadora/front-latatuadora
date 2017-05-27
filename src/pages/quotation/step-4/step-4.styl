@@ -33,6 +33,7 @@
     padding 14px 20px
     text-transform none
     margin-top 33px
+    display block
 
   input
     cursor pointer
@@ -80,3 +81,11 @@
   letter-spacing 0.1px
   padding 19px 24px
   width 100%
+
+@media (-moz-touch-enabled: 1), (pointer: coarse), (pointer: none)
+  .quotation-instructions__input-file-span
+    display none
+
+@media screen and (max-width: 767px)
+  .quotation-instructions__input-file-span
+    display none
