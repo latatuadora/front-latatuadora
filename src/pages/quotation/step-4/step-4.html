@@ -4,7 +4,7 @@
   <h2 class="quotation-instructions quotation-instructions--step-4-main">
     Sube tu <span class="golden-text">refencia</span> favorita
   </h2>
-  <div class="quotation-instructions__input-file-container" css="background: ${model.referenceFile.data ? 'url(' + model.referenceFile.data + ')' : '#b09c6c'}">
+  <div class="quotation-instructions__input-file-container cover ${model.referenceFile.data ? '' : 'no-file'}" css="background-image: ${model.referenceFile.data ? 'url(' + model.referenceFile.data + ')' : ''}">
     <div class="quotation-instructions__input-file vertical-center">
       <div>
         <img src="src/assets/images/icons/np-upload-file.svg" alt="Icon">

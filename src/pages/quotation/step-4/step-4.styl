@@ -8,13 +8,20 @@
   margin-top 70px
   width 345px
 
+  &.no-file
+    background-color $dustColor
+    background-image none
+
+    .quotation-instructions__input-file
+      background rgba($dustColor, 60%)
+
 .quotation-instructions__main-icon
   margin-bottom 38.6px
   margin-top 63px
   width 47.2px
 
 .quotation-instructions__input-file
-  background rgba($dustColor, 60%)
+  background rgba(black, 60%)
   color white
   height 100%
   width 100%
@@ -45,8 +52,10 @@
   font-size 16px
   letter-spacing 0.1px
   display block
+  color white
+  text-align left
 
 .quotation-instructions__file-note
   margin-top 19px
   center-block()
-  width 291px
+  width 345px
