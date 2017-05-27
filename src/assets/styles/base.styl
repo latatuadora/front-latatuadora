@@ -189,6 +189,22 @@ textarea
   color white
   font-family 'Lato'
 
+.scrollable
+  overflow-x hidden
+  overflow-y auto
+
+  &::-webkit-scrollbar
+    width 9px
+
+  &::-webkit-scrollbar-track
+    background transparent
+
+  &::-webkit-scrollbar-thumb
+    background #a0a0a0
+
+    &:window-inactive
+    	background #d8d8d8
+
 @media screen and (max-width: 767px)
   .noUi-horizontal .noUi-handle
     height 17.6px

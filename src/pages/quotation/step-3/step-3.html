@@ -6,8 +6,8 @@
   </h2>
   <div class="quotation-step-3__content">
     <div class="quotation-step-3__parts">
-      <div class="quotation-step-3__parts-list">
-        <div repeat.for="part of bodyParts[activeType]" click.delegate="selectPart(activeType, part.id, part.image)">${part.name}</div>
+      <div class="quotation-step-3__parts-list scrollable">
+        <div class="quotation-step-3__parts-item ${part.id == model.bodyPart.id ? 'active' : ''}" repeat.for="part of bodyParts[activeType]" click.delegate="selectPart(activeType, part.id, part.image)">${part.name}</div>
       </div>
     </div>
     <div class="quotation-step-3__types">
