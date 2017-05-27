@@ -12,14 +12,18 @@
     </div>
     <div class="quotation-step-3__types">
       <div class="quotation-step-3__types-titles">
-        <h3 class="quotation-instructions quotation-step-3__type-title" click.delegate="changeType('front')">Frente</h3>
-        <h3 class="quotation-instructions quotation-step-3__type-title" click.delegate="changeType('back')">Vuelta</h3>
+        <div class="quotation-step-3__type-title-container">
+          <h3 class="quotation-instructions quotation-step-3__type-title ${activeType == 'front' ? 'active' : ''}" click.delegate="changeType('front')">Frente</h3>
+        </div>
+        <div class="quotation-step-3__type-title-container">
+          <h3 class="quotation-instructions quotation-step-3__type-title ${activeType == 'back' ? 'active' : ''}" click.delegate="changeType('back')">Vuelta</h3>
+        </div>
       </div>
       <div class="quotation-step-3__types-images">
-        <div class="quotation-step-3__type-front">
+        <div class="quotation-step-3__type quotation-step-3__type-front">
           <img src.bind="activeType == 'front' ? images.front : defaultImage" alt="Frente" />
         </div>
-        <div class="quotation-step-3__type-back">
+        <div class="quotation-step-3__type quotation-step-3__type-back">
           <img src.bind="activeType == 'back' ? images.back : defaultImage" alt="Vuelta" />
         </div>
       </div>
