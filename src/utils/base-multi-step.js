@@ -38,7 +38,7 @@ export class BaseMultiStep {
   }
 
   complete() {
-    if (!this.isValidView()) return false;
+    return this.isValidView();
   }
 
   update() {
