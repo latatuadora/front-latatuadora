@@ -19,13 +19,16 @@ export class Quotation extends BaseMultiStep {
       width: 10,
       artist: null,
       style: null,
-      bodyPart: null,
+      bodyPart: {type: '', id: -1},
       referenceFile: null,
       additionalComment: '',
       changeHeight: (height) => {this.shared.height = height;},
       changeWidth: (width) => {this.shared.width = width;},
       changeStyle: (style) => {this.shared.style = style;},
-      changePart: (part) => {this.shared.bodyPart = part;},
+      changePart: (type, id) => {
+        this.shared.bodyPart.type = type;
+        this.shared.bodyPart.id = id;
+      },
       changeFile: (file, data) => {
         this.shared.referenceFile = {
           file: file,
