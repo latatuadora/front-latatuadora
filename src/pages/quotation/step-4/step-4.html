@@ -15,12 +15,12 @@
     </div>
   </div>
   <span class="quotation-instructions__input-note quotation-instructions__file-note">* Este campo es opcional</span>
-  <img src="src/assets/images/icons/comment.svg" alt="Icon">
+  <img class="quotation-instructions__comment-icon" src="src/assets/images/icons/comment.svg" alt="Icon">
   <h2 class="quotation-instructions quotation-instructions--step-4-comment">
     <span class="golden-text">Comentarios</span> adicionales
   </h2>
   <div class="quotation-instructions__message-input-container">
-    <textarea class="quotation-instructions__message-input" value.bind="model.additionalComment & validate" maxlength="265" maxlength="265"></textarea>
+    <textarea class="quotation-instructions__message-input" value.bind="model.additionalComment & validate" maxlength="265" maxlength="265" placeholder="Escribe aquí"></textarea>
     <span class="quotation-instructions__input-note">* Este campo es opcional</span>
     <span class="quotation-instructions__input-error" repeat.for="errorInfo of additionalCommentErrors">
       ${errorInfo.error.message}
