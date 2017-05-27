@@ -7,20 +7,20 @@
   <div class="quotation-step-3__content">
     <div class="quotation-step-3__parts">
       <div class="quotation-step-3__parts-list">
-        <div repeat.for="part of bodyParts.front">${part.name}</div>
+        <div repeat.for="part of bodyParts[activeType]" click.delegate="selectPart(activeType, part.id, part.image)">${part.name}</div>
       </div>
     </div>
     <div class="quotation-step-3__types">
       <div class="quotation-step-3__types-titles">
-        <h3 class="quotation-instructions quotation-step-3__type-title">Frente</h3>
-        <h3 class="quotation-instructions quotation-step-3__type-title">Vuelta</h3>
+        <h3 class="quotation-instructions quotation-step-3__type-title" click.delegate="changeType('front')">Frente</h3>
+        <h3 class="quotation-instructions quotation-step-3__type-title" click.delegate="changeType('back')">Vuelta</h3>
       </div>
       <div class="quotation-step-3__types-images">
         <div class="quotation-step-3__type-front">
-          <img src.bind="activeType == 'front' ? selectedImage : defaultImage" alt="Frente" />
+          <img src.bind="activeType == 'front' ? images.front : defaultImage" alt="Frente" />
         </div>
         <div class="quotation-step-3__type-back">
-          <img src.bind="activeType == 'back' ? selectedImage : defaultImage" alt="Vuelta" />
+          <img src.bind="activeType == 'back' ? images.back : defaultImage" alt="Vuelta" />
         </div>
       </div>
     </div>
