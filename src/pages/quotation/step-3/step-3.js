@@ -25,6 +25,7 @@ export class Step3 {
 
   selectPart(type, id, image) {
     this.images[type] = image;
+    this.images[type == 'front' ? 'back' : 'front'] = this.defaultImage;
     this.model.changePart(type, id, image);
   }
 
@@ -40,6 +41,6 @@ export class Step3 {
   }
 
   isValid() {
-    return this.model.bodyPart.type != '' && this.model.bodyPart.id != -1;
+    return this.images[this.activeType] != this.defaultImage;
   }
 }
