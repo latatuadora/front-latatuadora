@@ -7,10 +7,12 @@ export class Step3 {
     this.api = api;
     this.bodyParts = {};
     this.activeType = 'front';
+    this.defaultImage = 'src/assets/images/etc/bodypart-noselection.png';
   }
 
   activate(model) {
     this.model = model;
+    this.selectedImage = model.bodyPart.image ? model.bodyPart.image : this.defaultImage;
     this.getBodyParts();
   }
 

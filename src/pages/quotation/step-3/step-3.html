@@ -17,10 +17,10 @@
       </div>
       <div class="quotation-step-3__types-images">
         <div class="quotation-step-3__type-front">
-          <img src="src/assets/images/etc/bodypart-noselection.png" alt="Frente" />
+          <img src.bind="activeType == 'front' ? selectedImage : defaultImage" alt="Frente" />
         </div>
         <div class="quotation-step-3__type-back">
-          <img src="src/assets/images/etc/bodypart-noselection.png" alt="Vuelta" />
+          <img src.bind="activeType == 'back' ? selectedImage : defaultImage" alt="Vuelta" />
         </div>
       </div>
     </div>
