@@ -6,12 +6,16 @@ export class Step3 {
   constructor(api) {
     this.api = api;
     this.bodyParts = {};
+    this.activeType = 'front';
   }
 
   activate(model) {
     this.model = model;
-    this.selectedId = model.bodyPart;
     this.getBodyParts();
+  }
+
+  changeType(type) {
+    this.activeType = type;
   }
 
   getBodyParts() {
