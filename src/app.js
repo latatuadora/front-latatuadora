@@ -56,7 +56,7 @@ export class App {
         nav: false
       },
       {
-        route: 'cotiza/results',
+        route: 'cotiza/resultados',
         name: 'quotation_results',
         moduleId: 'pages/quotation-results/quotation-results',
         title: 'Resultados de tu cotización',
