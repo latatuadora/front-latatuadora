@@ -7,7 +7,6 @@ export class Step5 {
   constructor(controller, validator) {
     this.controller = controller;
     this.validator = validator;
-    this.controller.validateTrigger = validateTrigger.changeOrBlur;
   }
 
   activate(model) {
@@ -15,6 +14,8 @@ export class Step5 {
 
     ValidationRules
       .ensure('email')
+        .required()
+        .withMessage('Introduce tu dirección de correo electrónico')
         .email()
         .withMessage('Debes introducir una dirección de correo válida')
       .ensure('name')
@@ -25,6 +26,8 @@ export class Step5 {
         .withMessage('Introduce tu número de teléfono')
         .matches(/^\d+$/)
         .withMessage('Introduce un número válido')
+        .minLength(7)
+        .withMessage('El número es demasiado corto')
       .ensure('city')
         .required()
         .withMessage('Introduce tu ciudad')
