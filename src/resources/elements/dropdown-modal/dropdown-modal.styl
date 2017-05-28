@@ -1,6 +1,13 @@
 @import '../../../assets/styles/vars'
 @import '../../../assets/styles/mixins'
 
+.dropdown-modal--wrapper
+  &.visible
+    visibility visible
+
+  &.hidden
+    visibility hidden
+
 .dropdown-modal--layer
   background rgba(white, 0.56)
   position fixed
