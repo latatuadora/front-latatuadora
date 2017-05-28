@@ -6,6 +6,7 @@
     Selecciona la <span class="golden-text">parte del cuerpo</span> en la que te gustaría tatuarte
   </h2>
   <div class="quotation-step-3__content">
+    <button class="site-button quotation-step-3__toggle-button" ref="toggleButton" click.delegate="toggleList()">Parte del cuerpo</button>
     <div class="quotation-step-3__parts quotation-step-3__parts--block">
       <div class="quotation-step-3__parts-list scrollable" ref="bodyPartsDiv">
         <div class="quotation-step-3__parts-item ${part.id == model.bodyPart.id ? 'active' : ''}" repeat.for="part of bodyParts[activeType]" click.delegate="selectPart(part)">${part.name}</div>
@@ -30,5 +31,5 @@
       </div>
     </div>
   </div>
-  <dropdown-modal active-id.bind="model.bodyPart.id" list.bind="bodyParts[activeType]" item-name="name" on-click.bind="selectPart"></dropdown-modal>
+  <dropdown-modal active-id.bind="model.bodyPart.id" list.bind="bodyParts[activeType]" item-name="name" on-click.bind="selectPart" ref-element.bind="toggleButton" show.bind="showModal" close.call="toggleList()" top-reference=".site-navbar"></dropdown-modal>
 </template>
