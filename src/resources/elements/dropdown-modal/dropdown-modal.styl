@@ -1,0 +1,27 @@
+@import '../../../assets/styles/vars'
+@import '../../../assets/styles/mixins'
+
+.dropdown-modal
+  background white
+  color #a3a3a3
+  width 320px
+  height auto
+  max-height 198px
+  column-count 3
+  padding 11.5px 20px
+
+.dropdown-modal__item
+  border-radius 62px
+  cursor pointer
+  background transparent
+  font-size 17px
+  padding 0.3em 0.6em
+  letter-spacing -0.3px
+  display inline-block
+  min-width 80px
+  text-align center
+  margin 12.5px 0
+
+  &.active, &:hover
+    background $dustColor
+    color white

@@ -1,5 +1,6 @@
 <template>
-  <div>
-    <div repeat.for="item of list" click.delegate="onClick(item)">${item[itemName]}</div>
+  <require from="./dropdown-modal.css"></require>
+  <div class="dropdown-modal scrollable">
+    <div class="dropdown-modal__item ${activeId == item.id ? 'active' : ''}" repeat.for="item of list" click.delegate="onClick(item)">${item[itemName]}</div>
   </div>
 </template>
