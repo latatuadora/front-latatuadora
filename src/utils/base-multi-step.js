@@ -37,6 +37,10 @@ export class BaseMultiStep {
     this.update();
   }
 
+  complete() {
+    return this.isValidView();
+  }
+
   update() {
     this.setButtons();
     this.setViewModel();

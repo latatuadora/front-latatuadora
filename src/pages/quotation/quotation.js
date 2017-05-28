@@ -9,17 +9,28 @@ export class Quotation extends BaseMultiStep {
     this.router = router;
     this.completeDestination = '';
     this.viewModels = [
-      'pages/quotation/step-1',
-      'pages/quotation/step-2'
+      'pages/quotation/step-1/step-1',
+      'pages/quotation/step-2/step-2',
+      'pages/quotation/step-3/step-3',
+      'pages/quotation/step-4/step-4'
     ];
     this.shared = {
       height: 10,
       width: 10,
       artist: null,
       style: null,
+      referenceFile: null,
+      additionalComment: '',
       changeHeight: (height) => {this.shared.height = height;},
       changeWidth: (width) => {this.shared.width = width;},
-      changeStyle: (style) => {this.shared.style = style;}
+      changeStyle: (style) => {this.shared.style = style;},
+      changeFile: (file, data) => {
+        this.shared.referenceFile = {
+          file: file,
+          data: data
+        }
+      },
+      changeComment: (comment) => {this.shared.additionalComment = comment;}
     }
   }
 
@@ -27,12 +38,15 @@ export class Quotation extends BaseMultiStep {
   }
 
   complete() {
-    for (let i = 0; i < this.router.routes.length; i++) {
-      if (this.router.routes[i].name == this.completeDestination) {
-        this.router.routes[i].settings.resultsModel = this.resultsModel;
-        break;
+    let valid = super.complete();
+    if (valid) {
+      for (let i = 0; i < this.router.routes.length; i++) {
+        if (this.router.routes[i].name == this.completeDestination) {
+          this.router.routes[i].settings.resultsModel = this.resultsModel;
+          break;
+        }
       }
+      this.router.navigateToRoute(this.completeDestination);
     }
-    this.router.navigateToRoute(this.completeDestination);
   }
 }
