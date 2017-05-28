@@ -3,15 +3,12 @@ import {Validator, ValidationRules, ValidationController, validateTrigger} from 
 
 @inject(NewInstance.of(ValidationController), Validator)
 export class Step4 {
-  self = {};
-
   constructor(controller, validator) {
     this.controller = controller;
     this.validator = validator;
     this.controller.validateTrigger = validateTrigger.changeOrBlur;
     this.maxFileSize = 5 * 1024 * 1024;
     this.fileValidations = [true, true];
-    self = this;
   }
 
   activate(model) {
@@ -24,12 +21,17 @@ export class Step4 {
       .on(this.model);
   }
 
-  onLoaded(file, data) {
-    self.model.changeFile(file, data);
+  onLoaded = (file, data) => {
+    this.model.changeFile(file, data);
+    this.fileValidations = [true, true];
   }
 
-  onError(file, error) {
-    console.log(error);
+  onError = (file, error) => {
+    if (error == 'File type does not match filter') {
+      this.fileValidations[0] = false;
+    } else {
+      this.fileValidations[1] = false;
+    }
   }
 
   isValid() {
