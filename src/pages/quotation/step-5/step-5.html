@@ -5,21 +5,41 @@
     Ingresa tus <span class="golden-text">datos personales</span>
   </h2>
   <div class="quotation-step-5__inputs-section">
-    <div class="quotation-step-5__input-row">
+    <div class="quotation-step-5__input-row" validation-errors.bind="nameErrors">
       <img src="/src/assets/images/icons/tag.svg" alt="Name" class="quotation-step-5__input-icon">
-      <input type="text" class="quotation-step-5__input" placeholder="Nombre">
+      <input value.bind="model.userData.name & validate" type="text" class="quotation-step-5__input" placeholder="Nombre">
+      <div class="quotation-step-5__errors">
+        <div class="quotation-step-5__input-error" repeat.for="errorInfo of nameErrors">
+          ${errorInfo.error.message}
+        </div>
+      </div>
     </div>
-    <div class="quotation-step-5__input-row">
+    <div class="quotation-step-5__input-row" validation-errors.bind="emailErrors">
       <img src="/src/assets/images/icons/mail.svg" alt="Mail" class="quotation-step-5__input-icon">
-      <input type="email" class="quotation-step-5__input" placeholder="Correo">
+      <input value.bind="model.userData.email & validate" type="email" class="quotation-step-5__input" placeholder="Correo">
+      <div class="quotation-step-5__errors">
+        <div class="quotation-step-5__input-error" repeat.for="errorInfo of emailErrors">
+          ${errorInfo.error.message}
+        </div>
+      </div>
     </div>
-    <div class="quotation-step-5__input-row">
+    <div class="quotation-step-5__input-row" validation-errors.bind="phoneErrors">
       <img src="/src/assets/images/icons/phone.svg" alt="Phone" class="quotation-step-5__input-icon">
-      <input type="phone" class="quotation-step-5__input" placeholder="Teléfono">
+      <input value.bind="model.userData.phone & validate" type="phone" class="quotation-step-5__input" placeholder="Teléfono">
+      <div class="quotation-step-5__errors">
+        <div class="quotation-step-5__input-error" repeat.for="errorInfo of phoneErrors">
+          ${errorInfo.error.message}
+        </div>
+      </div>
     </div>
-    <div class="quotation-step-5__input-row">
+    <div class="quotation-step-5__input-row" validation-errors.bind="cityErrors">
       <img src="/src/assets/images/icons/leaf.svg" alt="City" class="quotation-step-5__input-icon">
-      <input type="text" class="quotation-step-5__input" placeholder="Ciudad">
+      <input value.bind="model.userData.city & validate" type="text" class="quotation-step-5__input" placeholder="Ciudad">
+      <div class="quotation-step-5__errors">
+        <div class="quotation-step-5__input-error" repeat.for="errorInfo of cityErrors">
+          ${errorInfo.error.message}
+        </div>
+      </div>
     </div>
   </div>
 </template>
