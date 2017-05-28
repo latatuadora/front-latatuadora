@@ -23,10 +23,11 @@ export class Step3 {
     this.getBodyParts();
   }
 
-  selectPart(type, id, image) {
-    this.images[type] = image;
-    this.images[type == 'front' ? 'back' : 'front'] = this.defaultImage;
-    this.model.changePart(type, id, image);
+  selectPart = (part) => {
+    console.log(part);
+    this.images[this.activeType] = part.image;
+    this.images[this.activeType == 'front' ? 'back' : 'front'] = this.defaultImage;
+    this.model.changePart(this.activeType, part.id, part.image);
   }
 
   toggleType(sourceType) {

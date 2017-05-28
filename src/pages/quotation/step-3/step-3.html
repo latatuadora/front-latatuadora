@@ -1,13 +1,14 @@
 <template>
   <require from="./step-3.css"></require>
+  <require from="../../../resources/elements/dropdown-modal/dropdown-modal"></require>
   <img class="quotation-step-3__icon" src="src/assets/images/icons/tattoos-gallery-icon.svg" alt="Icon">
   <h2 class="quotation-instructions quotation-instructions--step-3-main">
     Selecciona la <span class="golden-text">parte del cuerpo</span> en la que te gustaría tatuarte
   </h2>
   <div class="quotation-step-3__content">
-    <div class="quotation-step-3__parts">
-      <div class="quotation-step-3__parts-list scrollable">
-        <div class="quotation-step-3__parts-item ${part.id == model.bodyPart.id ? 'active' : ''}" repeat.for="part of bodyParts[activeType]" click.delegate="selectPart(activeType, part.id, part.image)">${part.name}</div>
+    <div class="quotation-step-3__parts quotation-step-3__parts--block">
+      <div class="quotation-step-3__parts-list scrollable" ref="bodyPartsDiv">
+        <div class="quotation-step-3__parts-item ${part.id == model.bodyPart.id ? 'active' : ''}" repeat.for="part of bodyParts[activeType]" click.delegate="selectPart(part)">${part.name}</div>
       </div>
     </div>
     <div class="quotation-step-3__types">
