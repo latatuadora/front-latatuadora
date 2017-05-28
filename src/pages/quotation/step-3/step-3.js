@@ -26,7 +26,6 @@ export class Step3 {
   }
 
   selectPart = (part) => {
-    console.log(part);
     this.images[this.activeType] = part.image;
     this.images[this.activeType == 'front' ? 'back' : 'front'] = this.defaultImage;
     this.model.changePart(this.activeType, part.id, part.image);
