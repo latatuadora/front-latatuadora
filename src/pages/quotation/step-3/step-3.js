@@ -20,7 +20,6 @@ export class Step3 {
       this.activeType = model.bodyPart.type;
       this.images[model.bodyPart.type] = model.bodyPart.image;
     }
-    console.log(this.selected);
     this.getBodyParts();
   }
 
