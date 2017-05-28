@@ -22,11 +22,11 @@
         </div>
       </div>
       <div class="quotation-step-3__types-images">
-        <div class="quotation-step-3__type quotation-step-3__type-front">
-          <img class="${activeType == 'front' ? 'active' : ''}" click.delegate="toggleType('image')" src.bind="activeType == 'front' ? images.front : defaultImage" alt="Frente" />
+        <div class="quotation-step-3__type ${activeType == 'front' ? 'active' : ''}">
+          <img click.delegate="toggleType('image')" src.bind="activeType == 'front' ? images.front : defaultImage" alt="Frente" />
         </div>
-        <div class="quotation-step-3__type quotation-step-3__type-back">
-          <img class="${activeType == 'back' ? 'active' : ''}" click.delegate="toggleType('image')" src.bind="activeType == 'back' ? images.back : defaultImage" alt="Vuelta" />
+        <div class="quotation-step-3__type ${activeType == 'back' ? 'active' : ''}">
+          <img click.delegate="toggleType('image')" src.bind="activeType == 'back' ? images.back : defaultImage" alt="Vuelta" />
         </div>
       </div>
     </div>
