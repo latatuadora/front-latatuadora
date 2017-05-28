@@ -31,5 +31,5 @@
       </div>
     </div>
   </div>
-  <dropdown-modal active-id.bind="model.bodyPart.id" list.bind="bodyParts[activeType]" item-name="name" on-click.bind="selectPart" ref-element.bind="toggleButton" show.bind="showModal" close.call="toggleList()" top-reference=".site-navbar"></dropdown-modal>
+  <dropdown-modal active-id.bind="model.bodyPart.id" list.bind="bodyParts[activeType]" item-name="name" on-click.bind="selectPart" ref-element.bind="toggleButton" show.bind="showModal" show-dropdown.bind="showModal" close.call="toggleList()" top-reference=".site-navbar"></dropdown-modal>
 </template>
