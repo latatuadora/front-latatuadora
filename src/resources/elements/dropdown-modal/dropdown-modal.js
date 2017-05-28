@@ -51,8 +51,8 @@ export class DropdownModal {
     if (this.showDropdown) {
       if (adjustTop) {
         let topLimit = document.querySelector(this.topReference).offsetHeight;
-        if (clientRect.top + clientRect.height > topLimit) {
-          this.elementsList.style.top = clientRect.top + clientRect.height + 'px';
+        if (9 + clientRect.top + clientRect.height > topLimit) {
+          this.elementsList.style.top = 9 + clientRect.top + clientRect.height + 'px';
         } else {
           this.elementsList.style.top = topLimit + 'px';
         }
