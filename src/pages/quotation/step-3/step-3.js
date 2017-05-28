@@ -6,12 +6,17 @@ export class Step3 {
   constructor(api) {
     this.api = api;
     this.bodyParts = {};
+    this.showModal = true;
     this.activeType = 'front';
     this.defaultImage = 'src/assets/images/etc/bodypart-noselection.png';
     this.images = {
       front: this.defaultImage,
       back: this.defaultImage
     };
+  }
+
+  toggleList() {
+    this.showModal = !this.showModal;
   }
 
   activate(model) {
