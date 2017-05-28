@@ -1,3 +1,53 @@
 <template>
   <require from="./quotation-results.css"></require>
+  <require from="../quotation/quotation.css"></require>
+  <require from="../../resources/attributes/tooltip-message"></require>
+  <require from="../../resources/value-converters/currency"></require>
+  <div class="quotation-container cover">
+    <div if.one-time="results.artist" class="quotation-results--artist">
+      <h1 class="quotation-title quotation-results__title">
+        Gracias por cotizar con <span class="golden-text">${results.artist.name}</span>
+      </h1>
+      <div class="quotation-instructions">¡Listo!</div>
+      <img src="src/assets/images/icons/check-nocircle.svg" class="quotation-results__main-icon" alt="Icon">
+      <h2 class="quotation-instructions quotation-results__artist-range">
+        El estudio te contactará lo más pronto posible.
+      </h2>
+    </div>
+    <div if.one-time="!results.artist" class="quotation-results--no-artist">
+      <h1 class="quotation-title quotation-results__title">
+        Gracias por cotizar con nosotros
+      </h1>
+      <img src="src/assets/images/icons/check-nocircle.svg" class="quotation-results__main-icon" alt="Icon">
+      <h2 class="quotation-instructions quotation-results__price-range-title">
+        <i class="fa fa-info at-left" title="Con base en tus ideas de tatuaje, vas a recibir un correo electrónico con el estudio especializado en el estilo que buscas" tooltip-message></i>
+        ¡Listo! tu <span class="golden-text">tatuaje</span> está entre:
+      </h2>
+      <div class="quotation-results__range">
+        <div class="quotation-results__range-item">${results.minAmount | currency: 'mxn'}</div>
+        <img src="src/assets/images/icons/fork.svg" alt="Results">
+        <div class="quotation-results__range-item">${results.maxAmount | currency: 'mxn'}</div>
+      </div>
+      <div class="quotation-instructions quotation-results__price-range-bottom">
+        Seleccionaremos <span class="golden-text">el mejor estudio</span> para que te contacte
+      </div>
+    </div>
+    <h2 class="quotation-title quotation-results__subtitle">
+      Flashes
+      <span if.one-time="results.artist">de <span class="golden-text">${results.artist.name}</span></span>
+    </h2>
+    <div class="quotation-instructions quotation-results__flashes-instructions">
+      Compra tu próximo diseño, pruébalo y agenda tu cita para tatuártelo de manera definitiva
+    </div>
+    <div class="quotation-results--gallery"></div>
+    <a route-href="flashes" class="site-button">Ver más diseños únicos</a>
+    <h2 class="quotation-title quotation-results__subtitle">Inspírate</h2>
+    <div class="quotation-instructions quotation-results__inspirate-instructions">
+      Sigue inspirándote en nuestra galería de tatuajes
+    </div>
+    <div class="quotation-results--gallery"></div>
+    <a route-href="inspirate" class="site-button">Inspírate</a>
+
+    <a href="#" class="site-button">Agendar cita</a>
+  </div>
 </template>
