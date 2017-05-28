@@ -20,6 +20,7 @@ export class Step3 {
       this.activeType = model.bodyPart.type;
       this.images[model.bodyPart.type] = model.bodyPart.image;
     }
+    console.log(this.selected);
     this.getBodyParts();
   }
 
@@ -29,8 +30,20 @@ export class Step3 {
     this.model.changePart(type, id, image);
   }
 
-  changeType(type) {
-    this.activeType = type;
+  toggleType(sourceType) {
+    let mobile = window.matchMedia('(max-width: 767px)');
+    let changeType = () => {
+      this.activeType = (this.activeType == 'front') ? 'back' : 'front';
+    }
+    if (mobile.matches) {
+      if (sourceType == 'image') {
+        changeType();
+      }
+    } else {
+      if (sourceType == 'title') {
+        changeType();
+      }
+    }
   }
 
   getBodyParts() {

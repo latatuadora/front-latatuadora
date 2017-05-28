@@ -13,18 +13,18 @@
     <div class="quotation-step-3__types">
       <div class="quotation-step-3__types-titles">
         <div class="quotation-step-3__type-title-container">
-          <h3 class="quotation-instructions quotation-step-3__type-title ${activeType == 'front' ? 'active' : ''}" click.delegate="changeType('front')">Frente</h3>
+          <h3 class="quotation-instructions quotation-step-3__type-title ${activeType == 'front' ? 'active' : ''}" click.delegate="toggleType('title')">Frente</h3>
         </div>
         <div class="quotation-step-3__type-title-container">
-          <h3 class="quotation-instructions quotation-step-3__type-title ${activeType == 'back' ? 'active' : ''}" click.delegate="changeType('back')">Vuelta</h3>
+          <h3 class="quotation-instructions quotation-step-3__type-title ${activeType == 'back' ? 'active' : ''}" click.delegate="toggleType('title')">Vuelta</h3>
         </div>
       </div>
       <div class="quotation-step-3__types-images">
         <div class="quotation-step-3__type quotation-step-3__type-front">
-          <img src.bind="activeType == 'front' ? images.front : defaultImage" alt="Frente" />
+          <img click.delegate="toggleType('image')" src.bind="activeType == 'front' ? images.front : defaultImage" alt="Frente" />
         </div>
         <div class="quotation-step-3__type quotation-step-3__type-back">
-          <img src.bind="activeType == 'back' ? images.back : defaultImage" alt="Vuelta" />
+          <img click.delegate="toggleType('image')" src.bind="activeType == 'back' ? images.back : defaultImage" alt="Vuelta" />
         </div>
       </div>
     </div>
