@@ -98,11 +98,18 @@
   .quotation-step-3__types
     margin-top 42px
 
-  .quotation-step-3__type-title:not(.active)
-    display none
+  .quotation-step-3__type-title
+    margin-bottom 36px
+
+    &:not(.active)
+      display none
 
   .quotation-step-3__type
     padding 0
 
     img
+      display none
       width 140px
+
+      &.active
+        display initial
