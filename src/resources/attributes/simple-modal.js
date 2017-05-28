@@ -5,6 +5,8 @@ import VanillaModal from 'vanilla-modal';
 export class SimpleModalCustomAttribute {
   @bindable show;
   @bindable containerId = 'modal';
+  @bindable extraClass = '';
+  @bindable showBelow = false;
 
   constructor(element) {
     this.element = element;
@@ -18,6 +20,7 @@ export class SimpleModalCustomAttribute {
 
     if (!exists) {
       modal.classList.add('modal');
+      modal.classList.add(this.extraClass);
       modal.id = this.containerId;
       modal.innerHTML = '<div class="modal-inner">' +
           '<div class="modal-content"></div>' +
