@@ -1,6 +1,6 @@
 <template>
-  <require from="./quotation-results.css"></require>
   <require from="../quotation/quotation.css"></require>
+  <require from="./quotation-results.css"></require>
   <require from="../../resources/attributes/tooltip-message"></require>
   <require from="../../resources/value-converters/currency"></require>
   <div class="quotation-container cover">
@@ -16,7 +16,7 @@
     </div>
     <div if.one-time="!results.artist" class="quotation-results--no-artist">
       <h1 class="quotation-title quotation-results__title">
-        Gracias por cotizar con nosotros
+        Gracias por <span class="golden-text">cotizar</span> con nosotros
       </h1>
       <img src="src/assets/images/icons/check-nocircle.svg" class="quotation-results__main-icon" alt="Icon">
       <h2 class="quotation-instructions quotation-results__price-range-title">
