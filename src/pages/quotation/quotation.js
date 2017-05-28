@@ -1,5 +1,5 @@
 import {inject} from 'aurelia-framework';
-import {Router, Redirect} from 'aurelia-router';
+import {Router} from 'aurelia-router';
 import {BaseMultiStep} from 'utils/base-multi-step';
 import {MockAPI} from 'utils/mock-api';
 
