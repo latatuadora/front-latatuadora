@@ -7,10 +7,10 @@ export class DropdownModal {
   @bindable itemName;
   @bindable activeId;
   @bindable refElement;
-  @bindable show;
-  @bindable showDropdown;
+  @bindable visible;
   @bindable close;
   @bindable topReference;
+  @bindable alwaysCentered = false;
 
   constructor(element) {
     this.element = element;
@@ -21,15 +21,6 @@ export class DropdownModal {
     window.addEventListener('scroll', this.onScroll);
     window.addEventListener('resize', this.onResize);
     this.adjustCoordinates(clientRect, true, true);
-  }
-
-  showDropdownChanged(newValue) {
-    if (newValue && this.elementsList.offsetWidth == 0) {
-      setTimeout(() => {
-        let clientRect = this.refElement.getBoundingClientRect();
-        this.adjustCoordinates(clientRect, true, true);
-      }, 10);
-    }
   }
 
   selectItem(item) {
@@ -48,24 +39,24 @@ export class DropdownModal {
   }
 
   adjustCoordinates(clientRect, adjustTop, adjustLeft) {
-    if (this.showDropdown) {
-      if (adjustTop) {
-        let topLimit = document.querySelector(this.topReference).offsetHeight;
-        if (9 + clientRect.top + clientRect.height > topLimit) {
-          this.elementsList.style.top = 9 + clientRect.top + clientRect.height + 'px';
-        } else {
-          this.elementsList.style.top = topLimit + 'px';
-        }
+    if (adjustTop) {
+      let topLimit = document.querySelector(this.topReference).offsetHeight;
+      if (9 + clientRect.top + clientRect.height > topLimit) {
+        this.elementsList.style.top = 9 + clientRect.top + clientRect.height + 'px';
+      } else {
+        this.elementsList.style.top = topLimit + 'px';
       }
-      if (adjustLeft) {
-        if (clientRect.left + this.elementsList.offsetWidth < window.innerWidth) {
-          this.elementsList.style.left = clientRect.left + 'px';
-        } else if (this.elementsList.offsetWidth < window.innerWidth){
-          let difference = window.innerWidth - this.elementsList.offsetWidth;
-          this.elementsList.style.left = (difference / 2) + 'px';
-        } else {
-          this.elementsList.style.left = '0px';
-        }
+    }
+    if (adjustLeft) {
+      let spaceAvailable = clientRect.left + this.elementsList.offsetWidth < window.innerWidth;
+      let center = this.elementsList.offsetWidth < window.innerWidth;
+      if (spaceAvailable && !this.alwaysCentered) {
+        this.elementsList.style.left = clientRect.left + 'px';
+      } else if (center || this.alwaysCentered){
+        let difference = window.innerWidth - this.elementsList.offsetWidth;
+        this.elementsList.style.left = (difference / 2) + 'px';
+      } else {
+        this.elementsList.style.left = '0px';
       }
     }
   }
