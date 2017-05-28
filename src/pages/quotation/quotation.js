@@ -9,7 +9,7 @@ export class Quotation extends BaseMultiStep {
     super();
     this.router = router;
     this.api = api;
-    this.completeDestination = '';
+    this.completeDestination = 'quotation_results';
     this.showLoader = false;
     this.viewModels = [
       'pages/quotation/step-1/step-1',
@@ -77,8 +77,8 @@ export class Quotation extends BaseMultiStep {
       if (route.name == this.completeDestination) {
         route.settings.resultsModel = {
           artist: this.shared.artist,
-          minAmount: response.min_amount,
-          maxAmount: response.max_amount
+          minAmount: results.min_amount,
+          maxAmount: results.max_amount
         };
         break;
       }
