@@ -2,11 +2,25 @@
 @import '../../../assets/styles/mixins'
 
 .dropdown-modal--wrapper
+  transition visibility 0.2s
+
   &.visible
     visibility visible
 
+    .dropdown-modal--layer
+      opacity 1
+
+    .dropdown-modal
+      transform scale(1)
+
   &.hidden
     visibility hidden
+
+    .dropdown-modal--layer
+      opacity 0
+
+    .dropdown-modal
+      transform scale(0)
 
 .dropdown-modal--layer
   background rgba(white, 0.56)
@@ -16,6 +30,7 @@
   height 100vh
   width 100vw
   z-index 30
+  transition opacity 0.2s
 
 .dropdown-modal
   background white
@@ -27,6 +42,7 @@
   padding 11.5px 20px
   position fixed
   z-index 31
+  transition transform 0.2s
 
 .dropdown-modal__item
   border-radius 62px
