@@ -12,7 +12,8 @@ export class Quotation extends BaseMultiStep {
       'pages/quotation/step-1/step-1',
       'pages/quotation/step-2/step-2',
       'pages/quotation/step-3/step-3',
-      'pages/quotation/step-4/step-4'
+      'pages/quotation/step-4/step-4',
+      'pages/quotation/step-5/step-5'
     ];
     this.shared = {
       height: 10,
@@ -22,6 +23,7 @@ export class Quotation extends BaseMultiStep {
       bodyPart: {type: '', id: -1, image: ''},
       referenceFile: null,
       additionalComment: '',
+      userData: {name: '', email: '', phone: '', city: ''},
       changeHeight: (height) => {this.shared.height = height;},
       changeWidth: (width) => {this.shared.width = width;},
       changeStyle: (style) => {this.shared.style = style;},
@@ -36,7 +38,8 @@ export class Quotation extends BaseMultiStep {
           data: data
         }
       },
-      changeComment: (comment) => {this.shared.additionalComment = comment;}
+      changeComment: (comment) => {this.shared.additionalComment = comment;},
+      changeUserData: (data) => {this.shared.userData = data;}
     }
   }
 
