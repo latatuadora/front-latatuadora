@@ -33,4 +33,11 @@ export class Step5 {
         .withMessage('Introduce tu ciudad')
       .on(this.model.userData);
   }
+
+  isValid() {
+    return this.controller.validate()
+      .then(errors => {
+        return errors.length == 0;
+      });
+  }
 }
