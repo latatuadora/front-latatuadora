@@ -282,7 +282,7 @@ export class MockAPI {
         resolve({
           min_amount: min,
           max_amount: max,
-          status: success
+          status: 'success'
         });
         this.isRequesting = false;
       }, latency);

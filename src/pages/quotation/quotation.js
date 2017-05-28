@@ -1,12 +1,14 @@
 import {inject} from 'aurelia-framework';
 import {Router, Redirect} from 'aurelia-router';
 import {BaseMultiStep} from 'utils/base-multi-step';
+import {MockAPI} from 'utils/mock-api';
 
-@inject(Router)
+@inject(Router, MockAPI)
 export class Quotation extends BaseMultiStep {
-  constructor(router) {
+  constructor(router, api) {
     super();
     this.router = router;
+    this.api = api;
     this.completeDestination = '';
     this.showLoader = false;
     this.viewModels = [
@@ -22,7 +24,7 @@ export class Quotation extends BaseMultiStep {
       artist: null,
       style: null,
       bodyPart: {type: '', id: -1, image: ''},
-      referenceFile: null,
+      referenceFile: {file: null, data: null},
       additionalComment: '',
       userData: {name: '', email: '', phone: '', city: ''},
       changeHeight: (height) => {this.shared.height = height;},
@@ -34,10 +36,8 @@ export class Quotation extends BaseMultiStep {
         this.shared.bodyPart.image = image;
       },
       changeFile: (file, data) => {
-        this.shared.referenceFile = {
-          file: file,
-          data: data
-        }
+        this.shared.referenceFile.file = file;
+        this.shared.referenceFile.data = data;
       },
       changeComment: (comment) => {this.shared.additionalComment = comment;}
     }
@@ -50,14 +50,39 @@ export class Quotation extends BaseMultiStep {
     super.complete()
       .then(valid => {
         if (valid) {
-          for (let route of this.router.routes) {
-            if (route.name == this.completeDestination) {
-              route.settings.resultsModel = this.shared;
-              break;
-            }
-          };
-          this.router.navigateToRoute(this.completeDestination);
+          this.showLoader = true;
+          this.postRequest();
         }
       });
+  }
+
+  postRequest() {
+    let request = {
+      body_part: this.shared.bodyPart.id,
+      style: this.shared.style,
+      dimensionX: this.shared.width,
+      dimensionY: this.shared.height,
+      user: this.shared.userData,
+      reference: this.shared.referenceFile.file,
+      studio: this.shared.artist ? this.shared.artist.id : null
+    };
+    this.api.postQuotationRequest(request)
+      .then(results => {
+        this.goToResults(results);
+      });
+  }
+
+  goToResults(results) {
+    for (let route of this.router.routes) {
+      if (route.name == this.completeDestination) {
+        route.settings.resultsModel = {
+          artist: this.shared.artist,
+          minAmount: response.min_amount,
+          maxAmount: response.max_amount
+        };
+        break;
+      }
+    };
+    this.router.navigateToRoute(this.completeDestination);
   }
 }
