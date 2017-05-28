@@ -36,8 +36,8 @@ export class Step5 {
 
   isValid() {
     return this.controller.validate()
-      .then(errors => {
-        return errors.length == 0;
+      .then(validation => {
+        return validation.valid;
       });
   }
 }
