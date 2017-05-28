@@ -13,10 +13,7 @@ export class Step3 {
       front: this.defaultImage,
       back: this.defaultImage
     };
-  }
-
-  toggleList() {
-    this.showModal = !this.showModal;
+    window.addEventListener('resize', this.onResize);
   }
 
   activate(model) {
@@ -56,6 +53,20 @@ export class Step3 {
       .then(data => {
         this.bodyParts = data;
       });
+  }
+
+  toggleList() {
+    this.showModal = !this.showModal;
+  }
+
+  onResize = () => {
+    if (!window.matchMedia('(max-width: 767px)').matches) {
+      this.showModal = false;
+    }
+  }
+
+  detached() {
+    window.removeEventListener('resize', this.onResize);
   }
 
   isValid() {
