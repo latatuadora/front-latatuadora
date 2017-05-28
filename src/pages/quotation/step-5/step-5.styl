@@ -15,6 +15,7 @@
   center-block()
 
 .quotation-step-5__input-row
+  flex-wrap wrap
   display flex
   margin-top 96px
   align-items center
@@ -32,9 +33,21 @@
   color #b8b8b8
   padding 0 7px 6px 7px
   margin-left 19px
-  flex-basis calc(100% - 54px)
+  flex-grow 1
+  max-width calc(100% - 54px)
   border none
   simple-border('bottom', 2px, #979797)
+
+.quotation-step-5__errors
+  flex-basis 100%
+  padding-left 54px
+  color white
+  font-size 15px
+  text-align left
+
+.quotation-step-5__input-error
+  width 100%
+  margin-top 4px
 
 @media screen and (max-width: 767px)
   .quotation-step-5__icon-main
