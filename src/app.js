@@ -54,6 +54,13 @@ export class App {
         moduleId: 'pages/quotation/quotation',
         title: 'Cotiza',
         nav: false
+      },
+      {
+        route: 'cotiza/results',
+        name: 'quotation_results',
+        moduleId: 'pages/quotation-results/quotation-results',
+        title: 'Resultados de tu cotización',
+        nav: false
       }
     ]);
   }
