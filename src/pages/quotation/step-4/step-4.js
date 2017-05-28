@@ -39,8 +39,6 @@ export class Step4 {
   }
 
   isValid() {
-    let messageValid = this.controller.results.length == 0;
-    let validFile = !this.fileErrors.type && !this.fileErrors.size;
-    return messageValid && validFile;
+    return this.controller.results.length == 0;
   }
 }
