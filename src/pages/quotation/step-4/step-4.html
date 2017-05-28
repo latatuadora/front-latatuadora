@@ -10,6 +10,8 @@
         <img src="src/assets/images/icons/np-upload-file.svg" alt="Icon">
         <span class="quotation-instructions__input-file-span">Arrastra tu archivo</span>
         <span class="site-button site-button--black">Sube tu archivo</span>
+        <span if.bind="fileErrors.type">El archivo seleccionado debe de ser una imagen</span>
+        <span if.bind="fileErrors.size">El archivo seleccionado debe pesar menos de 5MB</span>
         <input type="file" accept="image/*" files="on-loaded.bind: onLoaded; file-filter.bind: 'image.*'; on-error.bind: onError; max-file-size.bind: maxFileSize; allow-drop: true">
       </div>
     </div>

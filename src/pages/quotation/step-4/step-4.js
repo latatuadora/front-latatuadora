@@ -8,7 +8,10 @@ export class Step4 {
     this.validator = validator;
     this.controller.validateTrigger = validateTrigger.changeOrBlur;
     this.maxFileSize = 5 * 1024 * 1024;
-    this.fileValidations = [true, true];
+    this.fileErrors = {
+      type: false,
+      size: false
+    };
   }
 
   activate(model) {
@@ -23,20 +26,21 @@ export class Step4 {
 
   onLoaded = (file, data) => {
     this.model.changeFile(file, data);
-    this.fileValidations = [true, true];
+    this.fileErrors.type = false;
+    this.fileErrors.size = false;
   }
 
   onError = (file, error) => {
     if (error == 'File type does not match filter') {
-      this.fileValidations[0] = false;
+      this.fileErrors.type = true;
     } else {
-      this.fileValidations[1] = false;
+      this.fileErrors.size = true;
     }
   }
 
   isValid() {
     let messageValid = this.controller.results.length == 0;
-    let validFile = this.fileValidations[0] && this.fileValidations[1];
+    let validFile = !this.fileErrors.type && !this.fileErrors.size;
     return messageValid && validFile;
   }
 }
