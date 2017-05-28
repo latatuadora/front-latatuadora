@@ -47,15 +47,17 @@ export class Quotation extends BaseMultiStep {
   }
 
   complete() {
-    let valid = super.complete();
-    if (valid) {
-      for (let i = 0; i < this.router.routes.length; i++) {
-        if (this.router.routes[i].name == this.completeDestination) {
-          this.router.routes[i].settings.resultsModel = this.shared;
-          break;
+    super.complete()
+      .then(valid => {
+        if (valid) {
+          for (let route of this.router.routes) {
+            if (route.name == this.completeDestination) {
+              route.settings.resultsModel = this.shared;
+              break;
+            }
+          };
+          this.router.navigateToRoute(this.completeDestination);
         }
-      }
-      this.router.navigateToRoute(this.completeDestination);
-    }
+      });
   }
 }
