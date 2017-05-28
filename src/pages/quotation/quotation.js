@@ -38,8 +38,7 @@ export class Quotation extends BaseMultiStep {
           data: data
         }
       },
-      changeComment: (comment) => {this.shared.additionalComment = comment;},
-      changeUserData: (data) => {this.shared.userData = data;}
+      changeComment: (comment) => {this.shared.additionalComment = comment;}
     }
   }
 
