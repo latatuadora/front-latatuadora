@@ -118,6 +118,7 @@
           "numeral",
           "vanilla-modal",
           "nouislider",
+          "swiper",
           {
             "name": "tippy-js",
             "path": "../node_modules/tippy.js/dist",

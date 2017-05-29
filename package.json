@@ -20,6 +20,7 @@
     "nouislider": "^9.2.0",
     "numeral": "^2.0.6",
     "requirejs": "^2.3.2",
+    "swiper": "^3.4.2",
     "text": "github:requirejs/text#latest",
     "tippy.js": "^0.14.2",
     "vanilla-modal": "^1.6.4"
