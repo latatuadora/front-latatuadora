@@ -5,8 +5,94 @@
   text-align center
   padding 88px 0 53px 0
 
+.quotation-results--artist
+  .quotation-results__title
+    margin-bottom 45px
+
+  .quotation-results__main-icon
+    margin-bottom 16px
+
+.quotation-results--no-artist
+  .quotation-results__main-icon
+    margin-bottom 45px
+
 .quotation-results__title
   font-size 35px
   width 86%
   max-width 340px
   center-block()
+
+.quotation-results__main-icon
+  margin-top 39px
+  width 47px
+
+.quotation-results__range
+  display flex
+  align-items center
+  justify-content space-between
+  margin-top 69px
+  margin-bottom 94px
+  width 88%
+  max-width 768px
+  center-block()
+
+  img
+    flex-basis 63px
+
+.quotation-results__range-item
+  background $dustColor
+  color white
+  line-height 161px
+  font-size 37px
+  flex-basis 41%
+
+.quotation-results__price-range-bottom
+  width 303px
+  margin-bottom 69px
+  center-block()
+
+@media screen and (max-width:767px)
+  .quotation-results
+    padding-top 56px
+    padding-bottom 72px
+
+  .quotation-results--artist
+    .quotation-results__main-icon
+      margin-top 59px
+
+  .quotation-results--no-artist
+    .quotation-results__main-icon
+      margin-top 27px
+
+  .quotation-results__title
+    font-size 20px
+    max-width 190px
+
+  .quotation-results__price-range-title
+    font-size 18px
+
+  .quotation-results__range
+    margin-top 24px
+    flex-wrap wrap
+    margin-top 24px
+    justify-content center
+    margin-bottom 52px
+
+    img
+      flex-basis 49px
+      flex-basis 100%
+      margin-bottom 29px
+      order -1
+
+  .quotation-results__range-item
+    font-size 21px
+    line-height 77px
+    flex-basis auto
+    padding 0 6px
+    min-width 30%
+    margin 0 2.5%
+
+  .quotation-results__price-range-bottom
+    font-size 17px
+    margin-bottom 38px
+    width 238px
