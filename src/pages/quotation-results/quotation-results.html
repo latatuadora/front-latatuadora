@@ -33,7 +33,7 @@
         Seleccionaremos <span class="golden-text">el mejor estudio</span> para que te contacte
       </div>
     </div>
-    <h2 class="quotation-title quotation-results__subtitle">
+    <h2 class="quotation-title quotation-results__subtitle quotation-results__subtitle--flashes">
       Flashes
       <span if.one-time="results.artist">de <span class="golden-text">${results.artist.name}</span></span>
     </h2>
@@ -41,14 +41,14 @@
       Compra tu próximo diseño, pruébalo y agenda tu cita para tatuártelo de manera definitiva
     </div>
     <div class="quotation-results--gallery"></div>
-    <a route-href="flashes" class="site-button">Ver más diseños únicos</a>
-    <h2 class="quotation-title quotation-results__subtitle">Inspírate</h2>
+    <a route-href="flashes" class="site-button quotation-results__flashes-button">Ver más diseños únicos</a>
+    <h2 class="quotation-title quotation-results__subtitle quotation-results__subtitle--inspirate">Inspírate</h2>
     <div class="quotation-instructions quotation-results__inspirate-instructions">
       Sigue inspirándote en nuestra galería de tatuajes
     </div>
     <div class="quotation-results--gallery"></div>
-    <a route-href="inspirate" class="site-button">Inspírate</a>
+    <a route-href="inspirate" class="site-button quotation-results__inspirate-button">Inspírate</a>
 
-    <a href="#" class="site-button">Agendar cita</a>
+    <a href="#" class="site-button quotation-results__appointment-button">Agendar cita</a>
   </div>
 </template>
