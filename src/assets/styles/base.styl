@@ -215,6 +215,31 @@ textarea
   &::before
     border-right-color $dustColor
 
+.special-hr
+  background $dustColor
+  border none
+  height 1px
+  center-block()
+  position relative
+
+  &::before, &::after
+    content ' '
+    display block
+    border-radius 50%
+    background white
+    position absolute
+    top 0
+    height 7px
+    width 7px
+    transform translateY(-50%)
+    border 1px $dustColor solid
+
+  &::before
+    left 0
+
+  &::after
+    right 0
+
 @media screen and (max-width: 767px)
   .noUi-horizontal .noUi-handle
     height 17.6px
@@ -226,3 +251,8 @@ textarea
 
   .noUi-tooltip
     padding-bottom 8.5px
+
+  .special-hr
+    &::before, &::after
+      width 2.1px
+      height 2.1px
