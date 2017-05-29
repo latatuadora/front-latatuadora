@@ -19,4 +19,21 @@ export class QuotationResults {
       this.results = JSON.parse(localStorage.getItem('quotationResults'));
     }
   }
+
+  bind() {
+    this.swiperOptions = {
+      pagination: this.paginationElement,
+      centeredSlides: true,
+      spaceBetween: 30,
+      slidesPerView: 'auto',
+      loop: false,
+      paginationClickable: true,
+      breakpoints: {
+        909: {
+          loop: true,
+          spaceBetween: 17
+        }
+      }
+    };
+  }
 }
