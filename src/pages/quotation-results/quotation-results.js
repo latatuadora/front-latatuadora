@@ -8,6 +8,11 @@ export class QuotationResults {
     this.router = router;
     this.api = api;
     this.results = {};
+    this.tattoos = [];
+    this.flashes = [];
+    this.initSwiper = false;
+    this.getItems('tattoos');
+    this.getItems('flashes');
   }
 
   activate(params, routeConfig) {
@@ -24,9 +29,9 @@ export class QuotationResults {
     this.swiperOptions = {
       pagination: this.paginationElement,
       centeredSlides: true,
-      spaceBetween: 30,
       slidesPerView: 'auto',
       loop: false,
+      spaceBetween: 30,
       paginationClickable: true,
       breakpoints: {
         909: {
@@ -35,5 +40,17 @@ export class QuotationResults {
         }
       }
     };
+  }
+
+  getItems(type) {
+    let capitalized = type.charAt(0).toUpperCase() + type.slice(1);
+    let method = 'get' + capitalized;
+    this.api.getTattoos({artist: this.results.artist})
+      .then(items => {
+        this[type] = items;
+        if (this.flashes.length && this.tattoos.length) {
+          this.initSwiper = true;
+        }
+      });
   }
 }
