@@ -1,6 +1,24 @@
 @import '../../assets/styles/vars'
 @import '../../assets/styles/mixins'
 
+.quotation-results--gallery
+  width 100%
+  position relative
+
+@media screen and (min-width: 910px)
+  .quotation-results--gallery
+    .swiper-wrapper
+      width 832px
+      transform none !important
+      center-block()
+
+    .swiper-slide.hide-desktop
+      visibility hidden
+
+    .swiper-pagination
+      visibility hidden
+      transition visibility 0s
+
 .quotation-results
   text-align center
   padding 88px 0 53px 0
