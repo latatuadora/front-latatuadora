@@ -226,7 +226,6 @@ textarea
     content ' '
     display block
     border-radius 50%
-    background white
     position absolute
     top 0
     height 7px
@@ -235,10 +234,10 @@ textarea
     border 1px $dustColor solid
 
   &::before
-    left 0
+    left -7px
 
   &::after
-    right 0
+    right -7px
 
 @media screen and (max-width: 767px)
   .noUi-horizontal .noUi-handle
@@ -256,3 +255,9 @@ textarea
     &::before, &::after
       width 2.1px
       height 2.1px
+
+    &::before
+      left -2.1px
+
+    &::after
+      right -2.1px
