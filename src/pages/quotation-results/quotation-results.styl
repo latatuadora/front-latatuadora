@@ -5,6 +5,16 @@
   width 100%
   position relative
 
+  gallery-item
+    width auto
+
+  .tattoos-grid__element
+    width 257px !important
+
+    &:not(.flashes-grid__flash-element) .tattoos-grid__element-buttons
+      .site-button:first-child
+        display none
+
 @media screen and (min-width: 910px)
   .quotation-results--gallery
     .swiper-wrapper

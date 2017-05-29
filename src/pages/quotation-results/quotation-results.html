@@ -2,6 +2,8 @@
   <require from="../quotation/quotation.css"></require>
   <require from="./quotation-results.css"></require>
   <require from="../../resources/attributes/tooltip-message"></require>
+  <require from="../../resources/attributes/swiper-carousel"></require>
+  <require from="../../resources/elements/gallery-item/gallery-item"></require>
   <require from="../../resources/value-converters/currency"></require>
   <div class="quotation-container quotation-results cover">
     <div class="quotation-title quotation-title__responsive">Cotiza</div>
@@ -41,14 +43,24 @@
     <div class="quotation-instructions quotation-results__flashes-instructions">
       Compra tu próximo diseño, pruébalo y agenda tu cita para tatuártelo de manera definitiva
     </div>
-    <div class="quotation-results--gallery"></div>
+    <div class="quotation-results--gallery" swiper-carousel="options.one-time: swiperOptions; init.bind: initSwiper">
+      <div class="swiper-wrapper">
+        <gallery-item class="swiper-slide ${$index > 2 ? 'hide-desktop' : ''}" repeat.for="item of flashes" item.bind="item" type="flash"></gallery-item>
+      </div>
+      <div class="swiper-pagination"></div>
+    </div>
     <a route-href="flashes" class="site-button quotation-results__flashes-button">Ver más diseños únicos</a>
     <hr class="special-hr">
     <h2 class="quotation-title quotation-results__subtitle quotation-results__subtitle--inspirate">Inspírate</h2>
     <div class="quotation-instructions quotation-results__inspirate-instructions">
       Sigue inspirándote en nuestra galería de tatuajes
     </div>
-    <div class="quotation-results--gallery"></div>
+    <div class="quotation-results--gallery" swiper-carousel="options.one-time: swiperOptions; init.bind: initSwiper">
+      <div class="swiper-wrapper">
+        <gallery-item class="swiper-slide ${$index > 2 ? 'hide-desktop' : ''}" repeat.for="item of tattoos" item.bind="item"></gallery-item>
+      </div>
+      <div class="swiper-pagination"></div>
+    </div>
     <a route-href="inspirate" class="site-button quotation-results__inspirate-button">Inspírate</a>
     <hr class="special-hr">
     <a href="#" class="site-button quotation-results__appointment-button">Agendar cita</a>
