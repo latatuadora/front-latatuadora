@@ -18,6 +18,19 @@
   .tattoos-grid__element-thumbnail-img-wrapper
     height 237px
 
+  .swiper-pagination
+    bottom -35px
+
+  .swiper-pagination-bullet
+    background #e5e5e5
+    opacity 1
+    height 9px
+    width 9px
+    margin 0 2.5px !important
+
+  .swiper-pagination-bullet-active
+    background $dustColor
+
 .quotation-results
   text-align center
   padding 88px 0 53px 0
@@ -137,6 +150,10 @@
       height 204px
 
 @media screen and (max-width:767px)
+  .quotation-results--gallery
+    .swiper-pagination
+      bottom -20px
+
   .quotation-results
     padding-top 56px
     padding-bottom 72px
@@ -222,11 +239,11 @@
     margin-top 42px
 
   .quotation-results__flashes-button
-    margin-top 40px
+    margin-top 62px
     margin-bottom 52px
 
   .quotation-results__inspirate-button
-    margin-top 22px
+    margin-top 60px
     margin-bottom 44px
 
   .quotation-results__appointment-button
