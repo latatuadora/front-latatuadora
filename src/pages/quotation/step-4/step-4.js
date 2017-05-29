@@ -39,6 +39,6 @@ export class Step4 {
   }
 
   isValid() {
-    return this.controller.results.length == 0;
+    return this.controller.errors.length == 0;
   }
 }
