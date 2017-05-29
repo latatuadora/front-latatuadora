@@ -27,15 +27,14 @@ export class QuotationResults {
 
   bind() {
     this.swiperOptions = {
-      pagination: this.paginationElement,
+      pagination: '.swiper-pagination',
       centeredSlides: true,
       slidesPerView: 'auto',
-      loop: false,
+      loop: true,
       spaceBetween: 30,
       paginationClickable: true,
       breakpoints: {
         909: {
-          loop: true,
           spaceBetween: 17
         }
       }
