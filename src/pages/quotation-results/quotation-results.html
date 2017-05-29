@@ -45,7 +45,7 @@
     </div>
     <div class="quotation-results--gallery" swiper-carousel="options.one-time: swiperOptions; init.bind: initSwiper">
       <div class="swiper-wrapper">
-        <gallery-item class="swiper-slide ${$index > 2 ? 'hide-desktop' : ''}" repeat.for="item of flashes" item.bind="item" type="flash"></gallery-item>
+        <gallery-item class="swiper-slide ${$index > 2 ? 'hide-desktop' : ''}" repeat.for="item of flashes" item.bind="item" type="flash" original-size.one-time="false"></gallery-item>
       </div>
       <div class="swiper-pagination"></div>
     </div>
@@ -57,7 +57,7 @@
     </div>
     <div class="quotation-results--gallery" swiper-carousel="options.one-time: swiperOptions; init.bind: initSwiper">
       <div class="swiper-wrapper">
-        <gallery-item class="swiper-slide ${$index > 2 ? 'hide-desktop' : ''}" repeat.for="item of tattoos" item.bind="item"></gallery-item>
+        <gallery-item class="swiper-slide ${$index > 2 ? 'hide-desktop' : ''}" repeat.for="item of tattoos" item.bind="item" original-size.one-time="false"></gallery-item>
       </div>
       <div class="swiper-pagination"></div>
     </div>

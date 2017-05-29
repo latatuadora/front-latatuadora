@@ -5,4 +5,5 @@ export class GalleryItem {
   @bindable type = 'tattoo';
   @bindable vote;
   @bindable open;
+  @bindable originalSize = true;
 }
