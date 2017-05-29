@@ -10,5 +10,7 @@ export class SwiperCarouselCustomAttribute {
   }
 
   attached() {
+    this.swiper = new swiper(this.element, this.options);
+    this.swiper.slideTo((this.swiper.slides.length / 2));
   }
 }
