@@ -24,9 +24,9 @@
         ¡Listo! tu <span class="golden-text">tatuaje</span> está entre:
       </h2>
       <div class="quotation-results__range">
-        <div class="quotation-results__range-item">${results.minAmount | currency: 'mxn'}</div>
+        <div class="quotation-results__range-item">${results.minAmount | currency:'mxn':true}</div>
         <img src="src/assets/images/icons/fork.svg" alt="Results">
-        <div class="quotation-results__range-item">${results.maxAmount | currency: 'mxn'}</div>
+        <div class="quotation-results__range-item">${results.maxAmount | currency:'mxn':true}</div>
       </div>
       <div class="quotation-instructions quotation-results__price-range-bottom">
         Seleccionaremos <span class="golden-text">el mejor estudio</span> para que te contacte
