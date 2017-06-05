@@ -1,5 +1,72 @@
 let latency = 200;
 
+let bodyParts = {
+  front: [
+    {
+      id: 3,
+      name: 'Oreja',
+      image: '/src/assets/images/mock/bodypart3.png'
+    },
+    {
+      id: 4,
+      name: 'Manos',
+      image: '/src/assets/images/mock/bodypart4.png'
+    },
+    {
+      id: 5,
+      name: 'Pies',
+      image: '/src/assets/images/mock/bodypart5.png'
+    },
+    {
+      id: 6,
+      name: 'Muñeca',
+      image: '/src/assets/images/mock/bodypart6.png'
+    },
+    {
+      id: 8,
+      name: 'Rodilla',
+      image: '/src/assets/images/mock/bodypart8.png'
+    },
+    {
+      id: 10,
+      name: 'Pierna',
+      image: '/src/assets/images/mock/bodypart10.png'
+    },
+    {
+      id: 11,
+      name: 'Cuello',
+      image: '/src/assets/images/mock/bodypart11.png'
+    },
+    {
+      id: 12,
+      name: 'Dedos',
+      image: '/src/assets/images/mock/bodypart12.png'
+    }
+  ],
+  back: [
+    {
+      id: 1,
+      name: 'Espalda',
+      image: '/src/assets/images/mock/bodypart1.png'
+    },
+    {
+      id: 2,
+      name: 'Hombros',
+      image: '/src/assets/images/mock/bodypart2.png'
+    },
+    {
+      id: 7,
+      name: 'Pantorrilla',
+      image: '/src/assets/images/mock/bodypart7.png'
+    },
+    {
+      id: 9,
+      name: 'Brazos',
+      image: '/src/assets/images/mock/bodypart9.png'
+    }
+  ]
+}
+
 let tattoos = [
   {
     votes: 0,
@@ -204,6 +271,17 @@ let featuredArtists = [
 
 export class MockAPI {
   isRequesting = false;
+
+  getBodyParts() {
+    this.isRequesting = true;
+
+    return new Promise(resolve => {
+      setTimeout(() => {
+        resolve(bodyParts);
+        this.isRequesting = false;
+      });
+    }, latency);
+  }
 
   getStyles() {
     this.isRequesting = true;

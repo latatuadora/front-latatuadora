@@ -1,3 +1,37 @@
 <template>
   <require from="./step-3.css"></require>
+  <require from="../../../resources/elements/dropdown-modal/dropdown-modal"></require>
+  <require from="../../../resources/attributes/tooltip-message"></require>
+  <img class="quotation-step-3__icon" src="src/assets/images/icons/tattoos-gallery-icon.svg" alt="Icon">
+  <h2 class="quotation-instructions quotation-instructions--step-3-main">
+    Selecciona la <span class="golden-text">parte del cuerpo</span> en la que te gustaría tatuarte
+  </h2>
+  <div class="quotation-step-3__content">
+    <button class="site-button quotation-step-3__toggle-button" ref="toggleButton" click.delegate="toggleList()">Parte del cuerpo</button>
+    <div class="quotation-step-3__parts quotation-step-3__parts--block">
+      <div class="quotation-step-3__parts-list scrollable" ref="bodyPartsDiv">
+        <div class="quotation-step-3__parts-item ${part.id == model.bodyPart.id ? 'active' : ''}" repeat.for="part of bodyParts[activeType]" click.delegate="selectPart(part)">${part.name}</div>
+      </div>
+    </div>
+    <div class="quotation-step-3__types">
+      <div class="quotation-step-3__types-titles">
+        <div class="quotation-step-3__type-title-container">
+          <h3 class="quotation-instructions quotation-step-3__type-title ${activeType == 'front' ? 'active' : ''}" click.delegate="toggleType('title')">Frente</h3>
+        </div>
+        <div class="quotation-step-3__type-title-container">
+          <h3 class="quotation-instructions quotation-step-3__type-title ${activeType == 'back' ? 'active' : ''}" click.delegate="toggleType('title')">Vuelta</h3>
+        </div>
+        <i class="fa fa-info at-right" title="Da click sobre la siuleta para girar el cuerpo." tooltip-message></i>
+      </div>
+      <div class="quotation-step-3__types-images">
+        <div class="quotation-step-3__type ${activeType == 'front' ? 'active' : ''}">
+          <img click.delegate="toggleType('image')" src.bind="activeType == 'front' ? images.front : defaultImage" alt="Frente" />
+        </div>
+        <div class="quotation-step-3__type ${activeType == 'back' ? 'active' : ''}">
+          <img click.delegate="toggleType('image')" src.bind="activeType == 'back' ? images.back : defaultImage" alt="Vuelta" />
+        </div>
+      </div>
+    </div>
+  </div>
+  <dropdown-modal active-id.bind="model.bodyPart.id" list.bind="bodyParts[activeType]" item-name="name" on-click.bind="selectPart" ref-element.bind="toggleButton" visible.bind="showModal" close.call="toggleList()" top-reference=".site-navbar" always-centered.bind="true"></dropdown-modal>
 </template>

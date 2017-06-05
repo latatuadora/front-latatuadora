@@ -1,0 +1,61 @@
+@import '../../../assets/styles/vars'
+@import '../../../assets/styles/mixins'
+
+.dropdown-modal--wrapper
+  transition visibility 0.2s
+
+  &.visible
+    visibility visible
+
+    .dropdown-modal--layer
+      opacity 1
+
+    .dropdown-modal
+      transform scale(1)
+
+  &.hidden
+    visibility hidden
+
+    .dropdown-modal--layer
+      opacity 0
+
+    .dropdown-modal
+      transform scale(0)
+
+.dropdown-modal--layer
+  background rgba(white, 0.56)
+  position fixed
+  top 0
+  left 0
+  height 100vh
+  width 100vw
+  z-index 30
+  transition opacity 0.2s
+
+.dropdown-modal
+  background white
+  color #a3a3a3
+  width 320px
+  height auto
+  max-height 198px
+  column-count 3
+  padding 11.5px 20px
+  position fixed
+  z-index 31
+  transition transform 0.2s
+
+.dropdown-modal__item
+  border-radius 62px
+  cursor pointer
+  background transparent
+  font-size 17px
+  padding 0.3em 0.6em
+  letter-spacing -0.3px
+  display inline-block
+  min-width 80px
+  text-align center
+  margin 12.5px 0
+
+  &.active, &:hover
+    background $dustColor
+    color white
