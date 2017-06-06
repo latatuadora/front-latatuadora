@@ -58,13 +58,17 @@ export class Quotation extends BaseMultiStep {
 
   postRequest() {
     let request = {
-      body_part: this.shared.bodyPart.id,
+      bodyPart: this.shared.bodyPart.id,
       style: this.shared.style,
-      dimensionX: this.shared.width,
-      dimensionY: this.shared.height,
-      user: this.shared.userData,
+      dimensionsX: this.shared.width,
+      dimensionsY: this.shared.height,
+      name: this.shared.userData.name,
+      telephone: this.shared.userData.phone,
+      email: this.shared.userData.email,
+      city: this.shared.userData.city,
       reference: this.shared.referenceFile.file,
-      studio: this.shared.artist ? this.shared.artist.id : null
+      comments: this.shared.additionalComment,
+      studioId: this.shared.artist ? this.shared.artist.id : null
     };
     this.api.postQuotationRequest(request)
       .then(results => {
@@ -77,8 +81,8 @@ export class Quotation extends BaseMultiStep {
       if (route.name == this.completeDestination) {
         route.settings.resultsModel = {
           artist: this.shared.artist,
-          minAmount: results.min_amount,
-          maxAmount: results.max_amount
+          minAmount: results.minAmount,
+          maxAmount: results.maxAmount
         };
         break;
       }
