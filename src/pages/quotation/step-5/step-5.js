@@ -28,7 +28,7 @@ export class Step5 {
         .withMessage('Introduce un número válido')
         .minLength(8)
         .withMessage('El número es demasiado corto')
-        .minLength(10)
+        .maxLength(10)
         .withMessage('El número es demasiado largo')
       .ensure('city')
         .required()
