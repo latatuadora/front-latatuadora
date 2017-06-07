@@ -78,6 +78,7 @@ export class Quotation extends BaseMultiStep {
 
   goToResults(results) {
     let quotationResults = JSON.parse(results.response);
+    quotationResults.hasOwnProperty('message');
     for (let route of this.router.routes) {
       if (route.name == this.completeDestination) {
         route.settings.resultsModel = {
