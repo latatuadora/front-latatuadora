@@ -15,7 +15,7 @@ export class Step2 {
   }
 
   changeStyle(index) {
-    this.model.changeStyle(this.items[index].style_name);
+    this.model.changeStyle(this.items[index].style);
     this.activeIndex = index;
   }
 
@@ -23,7 +23,7 @@ export class Step2 {
     this.api.getStyles()
       .then((styles) => {
         styles.forEach((style, index) => {
-          if (this.model.style == style.style_name) {
+          if (this.model.style == style) {
             this.activeIndex = index;
           }
           this.items.push(style);
