@@ -88,6 +88,10 @@ let tattoos = [
     element_name: 'Brazo Robot',
     body_part_name: 'Oreja',
     style_name: 'Dark',
+    style: {
+      name: 'Trash Polka',
+      id: 6
+    },
     image: '/src/assets/images/mock/tattoo1.png'
   },
   {
@@ -110,6 +114,10 @@ let tattoos = [
     element_name: 'Brazo Robot',
     body_part_name: 'Pierna',
     style_name: 'Dark',
+    style: {
+      name: 'Geométrico',
+      id: 5
+    },
     image: '/src/assets/images/mock/tattoo2.png'
   },
   {
@@ -132,6 +140,10 @@ let tattoos = [
     element_name: 'Brazo Robot',
     body_part_name: 'Oreja',
     style_name: 'Dark',
+    style: {
+      name: 'Puntillismo',
+      id: 4
+    },
     image: '/src/assets/images/mock/tattoo3.png'
   },
   {
@@ -154,6 +166,10 @@ let tattoos = [
     element_name: 'Brazo Robot',
     body_part_name: 'Oreja',
     style_name: 'Dark',
+    style: {
+      name: 'Dark',
+      id: 2
+    },
     image: '/src/assets/images/mock/tattoo4.png'
   },
   {
@@ -176,6 +192,10 @@ let tattoos = [
     element_name: 'Brazo Robot',
     body_part_name: 'Oreja',
     style_name: 'Religioso',
+    style: {
+      name: 'Religioso',
+      id: 1
+    },
     image: '/src/assets/images/mock/tattoo5.png'
   },
   {
@@ -197,7 +217,11 @@ let tattoos = [
     slug: 'ab4Yc1',
     element_name: 'Brazo Robot',
     body_part_name: 'Oreja',
-    style_name: 'Religioso',
+    style: {
+      name: 'Old School',
+      id: 3
+    },
+    style_name: 'Old School -CCC',
     image: '/src/assets/images/mock/tattoo6.png'
   }
 ]
