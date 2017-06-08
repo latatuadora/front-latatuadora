@@ -30,11 +30,15 @@
   letter-spacing 0.1px
   font-size 17px
 
+  img
+    display block
+    center-block()
+
   .site-button
     padding 14px 20px
     text-transform none
     margin-top 33px
-    display block
+    display inline-block
 
   input
     cursor pointer
@@ -45,6 +49,13 @@
     position absolute
     top 0
     left 0
+
+.quotation-step-4__error
+  margin-top 15px
+  font-size 15px
+  display block
+  width 75%
+  center-block()
 
 .quotation-instructions__input-file-span
   display block
@@ -85,6 +96,13 @@
   padding 19px 24px
   width 100%
 
+.quotation-instructions__input-error
+  margin-top 8.5px
+  color white
+  display block
+  text-align left
+  font-size 14px
+
 @media (-moz-touch-enabled: 1), (pointer: coarse), (pointer: none)
   .quotation-instructions__input-file-span
     display none
@@ -97,7 +115,8 @@
     margin-top 46px
     margin-bottom 30px
 
-  .quotation-instructions
+  .quotation-instructions--step-4-main,
+  .quotation-instructions--step-4-comment
     font-size 18px
 
   .quotation-instructions__input-file-container

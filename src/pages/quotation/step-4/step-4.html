@@ -10,6 +10,8 @@
         <img src="src/assets/images/icons/np-upload-file.svg" alt="Icon">
         <span class="quotation-instructions__input-file-span">Arrastra tu archivo</span>
         <span class="site-button site-button--black">Sube tu archivo</span>
+        <span class="quotation-step-4__error" if.bind="fileErrors.type">El archivo seleccionado debe de ser una imagen</span>
+        <span class="quotation-step-4__error" if.bind="fileErrors.size">El archivo seleccionado debe pesar menos de 5MB</span>
         <input type="file" accept="image/*" files="on-loaded.bind: onLoaded; file-filter.bind: 'image.*'; on-error.bind: onError; max-file-size.bind: maxFileSize; allow-drop: true">
       </div>
     </div>
@@ -19,7 +21,7 @@
   <h2 class="quotation-instructions quotation-instructions--step-4-comment">
     <span class="golden-text">Comentarios</span> adicionales
   </h2>
-  <div class="quotation-instructions__message-input-container">
+  <div class="quotation-instructions__message-input-container" validation-errors.bind="additionalCommentErrors">
     <textarea class="quotation-instructions__message-input" value.bind="model.additionalComment & validate" maxlength="265" maxlength="265" placeholder="Escribe aquí"></textarea>
     <span class="quotation-instructions__input-note">* Este campo es opcional</span>
     <span class="quotation-instructions__input-error" repeat.for="errorInfo of additionalCommentErrors">
