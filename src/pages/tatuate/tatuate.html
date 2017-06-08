@@ -1,3 +1,40 @@
 <template>
   <require from="./tatuate.css"></require>
+  <h1 class="tatuate__title">Tatúate</h1>
+  <hr class="special-hr">
+  <div class="tatuate__items">
+    <div class="tatuate__item">
+      <h2 class="tatuate__subtitle">Inspírate</h2>
+      <div class="tatuate__item-image cover" style="background-image: url('src/assets/images/backgrounds/gettattoo-gallery.jpg')" data-number="1">
+        <img src="src/assets/images/icons/eye.svg" alt="Inspírate" />
+      </div>
+      <a class="inspirate__item-button site-button" route-href="route: inspirate">Inspírate</a>
+    </div>
+    <div class="tatuate__item">
+      <h2 class="tatuate__subtitle">Cotiza</h2>
+      <div class="tatuate__item-image cover" style="background-image: url('src/assets/images/backgrounds/gettattoo-quotation.jpg')" data-number="2">
+        <img src="src/assets/images/icons/document.svg" alt="Cotiza" />
+      </div>
+      <a class="inspirate__item-button site-button" route-href="route: quotation">Cotiza</a>
+    </div>
+    <div class="tatuate__item">
+      <h2 class="tatuate__subtitle">Flashes</h2>
+      <div class="tatuate__item-image cover" style="background-image: url('src/assets/images/backgrounds/gettattoo-flashes.jpg')" data-number="3">
+        <img src="src/assets/images/icons/bird.svg" alt="Flashes" />
+      </div>
+      <a class="inspirate__item-button site-button" route-href="route: flashes">Flashes</a>
+    </div>
+    <div class="tatuate__item">
+      <h2 class="tatuate__subtitle">Agenda</h2>
+      <div class="tatuate__item-image cover" style="background-image: url('src/assets/images/backgrounds/gettattoo-schedule.jpg')" data-number="4">
+        <img src="src/assets/images/icons/clock.svg" alt="Agenda" />
+      </div>
+      <a class="inspirate__item-button site-button" route-href="route: home">Agenda</a>
+    </div>
+  </div>
+  <hr class="special-hr">
+  <div class="tatuate__bottom">
+    ¿Es tu primer tatuaje?
+    <a class="tatuate__bottom-link" route-href="route: home">Conoce más aquí</a>
+  </div>
 </template>
