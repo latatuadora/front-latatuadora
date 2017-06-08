@@ -3,42 +3,42 @@
 
 .tatuate-wrapper
   background-image url('/src/assets/images/backgrounds/gettattoo.jpg')
-  padding-top 71px
-  padding-bottom 90px
+  padding-top remify(71)
+  padding-bottom remify(90)
   color white
   text-align center
-  margin-bottom 47px
+  margin-bottom remify(47)
 
 .tatuate__hr
   width 83.12%
   max-width 889px
 
 .tatuate__title
-  margin 0 0 64px 0
-  rfont-size 35px 767px 29px
+  margin 0 0 remify(64) 0
+  rfont-size remify(35) 560px 29px
   font-weight $regular
 
 .tatuate__items
   display flex
   flex-wrap wrap
   justify-content space-between
-  margin-top 30px
+  margin-top remify(30)
   max-width 842px
   width 83%
   center-block()
 
 .tatuate__item
-  margin-top 40px
+  margin-top remify(40)
 
 .tatuate__subtitle
   font-family 'BebasNeue'
-  rfont-size 39px 767px 28px
+  rfont-size remify(39) 560px 28px
   line-height 1.26
   margin 0
   font-weight $regular
 
 .tatuate__item-image
-  margin-top 44px
+  margin-top remify(44)
   width 175px
   height 175px
   position relative
@@ -51,7 +51,7 @@
     background $dustColor
     border-radius 50%
     color white
-    rfont-size 27px 767px 18px
+    rfont-size remify(27) 560px 18px
     letter-spacing -0.3px
     height 1.6em
     width 1.925em
@@ -66,7 +66,7 @@
   background rgba(#222, 0.78)
 
 .tatuate__item-button
-  rfont-size 13px 600px 9px
+  rfont-size 13px 560px 9px
   letter-spacing 0.4px
   padding 17px 5px
   width 188px
@@ -74,7 +74,7 @@
 
 .tatuate__bottom
   color #1d1d1d
-  rfont-size 23px 767px 21px
+  rfont-size 23px 560px 21px
   letter-spacing -0.2px
   text-align center
   margin-top 79px
@@ -87,3 +87,63 @@
   margin-left 24px
   padding 0 6px 8px 3px
   simple-border('bottom', 2px, $dustColor)
+
+@media screen and (max-width: 1030px)
+  .tatuate__items
+    max-width 418px
+
+@media screen and (max-width: 560px)
+  .tatuate-wrapper
+    padding-top 44px
+    padding-bottom 49px
+
+  .tatuate__title
+    margin-bottom 29px
+
+  .tatuate__items
+    margin-top 0
+    max-width 300px
+
+  .tatuate__item
+    margin-top 80px
+
+    &:nth-child(1) img
+      width 35px
+
+    &:nth-child(2) img
+      width 23px
+
+    &:nth-child(3) img
+      width 34px
+
+    &:nth-child(4) img
+      width 24px
+
+  .tatuate__item-image
+    margin-top 8.5px
+    width 126px
+    height 126px
+
+    &::before
+      transform translateX(-50%)
+      left 50%
+      top -86px
+      height 28px
+      width 33px
+      padding-top 4px
+
+  .tatuate__item-button
+    width 118px
+    margin-top 16px
+    padding 9px 5px
+
+  .tatuate__bottom
+    margin-top 45px
+    margin-bottom 60px
+
+  .tatuate__bottom-link
+    margin-left 0
+    display block
+    width 167px
+    margin-top 19px
+    center-block()
