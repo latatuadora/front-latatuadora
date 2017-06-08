@@ -23,6 +23,14 @@ export default function copyDependenciesFiles() {
     {
       lib: 'node_modules/tippy.js',
       main: '/dist/tippy.css'
+    },
+    {
+      lib: 'node_modules/csspin',
+      main: '/csspin.css'
+    },
+    {
+      lib: 'node_modules/swiper',
+      main: '/dist/css/swiper.css'
     }
   ];
   let cssSources = [];

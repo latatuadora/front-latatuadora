@@ -272,6 +272,23 @@ let featuredArtists = [
 export class MockAPI {
   isRequesting = false;
 
+  postQuotationRequest(request) {
+    this.isRequesting = true;
+    let min = Math.floor(Math.random() * (9000 - 300)) + 300;
+    let max = Math.floor(Math.random() * (9999 - min)) + min;
+
+    return new Promise(resolve => {
+      setTimeout(() => {
+        resolve({
+          min_amount: min,
+          max_amount: max,
+          status: 'success'
+        });
+        this.isRequesting = false;
+      }, latency);
+    });
+  }
+
   getBodyParts() {
     this.isRequesting = true;
 
@@ -279,8 +296,8 @@ export class MockAPI {
       setTimeout(() => {
         resolve(bodyParts);
         this.isRequesting = false;
-      });
-    }, latency);
+      }, latency);
+    });
   }
 
   getStyles() {
@@ -290,8 +307,8 @@ export class MockAPI {
       setTimeout(() => {
         resolve(tattoos);
         this.isRequesting = false;
-      })
-    }, latency);
+      }, latency)
+    });
   }
 
   getTattoos(data = {}) {
@@ -315,8 +332,8 @@ export class MockAPI {
       setTimeout(() => {
         resolve(results);
         this.isRequesting = false;
-      })
-    }, latency);
+      }, latency)
+    });
   }
 
   getFeaturedArtists(type = 'featured') {
@@ -326,7 +343,7 @@ export class MockAPI {
       setTimeout(() => {
         resolve(featuredArtists);
         this.isRequesting = false;
-      })
-    }, latency);
+      }, latency)
+    });
   }
 }

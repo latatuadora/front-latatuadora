@@ -32,9 +32,13 @@ export class BaseMultiStep {
   }
 
   next() {
-    if (!this.isValidView()) return;
-    this.currentStep++;
-    this.update();
+    this.isValidView()
+      .then(valid => {
+        if (valid) {
+          this.currentStep++;
+          this.update();
+        }
+      })
   }
 
   complete() {
@@ -61,6 +65,12 @@ export class BaseMultiStep {
     if (!this.composeRef.currentViewModel.isValid) {
       throw new Error(`${this.composeRef.viewModel} must implement an isValid method returning a boolean`);
     }
-    return this.composeRef.currentViewModel.isValid();
+    if (typeof this.composeRef.currentViewModel.isValid().then !== 'undefined') {
+      return this.composeRef.currentViewModel.isValid();
+    } else {
+      return new Promise(resolve => {
+        resolve(this.composeRef.currentViewModel.isValid());
+      });
+    }
   }
 }
