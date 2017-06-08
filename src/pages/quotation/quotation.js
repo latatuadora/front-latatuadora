@@ -43,6 +43,18 @@ export class Quotation extends BaseMultiStep {
     }
   }
 
+  next() {
+    this.isValidView()
+      .then(valid => {
+        if (valid) {
+          this.currentStep++;
+          this.update();
+        } else {
+          window.scrollTo(0, 0);
+        }
+      })
+  }
+
   cancel() {
   }
 
@@ -52,6 +64,8 @@ export class Quotation extends BaseMultiStep {
         if (valid) {
           this.showLoader = true;
           this.postRequest();
+        } else {
+          window.scrollTo(0, 0);
         }
       });
   }
