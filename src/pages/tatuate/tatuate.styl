@@ -6,13 +6,66 @@
   padding-top 71px
   padding-bottom 90px
   color white
+  text-align center
 
 .tatuate__hr
   width 889px
 
 .tatuate__title
   margin 0 0 64px 0
-  text-align center
   rfont-size 35px 767px 29px
   font-weight $regular
 
+.tatuate__items
+  display flex
+  flex-wrap wrap
+  justify-content space-between
+  margin-top 30px
+  max-width 842px
+  width 83%
+  center-block()
+
+.tatuate__item
+  margin-top 40px
+
+.tatuate__subtitle
+  font-family 'BebasNeue'
+  rfont-size 39px 767px 28px
+  line-height 1.26
+  margin 0
+  font-weight $regular
+
+.tatuate__item-image
+  margin-top 44px
+  width 175px
+  height 175px
+  position relative
+  center-block()
+  simple-border('all', 3px, $dustColor)
+
+  &::before
+    display inline-block
+    content attr(data-number)
+    background $dustColor
+    border-radius 50%
+    color white
+    rfont-size 27px 767px 18px
+    letter-spacing -0.3px
+    height 1.6em
+    width 1.925em
+    padding-top 0.325em
+    position absolute
+    left 0
+    top 0
+    transform translate(-50%, -50%)
+
+.tatuate__item-layer
+  height 100%
+  background rgba(#222, 0.78)
+
+.tatuate__item-button
+  rfont-size 13px 600px 9px
+  letter-spacing 0.4px
+  padding 17px 5px
+  width 188px
+  margin-top 40px
