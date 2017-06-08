@@ -36,8 +36,8 @@ export class App {
       },
       {
         route: 'tatuate',
-        name: 'get_tattoo',
-        moduleId: 'pages/homepage/homepage',
+        name: 'tatuate',
+        moduleId: 'pages/tatuate/tatuate',
         title: 'Tatúate',
         nav: true
       },
