@@ -39,6 +39,10 @@ a.homepage-hero__small-item
   &:first-child
     background-image url('src/assets/images/backgrounds/home-hero-4.jpg')
 
+  &:nth-child(2)
+    background-image url('src/assets/images/backgrounds/home-hero-4-responsive.jpg')
+    display none
+
   &:last-child
     background-image url('src/assets/images/backgrounds/home-hero-5.jpg')
 
@@ -144,7 +148,6 @@ a.homepage-hero__small-item
   letter-spacing unit(-0.3/22, 'em')
   color #1d1d1d
   font-weight $regular
-
 
 .homepage-divider
   max-width 903px
@@ -641,14 +644,17 @@ a.homepage-hero__small-item
 
   .homepage-hero__left .homepage-hero__small-item
     &:first-child
-      background-image url('src/assets/images/backgrounds/home-hero-1-responsive.jpg')
+      background-image url('src/assets/images/backgrounds/home-hero-2-responsive.jpg')
 
     &:last-child
-      background-image url('src/assets/images/backgrounds/home-hero-4-responsive.jpg')
+      background-image url('src/assets/images/backgrounds/home-hero-1-responsive.jpg')
 
   .homepage-hero__right .homepage-hero__small-item
     &:first-child
-      background-image url('src/assets/images/backgrounds/home-hero-2-responsive.jpg')
+      display none
+
+    &:nth-child(2)
+      display block
 
     &:last-child
       background-image url('src/assets/images/backgrounds/home-hero-5-responsive.jpg')
