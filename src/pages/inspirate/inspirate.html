@@ -15,7 +15,7 @@
     </div>
     <div class="gallery-filter-wrapper ${params.style ? 'active' : ''}">
       <div click.delegate="toggleDropdown('styles')" ref="styleFilter" class="gallery-filter">${params.style ? params.style : 'Estilo'}</div>
-      <dropdown-modal type="list" active-id.bind="activeIds.styles" list.bind="lists.styles" item-name="name" on-click.bind="setStyle" ref-element.bind="styleFilter" visible.bind="showDropdowns.styles" close.call="toggleDropdown('styles')" top-reference=".site-navbar" always-centered="true"></dropdown-modal>
+      <dropdown-modal type="list" active-id.bind="activeIds.style" list.bind="lists.styles" item-name="name" on-click.bind="setStyle" ref-element.bind="styleFilter" visible.bind="showDropdowns.styles" close.call="toggleDropdown('styles')" top-reference=".site-navbar" always-centered="true"></dropdown-modal>
     </div>
     <div class="gallery-filter-wrapper ${params.element ? 'active' : ''}">
       <div click.delegate="toggleDropdown('elements')" ref="elementFilter" class="gallery-filter">${params.element ? params.element : 'Elemento'}</div>
