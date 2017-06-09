@@ -8,7 +8,9 @@
   <require from="../../resources/elements/dropdown-modal/dropdown-modal"></require>
   <h1 class="gallery-title">Inspírate</h1>
   <span class="gallery-subtitle">Galería de <span class="golden-text">tatuajes</span></span>
-  <button type="button" click.delegate="toggleFilters()" class="gallery-filters-toggle site-button">${showFilters ? 'Ocultar filtros' : 'Filtrar'}</button>
+  <button type="button" click.delegate="toggleFilters()" class="gallery-filters-toggle site-button">
+    <span>${showFilters ? 'Ocultar filtros' : 'Filtrar'}</span>
+    <img src="src/assets/images/icons/filter.svg" alt="Filtrar"></button>
   <div class="gallery-filters ${showFilters ? 'show' : 'hide'}">
     <div class="gallery-filter-wrapper no-arrow ${params.style || params.element || params.part ? '' : 'active'}">
       <div class="gallery-filter" click.delegate="resetFilters()">Todos</div>

@@ -21,9 +21,17 @@
   border-radius 100px
   text-transform none
   center-block()
-  padding 8px 32px
+  padding 7px 26px 9px 26px
   margin-top 35px
   margin-bottom 34px
+  line-height 1
+
+  img, span
+    display inline-block
+    vertical-align middle
+
+  img
+    margin-left 16px
 
 .gallery-filters
   text-align center
@@ -117,16 +125,17 @@
 
   .gallery-filters
     transition margin-top 0.2s, margin-bottom 0.2s
+    display flex
+    flex-wrap wrap
+    align-items center
+    justify-content space-around
 
     &.show
-      margin-top 40px
+      margin-top 10px
       margin-bottom 40px
 
       .gallery-filter-wrapper
         max-height 21px
-
-        &:not(:first-child)
-          margin-top 21px
 
     &.hide
       margin-top 0
@@ -138,13 +147,13 @@
 
   .gallery-filter-wrapper
     display block
-    width 85% !important
+    flex-basis 36%
     center-block()
     transition max-height 0.2s, margin-top 0.2s
+    margin-top 30px
 
     &:not(:first-child)
       margin-left auto
-      margin-top 30px
 
   .gallery-filter
     padding-left 0
