@@ -6,7 +6,19 @@ export class BaseGallery {
       style: '',
       element: '',
       page: 1
-    }
+    };
+    this.lists = {
+      styles: [],
+      elements: []
+    };
+    this.activeIds = {
+      style: -1,
+      element: -1
+    };
+    this.showDropdowns = {
+      styles: false,
+      elements: false
+    };
     this.items = [];
     this.showLoader = false;
     this.showFilters = false;
@@ -18,15 +30,18 @@ export class BaseGallery {
     if (params) {
       this.checkParams(params);
     }
+    this.getLists();
     this.loadMore();
   }
 
   checkParams(params) {
     if (params.style) {
       this.params.style = params.style;
+      this.activeIds.style = -1;
     }
     if (params.element) {
       this.params.element = params.element;
+      this.activeIds.element = -1;
     }
   }
 
@@ -34,16 +49,50 @@ export class BaseGallery {
     this.showFilters = !this.showFilters;
   }
 
-  setStyle(style) {
-    if (style !== this.params.style) {
-      this.params.style = style;
+  toggleDropdown(dropdown) {
+    this.showDropdowns[dropdown] = !this.showDropdowns[dropdown];
+  }
+
+  getLists() {
+    this.getStyles();
+    this.getElements();
+  }
+
+  getStyles() {
+    this.api.getStyles()
+      .then(styles => {
+        styles.forEach(style => {
+          if (this.params.style == style.name) {
+            this.activeIds.style = style.id;
+          }
+        });
+        this.lists.styles = styles;
+      });
+  }
+
+  getElements() {
+    this.api.getElements()
+      .then(elements => {
+        elements.forEach(element => {
+          if (this.params.element == element.name) {
+            this.activeIds.element = element.id;
+          }
+        });
+        this.lists.elements = elements;
+      });
+  }
+
+  setStyle = style => {
+    if (style.name !== this.params.style) {
+      this.params.style = style.name;
+      this.activeItems.style = style;
       this.filterItems();
     }
   }
 
-  setElement(element) {
-    if (element !== this.params.element) {
-      this.params.element = element;
+  setElement = element => {
+    if (element.name !== this.params.element) {
+      this.params.element = element.name;
       this.filterItems();
     }
   }
@@ -53,7 +102,11 @@ export class BaseGallery {
       style: '',
       element: '',
       page: 1
-    }
+    };
+    this.activeIds = {
+      style: -1,
+      element: -1
+    };
   }
 
   resetFilters() {
