@@ -214,7 +214,7 @@ a.homepage-hero__small-item
     rfont-size 22px 767px 19px
 
 .homepage-featured__buttons
-  width 489px
+  width 366px
   margin-top 49px
   center-block()
   display flex
@@ -222,23 +222,16 @@ a.homepage-hero__small-item
   flex-wrap wrap
 
 .homepage-featured__button
+  background #e5e5e5
+  color #383838
   flex-basis 111px
   font-size 11px
   padding 1em 0.85em
   margin-top 14px
 
-  &:first-child,
-  &:last-child
-    background #7e888e
-
-    &:hover, &:active, &:focus, &.active
-      background lightness(#7e888e, 40%)
-
-  &:nth-child(2)
-    background #bec3c6
-
-    &:hover, &:active, &:focus, &.active
-      background lightness(#bec3c6, 60%)
+  &:hover, &.active, &:active
+    background #b5a274
+    color white
 
 .homepage-featured__items
   margin-top remify(59)
