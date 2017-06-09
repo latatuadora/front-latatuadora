@@ -35,26 +35,39 @@
 .dropdown-modal
   background white
   color #a3a3a3
-  width 320px
   height auto
-  max-height 198px
-  column-count 3
-  padding 11.5px 20px
   position fixed
   z-index 31
   transition transform 0.2s
 
+.dropdown-type-tags
+  padding 11.5px 20px
+  column-count 3
+  max-height 198px
+  width 320px
+
+  .dropdown-modal__item
+    border-radius 62px
+    font-size 17px
+    padding 0.3em 0.6em
+    display inline-block
+    min-width 80px
+    margin 12.5px 0
+
+.dropdown-type-list
+  width 194px
+  max-height 234px
+  text-align left
+
+  .dropdown-modal__item
+    padding 1em unit(22/16, 'em')
+    font-size 16px
+
 .dropdown-modal__item
-  border-radius 62px
   cursor pointer
   background transparent
-  font-size 17px
-  padding 0.3em 0.6em
   letter-spacing -0.3px
-  display inline-block
-  min-width 80px
   text-align center
-  margin 12.5px 0
 
   &.active, &:hover
     background $dustColor
