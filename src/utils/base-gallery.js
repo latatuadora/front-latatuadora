@@ -85,7 +85,7 @@ export class BaseGallery {
   setStyle = style => {
     if (style.name !== this.params.style) {
       this.params.style = style.name;
-      this.activeItems.style = style;
+      this.activeIds.style = style.id;
       this.filterItems();
     }
   }
@@ -93,6 +93,7 @@ export class BaseGallery {
   setElement = element => {
     if (element.name !== this.params.element) {
       this.params.element = element.name;
+      this.activeIds.element = element.id;
       this.filterItems();
     }
   }
