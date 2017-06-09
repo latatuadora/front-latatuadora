@@ -11,6 +11,7 @@ export class DropdownModal {
   @bindable close;
   @bindable topReference;
   @bindable alwaysCentered = false;
+  @bindable type = 'tags';
 
   constructor(element) {
     this.element = element;
