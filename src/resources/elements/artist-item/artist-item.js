@@ -3,9 +3,13 @@ import {bindable, containerless} from 'aurelia-framework';
 @containerless
 export class ArtistItem {
   @bindable artist;
+  @bindable animate = false;
 
   attached() {
     document.addEventListener('click', this.onClick);
+    if (this.animate) {
+      this.artistCard.classList.add('animate');
+    }
   }
 
   onClick = (e) => {

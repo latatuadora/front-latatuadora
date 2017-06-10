@@ -19,7 +19,7 @@
   </div>
   <section class="tattoos-grid-container">
     <div class="artists-grid" infinite-scroll="callback.call: loadMore()">
-      <artist-item repeat.for="item of items" artist.bind="item"></artist-item>
+      <artist-item repeat.for="item of items" artist.bind="item" animate="true"></artist-item>
     </div>
     <img if.bind="showLoader" class="tattoos-grid-loader" src="src/assets/images/icons/loader.gif" alt="Loader">
     <img class="tattoos-grid-icon" src="src/assets/images/icons/tattoos-gallery-icon.svg" alt="Inspírate">
