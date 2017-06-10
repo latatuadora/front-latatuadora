@@ -43,7 +43,7 @@ export class SearchArtist extends BaseGallery {
   }
 
   getTypes() {
-    this.types = [
+    this.lists.types = [
       {
         id: 0,
         name: 'Estudio'
@@ -53,7 +53,7 @@ export class SearchArtist extends BaseGallery {
         name: 'Freelance'
       }
     ];
-    if (this.params.type == this.types[0].name) {
+    if (this.params.type == this.lists.types[0].name) {
       this.activeIds.type = 0;
     } else {
       this.activeIds.type = 1;
