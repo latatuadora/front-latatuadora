@@ -1,17 +1,17 @@
 <template>
   <require from="./artist-item.css"></require>
-  <div class="artist-item flip-card">
+  <div class="artist-item flip-card" ref="artistCard">
     <div class="artist-item__inner flip-card__inner">
-      <a href="${artist.profileURL}" class="artist-item__front flip-card__front cover" css="background-image: url(${artist.imageURL})"></a>
+      <a class="artist-item__front flip-card__front cover" css="background-image: url(${artist.imageURL})"></a>
       <div class="artist-item__back flip-card__back">
         <div class="artist-item__back-content">
-          <a href="${artist.profileURL}" class="artist-item__title">${artist.name}</a>
+          <a aaa="${artist.profileURL}" class="artist-item__title">${artist.name}</a>
           <div class="artist-item__stars">
             <i repeat.for="i of 5" class="fa ${artist.rating > i ? (artist.rating > i + 0.9 ? 'fa-star' : 'fa-star-half-o') : 'fa-star-o'}"></i>
           </div>
           <span class="artist-item__location">${artist.location}</span>
           <div class="artist-item__tags">
-            <a repeat.for="tag of artist.tags" href="#" class="artist-item__tag">${tag}</a>
+            <a repeat.for="tag of artist.tags" aaa="#" class="artist-item__tag">${tag}</a>
           </div>
         </div>
       </div>
