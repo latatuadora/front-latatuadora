@@ -401,4 +401,6 @@ export class MockAPI {
       }, latency)
     });
   }
+
+  getArtists = this.getFeaturedArtists;
 }
