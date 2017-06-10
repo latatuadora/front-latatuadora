@@ -244,61 +244,6 @@ a.homepage-hero__small-item
   center-block()
   width 1024px
 
-.homepage-featured__item-wrapper
-  flex-basis 249px
-  height 249px
-  margin-top 9px
-
-.homepage-featured__item-front
-  display block
-
-.homepage-featured__item-back
-  background $blackColor
-  color white
-  padding 50px 24px
-  text-align left
-
-.homepage-featured__item-title
-  rfont-size 16px 767px 15px
-  color inherit
-  cursor pointer
-
-.homepage-featured__item-stars
-  color #f7c42a
-  font-size 9px
-  margin-top 5.5px
-
-  .fa
-    display inline-block
-
-  .fa:not(:first-child)
-    margin-left 1px
-
-.homepage-featured__item-location,
-.homepage-featured__item-tags
-  font-family 'SFNSText'
-
-.homepage-featured__item-location
-  display block
-  margin-top 8px
-  font-size 9px
-
-.homepage-featured__item-tags
-  margin-top 5px
-  margin-left -1px
-
-.homepage-featured__item-tag
-  background #e5e5e5
-  color #4a4a4a
-  cursor pointer
-  border-radius 100px
-  display inline-block
-  font-size 7px
-  margin-top 8px
-  padding 0.73em 1.5em
-  line-height 1
-  margin-left 1px
-
 .homepage-featured__main-button
   margin-top 88px
   rfont-size 13px 767px 10px
@@ -457,8 +402,9 @@ a.homepage-hero__small-item
     &:not(:first-child)
       margin-top 0
 
-  .homepage-featured__item-wrapper:nth-child(n+5)
-    display none
+  .homepage-featured__items
+    .artist-item:nth-child(n+5)
+      display none
 
 @media screen and (max-width: 1007px)
   .homepage-featured__items
@@ -590,16 +536,16 @@ a.homepage-hero__small-item
     margin-top 47.7px
     width 320px
 
-  .homepage-featured__item-wrapper
-    flex-basis 158px
-    height 158px
-    margin-top 4.3px
+    .artist-item
+      flex-basis 158px
+      height 158px
+      margin-top 4.3px
 
-  .homepage-featured__item-back
-    padding 30px 16px
+    .artist-item__back
+      padding 30px 16px
 
-  .homepage-featured__item-tags
-    margin-top 0
+    .artist-item__tags
+      margin-top 0
 
 @media screen and (max-width: 479px)
   .homepage-hero__right
