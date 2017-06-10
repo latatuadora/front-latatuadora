@@ -1,3 +1,27 @@
 <template>
   <require from ="./search-artist.css"></require>
+  <require from="../../resources/elements/artist-item/artist-item"></require>
+  <require from="../../resources/elements/dropdown-modal/dropdown-modal"></require>
+  <require from="../../resources/attributes/infinite-scroll"></require>
+  <h1 class="gallery-title">Busca <span class="golden-text">tu</span> tatuador</h1>
+  <div class="gallery-filters ${showFilters ? 'show' : 'hide'}">
+    <div class="gallery-filter-wrapper no-arrow ${params.style || params.element || params.part ? '' : 'active'}">
+      <div class="gallery-filter" click.delegate="resetFilters()">Todos</div>
+    </div>
+    <div class="gallery-filter-wrapper ${params.style ? 'active' : ''}">
+      <div click.delegate="toggleDropdown('styles')" ref="styleFilter" class="gallery-filter">${params.style ? params.style : 'Estilo'}</div>
+      <dropdown-modal type="list" active-id.bind="activeIds.style" list.bind="lists.styles" item-name="name" on-click.bind="setStyle" ref-element.bind="styleFilter" visible.bind="showDropdowns.styles" close.call="toggleDropdown('styles')" top-reference=".site-navbar" center-at="633"></dropdown-modal>
+    </div>
+    <div class="gallery-filter-wrapper ${params.type ? 'active' : ''}">
+      <div click.delegate="toggleDropdown('types')" ref="typeFilter" class="gallery-filter">${params.type ? params.type : 'Tipo'}</div>
+      <dropdown-modal type="list" active-id.bind="activeIds.type" list.bind="lists.types" item-name="name" on-click.bind="setType" ref-element.bind="typeFilter" visible.bind="showDropdowns.types" close.call="toggleDropdown('types')" top-reference=".site-navbar" center-at="633"></dropdown-modal>
+    </div>
+  </div>
+  <section class="tattoos-grid-container">
+    <div class="artists-grid" infinite-scroll="callback.call: loadMore()">
+      <artist-item repeat.for="item of items" artist.bind="item"></artist-item>
+    </div>
+    <img if.bind="showLoader" class="tattoos-grid-loader" src="src/assets/images/icons/loader.gif" alt="Loader">
+    <img class="tattoos-grid-icon" src="src/assets/images/icons/tattoos-gallery-icon.svg" alt="Inspírate">
+  </section>
 </template>
