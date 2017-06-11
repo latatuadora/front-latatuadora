@@ -10,3 +10,39 @@
 
   .artist-item
     margin-top 33px
+
+.artists-filters
+  display flex
+  justify-content space-around
+  align-items center
+  flex-wrap wrap
+  width 780px
+  margin-bottom 60px
+  margin-top 80px
+  center-block()
+
+  .gallery-filter-wrapper,
+  .gallery-filter-wrapper:not(:first-child),
+  .gallery-search
+    margin 0 10px
+    width initial
+
+  .gallery-filter-wrapper
+    flex-basis 100px
+
+  .gallery-search
+    display flex
+
+  .gallery-search__input
+    font-size 17px
+    border-radius 4px 0 0 4px
+    letter-spacing 0.2px
+    color #9b9b9b
+    flex-basis 300px
+    padding 15px 22px
+    simple-border('all', 1px, #e6e6e6)
+
+  .gallery-search__button
+    font-size 15px
+    padding 0 30px
+    border-radius 0 4px 4px 0
