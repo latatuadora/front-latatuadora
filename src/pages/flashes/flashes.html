@@ -7,12 +7,13 @@
   <require from="../../resources/attributes/infinite-scroll"></require>
   <require from="../../resources/elements/dropdown-modal/dropdown-modal"></require>
   <h1 class="gallery-title">Flashes</h1>
-  <span class="gallery-subtitle">Galería de <span class="golden-text">Flashes</span></span>
+  <span if.one-time="!params.artist" class="gallery-subtitle">Galería de <span class="golden-text">Flashes</span></span>
+  <span if.one-time="params.artist" class="gallery-subtitle">Flashes hechos por <span class="golden-text">${artist.name}</span></span>
   <button type="button" click.delegate="toggleFilters()" class="gallery-filters-toggle site-button">
     <span>${showFilters ? 'Ocultar filtros' : 'Filtrar'}</span>
     <img src="src/assets/images/icons/filter.svg" alt="Filtrar">
   </button>
-  <div class="gallery-filters ${showFilters ? 'show' : 'hide'}">
+  <div class="gallery-filters flashes-filters ${showFilters ? 'show' : 'hide'}">
     <div class="gallery-filter-wrapper no-arrow ${params.style || params.element || params.part ? '' : 'active'}">
       <div class="gallery-filter" click.delegate="resetFilters()">Todos</div>
     </div>
