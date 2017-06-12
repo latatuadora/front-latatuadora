@@ -38,6 +38,7 @@ export class BaseGallery {
   checkParams(params) {
     if (params.artist) {
       this.params.artist = parseInt(params.artist);
+      this.artist = this.getArtist(params.artist);
     }
     if (params.style) {
       this.params.style = params.style;
@@ -60,6 +61,13 @@ export class BaseGallery {
   getLists() {
     this.getStyles();
     this.getElements();
+  }
+
+  getArtist(id) {
+    this.api.getArtist(id)
+      .then(artist => {
+        this.artist = artist;
+      });
   }
 
   getStyles() {
