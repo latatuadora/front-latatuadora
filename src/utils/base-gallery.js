@@ -5,6 +5,7 @@ export class BaseGallery {
     this.params = {
       style: '',
       element: '',
+      artist: null,
       page: 1
     };
     this.lists = {
@@ -35,6 +36,9 @@ export class BaseGallery {
   }
 
   checkParams(params) {
+    if (params.artist) {
+      this.params.artist = parseInt(params.artist);
+    }
     if (params.style) {
       this.params.style = params.style;
       this.activeIds.style = -1;
@@ -102,6 +106,7 @@ export class BaseGallery {
     this.params = {
       style: '',
       element: '',
+      artist: null,
       page: 1
     };
     this.activeIds = {
