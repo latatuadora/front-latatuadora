@@ -55,7 +55,7 @@ export class SearchArtist extends BaseGallery {
     ];
     if (this.params.type == this.lists.types[0].name) {
       this.activeIds.type = 0;
-    } else {
+    } else if (this.params.type == this.lists.types[1].name) {
       this.activeIds.type = 1;
     }
   }
