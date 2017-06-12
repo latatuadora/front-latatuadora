@@ -1,7 +1,18 @@
 export default class Membership {
 
   constructor () {
-    console.log('Hola')
+    this.tags = [
+      'OldSchool',
+      'PostModern',
+      'Modern',
+      'Geometric',
+      'Classic',
+      'Pattern'
+    ]
   }
+
+
+
+
 
 }
