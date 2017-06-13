@@ -73,7 +73,7 @@ export class Quotation extends BaseMultiStep {
   postRequest() {
     let request = {
       bodyPart: this.shared.bodyPart.id,
-      style: this.shared.style.id,
+      style: this.shared.style,
       dimensionsX: this.shared.width,
       dimensionsY: this.shared.height,
       name: this.shared.userData.name,
@@ -93,12 +93,14 @@ export class Quotation extends BaseMultiStep {
   goToResults(results) {
     let quotationResults = JSON.parse(results.response);
     quotationResults.hasOwnProperty('message');
+
     for (let route of this.router.routes) {
       if (route.name == this.completeDestination) {
         route.settings.resultsModel = {
           artist: this.shared.artist,
           minAmount: quotationResults.minAmount,
-          maxAmount: quotationResults.maxAmount
+          maxAmount: quotationResults.maxAmount,
+          styleText: quotationResults.styleText,
         };
         break;
       }
