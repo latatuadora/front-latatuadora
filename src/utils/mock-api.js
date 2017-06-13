@@ -269,6 +269,50 @@ let featuredArtists = [
   }
 ];
 
+let styles = [
+  {
+    name: 'Shurado',
+    id: 0,
+    image: '/src/assets/images/mock/tattoo4.png'
+  },
+  {
+    name: 'Old School',
+    id: 1,
+    image: '/src/assets/images/mock/tattoo2.png'
+  },
+  {
+    name: 'Lienal',
+    id: 2,
+    image: '/src/assets/images/mock/tattoo3.png'
+  },
+  {
+    name: 'New School',
+    id: 3,
+    image: '/src/assets/images/mock/tattoo1.png'
+  },
+  {
+    name: 'Punk',
+    id: 4,
+    image: '/src/assets/images/mock/tattoo5.png'
+  },
+  {
+    name: 'Religioso',
+    id: 5,
+    image: '/src/assets/images/mock/tattoo6.png'
+  }
+];
+
+let elements = [
+  {
+    name: 'Mangas',
+    id: 0
+  },
+  {
+    name: 'Femenino',
+    id: 1
+  }
+];
+
 export class MockAPI {
   isRequesting = false;
 
@@ -300,12 +344,23 @@ export class MockAPI {
     });
   }
 
+  getElements() {
+    this.isRequesting = true;
+
+    return new Promise(resolve => {
+      setTimeout(() => {
+        resolve(elements);
+        this.isRequesting = false;
+      }, latency);
+    });
+  }
+
   getStyles() {
     this.isRequesting = true;
 
     return new Promise(resolve => {
       setTimeout(() => {
-        resolve(tattoos);
+        resolve(styles);
         this.isRequesting = false;
       }, latency)
     });

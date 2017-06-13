@@ -11,6 +11,8 @@ export class DropdownModal {
   @bindable close;
   @bindable topReference;
   @bindable alwaysCentered = false;
+  @bindable centerAt = 0;
+  @bindable type = 'tags';
 
   constructor(element) {
     this.element = element;
@@ -50,9 +52,9 @@ export class DropdownModal {
     if (adjustLeft) {
       let spaceAvailable = clientRect.left + this.elementsList.offsetWidth < window.innerWidth;
       let center = this.elementsList.offsetWidth < window.innerWidth;
-      if (spaceAvailable && !this.alwaysCentered) {
+      if (spaceAvailable && !this.alwaysCentered && window.innerWidth > parseInt(this.centerAt)) {
         this.elementsList.style.left = clientRect.left + 'px';
-      } else if (center || this.alwaysCentered){
+      } else if (center || this.alwaysCentered || window.innerWidth <= parseInt(this.centerAt)){
         let difference = window.innerWidth - this.elementsList.offsetWidth;
         this.elementsList.style.left = (difference / 2) + 'px';
       } else {
