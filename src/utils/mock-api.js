@@ -295,34 +295,69 @@ let featuredArtists = [
 
 let styles = [
   {
-    name: 'Shurado',
-    id: 0,
-    image: '/src/assets/images/mock/tattoo4.png'
-  },
-  {
-    name: 'Old School',
+    name: 'OldSchool',
     id: 1,
-    image: '/src/assets/images/mock/tattoo2.png'
-  },
-  {
-    name: 'Lienal',
-    id: 2,
-    image: '/src/assets/images/mock/tattoo3.png'
+    image: '/src/assets/images/mock/style1.png'
   },
   {
     name: 'New School',
+    id: 2,
+    image: '/src/assets/images/mock/style2.png'
+  },
+  {
+    name: 'Puntillismo',
     id: 3,
-    image: '/src/assets/images/mock/tattoo1.png'
+    image: '/src/assets/images/mock/style3.png'
   },
   {
-    name: 'Punk',
+    name: 'Geométrico',
     id: 4,
-    image: '/src/assets/images/mock/tattoo5.png'
+    image: '/src/assets/images/mock/style1.png'
   },
   {
-    name: 'Religioso',
+    name: 'Trash Polka',
     id: 5,
-    image: '/src/assets/images/mock/tattoo6.png'
+    image: '/src/assets/images/mock/style5.png'
+  },
+  {
+    name: 'Black work',
+    id: 6,
+    image: '/src/assets/images/mock/style6.png'
+  },
+  {
+    name: 'Acuarela',
+    id: 7,
+    image: '/src/assets/images/mock/style6.png'
+  },
+  {
+    name: 'Japonés',
+    id: 8,
+    image: '/src/assets/images/mock/style6.png'
+  },
+  {
+    name: 'Tribal',
+    id: 9,
+    image: '/src/assets/images/mock/style6.png'
+  },
+  {
+    name: 'Caligrafía',
+    id: 10,
+    image: '/src/assets/images/mock/style6.png'
+  },
+  {
+    name: 'Ilustración',
+    id: 11,
+    image: '/src/assets/images/mock/style6.png'
+  },
+  {
+    name: 'Surreal',
+    id: 12,
+    image: '/src/assets/images/mock/style6.png'
+  },
+  {
+    name: 'Biomecánico',
+    id: 13,
+    image: '/src/assets/images/mock/style6.png'
   }
 ];
 
