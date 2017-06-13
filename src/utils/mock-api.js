@@ -312,7 +312,7 @@ let styles = [
   {
     name: 'Geométrico',
     id: 4,
-    image: '/src/assets/images/mock/style1.png'
+    image: '/src/assets/images/mock/style4.png'
   },
   {
     name: 'Trash Polka',
@@ -327,37 +327,37 @@ let styles = [
   {
     name: 'Acuarela',
     id: 7,
-    image: '/src/assets/images/mock/style6.png'
+    image: '/src/assets/images/mock/style7.png'
   },
   {
     name: 'Japonés',
     id: 8,
-    image: '/src/assets/images/mock/style6.png'
+    image: '/src/assets/images/mock/style8.png'
   },
   {
     name: 'Tribal',
     id: 9,
-    image: '/src/assets/images/mock/style6.png'
+    image: '/src/assets/images/mock/style9.png'
   },
   {
     name: 'Caligrafía',
     id: 10,
-    image: '/src/assets/images/mock/style6.png'
+    image: '/src/assets/images/mock/style10.png'
   },
   {
     name: 'Ilustración',
     id: 11,
-    image: '/src/assets/images/mock/style6.png'
+    image: '/src/assets/images/mock/style11.png'
   },
   {
     name: 'Surreal',
     id: 12,
-    image: '/src/assets/images/mock/style6.png'
+    image: '/src/assets/images/mock/style12.png'
   },
   {
     name: 'Biomecánico',
     id: 13,
-    image: '/src/assets/images/mock/style6.png'
+    image: '/src/assets/images/mock/style13.png'
   }
 ];
 
