@@ -9,10 +9,11 @@
 .quotation-progress
   background #cacaca
   height 12px
-  position absolute
-  top 0
+  position fixed
+  top 102px
   left 0
   width 100%
+  z-index 6
 
 .quotation-progress__inner
   background $dustColor
@@ -89,6 +90,10 @@
 
   .spinner-wrapper
     transform scale(1.2)
+
+@media screen and (max-width: 975px)
+  .quotation-progress
+    top 47px
 
 @media screen and (max-width: 767px)
   .quotation-progress
