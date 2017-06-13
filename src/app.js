@@ -28,6 +28,13 @@ export class App {
         nav: true
       },
       {
+        route: 'flashes',
+        name: 'flashes',
+        moduleId: 'pages/flashes/flashes',
+        title: 'Flashes',
+        nav: true
+      },
+      {
         route: 'buscartatuador',
         name: 'search_artist',
         moduleId: 'pages/homepage/homepage',
@@ -36,17 +43,10 @@ export class App {
       },
       {
         route: 'tatuate',
-        name: 'get_tattoo',
-        moduleId: 'pages/homepage/homepage',
+        name: 'tatuate',
+        moduleId: 'pages/tatuate/tatuate',
         title: 'Tatúate',
         nav: true
-      },
-      {
-        route: 'flashes',
-        name: 'flashes',
-        moduleId: 'pages/flashes/flashes',
-        title: 'Flashes',
-        nav: false
       },
       {
         route: 'cotiza/:artist?',

@@ -39,6 +39,13 @@
           </div>
         </div>
       </a>
+      <a class="homepage-hero__small-item cover" route-href="route: inspirate">
+        <div class="vertical-center">
+          <div class="homepage-hero__small-item-content">
+            <span class="homepage-hero__discover-span-1">Inspírate</span>
+          </div>
+        </div>
+      </a>
       <a class="homepage-hero__small-item cover" href="#">
         <div class="vertical-center">
           <div class="homepage-hero__small-item-content">
@@ -54,7 +61,7 @@
     <form id="homepage-trending-form" class="homepage-trending__form" action="." method="post">
       <div class="homepage-trending__form-content">
         <div class="input-wrapper">
-          <input id="homepage-trending-input" name="arg" class="homepage-trending__input" type="text" required placeholder="Selecciona lo que deseas encontrar">
+          <input id="homepage-trending-input" name="arg" class="homepage-trending__input" type="text" required placeholder="Escribe el tatuaje que deseas encontrar">
         </div>
         <div class="button-wrapper">
           <button class="site-button homepage-trending__button" type="submit" name="submit">Buscar</button>
@@ -76,7 +83,6 @@
       <button type="button" click.delegate="getFeaturedArtists()" class="homepage-featured__button site-button ${featuredOption == 1 ? 'active' : ''}">Destacados</button>
       <button type="button" click.delegate="getFeaturedArtists('newest')" class="homepage-featured__button site-button ${featuredOption == 2 ? 'active' : ''}">Nuevos</button>
       <button type="button" click.delegate="getFeaturedArtists('closest')" class="homepage-featured__button site-button ${featuredOption == 3 ? 'active' : ''}">Cercanos</button>
-      <button type="button" click.delegate="getFeaturedArtists('recommended')" class="homepage-featured__button site-button ${featuredOption == 4 ? 'active' : ''}">Recomendados</button>
     </div>
     <div class="homepage-featured__items" id="homepage-featured-items">
       <div repeat.for="artist of featuredArtists" class="homepage-featured__item-wrapper">
@@ -111,7 +117,7 @@
         <p class="homepage-want-to__text">
           Encuentra el tatuaje que siempre haz querido, agenda una cita en el mejor estudio con los mejores artistas tatuadores.
         </p>
-        <a href="#" class="site-button">Ver estudios</a>
+        <a href="#" class="site-button">Registrarme</a>
       </div>
       <div class="homepage-want-to__div ${iWantTo == 2 ? 'active' : ''}">
         <h2 class="homepage-want-to__title">Soy tatuador<span class="golden-text">.</span></h2>

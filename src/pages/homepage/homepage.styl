@@ -39,6 +39,10 @@ a.homepage-hero__small-item
   &:first-child
     background-image url('src/assets/images/backgrounds/home-hero-4.jpg')
 
+  &:nth-child(2)
+    background-image url('src/assets/images/backgrounds/home-hero-4-responsive.jpg')
+    display none
+
   &:last-child
     background-image url('src/assets/images/backgrounds/home-hero-5.jpg')
 
@@ -145,7 +149,6 @@ a.homepage-hero__small-item
   color #1d1d1d
   font-weight $regular
 
-
 .homepage-divider
   max-width 903px
   width 85%
@@ -214,7 +217,7 @@ a.homepage-hero__small-item
     rfont-size 22px 767px 19px
 
 .homepage-featured__buttons
-  width 489px
+  width 366px
   margin-top 49px
   center-block()
   display flex
@@ -222,23 +225,16 @@ a.homepage-hero__small-item
   flex-wrap wrap
 
 .homepage-featured__button
+  background #e5e5e5
+  color #383838
   flex-basis 111px
   font-size 11px
   padding 1em 0.85em
   margin-top 14px
 
-  &:first-child,
-  &:last-child
-    background #7e888e
-
-    &:hover, &:active, &:focus, &.active
-      background lightness(#7e888e, 40%)
-
-  &:nth-child(2)
-    background #bec3c6
-
-    &:hover, &:active, &:focus, &.active
-      background lightness(#bec3c6, 60%)
+  &:hover, &.active, &:active
+    background #b5a274
+    color white
 
 .homepage-featured__items
   margin-top remify(59)
@@ -355,10 +351,11 @@ a.homepage-hero__small-item
     color #9b9b9b
     background white
     position relative
-    font-size 15px
-    padding 0.6em 2.3em
+    rfont-size 20px 600px 15px
+    padding 10px 20px 6px 20px
     font-family 'BebasNeue'
     simple-border('all', 1px, #e5e5e5)
+    width 161px
 
     &:first-child
       border-radius 2px 0 0 2px
@@ -604,14 +601,20 @@ a.homepage-hero__small-item
   .homepage-bottom-cover
     margin-top 67.7px
 
+@media screen and (max-width: 600px)
+  .homepage-want-to-button
+    width 146px
+
 @media screen and (max-width: 530px)
   .homepage-featured__buttons
     width 240px
 
   .homepage-featured__button
-    &:nth-child(3),
-    &:nth-child(4)
+    &:nth-child(3)
       order -2
+
+    &:nth-child(1)
+     order 1
 
   .homepage-featured__items
     margin-top 47.7px
@@ -629,7 +632,6 @@ a.homepage-hero__small-item
     margin-top 0
 
 @media screen and (max-width: 479px)
-  .homepage-hero__small-item:last-child,
   .homepage-hero__right
     order -1
 
@@ -647,14 +649,17 @@ a.homepage-hero__small-item
 
   .homepage-hero__left .homepage-hero__small-item
     &:first-child
-      background-image url('src/assets/images/backgrounds/home-hero-1-responsive.jpg')
+      background-image url('src/assets/images/backgrounds/home-hero-2-responsive.jpg')
 
     &:last-child
-      background-image url('src/assets/images/backgrounds/home-hero-4-responsive.jpg')
+      background-image url('src/assets/images/backgrounds/home-hero-1-responsive.jpg')
 
   .homepage-hero__right .homepage-hero__small-item
     &:first-child
-      background-image url('src/assets/images/backgrounds/home-hero-2-responsive.jpg')
+      display none
+
+    &:nth-child(2)
+      display block
 
     &:last-child
       background-image url('src/assets/images/backgrounds/home-hero-5-responsive.jpg')
