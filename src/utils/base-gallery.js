@@ -25,6 +25,7 @@ export class BaseGallery {
     this.showFilters = false;
     this.showModal = false;
     this.currentItem = {};
+    this.allEmpty = true;
   }
 
   activate(params, routeConfig) {
@@ -99,6 +100,7 @@ export class BaseGallery {
       this.params.style = style.name;
       this.activeIds.style = style.id;
       this.filterItems();
+      this.allEmpty = false;
     }
   }
 
@@ -107,6 +109,7 @@ export class BaseGallery {
       this.params.element = element.name;
       this.activeIds.element = element.id;
       this.filterItems();
+      this.allEmpty = false;
     }
   }
 
@@ -121,6 +124,7 @@ export class BaseGallery {
       style: -1,
       element: -1
     };
+    this.allEmpty = true;
   }
 
   resetFilters() {
