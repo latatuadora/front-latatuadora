@@ -14,16 +14,16 @@
     <img src="src/assets/images/icons/filter.svg" alt="Filtrar">
   </button>
   <div class="gallery-filters flashes-filters ${showFilters ? 'show' : 'hide'}">
-    <div class="gallery-filter-wrapper no-arrow ${params.style || params.element || params.part ? '' : 'active'}">
-      <div class="gallery-filter" click.delegate="resetFilters()">Todos</div>
-    </div>
-    <div class="gallery-filter-wrapper ${params.style ? 'active' : ''}">
+    <div class="gallery-filter-wrapper styles-filter ${params.style ? 'active' : ''}">
       <div click.delegate="toggleDropdown('styles')" ref="styleFilter" class="gallery-filter">${params.style ? params.style : 'Estilo'}</div>
       <dropdown-modal type="list" active-id.bind="activeIds.style" list.bind="lists.styles" item-name="name" on-click.bind="setStyle" ref-element.bind="styleFilter" visible.bind="showDropdowns.styles" close.call="toggleDropdown('styles')" top-reference=".site-navbar" center-at="633"></dropdown-modal>
     </div>
-    <div class="gallery-filter-wrapper ${params.element ? 'active' : ''}">
+    <div class="gallery-filter-wrapper elements-filter ${params.element ? 'active' : ''}">
       <div click.delegate="toggleDropdown('elements')" ref="elementFilter" class="gallery-filter">${params.element ? params.element : 'Elemento'}</div>
       <dropdown-modal type="list" active-id.bind="activeIds.element" list.bind="lists.elements" item-name="name" on-click.bind="setElement" ref-element.bind="elementFilter" visible.bind="showDropdowns.elements" close.call="toggleDropdown('elements')" top-reference=".site-navbar" center-at="633"></dropdown-modal>
+    </div>
+    <div class="gallery-filter-wrapper all-filter no-arrow ${params.style || params.element || params.part ? '' : 'active'}">
+      <div class="gallery-filter" click.delegate="resetFilters()">Todos</div>
     </div>
   </div>
   <gallery-modal id="flashes-content" simple-modal="show.two-way: showModal" css="${showModal ? 'display: block' : 'display: none'}" item.bind="currentItem" close.call="closeModal(currentItem.index)" go-next.call="nextItem()" go-prev.call="previousItem()" type="flash" close.call="closeModal()"></gallery-modal>
