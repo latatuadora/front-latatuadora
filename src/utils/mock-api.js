@@ -41,37 +41,37 @@ let bodyParts = {
       id: 12,
       name: 'Dedos',
       image: '/src/assets/images/mock/bodypart12.png'
-    }//,
-    // {
-    //   id: 13,
-    //   name: 'Abdomen',
-    //   image: '/src/assets/images/mock/bodypart13.png'
-    // },
-    // {
-    //   id: 14,
-    //   name: 'Cachete izquierdo',
-    //   image: '/src/assets/images/mock/bodypart14.png'
-    // },
-    // {
-    //   id: 15,
-    //   name: 'Cachete derecho',
-    //   image: '/src/assets/images/mock/bodypart15.png'
-    // },
-    // {
-    //   id: 16,
-    //   name: 'Frente',
-    //   image: '/src/assets/images/mock/bodypart19.png'
-    // },
-    // {
-    //   id: 17,
-    //   name: 'Espinilla',
-    //   image: '/src/assets/images/mock/bodypart18.png'
-    // },
-    // {
-    //   id: 18,
-    //   name: 'Pecho',
-    //   image: '/src/assets/images/mock/bodypart22.png'
-    // }
+    },
+     {
+       id: 13,
+       name: 'Abdomen',
+       image: '/src/assets/images/mock/bodypart13.png'
+     },
+     {
+       id: 14,
+       name: 'Cachete izquierdo',
+       image: '/src/assets/images/mock/bodypart14.png'
+     },
+     {
+       id: 15,
+       name: 'Cachete derecho',
+       image: '/src/assets/images/mock/bodypart15.png'
+     },
+     {
+       id: 16,
+       name: 'Frente',
+       image: '/src/assets/images/mock/bodypart19.png'
+     },
+     // {
+     //   id: 17,
+     //   name: 'Espinilla',
+     //   image: '/src/assets/images/mock/bodypart18.png'
+     // },
+     {
+       id: 18,
+       name: 'Pecho',
+       image: '/src/assets/images/mock/bodypart22.png'
+     }
   ],
   back: [
     {
@@ -88,27 +88,27 @@ let bodyParts = {
       id: 7,
       name: 'Pantorrilla',
       image: '/src/assets/images/mock/bodypart7.png'
-    }//,
-    // {
-    //   id: 9,
-    //   name: 'Brazos',
-    //   image: '/src/assets/images/mock/bodypart9.png'
-    // },
-    // {
-    //   id: 19,
-    //   name: 'Espalda baja',
-    //   image: '/src/assets/images/mock/bodypart16.png'
-    // },
-    // {
-    //   id: 20,
-    //   name: 'Espalda superior',
-    //   image: '/src/assets/images/mock/bodypart17.png'
-    // },
-    // {
-    //   id: 21,
-    //   name: 'Nuca',
-    //   image: '/src/assets/images/mock/bodypart20.png'
-    // }
+    },
+     {
+       id: 9,
+       name: 'Brazos',
+       image: '/src/assets/images/mock/bodypart9.png'
+     },
+     {
+       id: 19,
+       name: 'Espalda baja',
+       image: '/src/assets/images/mock/bodypart16.png'
+     },
+     {
+       id: 20,
+       name: 'Espalda superior',
+       image: '/src/assets/images/mock/bodypart17.png'
+     },
+     {
+       id: 21,
+       name: 'Nuca',
+       image: '/src/assets/images/mock/bodypart20.png'
+     }
   ]
 }
 
