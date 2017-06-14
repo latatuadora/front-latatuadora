@@ -22,7 +22,7 @@ export class Quotation extends BaseMultiStep {
       height: 10,
       width: 10,
       artist: null,
-      style: null,
+      style: 1,
       bodyPart: {type: '', id: -1, image: ''},
       referenceFile: {file: null, data: null},
       additionalComment: '',
