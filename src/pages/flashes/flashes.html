@@ -6,9 +6,9 @@
   <require from="../../resources/attributes/masonry-item"></require>
   <require from="../../resources/attributes/infinite-scroll"></require>
   <require from="../../resources/elements/dropdown-modal/dropdown-modal"></require>
-  <h1 class="gallery-title">Flashes</h1>
-  <span if.one-time="!params.artist" class="gallery-subtitle">Galería de <span class="golden-text">Flashes</span></span>
-  <span if.one-time="params.artist" class="gallery-subtitle">Flashes hechos por <span class="golden-text">${artist.name}</span></span>
+  <h1 class="gallery-title">Flashes<span if.one-time="params.artist" class="hide-mobile"> hechos por ${artist.name}</span></h1>
+  <span class="gallery-subtitle ${params.artist ? 'hide-mobile' : ''}">Galería de <span class="golden-text">Flashes</span></span>
+  <span if.one-time="params.artist" class="gallery-subtitle hide-desktop">Flashes hechos por <span class="golden-text">${artist.name}</span></span>
   <button type="button" click.delegate="toggleFilters()" class="gallery-filters-toggle site-button">
     <span>${showFilters ? 'Ocultar filtros' : 'Filtrar'}</span>
     <img src="src/assets/images/icons/filter.svg" alt="Filtrar">

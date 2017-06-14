@@ -17,6 +17,13 @@
   color $blackColor
   margin-top 16px
 
+
+.gallery-subtitle,
+.gallery-title
+  &.hide-desktop,
+  .hide-desktop
+    display none
+
 .gallery-filters-toggle
   display none
   font-size 15px
@@ -126,6 +133,16 @@
 
   .gallery-subtitle
     margin-top 12px
+
+  .gallery-subtitle,
+  .gallery-title
+    &.hide-mobile,
+    .hide-mobile
+      display none
+
+    &.hide-desktop,
+    .hide-desktop
+      display block
 
 @media screen and (max-width: 633px)
   .gallery-filters-toggle
