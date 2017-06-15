@@ -61,6 +61,13 @@ export class App {
         moduleId: 'pages/quotation-results/quotation-results',
         title: 'Resultados de tu cotización',
         nav: false
+      },
+      {
+        route: 'estudio/:id',
+        name: 'studio',
+        moduleId: 'pages/artist/studio/studio',
+        title: 'Perfil de estudio',
+        nav: false
       }
     ]);
   }
