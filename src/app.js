@@ -37,7 +37,7 @@ export class App {
       {
         route: 'buscartatuador',
         name: 'search_artist',
-        moduleId: 'pages/homepage/homepage',
+        moduleId: 'pages/search-artist/search-artist',
         title: 'Busca un tatuador',
         nav: true
       },

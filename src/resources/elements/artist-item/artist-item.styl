@@ -1,0 +1,88 @@
+@import '../../../assets/styles/vars'
+@import '../../../assets/styles/mixins'
+
+.artist-item
+  flex-basis 249px
+  height 249px
+  margin-top 9px
+
+  &.animate
+    animation scale 0.4s
+
+.artist-item__front
+  display block
+  cursor pointer
+
+.artist-item__back
+  background $blackColor
+  color white
+  padding 50px 24px
+  text-align left
+
+.artist-item__title
+  rfont-size 17.5px 767px 15px
+  color inherit
+  cursor pointer
+
+.artist-item__stars
+  color #f7c42a
+  font-size 9px
+  margin-top 5.5px
+
+  .fa
+    display inline-block
+
+  .fa:not(:first-child)
+    margin-left 1px
+
+.artist-item__location,
+.artist-item__tags
+  font-family 'SFNSText'
+
+.artist-item__location
+  display block
+  margin-top 8px
+  font-size 13px
+
+.artist-item__tags
+  margin-top 5px
+
+.artist-item__tag
+  background #e5e5e5
+  color #4a4a4a
+  cursor pointer
+  border-radius 100px
+  display inline-block
+  font-size 9px
+  margin-top 8px
+  padding 0.67em 1.5em
+  line-height 1
+
+  &:not(:first-child)
+    margin-left 4.2px
+
+.artist-item__back-content
+  height 100%
+  overflow hidden
+
+  .like-button
+    color white
+    font-family 'Lato'
+
+.artist-item__top-like-button
+  font-size 13px
+  position absolute
+  top 20px
+  right 14px
+
+.artist-item__bottom-like-button
+  font-size 12px
+  letter-spacing -0.4px
+  margin-top 11px
+  padding-left 0
+
+  &::before
+    font-size 15px
+    display inline-block
+    vertical-align middle
+    margin-right 4px
