@@ -8,15 +8,12 @@ export class Studio {
     this.initCarousel = false;
     this.carouselOptions = {
       pagination: '.swiper-pagination',
-      slidesPerView: 4,
+      prevButton: '.swiper-button-prev',
+      nextButton: '.swiper-button-next',
+      slidesPerView: 'auto',
       loop: true,
-      spaceBetween: 30,
-      paginationClickable: true,
-      breakpoints: [
-        1024: {
-          slidesPerView: 1
-        }
-      ]
+      spaceBetween: 5,
+      paginationClickable: true
     };
     this.tattoos = [];
     this.getTattoos();
