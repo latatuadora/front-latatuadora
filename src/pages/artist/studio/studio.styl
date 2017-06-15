@@ -57,6 +57,83 @@
   line-height 1.14
   rfont-size 43px 767px 27px
 
+.studio__subtitle
+  color white
+  rfont-size 35px 767px 28px
+  letter-spacing -0.3px
+  margin 0
+  font-weight $regular
+  text-align center
+  width 90%
+  center-block()
+
+.studio__hr
+  width 83%
+  max-width 903px
+  margin-top 53px
+
+.studio__tattoos-subtitle
+  margin-top 53px
+  color #171717
+
+.studio__tattoos
+  margin-top 91px
+  position relative
+  width 956px
+  overflow hidden
+  center-block()
+
+  &::after,
+  &::before
+    content ' '
+    background white
+    position absolute
+    top 0
+    height 100%
+    width 59px
+    z-index 2
+
+  &::before
+    left 0
+
+  &::after
+    right 0
+
+  .swiper-wrapper
+    margin-left 59px
+
+  .swiper-slide
+    width auto
+
+  .swiper-button-prev
+    left 0
+
+  .swiper-button-next
+    right 0
+
+  .swiper-pagination
+    display none
+
+  .tattoos-grid__element
+    margin 0
+    width 205px
+
+  .tattoos-grid__element-thumbnail-img-wrapper
+    height 177px
+
+  .site-button:nth-child(2)
+    display none
+
+.studio__gallery-button
+  display block
+  margin-top 57px
+  margin-bottom 80px
+  text-align center
+  width 188px
+  font-size 13px
+  padding 17px
+  center-block()
+
 @media screen and (max-width: 900px)
   .studio__hero-right::before
     content ''
