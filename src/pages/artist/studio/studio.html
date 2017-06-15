@@ -1,5 +1,7 @@
 <template>
   <require from="./studio.css"></require>
+  <require from="../../../resources/attributes/swiper-carousel"></require>
+  <require from="../../../resources/elements/gallery-item/gallery-item"></require>
   <section class="studio__hero cover">
     <img src="" alt="Estudio" class="studio__logo">
     <h1 class="studio__title">Estudio de <span class="golden-text">tatuaje</span></h1>
@@ -16,6 +18,11 @@
   </section>
   <hr class="special-hr studio__hr">
   <h2 class="studio__subtitle">Galería de tatuajes</h2>
-  <div class="studio__tattoos"></div>
+  <div class="studio__tattoos" swiper-carousel="init.bind: initCarousel; options.one-time: carouselOptions">
+    <div class="swiper-wrapper">
+      <gallery-item class="swiper-slide" repeat.for="item of tattoos" item.bind="item" original-size.one-time="false"></gallery-item> 
+    </div>
+    <div class="swiper-pagination"></div>
+  </div>
   <a route-href="route: inspirate" class="site-button studio__gallery-button">Ver galería</a>
 </template>
