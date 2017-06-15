@@ -1,2 +1,111 @@
 @import '../../../assets/styles/vars'
 @import '../../../assets/styles/mixins'
+
+.studio__hero
+  background-image url('/src/assets/images/backgrounds/studio.jpg')
+  text-align center
+  color white
+  padding-top 59px
+  padding-bottom 68px
+
+.studio__logo
+  width 210px
+
+.studio__title
+  font-size 29px
+  letter-spacing -0.3px
+  margin-top 11px
+  font-weight $regular
+  center-block()
+
+.studio__hero-inner
+  display flex
+  justify-content space-between
+  max-width 780px
+  width 83%
+  position relative
+  margin-top 61px
+  padding 20px 0 19px 0
+  center-block()
+
+  .site-button
+    font-size 13px
+    letter-spacing 0.5px
+    padding 16px
+    width 188px
+    margin-top 41px
+
+.studio__hero-right::before
+  position absolute
+  background $dustColor
+  content ' '
+  height 100%
+  top 0
+  left calc(50% - 0.5px)
+  width 1px
+
+.studio__hero-subtitle
+  font-family 'BebasNeue'
+  rfont-size 55px 767px 40px
+  letter-spacing 0.1px
+  margin 0
+
+.studio__hero-subtext
+  font-family 'Master of break'
+  display block
+  font-weight normal
+  line-height 1.14
+  rfont-size 43px 767px 27px
+
+@media screen and (max-width: 900px)
+  .studio__hero-right::before
+    content ''
+    display none
+
+@media screen and (max-width: 767px)
+  .studio__hero-inner
+    max-width 460px
+    padding 0
+
+    .site-button
+      padding 12px
+      width 138px
+      margin-top 24px
+
+@media screen and (max-width: 420px)
+  .studio__hero
+    padding-top 61px
+    padding-bottom 54px
+
+  .studio__hero-inner
+    flex-wrap wrap
+    justify-content center
+    align-items flex-start
+
+  .studio__hero-left,
+  .studio__hero-right
+    flex-basis 100%
+
+  .studio__hero-right
+    margin-top 40px
+    padding-top 42px
+    position relative
+    simple-border('top', 1px, $dustColor)
+
+    &::before,
+    &::after
+      position absolute
+      background transparent
+      display block
+      content ' '
+      border-radius 50%
+      top -4px
+      width 5px
+      height 5px
+      simple-border('all', 1px, $dustColor)
+
+    &::before
+      left -6px
+
+    &::after
+      right -6px
