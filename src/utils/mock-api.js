@@ -209,7 +209,9 @@ let featuredArtists = [
     location: 'Roma, Ciudad de México',
     tags: ['Tag1', 'Tag2'],
     imageURL: '/src/assets/images/mock/artist1.png',
-    profileURL: '#'
+    profileURL: '#',
+    id: 1,
+    logo: '/src/assets/images/mock/studioname.png'
   },
   {
     name: 'Mock Artist 2',
@@ -217,7 +219,9 @@ let featuredArtists = [
     location: 'Roma, Ciudad de México',
     tags: ['Tag1', 'Tag2', 'Tag3'],
     imageURL: '/src/assets/images/mock/artist2.png',
-    profileURL: '#'
+    profileURL: '#',
+    id: 2,
+    logo: '/src/assets/images/mock/studioname.png'
   },
   {
     name: 'Mock Artist 3',
@@ -225,7 +229,9 @@ let featuredArtists = [
     location: 'Roma, Ciudad de México',
     tags: ['Tag1', 'Tag2'],
     imageURL: '/src/assets/images/mock/artist3.png',
-    profileURL: '#'
+    profileURL: '#',
+    id: 3,
+    logo: '/src/assets/images/mock/studioname.png'
   },
   {
     name: 'Mock Artist 4',
@@ -233,7 +239,9 @@ let featuredArtists = [
     location: 'Roma, Ciudad de México',
     tags: ['Tag1', 'Tag2', 'Tag3'],
     imageURL: '/src/assets/images/mock/artist4.png',
-    profileURL: '#'
+    profileURL: '#',
+    id: 4,
+    logo: '/src/assets/images/mock/studioname.png'
   },
   {
     name: 'Mock Artist 5',
@@ -241,7 +249,9 @@ let featuredArtists = [
     location: 'Roma, Ciudad de México',
     tags: ['Tag1', 'Tag2'],
     imageURL: '/src/assets/images/mock/artist5.png',
-    profileURL: '#'
+    profileURL: '#',
+    id: 5,
+    logo: '/src/assets/images/mock/studioname.png'
   },
   {
     name: 'Mock Artist 6',
@@ -249,7 +259,9 @@ let featuredArtists = [
     location: 'Roma, Ciudad de México',
     tags: ['Tag1', 'Tag2'],
     imageURL: '/src/assets/images/mock/artist6.png',
-    profileURL: '#'
+    profileURL: '#',
+    id: 6,
+    logo: '/src/assets/images/mock/studioname.png'
   },
   {
     name: 'Mock Artist 7',
@@ -257,7 +269,9 @@ let featuredArtists = [
     location: 'Roma, Ciudad de México',
     tags: ['Tag1', 'Tag2', 'Tag3'],
     imageURL: '/src/assets/images/mock/artist7.png',
-    profileURL: '#'
+    profileURL: '#',
+    id: 7,
+    logo: '/src/assets/images/mock/studioname.png'
   },
   {
     name: 'Mock Artist 8',
@@ -265,7 +279,9 @@ let featuredArtists = [
     location: 'Roma, Ciudad de México',
     tags: ['Tag1', 'Tag2'],
     imageURL: '/src/assets/images/mock/artist8.png',
-    profileURL: '#'
+    profileURL: '#',
+    id: 8,
+    logo: '/src/assets/images/mock/studioname.png'
   }
 ];
 
