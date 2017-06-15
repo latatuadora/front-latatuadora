@@ -1,3 +1,20 @@
 <template>
   <require from="./studio.css"></require>
+  <section class="studio__hero">
+    <img src="" alt="Estudio" class="studio__logo">
+    <h1 class="studio__title">Estudio de <span class="golden-text">tatuaje</span></h1>
+    <div class="studio__hero-inner">
+      <div class="studio__hero-left">
+        <h2>Cotiza tu próximo tatuaje</h2>
+        <a route-href="route: quotation" class="site-button">Cotiza aquí</a>
+      </div>
+      <div class="studio__hero-right">
+        <h2>Agenda tu próximo tatuaje</h2></div>
+        <a route-href="route: quotation" class="site-button">Agenda aquí</a>
+    </div>
+  </section>
+  <hr class="special-hr studio__hr">
+  <h2 class="studio__subtitle">Galería de tatuajes</h2>
+  <div class="studio__tattoos"></div>
+  <a route-href="route: inspirate" class="site-button studio__gallery-button">Ver galería</a>
 </template>
