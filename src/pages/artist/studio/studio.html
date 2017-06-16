@@ -2,6 +2,7 @@
   <require from="./studio.css"></require>
   <require from="../../../resources/attributes/swiper-carousel"></require>
   <require from="../../../resources/elements/gallery-item/gallery-item"></require>
+  <require from="../../../resources/elements/flash-square-item/flash-square-item"></require>
   <section class="studio__hero cover">
     <img src="" alt="Estudio" class="studio__logo">
     <h1 class="studio__title">Estudio de <span class="golden-text">tatuaje</span></h1>
@@ -32,6 +33,7 @@
     <span class="gallery-subtitle">Diseños <span class="golden-text">únicos y exclusivos</span></span>
     <div class="studio__flashes-carousel">
       <div class="swiper-wrapper">
+        <flash-square-item repeat.for="item of tattoos" item.bind="item"></flash-square-item>
       </div>
       <div class="swiper-pagination"></div>
     </div>
