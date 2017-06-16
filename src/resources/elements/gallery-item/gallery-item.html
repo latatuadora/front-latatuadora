@@ -2,7 +2,7 @@
   <require from="./gallery-item.css"></require>
   <require from="../../value-converters/currency"></require>
   <div class="tattoos-grid__element ${type=='flash' ? 'flashes-grid__flash-element' : ''}">
-    <div class="tattoos-grid__element-thumbnail">
+    <div class="tattoos-grid__element-thumbnail" click.delegate="open()">
       <div class="tattoos-grid__element-thumbnail-actions">
         <button type="button" class="fa fa-heart vote-btn"></button>
         <button type="button" class="fa fa-share"></button>
@@ -10,7 +10,7 @@
       <div if.one-time="originalSize" class="tattoos-grid__element-thumbnail-img-wrapper" click.delegate="open()">
         <img class="tattoos-grid__element-thumbnail-img" src="${item.image}" alt="Tatuaje de ${item.artist_name}">
       </div>
-      <div if.one-time="!originalSize" class="tattoos-grid__element-thumbnail-img-wrapper cover" click.delegate="open()" css="background-image: url(${item.image})"></div>
+      <div if.one-time="!originalSize" class="tattoos-grid__element-thumbnail-img-wrapper cover" css="background-image: url(${item.image})"></div>
     </div>
     <div class="tattoos-grid__element-info-wrapper">
       <div class="tattoos-grid__element-info-top">

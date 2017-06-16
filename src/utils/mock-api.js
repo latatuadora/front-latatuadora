@@ -371,6 +371,18 @@ export class MockAPI {
     });
   }
 
+  getArtist(id) {
+    this.isRequesting = true;
+
+    return new Promise(resolve => {
+      setTimeout(() => {
+        resolve(featuredArtists[0]);
+        this.isRequesting = false;
+      }, latency);
+    });
+  }
+
+
   getStyles() {
     this.isRequesting = true;
 
