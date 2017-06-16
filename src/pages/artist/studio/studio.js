@@ -9,7 +9,7 @@ class Carousel {
       this.nextButton = '.swiper-button-next';
     }
     this.slidesPerView = 'auto';
-    this.loop = true;
+    this.loop = false;
     this.paginationClickable = true;
   }
 };
@@ -26,6 +26,11 @@ export class Studio {
     this.flashesOptions = new Carousel(false);
     this.flashesOptions.slidesPerView = 4;
     this.flashesOptions.slidesPerColumn = 2;
+    this.flashesOptions.breakpoints = {
+      1023: {
+        slidesPerView: 2
+      }
+    };
     this.tattoos = [];
     this.flashes = [];
     this.getTattoos();
