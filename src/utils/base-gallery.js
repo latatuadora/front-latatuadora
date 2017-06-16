@@ -5,6 +5,7 @@ export class BaseGallery {
     this.params = {
       style: '',
       element: '',
+      artist: null,
       page: 1
     };
     this.lists = {
@@ -24,6 +25,7 @@ export class BaseGallery {
     this.showFilters = false;
     this.showModal = false;
     this.currentItem = {};
+    this.allEmpty = true;
   }
 
   activate(params, routeConfig) {
@@ -35,6 +37,10 @@ export class BaseGallery {
   }
 
   checkParams(params) {
+    if (params.artist) {
+      this.params.artist = parseInt(params.artist);
+      this.artist = this.getArtist(params.artist);
+    }
     if (params.style) {
       this.params.style = params.style;
       this.activeIds.style = -1;
@@ -56,6 +62,13 @@ export class BaseGallery {
   getLists() {
     this.getStyles();
     this.getElements();
+  }
+
+  getArtist(id) {
+    this.api.getArtist(id)
+      .then(artist => {
+        this.artist = artist;
+      });
   }
 
   getStyles() {
@@ -87,6 +100,7 @@ export class BaseGallery {
       this.params.style = style.name;
       this.activeIds.style = style.id;
       this.filterItems();
+      this.allEmpty = false;
     }
   }
 
@@ -95,6 +109,7 @@ export class BaseGallery {
       this.params.element = element.name;
       this.activeIds.element = element.id;
       this.filterItems();
+      this.allEmpty = false;
     }
   }
 
@@ -102,12 +117,14 @@ export class BaseGallery {
     this.params = {
       style: '',
       element: '',
+      artist: null,
       page: 1
     };
     this.activeIds = {
       style: -1,
       element: -1
     };
+    this.allEmpty = true;
   }
 
   resetFilters() {

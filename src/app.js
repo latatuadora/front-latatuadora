@@ -21,17 +21,19 @@ export class App {
         nav: true
       },
       {
-        route: 'inspirate',
+        route: 'inspirate/:artist?',
         name: 'inspirate',
         moduleId: 'pages/inspirate/inspirate',
         title: 'Inspírate',
+        href: '/inspirate',
         nav: true
       },
       {
-        route: 'flashes',
+        route: 'flashes/:artist?',
         name: 'flashes',
         moduleId: 'pages/flashes/flashes',
         title: 'Flashes',
+        href: '/flashes',
         nav: true
       },
       {
