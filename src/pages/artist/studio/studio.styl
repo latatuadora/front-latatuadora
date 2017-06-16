@@ -211,7 +211,11 @@
       width 138px
 
 @media screen and (max-width: 767px)
+  .studio__hr
+    display none
+
   .studio__tattoos
+    margin-top 50px
     width 320px
 
     .swiper-button-prev,
@@ -239,6 +243,12 @@
 
     .tattoos-grid__element
       width 320px
+
+    .tattoos-grid__element-thumbnail-actions
+      top 20px
+
+      .fa
+        font-size 20px
 
     .tattoos-grid__element-thumbnail-img-wrapper
       height 268px
@@ -287,6 +297,10 @@
       .site-button
         width 185px
 
+  .studio__gallery-button
+    margin-top 22px
+    margin-bottom 50px
+
 @media screen and (max-width: 420px)
   .studio__hero
     padding-top 61px
@@ -324,3 +338,13 @@
 
     &::after
       right -6px
+
+@media screen and (max-width: 399px)
+  .studio__tattoos-subtitle
+    display none
+
+  .studio__tattoos
+    margin-top 0
+
+  .studio__gallery-button
+    margin-bottom 30px
