@@ -179,10 +179,26 @@
   padding 17px
   center-block()
 
+@media screen and (max-width: 1023px)
+  .studio__tattoos
+    width 705px
+
+    &::before,
+    &::after
+      width 40px
+
+    .swiper-wrapper
+      margin-left 40px
+
 @media screen and (max-width: 900px)
   .studio__hero-right::before
     content ''
     display none
+
+@media screen and (max-width: 855px)
+  .studio__tattoos .tattoos-grid__element-buttons .site-button
+    font-size inherit
+    width 148px
 
 @media screen and (max-width: 767px)
   .studio__hero-inner
@@ -191,8 +207,85 @@
 
     .site-button
       padding 12px
-      width 138px
       margin-top 24px
+      width 138px
+
+@media screen and (max-width: 767px)
+  .studio__tattoos
+    width 320px
+
+    .swiper-button-prev,
+    .swiper-button-next,
+    &::before,
+    &::after
+      display none
+
+    .swiper-wrapper
+      margin-left 0
+      margin-bottom 40px
+
+    .swiper-pagination
+      display block
+
+    .swiper-pagination-bullet
+      background #d8d8d8
+      opacity 1
+      width 5px
+      height 5px
+      margin 0 2.5px !important
+
+    .swiper-pagination-bullet-active
+      background $dustColor
+
+    .tattoos-grid__element
+      width 320px
+
+    .tattoos-grid__element-thumbnail-img-wrapper
+      height 268px
+
+    .tattoos-grid__element-info-wrapper
+      padding 25px 17px 40px 17px
+
+    .tattoos-grid__element-author-pic
+      width 38px
+      height 38px
+
+    .tattoos-grid__element-info-likes
+      font-size 10px
+      margin-right 0
+      margin-left 10px
+
+      &::before
+        font-size 19px
+        margin-right 6px
+
+    .tattoos-grid__element-info
+      margin-left 12px
+
+    .tattoos-grid__element-author
+      font-size 19px
+
+    .tattoos-grid__element-location
+      font-size 16px
+      margin-top 2.5px
+
+    .tattoos-grid__element-stars
+      font-size 11px
+      margin-top 8.5px
+
+      .fa:not(:first-child)
+        margin-left 3px
+
+    .tattoos-grid__element-tags
+      font-size 10px
+      margin-top 31px
+
+    .tattoos-grid__element-buttons
+      font-size 11px
+      margin-top 22.5px
+
+      .site-button
+        width 185px
 
 @media screen and (max-width: 420px)
   .studio__hero
