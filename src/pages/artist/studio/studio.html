@@ -31,9 +31,9 @@
   <section class="studio__flashes cover">
     <h2 class="studio__subtitle">Flashes</h2>
     <span class="gallery-subtitle">Diseños <span class="golden-text">únicos y exclusivos</span></span>
-    <div class="studio__flashes-carousel">
+    <div class="studio__flashes-carousel" swiper-carousel="init.bind: initFlashes; options.one-time: flashesOptions">
       <div class="swiper-wrapper">
-        <flash-square-item repeat.for="item of tattoos" item.bind="item"></flash-square-item>
+        <flash-square-item repeat.for="item of flashes" item.bind="item"></flash-square-item>
       </div>
       <div class="swiper-pagination"></div>
     </div>
