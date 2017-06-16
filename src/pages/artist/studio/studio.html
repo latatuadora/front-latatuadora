@@ -39,9 +39,9 @@
     </div>
     <a class="site-button" route-href="route: flashes">Ver catálogo</a>
   </section>
-  <div class="studio__photos-carousel">
+  <div class="studio__photos-carousel" swiper-carousel="init.bind: initPhotos; options.one-time: photosOptions">
     <div class="swiper-wrapper">
-      <img repeat.for="i of 4" src="/src/assets/images/mock/studio-carousel.jpg" alt="Estudio">
+      <img class="swiper-slide" repeat.for="i of 4" src="/src/assets/images/mock/studio-carousel.jpg" alt="Estudio">
     </div>
     <div class="swiper-pagination"></div>
   </div>

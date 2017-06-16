@@ -31,10 +31,15 @@ export class Studio {
         slidesPerView: 2
       }
     };
+    this.photosOptions = new Carousel(true);
     this.tattoos = [];
     this.flashes = [];
     this.getTattoos();
     this.getFlashes();
+  }
+
+  activate(params, routeConfig) {
+    this.getArtist(params.artist);
   }
 
   getTattoos() {
@@ -50,6 +55,14 @@ export class Studio {
       .then(flashes => {
         this.flashes = flashes;
         this.initFlashes = true;
+      });
+  }
+
+  getArtist(id) {
+    this.api.getArtist(id)
+      .then(artist => {
+        this.artist = artist;
+        this.initPhotos = true;
       });
   }
 }
