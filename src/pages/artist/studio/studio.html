@@ -27,4 +27,20 @@
     <img class="swiper-button-next" src="/src/assets/images/icons/arrow-golden-right.svg">
   </div>
   <a route-href="route: inspirate" class="site-button studio__gallery-button">Ver galería</a>
+  <section class="studio__flashes">
+    <h2 class="studio__subtitle">Flashes</h2>
+    <span class="gallery-subtitle">Diseños <span class="golden-text">únicos y exclusivos</span></span>
+    <div class="studio__flashes-carousel">
+      <div class="swiper-wrapper">
+      </div>
+      <div class="swiper-pagination"></div>
+    </div>
+    <a class="site-button" route-href="route: flashes">Ver catálogo</a>
+  </section>
+  <div class="studio__photos-carousel">
+    <div class="swiper-wrapper">
+      <img repeat.for="i of 4" src="/src/assets/images/mock/studio-carousel.jpg" alt="Estudio">
+    </div>
+    <div class="swiper-pagination"></div>
+  </div>
 </template>
