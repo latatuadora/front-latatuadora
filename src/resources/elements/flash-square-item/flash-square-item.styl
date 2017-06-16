@@ -1,2 +1,54 @@
 @import '../../../assets/styles/vars'
 @import '../../../assets/styles/mixins'
+
+.flash-square-item__back
+  color white
+  text-align left
+
+.flash-square-item
+  .artist-item__top-like-button,
+  .artist-item__top-share-button
+    position absolute
+    top 18px
+
+  .artist-item__top-share-button
+    right 15px
+
+  .artist-item__top-like-button
+    right 36px
+
+  .artist-item__back-content
+    font-size 14px
+    background rgba($dustColor, 0.96)
+    padding 59px 46px 10px 46px
+
+  .fa-usd
+    background #242323
+    color $dustColor
+    width 20px
+    height 20px
+    padding 1.3px 7px
+
+    &::before
+      font-size 10px
+
+  .fa-arrows-alt
+    color #242323
+    font-size 19px
+    margin-left 1px
+
+  .fa-usd,
+  .fa-arrows-alt
+    display inline-block
+    margin-right 7.3px
+
+  .flash-square-item__element-dimensions
+    margin-top 10px
+
+  .artist-item__bottom-like-button
+    margin-top 13px
+    font-size 9px
+
+    &::before
+      margin-right 10px
+      font-size 14px
