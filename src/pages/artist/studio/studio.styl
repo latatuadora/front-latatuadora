@@ -215,7 +215,8 @@
     display none
 
 .studio__tattoos,
-.studio__flashes-carousel
+.studio__flashes-carousel,
+.studio__photos-carousel
   .swiper-pagination-bullet
     background #d8d8d8
     opacity 1
@@ -225,6 +226,32 @@
 
   .swiper-pagination-bullet-active
     background $dustColor
+
+.studio__photos-carousel
+  position relative
+  height 41vw
+
+  .swiper-pagination
+    bottom 26px
+
+  .swiper-pagination-bullet
+    width 6.2px
+    height 6.2px
+
+    &:not(.swiper-pagination-bullet-active)
+      background #ffffff
+
+  .swiper-button-prev,
+  .swiper-button-next
+    background none
+    width 11px
+    height 20px
+
+  .swiper-button-prev
+    left 34px
+
+  .swiper-button-next
+    right 34px
 
 @media screen and (max-width: 1023px)
   .studio__tattoos
@@ -262,6 +289,9 @@
       padding 12px
       margin-top 24px
       width 138px
+
+  .studio__photos-carousel
+    display none
 
 @media screen and (max-width: 767px)
   .studio__hr
