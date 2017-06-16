@@ -214,6 +214,18 @@
   .swiper-pagination
     display none
 
+.studio__tattoos,
+.studio__flashes-carousel
+  .swiper-pagination-bullet
+    background #d8d8d8
+    opacity 1
+    width 5px
+    height 5px
+    margin 0 2.5px !important
+
+  .swiper-pagination-bullet-active
+    background $dustColor
+
 @media screen and (max-width: 1023px)
   .studio__tattoos
     width 705px
@@ -227,6 +239,9 @@
 
   .studio__flashes-carousel
     width 514px
+
+    .swiper-pagination
+      display block
 
 @media screen and (max-width: 900px)
   .studio__hero-right::before
@@ -268,16 +283,6 @@
 
     .swiper-pagination
       display block
-
-    .swiper-pagination-bullet
-      background #d8d8d8
-      opacity 1
-      width 5px
-      height 5px
-      margin 0 2.5px !important
-
-    .swiper-pagination-bullet-active
-      background $dustColor
 
     .tattoos-grid__element
       width 320px
@@ -338,6 +343,61 @@
   .studio__gallery-button
     margin-top 22px
     margin-bottom 50px
+
+  .studio__flashes
+    padding-top 40px
+    padding-bottom 55px
+
+    .gallery-subtitle
+      margin-top 15px
+
+  .studio__flashes-carousel
+    margin-top 50px
+
+@media screen and (max-width: 580px)
+  .studio__flashes .site-button
+    margin-top 10px
+
+  .studio__flashes-carousel
+    width 322px
+    padding-bottom 46px
+
+    .flash-square-item
+      flex-basis 160px
+      width 160px
+      height 171px
+
+      .artist-item__back-content
+        padding 24px 15px 15px
+
+      .fa-usd,
+      .fa-arrows-alt
+        margin-right 5.5px
+
+      .fa-usd
+        width 17px
+        height 17px
+        padding .35px 6px
+
+        &::before
+          font-size 8.5px
+
+      .fa-arrows-alt
+        font-size 15px
+
+      .artist-item__tag
+        padding 4px 8px
+
+      .artist-item__top-like-button,
+      .artist-item__top-share-button
+        font-size 11px
+        top 9px
+
+      .artist-item__top-share-button
+        right 8px
+
+      .artist-item__top-like-button
+        right 28px
 
 @media screen and (max-width: 420px)
   .studio__hero
