@@ -214,6 +214,8 @@
     display none
 
 .studio__carousel
+  overflow hidden
+
   .swiper-button-prev,
   .swiper-button-next
     background none
@@ -294,6 +296,20 @@
     background $dustColor
     width 94.5%
     center-block()
+
+  .swiper-button-prev,
+  .swiper-button-next
+    width 11px
+    height auto
+
+  .swiper-button-prev
+    left 51px
+
+  .swiper-button-next
+    right 51px
+
+  .swiper-pagination
+    bottom 52px
 
 .studio__evaluation-title
   font-weight $regular
