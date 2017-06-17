@@ -82,8 +82,22 @@
     <h2 class="studio__wall-title">Lo último de ${studio.name}</h2>
     <div class="studio__wall-wrapper">
       <div class="studio__wall-inner scrollable">
-        <div class="studio__wall-item">
-          
+        <div class="studio__wall-item" repeat.for="item of studio.posts">
+          <div class="studio__wall-item-header">
+            <img class="studio__wall-item-avatar circle" src="${item.authorImage}" alt="${item.author}">
+            <div class="studio__wall-item-data">
+              <span class="studio__wall-item-author">${item.author}</span>
+              <span class="studio__wall-item-date">${item.publicationDate}</span>
+            </div>
+          </div>
+          <div class="studio__wall-item-content">
+            ${item.content}
+          </div>
+          <div class="studio__wall-item-comments"></div>
+          <div class="studio__wall-item-newcomment">
+            <textarea placeholder="Escribir un comentario"></textarea>
+            <button class="site-button">Enviar</button>
+          </div>
         </div>
       </div>
     </div>
