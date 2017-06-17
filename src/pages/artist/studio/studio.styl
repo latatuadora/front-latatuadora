@@ -341,6 +341,70 @@
 
 .studio__artists-carousel
   margin-top 36px
+  padding 0 60px 41px 60px
+  center-block()
+  width 500px
+
+  &::before,
+  &::after
+    display block
+    content ' '
+    background white
+    position absolute
+    top 0
+    height 100%
+    width 60px
+    z-index 2
+
+  &::before
+    left 0
+
+  &::after
+    right 0
+
+  .swiper-wrapper
+    z-index 1
+
+  .swiper-slide
+    position relative
+
+    &::after
+      background transparent
+      content ' '
+      position absolute
+      top 0
+      left 0
+      width 100%
+      visibility hidden
+      height 100%
+      transition background 0.2s, visibility 0.2s
+
+    &:not(.swiper-slide-active)::after
+      background rgba(black, 0.6)
+      visibility visible
+
+  .swiper-button-prev,
+  .swiper-button-next
+    height 21px
+    width auto
+    z-index 3
+
+  .swiper-button-prev
+    left 27px
+
+  .swiper-button-next
+    right 27px
+
+  .swiper-pagination
+    bottom 0
+
+  .swiper-pagination-bullet
+    width 7px
+    height 7px
+    margin 0 3.5px !important
+
+    &:not(.swiper-pagination-bullet-active)
+      background #171616
 
 .studio__artist-item
   background #1d1d1d

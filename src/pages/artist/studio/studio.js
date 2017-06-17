@@ -46,12 +46,11 @@ export class Studio {
       init: false,
       options: new CarouselOptions(true)
     };
-    this.artistsCarousel.options.slidesPerView = 3;
     this.artistsCarousel.options.centeredSlides = true;
     this.artistsCarousel.options.effect = 'coverflow';
     this.artistsCarousel.options.coverflow = {
       rotate: 0,
-      stretch: 100,
+      stretch: 90,
       depth: 500,
       modifier: 1,
       slideShadows : false
