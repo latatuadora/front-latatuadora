@@ -15,7 +15,7 @@ class Post {
   constructor(artist) {
     this.author = artist.name;
     this.authorImage = artist.imageURL;
-    this.publicationDate = new Date();
+    this.publicationDate = new Date().toString();
     this.content = 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nemo distinctio harum quo expedita id. Illum maiores rerum in quidem dolorem, quis, neque animi non odio, laboriosam eveniet voluptates atque molestias.';
   }
 }

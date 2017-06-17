@@ -1,6 +1,7 @@
 <template>
   <require from="./studio.css"></require>
   <require from="../../../resources/attributes/swiper-carousel"></require>
+  <require from="../../../resources/value-converters/date"></require>
   <require from="../../../resources/elements/gallery-item/gallery-item"></require>
   <require from="../../../resources/elements/flash-square-item/flash-square-item"></require>
   <section class="studio__hero cover">
@@ -87,7 +88,7 @@
             <img class="studio__wall-item-avatar circle" src="${item.authorImage}" alt="${item.author}">
             <div class="studio__wall-item-data">
               <span class="studio__wall-item-author">${item.author}</span>
-              <span class="studio__wall-item-date">${item.publicationDate}</span>
+              <span class="studio__wall-item-date">${item.publicationDate | date}</span>
             </div>
           </div>
           <div class="studio__wall-item-content">

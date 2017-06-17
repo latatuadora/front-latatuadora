@@ -127,6 +127,11 @@
             "main": "tippy"
           },
           {
+            "name": "moment_es",
+            "path": "../node_modules/moment/locale",
+            "main": "es"
+          },
+          {
             "name": "masonry-layout",
             "path": "../node_modules/masonry-layout/dist",
             "main": "masonry.pkgd"
