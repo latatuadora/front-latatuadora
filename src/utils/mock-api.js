@@ -16,6 +16,7 @@ class Artist {
     this.id = id;
     this.name = 'Mock Artist ' + id;
     this.rating = getRandom(0, 5, 1);
+    this.votes = getRandom(0, 100);
     this.location = 'Roma, Ciudad de México';
     this.tags = ['Tag1', 'Tag2'];
     this.imageURL = '/src/assets/images/mock/artist' + id + '.png';
