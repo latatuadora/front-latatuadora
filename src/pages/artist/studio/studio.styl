@@ -428,6 +428,31 @@
   width 100%
   height 237px
 
+.studio__wall
+  margin-top 92px
+  text-align center
+
+.studio__wall-title
+  color #1d1c1c
+  font-weight $regular
+  margin 0
+  font-size 26px
+
+.studio__wall-wrapper
+  margin-top 36px
+  display flex
+  simple-border('top', 1px, #e5e5e5)
+
+  &::before
+    background $dustColor
+    content ' '
+    width 249px
+
+.studio__wall-inner
+  flex-basis 622px
+  max-height 834px
+  padding 61px 88px 40px 81px
+
 @media screen and (max-width: 1023px)
   .studio__tattoos
     width 705px
