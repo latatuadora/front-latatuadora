@@ -1,7 +1,7 @@
 import {inject} from 'aurelia-framework';
 import {MockAPI} from 'utils/mock-api';
 
-class Carousel {
+class CarouselOptions {
   constructor(includeArrows) {
     this.pagination = '.swiper-pagination';
     if (includeArrows) {
@@ -18,20 +18,41 @@ class Carousel {
 export class Studio {
   constructor(api) {
     this.api = api;
-    this.initTattoos = false;
-    this.initFlashes = false;
-    this.initPhotos = false;
-    this.tattoosOptions = new Carousel(true);
-    this.tattoosOptions.spaceBetween = 5;
-    this.flashesOptions = new Carousel(false);
-    this.flashesOptions.slidesPerView = 4;
-    this.flashesOptions.slidesPerColumn = 2;
-    this.flashesOptions.breakpoints = {
+    this.tattoosCarousel = {
+      init: false,
+      options: new CarouselOptions(true)
+    };
+    this.tattoosCarousel.options.spaceBetween = 5;
+
+    this.flashesCarousel = {
+      init: false,
+      options: new CarouselOptions(false)
+    };
+    this.flashesCarousel.options.slidesPerView = 4;
+    this.flashesCarousel.options.slidesPerColumn = 2;
+    this.flashesCarousel.options.breakpoints = {
       1023: {
         slidesPerView: 2
       }
     };
-    this.photosOptions = new Carousel(true);
+
+    this.evaluationsCarousel = {
+      init: false,
+      options: new CarouselOptions(true)
+    };
+    this.evaluationsCarousel.options.slidesPerView = 1;
+
+    this.artistsCarousel = {
+      init: false,
+      options: new CarouselOptions(true)
+    };
+    this.artistsCarousel.options.slidesPerView = 1;
+
+    this.photosCarousel = {
+      init: false,
+      options: new CarouselOptions(true)
+    };
+
     this.tattoos = [];
     this.flashes = [];
   }
@@ -44,7 +65,7 @@ export class Studio {
     this.api.getTattoos()
       .then(tattoos => {
         this.tattoos = tattoos;
-        this.initTattoos = true;
+        this.tattoosCarousel.init = true;
       });
   }
 
@@ -52,7 +73,7 @@ export class Studio {
     this.api.getTattoos()
       .then(flashes => {
         this.flashes = flashes;
-        this.initFlashes = true;
+        this.flashesCarousel.init = true;
       });
   }
 
@@ -60,7 +81,9 @@ export class Studio {
     this.api.getStudio(id)
       .then(studio => {
         this.studio = studio;
-        this.initPhotos = true;
+        this.photosCarousel.init = true;
+        this.evaluationsCarousel.init = true;
+        this.artistsCarousel.init = true;
         this.getTattoos();
         this.getFlashes();
       });
