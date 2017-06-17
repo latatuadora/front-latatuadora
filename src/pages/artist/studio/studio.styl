@@ -453,6 +453,16 @@
   max-height 834px
   padding 61px 88px 40px 81px
 
+  &::-webkit-scrollbar
+    width 6px
+
+  &::-webkit-scrollbar-thumb
+    background $dustColor
+
+    &:window-inactive
+    	background rgba($dustColor, 80%)
+
+
 @media screen and (max-width: 1023px)
   .studio__tattoos
     width 705px
