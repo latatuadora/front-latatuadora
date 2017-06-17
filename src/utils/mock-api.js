@@ -1,5 +1,5 @@
 function getRandom(min, max, precision = 0) {
-  var random = Math.floor((Math.random() * max) + min);
+  var random = (Math.random() * max) + min;
   return parseFloat(random.toFixed(precision));
 }
 
