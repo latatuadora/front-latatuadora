@@ -11,6 +11,15 @@ class Evaluation {
   }
 }
 
+class Post {
+  constructor(artist) {
+    this.author = artist.name;
+    this.authorImage = artist.imageURL;
+    this.publicationDate = new Date();
+    this.content = 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nemo distinctio harum quo expedita id. Illum maiores rerum in quidem dolorem, quis, neque animi non odio, laboriosam eveniet voluptates atque molestias.';
+  }
+}
+
 class Artist {
   constructor(id) {
     this.id = id;
@@ -34,7 +43,13 @@ class Artist {
       new Evaluation(),
       new Evaluation(),
       new Evaluation()
-    ]
+    ];
+    this.posts = [
+      new Post(this),
+      new Post(this),
+      new Post(this),
+      new Post(this)
+    ];
   }
 }
 
