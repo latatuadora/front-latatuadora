@@ -37,7 +37,7 @@ export class Studio {
   }
 
   activate(params, routeConfig) {
-    this.getArtist(params.artist);
+    this.getStudio(parseInt(params.id));
   }
 
   getTattoos() {
@@ -56,10 +56,10 @@ export class Studio {
       });
   }
 
-  getArtist(id) {
-    this.api.getArtist(id)
-      .then(artist => {
-        this.artist = artist;
+  getStudio(id) {
+    this.api.getStudio(id)
+      .then(studio => {
+        this.studio = studio;
         this.initPhotos = true;
         this.getTattoos();
         this.getFlashes();

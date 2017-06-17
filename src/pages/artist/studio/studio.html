@@ -4,16 +4,16 @@
   <require from="../../../resources/elements/gallery-item/gallery-item"></require>
   <require from="../../../resources/elements/flash-square-item/flash-square-item"></require>
   <section class="studio__hero cover">
-    <img src="${artist.logo}" alt="Estudio" class="studio__logo">
+    <img src="${studio.logo}" alt="Estudio" class="studio__logo">
     <h1 class="studio__title">Estudio de <span class="golden-text">tatuaje</span></h1>
     <div class="studio__hero-inner">
       <div class="studio__hero-left">
         <h2 class="studio__hero-subtitle">Cotiza tu <span class="studio__hero-subtext">próximo tatuaje</span></h2>
-        <a route-href="route: quotation; params.bind: {artist: artist.id}" class="site-button">Cotiza aquí</a>
+        <a route-href="route: quotation; params.bind: {artist: studio.id}" class="site-button">Cotiza aquí</a>
       </div>
       <div class="studio__hero-right">
         <h2 class="studio__hero-subtitle">Agenda tu <span class="studio__hero-subtext">próxima cita</span></h2>
-        <a route-href="route: quotation; params.bind: {artist: artist.id}" class="site-button">Agenda aquí</a>
+        <a route-href="route: quotation; params.bind: {artist: studio.id}" class="site-button">Agenda aquí</a>
       </div>
     </div>
   </section>
@@ -27,7 +27,7 @@
     <img class="swiper-button-prev" src="/src/assets/images/icons/arrow-golden-left.svg">
     <img class="swiper-button-next" src="/src/assets/images/icons/arrow-golden-right.svg">
   </div>
-  <a route-href="route: inspirate; params.bind: {artist: artist.id}" class="site-button studio__gallery-button">Ver galería</a>
+  <a route-href="route: inspirate; params.bind: {artist: studio.id}" class="site-button studio__gallery-button">Ver galería</a>
   <section class="studio__flashes cover">
     <h2 class="studio__subtitle">Flashes</h2>
     <span class="gallery-subtitle">Diseños <span class="golden-text">únicos y exclusivos</span></span>
@@ -37,7 +37,7 @@
       </div>
       <div class="swiper-pagination"></div>
     </div>
-    <a class="site-button" route-href="route: flashes; params.bind: {artist: artist.id}">Ver catálogo</a>
+    <a class="site-button" route-href="route: flashes; params.bind: {artist: studio.id}">Ver catálogo</a>
   </section>
   <hr class="special__hr studio__evaluations-hr">
   <section class="studio__evaluations-artists">
@@ -45,7 +45,7 @@
       <h2 class="studio__evaluations-title">Evaluaciones</h2>
       <div class="studio__evaluations-carousel">
         <div class="swiper-wrapper">
-          <div class="studio__evaluation-item" repeat.for="item of artist.evaluations">
+          <div class="studio__evaluation-item" repeat.for="item of studio.evaluations">
             <h3 class="studio__evaluation-title">${item.author}</h3>
             <div class="studio__evaluation-stars">
               <i repeat.for="i of 5" class="fa ${item.stars > i ? (item.stars > i + 0.9 ? 'fa-star' : 'fa-star-half-o') : 'fa-star-o'}"></i>
@@ -64,7 +64,7 @@
       <h2 class="studio__artists-title">Tatuadores</h2>
       <div class="studio__artists-carousel">
         <div class="swiper-wrapper">
-          <div class="studio__artist-item" repeat.for="item of artist.artists">
+          <div class="studio__artist-item" repeat.for="item of studio.artists">
             <h3 class="studio__artist-name">${item.name}</h3>
             <img src="${item.imageURL}" alt="${item.name}">
           </div>
@@ -77,7 +77,7 @@
   </section>
   <div class="studio__photos-carousel" swiper-carousel="init.bind: initPhotos; options.one-time: photosOptions">
     <div class="swiper-wrapper">
-      <img class="swiper-slide" repeat.for="item of artist.images" src="${item}" alt="Estudio">
+      <img class="swiper-slide" repeat.for="item of studio.images" src="${item}" alt="Estudio">
     </div>
     <div class="swiper-pagination"></div>
     <img class="swiper-button-prev" src="/src/assets/images/icons/left-arrow.png">

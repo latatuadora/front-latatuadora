@@ -28,7 +28,7 @@ class Artist {
       '/src/assets/images/mock/studio-carousel.jpg',
       '/src/assets/images/mock/studio-carousel.jpg'
     ];
-    this.evalutations = [
+    this.evaluations = [
       new Evaluation(),
       new Evaluation(),
       new Evaluation(),
@@ -349,6 +349,17 @@ export class MockAPI {
     return new Promise(resolve => {
       setTimeout(() => {
         resolve(featuredArtists[0]);
+        this.isRequesting = false;
+      }, latency);
+    });
+  }
+
+  getStudio(id) {
+    this.isRequesting = true;
+
+    return new Promise(resolve => {
+      setTimeout(() => {
+        resolve(new Studio(id));
         this.isRequesting = false;
       }, latency);
     });
