@@ -64,12 +64,6 @@ class Tattoo {
     this.artist_id = getRandom(1, 8);
     this.artist_location = 'Col. Roma';
     this.artist_rating = getRandom(0, 5, 1);
-  }
-}
-
-class Flash extends Tattoo {
-  constructor(id, element, part, style) {
-    super(id, element, part, style);
     this.price = getRandom(300, 4000);
     this.currency = 'mxn';
     this.dimensions = {
@@ -200,15 +194,6 @@ let tattoos = [
   new Tattoo(4, 'Brazo Robot', 'Oreja', 'Dark'),
   new Tattoo(5, 'Brazo Robot', 'Oreja', 'Religioso'),
   new Tattoo(6, 'Brazo Robot', 'Oreja', 'Religioso')
-];
-
-let flashes = [
-  new Flash(1, 'Brazo Robot', 'Oreja', 'Dark'),
-  new Flash(2, 'Brazo Robot', 'Pierna', 'Dark'),
-  new Flash(3, 'Brazo Robot', 'Oreja', 'Dark'),
-  new Flash(4, 'Brazo Robot', 'Oreja', 'Dark'),
-  new Flash(5, 'Brazo Robot', 'Oreja', 'Religioso'),
-  new Flash(6, 'Brazo Robot', 'Oreja', 'Religioso')
 ];
 
 let featuredArtists = [
