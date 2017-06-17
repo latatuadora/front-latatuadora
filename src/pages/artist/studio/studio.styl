@@ -441,17 +441,26 @@
 .studio__wall-wrapper
   margin-top 36px
   display flex
+  justify-content center
+  background $dustColor
+  position relative
   simple-border('top', 1px, #e5e5e5)
 
-  &::before
-    background $dustColor
+  &::after
+    background white
+    position absolute
     content ' '
-    width 249px
+    height 100%
+    width 50%
+    right 0
+    z-index 0
 
 .studio__wall-inner
+  background white
   flex-basis 622px
   max-height 834px
   padding 61px 88px 40px 81px
+  z-index 1
 
   &::-webkit-scrollbar
     width 6px
