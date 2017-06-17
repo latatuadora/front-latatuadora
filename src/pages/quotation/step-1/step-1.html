@@ -3,18 +3,18 @@
   <require from="../../../resources/attributes/range-slider"></require>
   <require from="../../../resources/attributes/tooltip-message"></require>
   <h2 class="quotation-instructions quotation-instructions--step-1-main">
-    Estas cotizando con <span class="golden-text">${model.artist == null ? 'La tatuadora' : model.artist.name}</span>
+    Estás cotizando con <span class="golden-text">${model.artist == null ? 'La tatuadora' : model.artist.name}</span>
   </h2>
   <img src="src/assets/images/icons/dimensions.svg" alt="Icon" class="quotation-step-1-icon">
   <h2 class="quotation-instructions quotation-instructions--step-1-sub">
     Elige un rango de <span class="golden-text">tamaño</span> de tu tatuaje
   </h2>
   <h3 class="quotation-instructions quotation-instructions--step-1-height">
-    <i class="fa fa-info at-left" title="Selecciona el alto" tooltip-message></i>Alto
+    Alto<i class="fa fa-info at-right" title="Selecciona el alto" tooltip-message></i>
   </h3>
-  <div class="range-slider" range-slider="update.bind: model.changeHeight; min.bind: 1; max.bind: 20; start.bind: model.height; unit: cm"></div>
+  <div class="range-slider" range-slider="update.bind: model.changeHeight; min.bind: 1; max.bind: 25; start.bind: model.height; unit: cm"></div>
   <h3 class="quotation-instructions quotation-instructions--step-1-width">
-    <i class="fa fa-info at-left" title="Selecciona el ancho" tooltip-message></i>Ancho
+    Ancho<i class="fa fa-info at-right" title="Selecciona el ancho" tooltip-message></i>
   </h3>
-  <div class="range-slider" range-slider="update.bind: model.changeWidth; min.bind: 1; max.bind: 20; start.bind: model.width; unit: cm"></div>
+  <div class="range-slider" range-slider="update.bind: model.changeWidth; min.bind: 1; max.bind: 25; start.bind: model.width; unit: cm"></div>
 </template>

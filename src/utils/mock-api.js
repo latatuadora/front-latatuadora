@@ -122,6 +122,36 @@ let bodyParts = {
       id: 12,
       name: 'Dedos',
       image: '/src/assets/images/mock/bodypart12.png'
+    },
+    {
+     id: 13,
+     name: 'Abdomen',
+     image: '/src/assets/images/mock/bodypart13.png'
+    },
+    {
+     id: 14,
+     name: 'Cachete izquierdo',
+     image: '/src/assets/images/mock/bodypart14.png'
+    },
+    {
+     id: 15,
+     name: 'Cachete derecho',
+     image: '/src/assets/images/mock/bodypart15.png'
+    },
+    {
+     id: 16,
+     name: 'Frente',
+     image: '/src/assets/images/mock/bodypart19.png'
+    },
+    {
+      id: 17,
+      name: 'Espinilla',
+      image: '/src/assets/images/mock/bodypart18.png'
+    },
+    {
+     id: 18,
+     name: 'Pecho',
+     image: '/src/assets/images/mock/bodypart22.png'
     }
   ],
   back: [
@@ -141,9 +171,24 @@ let bodyParts = {
       image: '/src/assets/images/mock/bodypart7.png'
     },
     {
-      id: 9,
-      name: 'Brazos',
-      image: '/src/assets/images/mock/bodypart9.png'
+     id: 9,
+     name: 'Brazos',
+     image: '/src/assets/images/mock/bodypart9.png'
+    },
+    {
+     id: 19,
+     name: 'Espalda baja',
+     image: '/src/assets/images/mock/bodypart16.png'
+    },
+    {
+     id: 20,
+     name: 'Espalda superior',
+     image: '/src/assets/images/mock/bodypart17.png'
+    },
+    {
+     id: 21,
+     name: 'Nuca',
+     image: '/src/assets/images/mock/bodypart20.png'
     }
   ]
 }
@@ -179,35 +224,85 @@ let featuredArtists = [
 
 let styles = [
   {
-    name: 'Shurado',
-    id: 0,
-    image: '/src/assets/images/mock/tattoo4.png'
-  },
-  {
     name: 'Old School',
     id: 1,
-    image: '/src/assets/images/mock/tattoo2.png'
-  },
-  {
-    name: 'Lienal',
-    id: 2,
-    image: '/src/assets/images/mock/tattoo3.png'
+    image: '/src/assets/images/mock/style14.jpg'
   },
   {
     name: 'New School',
+    id: 2,
+    image: '/src/assets/images/mock/style15.jpg'
+  },
+  {
+    name: 'Dotwork',
     id: 3,
-    image: '/src/assets/images/mock/tattoo1.png'
+    image: '/src/assets/images/mock/style10.png'
   },
   {
-    name: 'Punk',
+    name: 'Geométrico',
     id: 4,
-    image: '/src/assets/images/mock/tattoo5.png'
+    image: '/src/assets/images/mock/style9.png'
   },
   {
-    name: 'Religioso',
+    name: 'Trash Polka',
     id: 5,
-    image: '/src/assets/images/mock/tattoo6.png'
-  }
+    image: '/src/assets/images/mock/style7.png'
+  },
+  {
+    name: 'Black work',
+    id: 6,
+    image: '/src/assets/images/mock/style1.png'
+  },
+  {
+    name: 'Japones',
+    id: 8,
+    image: '/src/assets/images/mock/style13.png'
+  },
+  {
+    name: 'Tribal',
+    id: 8,
+    image: '/src/assets/images/mock/style16.jpg'
+  },
+  {
+    name: 'Tipografía',
+    id: 10,
+    image: '/src/assets/images/mock/style11.png'
+  },
+  {
+    name: 'Ilustración',
+    id: 11,
+    image: '/src/assets/images/mock/style12.png'
+  },
+  {
+    name: 'Surreal',
+    id: 12,
+    image: '/src/assets/images/mock/style6.png'
+  },
+  {
+    name: 'Biomecánico',
+    id: 13,
+    image: '/src/assets/images/mock/style8.png'
+  }//,
+  // {
+  //   name: 'Bosquejo',
+  //   id: 2,
+  //   image: '/src/assets/images/mock/style2.png'
+  // },
+  // {
+  //   name: 'Kawaii',
+  //   id: 3,
+  //   image: '/src/assets/images/mock/style3.png'
+  // },
+  // {
+  //   name: 'Oriental',
+  //   id: 4,
+  //   image: '/src/assets/images/mock/style4.png'
+  // },
+  // {
+  //   name: 'Retrato',
+  //   id: 5,
+  //   image: '/src/assets/images/mock/style5.png'
+  // }
 ];
 
 let elements = [

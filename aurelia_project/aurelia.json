@@ -113,6 +113,7 @@
           "aurelia-task-queue",
           "aurelia-templating",
           "aurelia-templating-binding",
+          "aurelia-http-client",
           "text",
           "jquery",
           "numeral",
