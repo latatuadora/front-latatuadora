@@ -78,6 +78,16 @@
       </div>
     </div>
   </section>
+  <section class="studio__wall">
+    <h2 class="studio__wall-title">Lo último de ${studio.name}</h2>
+    <div class="studio__wall-wrapper">
+      <div class="studio__wall-inner scrollable">
+        <div class="studio__wall-item">
+          
+        </div>
+      </div>
+    </div>
+  </section>
   <div class="studio__photos-carousel studio__carousel" swiper-carousel="init.bind: photosCarousel.init; options.one-time: photosCarousel.options">
     <div class="swiper-wrapper">
       <img class="swiper-slide" repeat.for="item of studio.images" src="${item}" alt="Estudio">
