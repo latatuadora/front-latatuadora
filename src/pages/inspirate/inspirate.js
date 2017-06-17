@@ -43,6 +43,7 @@ export class Inspirate extends BaseGallery {
       this.params.part = part.name;
       this.activeIds.part = part.id;
       this.filterItems();
+      this.allEmpty = true;
     }
   }
 

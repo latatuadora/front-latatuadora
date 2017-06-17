@@ -21,23 +21,25 @@ export class App {
         nav: true
       },
       {
-        route: 'inspirate',
+        route: 'inspirate/:artist?',
         name: 'inspirate',
         moduleId: 'pages/inspirate/inspirate',
         title: 'Inspírate',
+        href: '/inspirate',
         nav: true
       },
       {
-        route: 'flashes',
+        route: 'flashes/:artist?',
         name: 'flashes',
         moduleId: 'pages/flashes/flashes',
         title: 'Flashes',
+        href: '/flashes',
         nav: true
       },
       {
         route: 'buscartatuador',
         name: 'search_artist',
-        moduleId: 'pages/homepage/homepage',
+        moduleId: 'pages/search-artist/search-artist',
         title: 'Busca un tatuador',
         nav: true
       },

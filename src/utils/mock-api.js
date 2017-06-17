@@ -398,7 +398,7 @@ let styles = [
     name: 'Biomecánico',
     id: 13,
     image: '/src/assets/images/mock/style8.png'
-  },
+  }//,
   // {
   //   name: 'Bosquejo',
   //   id: 2,
@@ -418,13 +418,7 @@ let styles = [
   //   name: 'Retrato',
   //   id: 5,
   //   image: '/src/assets/images/mock/style5.png'
-  // },
-  
-  
-  
-  
-  
-  
+  // }
 ];
 
 let elements = [
@@ -480,6 +474,18 @@ export class MockAPI {
     });
   }
 
+  getArtist(id) {
+    this.isRequesting = true;
+
+    return new Promise(resolve => {
+      setTimeout(() => {
+        resolve(featuredArtists[0]);
+        this.isRequesting = false;
+      }, latency);
+    });
+  }
+
+
   getStyles() {
     this.isRequesting = true;
 
@@ -526,4 +532,6 @@ export class MockAPI {
       }, latency)
     });
   }
+
+  getArtists = this.getFeaturedArtists;
 }

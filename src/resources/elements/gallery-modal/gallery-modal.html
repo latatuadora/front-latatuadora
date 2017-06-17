@@ -4,20 +4,20 @@
   <require from="../../attributes/textarea-resize"></require>
   <require from="../../value-converters/currency"></require>
   <div class="tattoo-modal">
-    <div class="tattoo-modal__header" style="color:white">
-      <img class="tattoo-modal__prev" src="src/assets/images/icons/left-arrow.png" click.delegate="goPrev()">
-      <img class="tattoo-modal__next" src="src/assets/images/icons/right-arrow.png" click.delegate="goNext()">
+    <div class="tattoo-modal__header">
       <img class="tattoo-modal__close" src="src/assets/images/icons/close.png" click.delegate="close()">
     </div>
     <div class="tattoos-grid__element tattoo-modal__element ${type=='flash' ? 'flashes-grid__flash-element' : ''}">
       <div class="tattoos-grid__element-thumbnail">
+        <img class="tattoo-modal__prev" src="src/assets/images/icons/left-arrow.png" click.delegate="goPrev()">
+        <img class="tattoo-modal__next" src="src/assets/images/icons/right-arrow.png" click.delegate="goNext()">
         <div class="tattoos-grid__element-thumbnail-actions">
           <button type="button" class="fa fa-heart vote-btn"></button>
           <button type="button" class="fa fa-share"></button>
         </div>
-        <a href="#" class="tattoos-grid__element-thumbnail-img-wrapper">
+        <div class="tattoos-grid__element-thumbnail-img-wrapper">
           <img class="tattoos-grid__element-thumbnail-img" src="${item.image}" alt="Tatuaje de ${item.artist_name}">
-        </a>
+        </div>
       </div>
       <div class="tattoos-grid__element-info-wrapper">
         <div class="tattoos-grid__element-info-left">

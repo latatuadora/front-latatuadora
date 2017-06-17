@@ -1,0 +1,147 @@
+@import '../../assets/styles/vars'
+@import '../../assets/styles/mixins'
+
+.artists-grid
+  display flex
+  flex-wrap wrap
+  width 814px
+  justify-content space-between
+  center-block()
+
+  .artist-item
+    margin-top 33px
+
+.artists-filters
+  display flex
+  justify-content space-around
+  align-items center
+  flex-wrap wrap
+  width 92%
+  max-width 780px
+  margin-bottom 60px
+  margin-top 80px
+  center-block()
+
+  .gallery-filter-wrapper,
+  .gallery-filter-wrapper:not(:first-child),
+  .gallery-search
+    margin 0 10px
+    width initial
+
+  .gallery-filter-wrapper
+    flex-basis 100px
+
+  .gallery-search
+    display flex
+
+  .gallery-search__input
+    font-size 17px
+    border-radius 4px 0 0 4px
+    letter-spacing 0.2px
+    color #9b9b9b
+    flex-basis 300px
+    padding 15px 22px
+    simple-border('all', 1px, #e6e6e6)
+
+  .gallery-search__button
+    font-size 15px
+    padding 0 30px
+    border-radius 0 4px 4px 0
+
+@media screen and (max-width: 870px)
+  .artists-filters
+    align-items center
+    flex-wrap wrap
+    margin-top 39px
+    margin-bottom 20px
+    max-width 350px
+    justify-content left
+
+    .gallery-search
+      flex-basis 100%
+      order -2
+      margin-bottom 29px
+
+    .gallery-search__input
+      flex-basis calc(100% - 81px)
+      max-width calc(100% - 81px)
+      font-size 13px
+      padding 8px 11px
+
+    .gallery-search__button
+      flex-basis 81px
+      padding 0 19px
+      font-size 10px
+
+    .gallery-filter-wrapper
+      flex-basis 110px
+      text-align center
+
+      &:last-child
+        flex-basis 70px
+        transform translateY(10px)
+        text-align left
+        margin 0 17px
+
+      &:last-child,
+      &:first-child
+        order -1
+
+      &:first-child,
+      &:nth-of-type(2)
+        margin-left calc(50% - 93px)
+        margin-right 0
+
+        &::after
+          right 5px
+
+      &:first-child
+        padding-bottom 5px
+
+        &::after
+          padding-top 5px
+
+      &:nth-child(2)
+        simple-border('top', 1px, #e5e5e5)
+        padding-top 5px
+
+        &::after
+          transform translateY(calc(3.5px - 50%))
+
+    .gallery-filter
+      font-size 16px
+
+  .artists-grid
+    width 520px
+
+@media screen and (max-width: 540px)
+  .artists-grid
+    display block
+    width 320px
+    center-block()
+
+    .artist-item
+      width 100%
+      height 328px
+      margin 0
+
+    .artist-item__back
+      padding 76px 32px 15px 32px
+
+    .artist-item__title
+      font-size 19px
+
+    .artist-item__stars
+      font-size 11px
+
+      .fa:not(:first-child)
+        margin-left 3px
+
+    .artist-item__location
+      font-size 15px
+
+    .artist-item__tag
+      font-size 9px
+
+      &:not(:first-child)
+        margin-left 4.6px

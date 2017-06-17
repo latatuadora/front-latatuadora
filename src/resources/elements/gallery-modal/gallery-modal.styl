@@ -14,7 +14,7 @@
   cursor pointer
 
 .tattoo-modal__close
-  height 23px
+  height 25.5px
   width 25.5px
 
 .tattoo-modal__prev,
@@ -23,15 +23,20 @@
   top 50%
   height 36px
   width 18px
-  transform translateY(-50%)
 
 .tattoo-modal__prev
-  left 0
+  left -26px
+  transform translate(-100%, -50%)
 
 .tattoo-modal__next
-  right 0
+  right -26px
+  transform translate(100%, -50%)
 
 .tattoo-modal
+  .flashes-grid__flash-element
+    .tattoos-grid__element-thumbnail::before
+      cursor initial
+
   .tattoos-grid__element
     margin 26px 45px 0 45px
     max-width 865px
@@ -151,6 +156,7 @@
     display block
     border none
     outline none
+    font-family inherit
     min-height 21px
     rfont-size 15px 500px 11px
     height 21px
@@ -160,28 +166,33 @@
 
 @media screen and (max-width: 767px)
   .tattoo-modal__header
-    text-align center
     padding-right 0
 
   .tattoo-modal__close,
   .tattoo-modal__prev,
   .tattoo-modal__next
-    height 23px
     width auto
-    margin 0 18px
+
+  .tattoo-modal__close
+    height 14px
+    margin-right 12px
 
   .tattoo-modal__prev,
   .tattoo-modal__next
-    position relative
-    top initial
-    left initial
-    right initial
-    transform none
+    height 19px
+    transform translateY(-50%)
+
+  .tattoo-modal__prev
+    left 15px
+
+  .tattoo-modal__next
+    right 15px
 
   .tattoo-modal
     .tattoos-grid__element
       margin-right 0
       margin-left 0
+      margin-top 32px
       width 93vw
 
     .tattoos-grid__element-thumbnail-actions
