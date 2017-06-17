@@ -42,8 +42,9 @@
   <hr class="special-hr studio__evaluations-hr">
   <section class="studio__evaluations-artists">
     <div class="studio__evaluations">
-      <h2 class="studio__evaluations-title">Evaluaciones</h2>
-      <div class="studio__evaluations-carousel studio__carousel" swiper-carousel="init.bind: evaluationsCarousel.init; options.one-time: evaluationsCarousel.options">
+      <div class="studio__evaluations-inner">
+        <h2 class="studio__evaluations-title">Evaluaciones</h2>
+        <div class="studio__evaluations-carousel studio__carousel" swiper-carousel="init.bind: evaluationsCarousel.init; options.one-time: evaluationsCarousel.options">
         <div class="swiper-wrapper">
           <div class="studio__evaluation-item swiper-slide" repeat.for="item of studio.evaluations">
             <h3 class="studio__evaluation-title">${item.author}</h3>
@@ -58,6 +59,7 @@
         <div class="swiper-pagination"></div>
         <img class="swiper-button-prev" src="/src/assets/images/icons/left-arrow.png">
         <img class="swiper-button-next" src="/src/assets/images/icons/right-arrow.png">
+      </div>
       </div>
     </div>
     <div class="studio__artists">
