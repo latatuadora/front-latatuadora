@@ -259,6 +259,64 @@
   margin-top 42px
   margin-bottom 61px
 
+.studio__evaluations-artists
+  display flex
+  text-align center
+
+.studio__evaluations,
+.studio__artists
+  flex-basis 50%
+  overflow hidden
+  position relative
+
+.studio__evaluations
+  background #1d1c1c
+  color white
+  padding 57px 114px 53px 114px
+
+.studio__evaluations-title
+  font-weight $regular
+  margin 0
+  display inline-block
+  rfont-size 22px 767px 15px
+  letter-spacing -0.2px
+  padding 0 2px 5.5px 2px
+  simple-border('bottom', 1px, $dustColor)
+
+.studio__evaluations-carousel
+  margin-top 48px
+
+  &::after
+    content ' '
+    display block
+    margin-top 24px
+    height 1px
+    background $dustColor
+    width 94.5%
+    center-block()
+
+.studio__evaluation-title
+  font-weight $regular
+  margin 0
+  rfont-size 22px 767px 16px
+  letter-spacing -0.2px
+
+.studio__evaluation-stars
+  font-size 12px
+  color $dustColor
+  margin-top 19px
+
+  .fa
+    margin 0 1.5px
+
+.studio__evaluation-content
+  line-height 1.42
+  font-size 12px
+  margin-top 14px
+
+.studio__artists
+  align-self center
+
 @media screen and (max-width: 1023px)
   .studio__tattoos
     width 705px
