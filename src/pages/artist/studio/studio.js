@@ -23,6 +23,7 @@ export class Studio {
       options: new CarouselOptions(true)
     };
     this.tattoosCarousel.options.spaceBetween = 5;
+    this.tattoosCarousel.options.centeredSlides = true;
 
     this.flashesCarousel = {
       init: false,
