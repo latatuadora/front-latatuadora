@@ -45,7 +45,7 @@
       <h2 class="studio__evaluations-title">Evaluaciones</h2>
       <div class="studio__evaluations-carousel">
         <div class="swiper-wrapper">
-          <div class="studio__evaluation-item" repeat.for="item of studio.evaluations">
+          <div class="studio__evaluation-item swiper-slide" repeat.for="item of studio.evaluations">
             <h3 class="studio__evaluation-title">${item.author}</h3>
             <div class="studio__evaluation-stars">
               <i repeat.for="i of 5" class="fa ${item.stars > i ? (item.stars > i + 0.9 ? 'fa-star' : 'fa-star-half-o') : 'fa-star-o'}"></i>
@@ -64,7 +64,7 @@
       <h2 class="studio__artists-title">Tatuadores</h2>
       <div class="studio__artists-carousel">
         <div class="swiper-wrapper">
-          <div class="studio__artist-item" repeat.for="item of studio.artists">
+          <div class="studio__artist-item swiper-slide" repeat.for="item of studio.artists">
             <h3 class="studio__artist-name">${item.name}</h3>
             <img src="${item.imageURL}" alt="${item.name}">
           </div>
