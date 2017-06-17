@@ -55,6 +55,17 @@ export class Studio {
       modifier: 1,
       slideShadows : false
     };
+    this.artistsCarousel.options.breakpoints = {
+      580: {
+        coverflow: {
+          rotate: 0,
+          stretch: 60,
+          depth: 400,
+          modifier: 1,
+          slideShadows : false
+        }
+      }
+    };
 
     this.photosCarousel = {
       init: false,
