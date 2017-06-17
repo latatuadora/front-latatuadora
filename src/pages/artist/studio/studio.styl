@@ -498,6 +498,7 @@
 
 .studio__wall-item-date
   font-size 11px
+  display block
   color #bdbdbd
 
 .studio__wall-item-content
@@ -619,7 +620,9 @@
     width 138px
     margin-top 18.3px
 
-@media screen and (max-width: 767px)
+  .studio__wall-title
+    display none
+
   .studio__hr
     display none
 
@@ -709,6 +712,20 @@
   .studio__flashes-carousel
     margin-top 50px
 
+  .studio__wall
+    background white
+    width 83.75%
+    margin-top 25px
+    center-block()
+
+    &::after
+      content ''
+      display none
+
+  .studio__wall-inner
+    padding 25px 12px 25px 0
+    flex-basis 100%
+
 @media screen and (max-width: 580px)
   .studio__flashes .site-button
     margin-top 10px
@@ -778,6 +795,28 @@
 
   .studio__artist-image
     height 138px
+
+  .studio__wall
+    max-height none
+    margin-top 16px
+
+  .studio__wall-inner
+    padding-right 0
+
+  .studio__wall-item
+    padding-bottom 29px
+
+    &:not(:first-child)
+      display none
+
+  .studio__wall-item-data
+    margin-left 16px
+
+  .studio__wall-item-date
+    margin-top 2px
+
+  .studio__wall-item-content
+    margin-top 21px
 
 @media screen and (max-width: 420px)
   .studio__hero
