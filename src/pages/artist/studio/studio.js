@@ -34,8 +34,6 @@ export class Studio {
     this.photosOptions = new Carousel(true);
     this.tattoos = [];
     this.flashes = [];
-    this.getTattoos();
-    this.getFlashes();
   }
 
   activate(params, routeConfig) {
@@ -63,6 +61,8 @@ export class Studio {
       .then(artist => {
         this.artist = artist;
         this.initPhotos = true;
+        this.getTattoos();
+        this.getFlashes();
       });
   }
 }
