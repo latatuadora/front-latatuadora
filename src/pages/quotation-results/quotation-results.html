@@ -1,0 +1,69 @@
+<template>
+  <require from="../quotation/quotation.css"></require>
+  <require from="./quotation-results.css"></require>
+  <require from="../../resources/attributes/tooltip-message"></require>
+  <require from="../../resources/attributes/swiper-carousel"></require>
+  <require from="../../resources/elements/gallery-item/gallery-item"></require>
+  <require from="../../resources/value-converters/currency"></require>
+  <div class="quotation-container quotation-results cover">
+    <div class="quotation-title quotation-title__responsive">Cotiza</div>
+    <div if.one-time="results.artist" class="quotation-results--artist">
+      <h1 class="quotation-title quotation-results__title">
+        Gracias por cotizar con <span class="golden-text">${results.artist.name}</span>
+      </h1>
+      <div class="quotation-instructions">¡Listo!</div>
+      <img src="src/assets/images/icons/check-nocircle.svg" class="quotation-results__main-icon" alt="Icon">
+      <h2 class="quotation-instructions quotation-results__artist-range">
+        El estudio te contactará lo más pronto posible.
+      </h2>
+    </div>
+    <div if.one-time="!results.artist" class="quotation-results--no-artist">
+      <h1 class="quotation-title quotation-results__title">
+        Gracias por <span class="golden-text">cotizar</span> con nosotros
+      </h1>
+      <img src="src/assets/images/icons/check-nocircle.svg" class="quotation-results__main-icon" alt="Icon">
+      <h2 class="quotation-instructions quotation-results__price-range-title">
+        <i class="fa fa-info at-left" title="Con base en tus ideas de tatuaje, vas a recibir un correo electrónico con el estudio especializado en el estilo que buscas" tooltip-message></i>
+        ¡Listo! tu <span class="golden-text">tatuaje</span> está entre:
+      </h2>
+      <div class="quotation-results__range">
+        <div class="quotation-results__range-item">${results.minAmount | currency:'mxn':true}</div>
+        <img src="src/assets/images/icons/fork.svg" alt="Results">
+        <div class="quotation-results__range-item">${results.maxAmount | currency:'mxn':true}</div>
+      </div>
+      <div class="quotation-instructions quotation-results__price-range-bottom">
+        Seleccionaremos <span class="golden-text">el mejor estudio</span> para que te contacte
+      </div>
+    </div>
+    <hr class="special-hr">
+    <h2 class="quotation-title quotation-results__subtitle quotation-results__subtitle--flashes">
+      Flashes
+      <span if.one-time="results.artist">de <span class="golden-text">${results.artist.name}</span></span>
+    </h2>
+    <div class="quotation-instructions quotation-results__flashes-instructions">
+      Compra tu próximo diseño, pruébalo y agenda tu cita para tatuártelo de manera definitiva
+    </div>
+    <div class="quotation-results--gallery" swiper-carousel="options.one-time: swiperOptions; init.bind: initSwiper">
+      <div class="swiper-wrapper">
+        <gallery-item class="swiper-slide ${$index > 2 ? 'hide-desktop' : ''}" repeat.for="item of flashes" item.bind="item" type="flash" original-size.one-time="false"></gallery-item>
+      </div>
+      <div class="swiper-pagination"></div>
+    </div>
+    <a if.one-time="results.artist" route-href="route: flashes; params.bind: {artist: artist.id}" class="site-button quotation-results__flashes-button">Ver más diseños únicos</a>
+    <a if.one-time="!results.artist" route-href="route: flashes" class="site-button quotation-results__flashes-button">Ver más diseños únicos</a>
+    <hr class="special-hr">
+    <h2 class="quotation-title quotation-results__subtitle quotation-results__subtitle--inspirate">Inspírate</h2>
+    <div class="quotation-instructions quotation-results__inspirate-instructions">
+      Sigue inspirándote en nuestra galería de tatuajes
+    </div>
+    <div class="quotation-results--gallery" swiper-carousel="options.one-time: swiperOptions; init.bind: initSwiper">
+      <div class="swiper-wrapper">
+        <gallery-item class="swiper-slide ${$index > 2 ? 'hide-desktop' : ''}" repeat.for="item of tattoos" item.bind="item" original-size.one-time="false"></gallery-item>
+      </div>
+      <div class="swiper-pagination"></div>
+    </div>
+    <a route-href="route: inspirate" class="site-button quotation-results__inspirate-button">Inspírate</a>
+    <hr class="special-hr">
+    <a href="#" class="site-button quotation-results__appointment-button">Agendar cita</a>
+  </div>
+</template>

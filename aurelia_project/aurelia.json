@@ -116,10 +116,28 @@
           "text",
           "jquery",
           "numeral",
+          "vanilla-modal",
+          "nouislider",
+          "swiper",
+          {
+            "name": "tippy-js",
+            "path": "../node_modules/tippy.js/dist",
+            "main": "tippy"
+          },
           {
             "name": "masonry-layout",
             "path": "../node_modules/masonry-layout/dist",
             "main": "masonry.pkgd"
+          },
+          {
+            "name": "aurelia-validation",
+            "path": "../node_modules/aurelia-validation/dist/amd",
+            "main": "aurelia-validation"
+          },
+          {
+            "name": "aurelia-files",
+            "path": "../node_modules/aurelia-files/dist/amd",
+            "main": "index"
           },
           {
             "name": "aurelia-templating-resources",

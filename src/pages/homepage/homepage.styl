@@ -39,6 +39,10 @@ a.homepage-hero__small-item
   &:first-child
     background-image url('src/assets/images/backgrounds/home-hero-4.jpg')
 
+  &:nth-child(2)
+    background-image url('src/assets/images/backgrounds/home-hero-4-responsive.jpg')
+    display none
+
   &:last-child
     background-image url('src/assets/images/backgrounds/home-hero-5.jpg')
 
@@ -145,33 +149,9 @@ a.homepage-hero__small-item
   color #1d1d1d
   font-weight $regular
 
-
 .homepage-divider
-  background $dustColor
-  border none
-  height 1px
   max-width 903px
   width 85%
-  center-block()
-  position relative
-
-  &::before, &::after
-    content ' '
-    display block
-    border-radius 50%
-    background white
-    position absolute
-    top 0
-    height 7px
-    width 7px
-    transform translateY(-50%)
-    border 1px $dustColor solid
-
-  &::before
-    left 0
-
-  &::after
-    right 0
 
 .homepage-trending
   padding-top remify(70)
@@ -237,7 +217,7 @@ a.homepage-hero__small-item
     rfont-size 22px 767px 19px
 
 .homepage-featured__buttons
-  width 489px
+  width 366px
   margin-top 49px
   center-block()
   display flex
@@ -245,23 +225,16 @@ a.homepage-hero__small-item
   flex-wrap wrap
 
 .homepage-featured__button
+  background #e5e5e5
+  color #383838
   flex-basis 111px
   font-size 11px
   padding 1em 0.85em
   margin-top 14px
 
-  &:first-child,
-  &:last-child
-    background #7e888e
-
-    &:hover, &:active, &:focus, &.active
-      background lightness(#7e888e, 40%)
-
-  &:nth-child(2)
-    background #bec3c6
-
-    &:hover, &:active, &:focus, &.active
-      background lightness(#bec3c6, 60%)
+  &:hover, &.active, &:active
+    background #b5a274
+    color white
 
 .homepage-featured__items
   margin-top remify(59)
@@ -270,91 +243,6 @@ a.homepage-hero__small-item
   justify-content space-between
   center-block()
   width 1024px
-
-.homepage-featured__item-wrapper
-  flex-basis 249px
-  height 249px
-  margin-top 9px
-  position relative
-  perspective 800
-  transform-style preserve-3d
-
-.homepage-featured__item
-  position absolute
-  width 100%
-  height 100%
-
-  &:hover, &.hover
-    .homepage-featured__item-back
-      transform rotateY(0deg)
-
-    .homepage-featured__item-front
-      transform rotateY(180deg)
-
-.homepage-featured__item-back,
-.homepage-featured__item-front
-  position absolute
-  height 100%
-  width 100%
-  backface-visibility hidden
-  transition all 0.6s
-  transform-style preserve-3d
-  top 0
-  left 0
-
-.homepage-featured__item-front
-  display block
-  z-index 2
-  transform rotateY(0deg)
-
-.homepage-featured__item-back
-  background $blackColor
-  color white
-  z-index 2
-  transform rotateY(-180deg)
-  padding 50px 24px
-  text-align left
-
-.homepage-featured__item-title
-  rfont-size 16px 767px 15px
-  color inherit
-  cursor pointer
-
-.homepage-featured__item-stars
-  color #f7c42a
-  font-size 9px
-  margin-top 5.5px
-
-  .fa
-    display inline-block
-
-  .fa:not(:first-child)
-    margin-left 1px
-
-.homepage-featured__item-location,
-.homepage-featured__item-tags
-  font-family 'SFNSText'
-
-.homepage-featured__item-location
-  display block
-  margin-top 8px
-  font-size 9px
-
-.homepage-featured__item-tags
-  margin-top 5px
-  margin-left -1px
-
-.homepage-featured__item-tag
-  background #e5e5e5
-  color #4a4a4a
-  cursor pointer
-  border-radius 100px
-  display inline-block
-  font-size 7px
-  margin-top 8px
-  padding 0.73em 1.5em
-  line-height 1
-  margin-left 1px
 
 .homepage-featured__main-button
   margin-top 88px
@@ -378,10 +266,11 @@ a.homepage-hero__small-item
     color #9b9b9b
     background white
     position relative
-    font-size 15px
-    padding 0.6em 2.3em
+    rfont-size 20px 600px 15px
+    padding 10px 20px 6px 20px
     font-family 'BebasNeue'
     simple-border('all', 1px, #e5e5e5)
+    width 161px
 
     &:first-child
       border-radius 2px 0 0 2px
@@ -513,8 +402,9 @@ a.homepage-hero__small-item
     &:not(:first-child)
       margin-top 0
 
-  .homepage-featured__item-wrapper:nth-child(n+5)
-    display none
+  .homepage-featured__items
+    .artist-item:nth-child(n+5)
+      display none
 
 @media screen and (max-width: 1007px)
   .homepage-featured__items
@@ -627,32 +517,60 @@ a.homepage-hero__small-item
   .homepage-bottom-cover
     margin-top 67.7px
 
+@media screen and (max-width: 600px)
+  .homepage-want-to-button
+    width 146px
+
 @media screen and (max-width: 530px)
   .homepage-featured__buttons
     width 240px
 
   .homepage-featured__button
-    &:nth-child(3),
-    &:nth-child(4)
+    &:nth-child(3)
       order -2
+
+    &:nth-child(1)
+     order 1
 
   .homepage-featured__items
     margin-top 47.7px
     width 320px
 
-  .homepage-featured__item-wrapper
-    flex-basis 158px
-    height 158px
-    margin-top 4.3px
+    .artist-item
+      flex-basis 158px
+      height 158px
+      margin-top 4.3px
 
-  .homepage-featured__item-back
-    padding 30px 16px
+    .artist-item__back
+      padding 30px 16px 10px 16px
 
-  .homepage-featured__item-tags
-    margin-top 0
+    .artist-item__stars
+      margin-top 4px
+
+      .fa
+        font-size 7px
+
+    .artist-item__location
+      margin-top 4px
+      font-size 12px
+
+    .artist-item__tags
+      margin-top 0
+      font-size 8.3px
+
+    .artist-item__top-like-button
+      font-size 9.5px
+      top 10px
+      right 6px
+
+    .artist-item__bottom-like-button
+      font-size 9px
+      margin-top 6px
+
+      &::before
+        font-size 9.5px
 
 @media screen and (max-width: 479px)
-  .homepage-hero__small-item:last-child,
   .homepage-hero__right
     order -1
 
@@ -670,14 +588,17 @@ a.homepage-hero__small-item
 
   .homepage-hero__left .homepage-hero__small-item
     &:first-child
-      background-image url('src/assets/images/backgrounds/home-hero-1-responsive.jpg')
+      background-image url('src/assets/images/backgrounds/home-hero-2-responsive.jpg')
 
     &:last-child
-      background-image url('src/assets/images/backgrounds/home-hero-4-responsive.jpg')
+      background-image url('src/assets/images/backgrounds/home-hero-1-responsive.jpg')
 
   .homepage-hero__right .homepage-hero__small-item
     &:first-child
-      background-image url('src/assets/images/backgrounds/home-hero-2-responsive.jpg')
+      display none
+
+    &:nth-child(2)
+      display block
 
     &:last-child
       background-image url('src/assets/images/backgrounds/home-hero-5-responsive.jpg')

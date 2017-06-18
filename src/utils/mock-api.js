@@ -1,5 +1,72 @@
 let latency = 200;
 
+let bodyParts = {
+  front: [
+    {
+      id: 3,
+      name: 'Oreja',
+      image: '/src/assets/images/mock/bodypart3.png'
+    },
+    {
+      id: 4,
+      name: 'Manos',
+      image: '/src/assets/images/mock/bodypart4.png'
+    },
+    {
+      id: 5,
+      name: 'Pies',
+      image: '/src/assets/images/mock/bodypart5.png'
+    },
+    {
+      id: 6,
+      name: 'Muñeca',
+      image: '/src/assets/images/mock/bodypart6.png'
+    },
+    {
+      id: 8,
+      name: 'Rodilla',
+      image: '/src/assets/images/mock/bodypart8.png'
+    },
+    {
+      id: 10,
+      name: 'Pierna',
+      image: '/src/assets/images/mock/bodypart10.png'
+    },
+    {
+      id: 11,
+      name: 'Cuello',
+      image: '/src/assets/images/mock/bodypart11.png'
+    },
+    {
+      id: 12,
+      name: 'Dedos',
+      image: '/src/assets/images/mock/bodypart12.png'
+    }
+  ],
+  back: [
+    {
+      id: 1,
+      name: 'Espalda',
+      image: '/src/assets/images/mock/bodypart1.png'
+    },
+    {
+      id: 2,
+      name: 'Hombros',
+      image: '/src/assets/images/mock/bodypart2.png'
+    },
+    {
+      id: 7,
+      name: 'Pantorrilla',
+      image: '/src/assets/images/mock/bodypart7.png'
+    },
+    {
+      id: 9,
+      name: 'Brazos',
+      image: '/src/assets/images/mock/bodypart9.png'
+    }
+  ]
+}
+
 let tattoos = [
   {
     votes: 0,
@@ -202,8 +269,114 @@ let featuredArtists = [
   }
 ];
 
+let styles = [
+  {
+    name: 'Shurado',
+    id: 0,
+    image: '/src/assets/images/mock/tattoo4.png'
+  },
+  {
+    name: 'Old School',
+    id: 1,
+    image: '/src/assets/images/mock/tattoo2.png'
+  },
+  {
+    name: 'Lienal',
+    id: 2,
+    image: '/src/assets/images/mock/tattoo3.png'
+  },
+  {
+    name: 'New School',
+    id: 3,
+    image: '/src/assets/images/mock/tattoo1.png'
+  },
+  {
+    name: 'Punk',
+    id: 4,
+    image: '/src/assets/images/mock/tattoo5.png'
+  },
+  {
+    name: 'Religioso',
+    id: 5,
+    image: '/src/assets/images/mock/tattoo6.png'
+  }
+];
+
+let elements = [
+  {
+    name: 'Mangas',
+    id: 0
+  },
+  {
+    name: 'Femenino',
+    id: 1
+  }
+];
+
 export class MockAPI {
   isRequesting = false;
+
+  postQuotationRequest(request) {
+    this.isRequesting = true;
+    let min = Math.floor(Math.random() * (9000 - 300)) + 300;
+    let max = Math.floor(Math.random() * (9999 - min)) + min;
+
+    return new Promise(resolve => {
+      setTimeout(() => {
+        resolve({
+          min_amount: min,
+          max_amount: max,
+          status: 'success'
+        });
+        this.isRequesting = false;
+      }, latency);
+    });
+  }
+
+  getBodyParts() {
+    this.isRequesting = true;
+
+    return new Promise(resolve => {
+      setTimeout(() => {
+        resolve(bodyParts);
+        this.isRequesting = false;
+      }, latency);
+    });
+  }
+
+  getElements() {
+    this.isRequesting = true;
+
+    return new Promise(resolve => {
+      setTimeout(() => {
+        resolve(elements);
+        this.isRequesting = false;
+      }, latency);
+    });
+  }
+
+  getArtist(id) {
+    this.isRequesting = true;
+
+    return new Promise(resolve => {
+      setTimeout(() => {
+        resolve(featuredArtists[0]);
+        this.isRequesting = false;
+      }, latency);
+    });
+  }
+
+
+  getStyles() {
+    this.isRequesting = true;
+
+    return new Promise(resolve => {
+      setTimeout(() => {
+        resolve(styles);
+        this.isRequesting = false;
+      }, latency)
+    });
+  }
 
   getTattoos(data = {}) {
     this.isRequesting = true;
@@ -226,8 +399,8 @@ export class MockAPI {
       setTimeout(() => {
         resolve(results);
         this.isRequesting = false;
-      })
-    }, latency);
+      }, latency)
+    });
   }
 
   getFeaturedArtists(type = 'featured') {
@@ -237,7 +410,9 @@ export class MockAPI {
       setTimeout(() => {
         resolve(featuredArtists);
         this.isRequesting = false;
-      })
-    }, latency);
+      }, latency)
+    });
   }
+
+  getArtists = this.getFeaturedArtists;
 }

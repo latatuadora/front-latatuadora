@@ -1,11 +1,14 @@
 .gallery-title
-  rfont-size 35px 767px 30px
+  rfont-size 35px 767px 29px
+  line-height 1.28
   text-align center
   letter-spacing -0.3px
   margin-top 49px
   font-weight normal
   margin-bottom 0
   color $blackColor
+  width 90%
+  center-block()
 
 .gallery-subtitle
   rfont-size 22px 767px 21.5px
@@ -14,6 +17,13 @@
   color $blackColor
   margin-top 16px
 
+
+.gallery-subtitle,
+.gallery-title
+  &.hide-desktop,
+  .hide-desktop
+    display none
+
 .gallery-filters-toggle
   display none
   font-size 15px
@@ -21,9 +31,17 @@
   border-radius 100px
   text-transform none
   center-block()
-  padding 8px 32px
+  padding 7px 26px 9px 26px
   margin-top 35px
   margin-bottom 34px
+  line-height 1
+
+  img, span
+    display inline-block
+    vertical-align middle
+
+  img
+    margin-left 16px
 
 .gallery-filters
   text-align center
@@ -58,13 +76,13 @@
   &:not(:first-child)
     margin-left 47px
 
-  &:nth-child(2)
+  &.styles-filter
     width 85px
 
-  &:nth-child(3)
+  &.elements-filter
     width 120px
 
-  &:nth-child(4)
+  &.parts-filter
     width 185px
 
 .gallery-filter
@@ -85,22 +103,64 @@
   option:not(:first-child)
     font-size 18px
 
-@media screen and (max-width: 500px)
+.tattoos-grid-container
+  padding-bottom 81px
+
+.tattoos-grid
+  center-block()
+  width 855px
+
+.tattoos-grid-loader
+  width 60px
+  margin-top 50px
+
+.tattoos-grid-icon
+  width 55px
+  margin-top 50px
+
+.tattoos-grid-loader,
+.tattoos-grid-icon
+  center-block()
+  display block
+
+@media screen and (max-width: 855px)
+  .tattoos-grid-container
+    padding-top 30px
+
+@media screen and (max-width: 767px)
+  .gallery-title
+    margin-top 43px
+
+  .gallery-subtitle
+    margin-top 12px
+
+  .gallery-subtitle,
+  .gallery-title
+    &.hide-mobile,
+    .hide-mobile
+      display none
+
+    &.hide-desktop,
+    .hide-desktop
+      display block
+
+@media screen and (max-width: 633px)
   .gallery-filters-toggle
     display block
 
   .gallery-filters
     transition margin-top 0.2s, margin-bottom 0.2s
+    display flex
+    flex-wrap wrap
+    align-items center
+    justify-content space-around
 
     &.show
-      margin-top 40px
+      margin-top 10px
       margin-bottom 40px
 
       .gallery-filter-wrapper
         max-height 21px
-
-        &:not(:first-child)
-          margin-top 21px
 
     &.hide
       margin-top 0
@@ -112,13 +172,24 @@
 
   .gallery-filter-wrapper
     display block
-    width 85% !important
+    flex-basis 36%
     center-block()
     transition max-height 0.2s, margin-top 0.2s
+    margin-top 30px
 
     &:not(:first-child)
       margin-left auto
-      margin-top 30px
+
+    &.all-filter
+      text-align center
 
   .gallery-filter
     padding-left 0
+
+  .tattoos-grid-container
+    padding-top 20px
+    padding-bottom 50px
+
+@media screen and (max-width: 500px)
+  .tattoos-grid-icon
+    margin-top 15px

@@ -1,0 +1,22 @@
+<template>
+  <require from="./quotation.css"></require>
+  <div class="quotation-container cover">
+    <div class="quotation-progress">
+      <div class="quotation-progress__inner" css="width: ${currentStep*100/totalSteps}%"></div>
+    </div>
+    <div class="quotation-content">
+      <h1 class="quotation-title">Cotiza</h1>
+      <compose view-model="${currentViewModelPath}" model.bind="shared" compose.ref="composeRef" containerless></compose>
+    </div>
+    <div class="quotation-footer">
+      <button class="site-button quotation-back" if.bind="backButtonActive" click.delegate="back()">Anterior</button>
+      <button class="site-button quotation-next" if.bind="nextButtonActive" click.delegate="next()">Siguiente</button>
+      <button class="site-button quotation-next" if.bind="completeButtonActive" click.delegate="complete()">Siguiente</button>
+    </div>
+    <div class="quotation-loader vertical-center" if.bind="showLoader">
+      <div class="spinner-wrapper">
+        <div class="cp-spinner cp-eclipse"></div>
+      </div>
+    </div>
+  </div>
+</template>

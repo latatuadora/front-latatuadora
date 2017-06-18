@@ -1,0 +1,80 @@
+@import '../../../assets/styles/vars'
+@import '../../../assets/styles/mixins'
+
+.quotation-step-2__icon
+  display inline-block
+  margin-top 40px
+  margin-bottom 42px
+  width 46.7px
+
+.quotation-instructions--step-2-main
+  width 345px
+  center-block()
+
+.quotation-step-2__items
+  display flex
+  justify-content space-between
+  flex-wrap wrap
+  width 732px
+  margin-top 55px
+  margin-bottom 10px
+  center-block()
+
+.quotation-step-2__item
+  cursor pointer
+  flex-basis 235px
+  margin-top 27px
+
+.quotation-step-2__check
+  width 48px
+
+.quotation-step-2__item-image
+  height 235px
+
+.quotation-step-2__item-text
+  display block
+  color white
+  margin-top 22px
+  font-size 24px
+
+@media screen and (max-width: 850px)
+  .quotation-step-2__items
+    width 564px
+
+  .quotation-step-2__item
+    flex-basis 180px
+
+  .quotation-step-2__item-image
+    height 180px
+
+  .quotation-step-2__item-text
+    font-size 20px
+    margin-top 12px
+
+@media screen and (max-width: 767px)
+  .quotation-step-2__items
+    margin-top 30px
+
+  .quotation-instructions--step-2-icon
+    margin-top 35px
+    margin-bottom 31px
+    width 40px
+
+  .quotation-instructions--step-2-main
+    font-size 20px
+    width 260px
+
+@media screen and (max-width: 625px)
+  .quotation-step-2__items
+    width 372px
+    margin-bottom 30px
+
+@media screen and (max-width: 440px)
+  .quotation-step-2__items
+    width 272px
+
+  .quotation-step-2__item
+    flex-basis 130px
+
+  .quotation-step-2__item-image
+    height 130px

@@ -1,0 +1,107 @@
+@import '../../assets/styles/vars'
+@import '../../assets/styles/mixins'
+
+.quotation-container
+  background-color $blackColor
+  position relative
+  background-image url('/src/assets/images/backgrounds/quotation-process.jpg')
+
+.quotation-progress
+  background #cacaca
+  height 12px
+  position absolute
+  top 0
+  left 0
+  width 100%
+
+.quotation-progress__inner
+  background $dustColor
+  height 100%
+  transition width 0.3s
+  width 0
+
+.quotation-content
+  padding-top 74px
+  padding-bottom 104px
+  text-align center
+
+.quotation-title
+  font-family 'Lato'
+  font-weight $normal
+  font-size 40px
+  letter-spacing -0.3px
+  color white
+  margin 0
+
+.quotation-instructions
+  color white
+  margin 0
+  font-weight $normal
+  font-size 24px
+
+.fa-info
+  display inline-block
+  vertical-align top
+  margin-top 6px
+  padding-top 4px
+  background $dustColor
+  width 16px
+  height 16px
+  border-radius 50%
+  color $blackColor
+  font-size 7px
+
+  &.at-left
+    margin-right 12px
+
+  &.at-right
+    margin-left 8px
+
+.quotation-footer
+  text-align center
+  clear both
+  max-width 864px
+  width 88%
+  center-block()
+  padding-bottom 61px
+  overflow auto
+
+  .site-button
+    font-size 13px
+    padding 16px 30px
+    letter-spacing: 0.5px
+
+.quotation-next
+  float right
+
+.quotation-back
+  float left
+
+.quotation-loader
+  background rgba(white, 85%)
+  position fixed
+  height 100vh
+  width 100vw
+  top 0
+  left 0
+  z-index 40
+
+  .spinner-wrapper
+    transform scale(1.2)
+
+@media screen and (max-width: 767px)
+  .quotation-progress
+    height 11.4px
+
+  .quotation-content
+    padding-bottom 88px
+
+  .fa-info
+    &.at-left
+      margin-right 9px
+
+  .quotation-back + .quotation-next
+    float right
+
+  .quotation-next
+    float none

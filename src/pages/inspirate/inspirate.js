@@ -1,45 +1,55 @@
 import {inject} from 'aurelia-framework';
 import {MockAPI} from 'utils/mock-api';
-import {BaseGallery} from 'utils/base-gallery'
+import {BaseGallery} from 'utils/base-gallery';
 
 @inject(MockAPI)
 export class Inspirate extends BaseGallery {
   constructor(api) {
     super(api);
     this.apiMethod = 'getTattoos';
-    this.params = {
-      style: '',
-      element: '',
-      part: '',
-      page: 1
-    }
+    this.params['part'] = '';
+    this.activeIds['part'] = {};
+    this.lists['parts'] = [];
+    this.showDropdowns['parts'] = false;
   }
 
   checkParams(params) {
-    if (params.style) {
-      this.params.style = params.style;
-    }
-    if (params.element) {
-      this.params.element = params.element;
-    }
+    super.checkParams(params);
     if (params.part) {
       this.params.part = params.part;
+      this.activeIds.part = -1;
     }
   }
 
-  setBodyPart(part) {
-    if (part !== this.params.part) {
-      this.params.part = part;
-      this.filterTattoos();
+  getLists() {
+    super.getLists();
+    this.getBodyParts();
+  }
+
+  getBodyParts() {
+    this.api.getBodyParts()
+      .then(parts => {
+        this.lists.parts = parts.front.concat(parts.back);
+        this.lists.parts.forEach(part => {
+          if (this.params.part == part.name) {
+            this.activeIds.part = part.id;
+          }
+        });
+      });
+  }
+
+  setBodyPart = part => {
+    if (part.name !== this.params.part) {
+      this.params.part = part.name;
+      this.activeIds.part = part.id;
+      this.filterItems();
+      this.allEmpty = true;
     }
   }
 
   resetParams() {
-    this.params = {
-      style: '',
-      element: '',
-      part: '',
-      page: 1
-    }
+    super.resetParams();
+    this.params['part'] = '';
+    this.activeIds['part'] = -1;
   }
 }

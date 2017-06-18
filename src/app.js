@@ -21,16 +21,25 @@ export class App {
         nav: true
       },
       {
-        route: 'inspirate',
+        route: 'inspirate/:artist?',
         name: 'inspirate',
         moduleId: 'pages/inspirate/inspirate',
         title: 'Inspírate',
+        href: '/inspirate',
+        nav: true
+      },
+      {
+        route: 'flashes/:artist?',
+        name: 'flashes',
+        moduleId: 'pages/flashes/flashes',
+        title: 'Flashes',
+        href: '/flashes',
         nav: true
       },
       {
         route: 'buscartatuador',
         name: 'search_artist',
-        moduleId: 'pages/homepage/homepage',
+        moduleId: 'pages/search-artist/search-artist',
         title: 'Busca un tatuador',
         nav: true
       },
@@ -42,17 +51,24 @@ export class App {
         nav: false
       },
       {
-        route: 'tatto',
-        name: 'tatto',
-        moduleId: 'pages/tatto/tatto',
-        title: 'Tatuate',
+        route: 'tatuate',
+        name: 'tatuate',
+        moduleId: 'pages/tatuate/tatuate',
+        title: 'Tatúate',
         nav: true
       },
       {
-        route: 'flashes',
-        name: 'flashes',
-        moduleId: 'pages/flashes/flashes',
-        title: 'Flashes',
+        route: 'cotiza/:artist?',
+        name: 'quotation',
+        moduleId: 'pages/quotation/quotation',
+        title: 'Cotiza',
+        nav: false
+      },
+      {
+        route: 'cotiza/resultados',
+        name: 'quotation_results',
+        moduleId: 'pages/quotation-results/quotation-results',
+        title: 'Resultados de tu cotización',
         nav: false
       },
       {

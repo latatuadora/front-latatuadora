@@ -15,6 +15,22 @@ export default function copyDependenciesFiles() {
     {
       lib: 'node_modules/normalize.css',
       main: '/normalize.css'
+    },
+    {
+      lib: 'node_modules/nouislider',
+      main: '/distribute/nouislider.min.css'
+    },
+    {
+      lib: 'node_modules/tippy.js',
+      main: '/dist/tippy.css'
+    },
+    {
+      lib: 'node_modules/csspin',
+      main: '/csspin.css'
+    },
+    {
+      lib: 'node_modules/swiper',
+      main: '/dist/css/swiper.css'
     }
   ];
   let cssSources = [];

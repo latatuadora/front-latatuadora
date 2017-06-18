@@ -1,8 +1,9 @@
 import numeral from 'numeral';
 
 export class CurrencyValueConverter {
-  toView(value, currency) {
+  toView(value, currency, hideDecimals) {
     let currencyText = currency ? ' ' + currency : '';
-    return numeral(value).format('$ 0,0.00') + ' ' + currencyText;
+    let format = hideDecimals ? '$ 0,0' : '$ 0,0.00'
+    return numeral(value).format(format) + ' ' + currencyText;
   }
 }

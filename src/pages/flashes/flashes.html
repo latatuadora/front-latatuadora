@@ -1,66 +1,36 @@
 <template>
-  <require from="../inspirate/inspirate.css"></require>
+  <require from="../../resources/elements/gallery-item/gallery-item"></require>
+  <require from="../../resources/elements/gallery-modal/gallery-modal"></require>
+  <require from="../../resources/attributes/simple-modal"></require>
   <require from="../../resources/attributes/masonry-grid"></require>
   <require from="../../resources/attributes/masonry-item"></require>
   <require from="../../resources/attributes/infinite-scroll"></require>
-  <require from="../../resources/value-converters/currency"></require>
-  <h1 class="gallery-title">Flashes</h1>
-  <span class="gallery-subtitle">Galería de <span class="golden-text">Flashes</span></span>
-  <button type="button" click.delegate="toggleFilters()" class="gallery-filters-toggle site-button">${showFilters ? 'Ocultar filtros' : 'Filtrar'}</button>
-  <div class="gallery-filters ${showFilters ? 'show' : 'hide'}">
-    <div class="gallery-filter-wrapper no-arrow ${params.style || params.element || params.part ? '' : 'active'}">
+  <require from="../../resources/elements/dropdown-modal/dropdown-modal"></require>
+  <h1 class="gallery-title">Flashes<span if.one-time="params.artist" class="hide-mobile"> hechos por ${artist.name}</span></h1>
+  <span class="gallery-subtitle ${params.artist ? 'hide-mobile' : ''}">Galería de <span class="golden-text">Flashes</span></span>
+  <span if.one-time="params.artist" class="gallery-subtitle hide-desktop">Flashes hechos por <span class="golden-text">${artist.name}</span></span>
+  <button type="button" click.delegate="toggleFilters()" class="gallery-filters-toggle site-button">
+    <span>${showFilters ? 'Ocultar filtros' : 'Filtrar'}</span>
+    <img src="src/assets/images/icons/filter.svg" alt="Filtrar">
+  </button>
+  <div class="gallery-filters flashes-filters ${showFilters ? 'show' : 'hide'}">
+    <div class="gallery-filter-wrapper styles-filter ${params.style || allEmpty ? 'active' : ''}">
+      <div click.delegate="toggleDropdown('styles')" ref="styleFilter" class="gallery-filter">${params.style ? params.style : 'Estilo'}</div>
+      <dropdown-modal type="list" active-id.bind="activeIds.style" list.bind="lists.styles" item-name="name" on-click.bind="setStyle" ref-element.bind="styleFilter" visible.bind="showDropdowns.styles" close.call="toggleDropdown('styles')" top-reference=".site-navbar" center-at="633"></dropdown-modal>
+    </div>
+    <div class="gallery-filter-wrapper elements-filter ${params.element || allEmpty ? 'active' : ''}">
+      <div click.delegate="toggleDropdown('elements')" ref="elementFilter" class="gallery-filter">${params.element ? params.element : 'Elemento'}</div>
+      <dropdown-modal type="list" active-id.bind="activeIds.element" list.bind="lists.elements" item-name="name" on-click.bind="setElement" ref-element.bind="elementFilter" visible.bind="showDropdowns.elements" close.call="toggleDropdown('elements')" top-reference=".site-navbar" center-at="633"></dropdown-modal>
+    </div>
+    <div class="gallery-filter-wrapper all-filter no-arrow ${allEmpty ? 'active' : ''}">
       <div class="gallery-filter" click.delegate="resetFilters()">Todos</div>
     </div>
-    <div class="gallery-filter-wrapper ${params.style ? 'active' : ''}">
-      <div class="gallery-filter">${params.style ? params.style : 'Estilo'}</div>
-    </div>
-    <div class="gallery-filter-wrapper ${params.element ? 'active' : ''}">
-      <div class="gallery-filter">${params.element ? params.element : 'Elemento'}</div>
-    </div>
   </div>
+  <gallery-modal id="flashes-content" simple-modal="show.two-way: showModal" css="${showModal ? 'display: block' : 'display: none'}" item.bind="currentItem" close.call="closeModal(currentItem.index)" go-next.call="nextItem()" go-prev.call="previousItem()" type="flash" close.call="closeModal()"></gallery-modal>
   <section class="tattoos-grid-container">
     <div class="tattoos-grid flashes-grid" masonry-grid infinite-scroll="callback.call: loadMore()">
-      <div repeat.for="tattoo of items" class="tattoos-grid__element flashes-grid__flash-element" masonry-item>
-        <div class="tattoos-grid__element-thumbnail">
-          <div class="tattoos-grid__element-thumbnail-actions">
-            <button type="button" class="fa fa-heart vote-btn"></button>
-            <button type="button" class="fa fa-share"></button>
-          </div>
-          <a class="tattoos-grid__element-thumbnail-img-wrapper" href="#">
-            <img class="tattoos-grid__element-thumbnail-img" src="${tattoo.image}" alt="Tatuaje de ${tattoo.artist_name}">
-          </a>
-        </div>
-        <div class="tattoos-grid__element-info-wrapper">
-          <div class="tattoos-grid__element-info-top">
-            <a href="#"><img class="tattoos-grid__element-author-pic circle" src="${tattoo.artist_picture}" alt="${tattoo.artist_name}"></a>
-            <div class="tattoos-grid__element-info">
-              <a ng-href="${tattoo.artist_url}" class="tattoos-grid__element-author">${tattoo.artist_name}</a>
-              <span class="tattoos-grid__element-location">${tattoo.artist_location}</span>
-              <div class="tattoos-grid__element-stars">
-                <i class="fa fa-star"></i>
-                <i class="fa fa-star"></i>
-                <i class="fa fa-star"></i>
-                <i class="fa fa-star-o"></i>
-                <i class="fa fa-star-o"></i>
-              </div>
-            </div>
-            <button type="button" class="tattoos-grid__element-info-likes vote-btn fa fa-heart">${tattoo.votes + ' Likes'}</button>
-          </div>
-          <div class="tattoos-grid__element-characteristics">
-            <div class="tattoos-grid__element-price">
-              <i class="fa fa-usd circle"></i>
-              <span>${tattoo.price | currency: tattoo.currency}</span>
-            </div>
-            <div class="tattoos-grid__element-dimensions">
-              <i class="fa fa-arrows-alt"></i>
-              <span>${tattoo.dimensions.length} x ${tattoo.dimensions.width}</span>
-            </div>
-          </div>
-          <div class="tattoos-grid__element-buttons">
-            <div class="site-button site-button--black">Comprar flash</div>
-          </div>
-        </div>
-      </div>
+      <gallery-item repeat.for="item of items" open.call="openModal($index)" item.bind="item" type="flash" masonry-item>
+      </gallery-item>
     </div>
     <img if.bind="showLoader" class="tattoos-grid-loader" src="src/assets/images/icons/loader.gif" alt="Loader">
     <img class="tattoos-grid-icon" src="src/assets/images/icons/tattoos-gallery-icon.svg" alt="Flashes">
