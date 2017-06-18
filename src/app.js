@@ -44,17 +44,17 @@ export class App {
         nav: true
       },
       {
-        route: 'login',
-        name: 'login',
-        moduleId: 'pages/login/login',
-        title: 'Iniciar Sesión',
-        nav: false
-      },
-      {
         route: 'tatuate',
         name: 'tatuate',
         moduleId: 'pages/tatuate/tatuate',
         title: 'Tatúate',
+        nav: true
+      },
+      {
+        route: 'login',
+        name: 'login',
+        moduleId: 'pages/login/login',
+        title: 'Iniciar Sesión',
         nav: true
       },
       {
@@ -76,7 +76,7 @@ export class App {
         name: 'membership',
         moduleId: 'pages/membership/membership',
         title: 'Registrate',
-        nav: true
+        nav: false
       }
     ])
   }
