@@ -101,18 +101,39 @@ textarea
   simple-border('all', 1px, $borderColor)
 
 .site-checkbox
-  appearance none
-  height 1rem
-  width 1rem
-  border 1px solid $borderColor
-  background-color #fff
   cursor pointer
 
-  &:checked
-    border 1px dotted $borderColor
+  input
+    height 0
+    width 0
+    float left
+    opacity 0
 
-  &:checked::before
+    &:checked + label::before
+      background $dustColor
+      border-color $dustColor
+
+  &.use-check input:checked + label::before
     content '✔'
+
+  label
+    cursor pointer
+
+    &::before
+      color white
+      text-align center
+      background transparent
+      border 1px $borderColor solid
+      content ' '
+      display inline-block
+      height 18px
+      vertical-align middle
+      width 18px
+      transition border-color 0.2s, background 0.2s
+
+    >span
+      display inline-block
+      vertical-align middle
 
 .site-button
   background $dustColor

@@ -23,7 +23,7 @@
 .login__divider
   margin-top 41px
   margin-bottom 49px
-  max-width 522px
+  max-width 508px
 
 .login__social
   margin-top 49px
@@ -72,15 +72,16 @@
     margin-right 14px
 
 .login__form
-  max-width 522px
+  max-width 508px
   width 83%
   center-block()
 
 .login__input
   &-label
     font-size 16px
+    letter-spacing -0.2px
     text-align right
-    flex-basis 140px
+    flex-basis 135px
 
   &-email, &-password
     padding 14px 20px
@@ -133,23 +134,10 @@
   margin: 0.5em
 
 .login__forgotten
-  visibility hidden
-  text-decoration: underline
-  text-align: center
-
-  @media screen and (min-width 32em)
-    visibility visible
-
-input[type="checkbox"]
-  appearance: none
-  height: 1rem
-  width: 1rem
-  border: 1px solid $borderColor
-  background-color: #fff
-  cursor pointer
-
-  &:checked
-    border 1px dotted $borderColor
-
-  &:checked:before
-    content: '✔'
+  color inherit
+  margin-top 21px
+  margin-left 163px
+  text-decoration none
+  display inline-block
+  padding-bottom 4px
+  simple-border('bottom', 1px, #262626)
