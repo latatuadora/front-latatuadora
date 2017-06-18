@@ -1,22 +1,13 @@
 @import '../../assets/styles/vars'
 
-/** BASE **/
-
-
-
 /** LOGIN **/
-
-
 .login
-
   display flex
   flex-direction column
   align-items center
-
-  margin: 3rem 0 0 0
+  margin 3rem 0 0 0
 
   &__item
-
     &:nth-child(2), &:nth-child(4)
       width 80%
 
@@ -28,35 +19,10 @@
       @media screen and (min-width 32em)
         width: 50%
 
-.divider
-  margin 3rem 0
-  display flex
-  align-items center
-  justify-content center
-  height: 1px
-  width: 100%
-  color : $borderColor
-  font-size: 1.2em
-
-  @media screen and (min-width 32em)
-    width: 50%
-
-  &__item
-
-    &:nth-child(even)
-      text-align: center
-      flex: 1 1 10%
-
-    &:nth-child(odd)
-      flex: 2 1 40%
-      height: 1px
-      border-bottom 1px solid $borderColor
-
-.social
-
-
-  &__button
+.login__social
+  &-button
     display: flex
+    cursor pointer
     justify-content space-around
     align-items center
     font-family: 'Lato'
@@ -70,47 +36,35 @@
       font-size: 1rem
 
     &--facebook
-      @extends .social__button
+      @extends .login__social-button
       background-color: $facebookColor
       color: #FFF
 
     &--google
-      @extends .social__button
+      @extends .login__social-button
       background-color: #FFF
       color: $blackColor
       border: 1px solid $borderColor
 
-.title
+.login__title
   line-height 1.6
   letter-spacing -0.1px
+  font-size: 2em
+  margin-bottom 2rem
+  font-weight: 400
 
-  &__item
-    @extends .title
-    font-size: 2em
-    margin-bottom 2rem
-    font-weight: 400
+.login__social-icon
+  &--facebook
+    width 11px
 
-.input
+  &--google
+    width 27px
+
+.login__input
   width 100%
 
-  &__icon
-    float left
-
-    &--facebook
-      @extends .input__icon
-
-      &:after
-        content url('src/assets/images/icons/facebook-icon.svg')
-
-    &--google
-      @extends .input__icon
-
-      &:after
-
-        content url('src/assets/images/icons/Google-icon.png')
-
-  &--label
-    @extends .input
+  &-label
+    @extends .login__input
     font-size: 1.2em
     display block
     margin 0.5rem 0
@@ -124,15 +78,15 @@
       flex 1 2 30%
 
 
-  &--email, &--password
-    @extends .input
+  &-email, &-password
+    @extends .login__input
     border 1px solid $borderColor
     padding 1rem
 
     @media screen and (min-width 32em)
       flex 2 1 70%
 
-  &--group
+  &-group
     margin 1rem 0
 
     @media screen and (min-width 32em)
@@ -150,14 +104,14 @@
       @media screen and (min-width 32em)
         margin: 2em 0
 
-  &--label-checkbox
+  &-label-checkbox
     margin-left 1rem
     font-size: 1.2em
 
     @media screen and (min-width 32em)
       font-size: 1rem
 
-  &--submit
+  &-submit
     padding 0.5rem 1rem
     color: #fff
     background-color: $dustColor
@@ -169,29 +123,26 @@
     @media screen and (min-width 32em)
       font-size: 1rem
 
-.signup
+.login__signup
   margin: 1rem 0
   text-align: center
   font-size: 1.2rem
 
-
-
   @media screen and (min-width 32em)
     font-size: 1rem
 
-  &__link
-    @extends .signup
+  &-link
+    @extends .login__signup
     padding: 0.25em
     text-transform: uppercase
     border-bottom 1px solid $dustColor
     margin 0 0 0 0.5em
 
-.logo
+.login__logo
   align-self flex-end
   margin: 0.5em
 
-
-.forgotten
+.login__forgotten
   visibility hidden
   text-decoration: underline
   text-align: center
@@ -212,5 +163,3 @@ input[type="checkbox"]
 
   &:checked:before
     content: '✔'
-
-

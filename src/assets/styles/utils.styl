@@ -61,3 +61,27 @@
 
 .underline
   text-decoration underline
+
+
+.divider
+  margin 3rem 0
+  display flex
+  align-items center
+  justify-content center
+  height 1px
+  width 100%
+  color $borderColor
+  font-size 1.2em
+
+  @media screen and (min-width 32em)
+    width 50%
+
+  &__item
+    &:nth-child(even)
+      text-align center
+      flex 1 1 10%
+
+    &:nth-child(odd)
+      flex 2 1 40%
+      height 1px
+      border-bottom 1px solid $borderColor
