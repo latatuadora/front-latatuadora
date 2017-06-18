@@ -5,18 +5,7 @@
 .login
   padding 61px 0 173px 0
   position relative
-
-  &__item
-    &:nth-child(2), &:nth-child(4)
-      width 80%
-
-    &:nth-child(2)
-      @media screen and (min-width 32em)
-        width: 25%
-
-    &:nth-child(4)
-      @media screen and (min-width 32em)
-        width: 50%
+  font-size 16px
 
 .login__divider
   margin-top 41px
@@ -111,11 +100,12 @@
     letter-spacing 0.5px
     padding 12px
     width 155px
-    margin-top 29px
+    margin-top 35px
 
 .login__signup
   margin-top 28px
-  width 508px
+  width 83.25%
+  max-width 508px
   padding-left 163px
   center-block()
 
@@ -139,3 +129,39 @@
   display inline-block
   padding-bottom 4px
   simple-border('bottom', 1px, #262626)
+
+@media screen and (max-width: 850px)
+  .login__logo
+    width 180px
+
+@media screen and (max-width: 610px)
+  .login
+    padding-bottom 120px
+    padding-top 59px
+
+  .login__input-group
+    flex-wrap wrap
+
+  .login__input-label,
+  .login__input-email,
+  .login__input-password
+    flex-basis 100%
+
+  .login__input-label
+    text-align left
+
+  .login__input-email,
+  .login__input-password
+    margin-top 12px
+
+  .login__logo
+    width 110px
+    bottom 27px
+
+  .login__form .site-checkbox,
+  .login__forgotten,
+  .login__input-submit
+    margin-left 0
+
+  .login__signup
+    padding-left 0
