@@ -38,9 +38,6 @@ a
   overflow hidden
   padding 0
 
-.golden-text
-  color #a08b59
-
 // LOADERS //
 .custom-loader
   display none
@@ -95,6 +92,26 @@ textarea
   resize none
 // END FORMS //
 
+// UI COMPONENTS
+.site-input
+  font-family inherit
+  border-width 1px
+  border-style solid
+
+.site-checkbox
+  appearance none
+  height 1rem
+  width 1rem
+  border 1px solid $borderColor
+  background-color #fff
+  cursor pointer
+
+  &:checked
+    border 1px dotted $borderColor
+
+  &:checked::before
+    content '✔'
+
 .site-button
   background $dustColor
   display inline-block
@@ -136,6 +153,56 @@ textarea
   &.active
     background $blackColor
 
+.scrollable
+  overflow-x hidden
+  overflow-y auto
+
+  &::-webkit-scrollbar
+    width 9px
+
+  &::-webkit-scrollbar-track
+    background transparent
+
+  &::-webkit-scrollbar-thumb
+    background #a0a0a0
+
+    &:window-inactive
+    	background #d8d8d8
+
+.special-hr
+  background $dustColor
+  border none
+  height 1px
+  center-block()
+  position relative
+
+  &::before, &::after
+    content ' '
+    display block
+    border-radius 50%
+    position absolute
+    top 0
+    height 7px
+    width 7px
+    transform translateY(-50%)
+    border 1px $dustColor solid
+
+  &::before
+    left -7px
+
+  &::after
+    right -7px
+
+.golden-text
+  color #a08b59
+
+.site-title
+  font-weight $regular
+  margin 0
+
+// END UI COMPONENTS
+
+// LIBS
 .noUi-tooltip
   background transparent
   border none
@@ -175,7 +242,6 @@ textarea
   width 26px
   top -8px
 
-
 .tippy-tooltip.latatuadora-theme
   background-color $dustColor
   border-radius 0
@@ -189,22 +255,6 @@ textarea
   color white
   font-family 'Lato'
 
-.scrollable
-  overflow-x hidden
-  overflow-y auto
-
-  &::-webkit-scrollbar
-    width 9px
-
-  &::-webkit-scrollbar-track
-    background transparent
-
-  &::-webkit-scrollbar-thumb
-    background #a0a0a0
-
-    &:window-inactive
-    	background #d8d8d8
-
 .cp-eclipse
   animation-duration 0.85s
   background $dustColor
@@ -214,30 +264,7 @@ textarea
 
   &::before
     border-right-color $dustColor
-
-.special-hr
-  background $dustColor
-  border none
-  height 1px
-  center-block()
-  position relative
-
-  &::before, &::after
-    content ' '
-    display block
-    border-radius 50%
-    position absolute
-    top 0
-    height 7px
-    width 7px
-    transform translateY(-50%)
-    border 1px $dustColor solid
-
-  &::before
-    left -7px
-
-  &::after
-    right -7px
+// END LIBS
 
 @media screen and (max-width: 767px)
   .noUi-horizontal .noUi-handle
