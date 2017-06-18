@@ -23,7 +23,7 @@
 .login__divider
   margin-top 41px
   margin-bottom 49px
-  max-width 496px
+  max-width 522px
 
 .login__social
   margin-top 49px
@@ -71,37 +71,25 @@
     width 16px
     margin-right 14px
 
+.login__form
+  max-width 522px
+  width 83%
+  center-block()
+
 .login__input
-  width 100%
-
   &-label
-    @extends .login__input
-    font-size: 1.2em
-    display block
-    margin 0.5rem 0
-
-    @media screen and (min-width 32em)
-      display inline
-      text-align: right
-      font-size: 1rem
-      margin-right  1rem
-      flex 1 2 30%
+    font-size 16px
+    text-align right
+    flex-basis 140px
 
   &-email, &-password
-    @extends .login__input
-    border 1px solid $borderColor
-    padding 1rem
-
-    @media screen and (min-width 32em)
-      flex 2 1 70%
+    padding 14px 20px
+    flex-basis 345px
 
   &-group
-    margin 1rem 0
-
-    @media screen and (min-width 32em)
-      display flex
-      justify-content center
-      align-items center
+    display flex
+    align-items center
+    justify-content space-between
 
     &:nth-child(3)
       display flex
