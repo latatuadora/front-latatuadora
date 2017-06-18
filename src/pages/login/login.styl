@@ -79,10 +79,14 @@
 
   .site-checkbox
     margin-top 37px
-    margin-left 163px
 
     span
       margin-left 10px
+
+.login__form .site-checkbox,
+.login__forgotten,
+.login__input-submit
+  margin-left 163px
 
 .login__input
   &-label
@@ -112,23 +116,18 @@
     font-size: 1.2rem
     text-transform: uppercase
 
-    @media screen and (min-width 32em)
-      font-size: 1rem
-
 .login__signup
-  margin: 1rem 0
-  text-align: center
-  font-size: 1.2rem
-
-  @media screen and (min-width 32em)
-    font-size: 1rem
+  margin-top 28px
+  width 508px
+  padding-left 163px
+  center-block()
 
   &-link
-    @extends .login__signup
-    padding: 0.25em
-    text-transform: uppercase
-    border-bottom 1px solid $dustColor
-    margin 0 0 0 0.5em
+    color inherit
+    display inline-block
+    margin-left 17px
+    padding-bottom 2px
+    border-bottom 1px solid #262626
 
 .login__logo
   align-self flex-end
@@ -137,7 +136,6 @@
 .login__forgotten
   color inherit
   margin-top 21px
-  margin-left 163px
   text-decoration none
   display inline-block
   padding-bottom 4px
