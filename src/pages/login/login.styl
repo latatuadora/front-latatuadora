@@ -1,4 +1,5 @@
 @import '../../assets/styles/vars'
+@import '../../assets/styles/mixins'
 
 /** LOGIN **/
 .login
@@ -20,45 +21,50 @@
         width: 50%
 
 .login__social
+  margin-top 49px
+
   &-button
-    display: flex
-    cursor pointer
-    justify-content space-around
+    display flex
     align-items center
-    font-family: 'Lato'
-    width: 100%
-    height: 65px
-    margin 1rem 0
-    padding: 1rem
-    border: none
-    font-size: 1.2rem
-    @media screen and (min-width 32em)
-      font-size: 1rem
+    cursor pointer
+    text-align left
+    padding 18px
+    border-width 1px
+    border-style solid
+    width 267px
+    font-size 16px
+    font-family inherit
+    letter-spacing -0.2px
+    center-block()
 
     &--facebook
       @extends .login__social-button
-      background-color: $facebookColor
-      color: #FFF
+      background-color $facebookColor
+      color #FFF
+      border-color $facebookColor
 
     &--google
       @extends .login__social-button
-      background-color: #FFF
-      color: $blackColor
-      border: 1px solid $borderColor
+      margin-top 17px
+      background-color #FFF
+      color $blackColor
+      border-color $borderColor
 
 .login__title
   line-height 1.6
   letter-spacing -0.1px
-  font-size 2em
-  margin 0 0 2rem 0
+  rfont-size 30px 767px 27px
+  margin 0
   font-weight 400
 
 .login__social-icon
   &--facebook
     width 11px
+    margin-right 18px
 
   &--google
-    width 27px
+    width 16px
+    margin-right 14px
 
 .login__input
   width 100%
@@ -74,9 +80,7 @@
       text-align: right
       font-size: 1rem
       margin-right  1rem
-
       flex 1 2 30%
-
 
   &-email, &-password
     @extends .login__input
