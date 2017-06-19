@@ -119,6 +119,7 @@
           "vanilla-modal",
           "nouislider",
           "swiper",
+          "flatpickr",
           {
             "name": "tippy-js",
             "path": "../node_modules/tippy.js/dist",
