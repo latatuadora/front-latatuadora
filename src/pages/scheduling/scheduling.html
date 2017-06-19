@@ -7,7 +7,12 @@
   <hr class="special-hr scheduling__hr scheduling__hr--day">
   <section class="scheduling__day">
     <h2 class="site-title scheduling__subtitle">Elige un <span class="golden-text">día</span></h2>
-    <div calendar="value.bind: fields.date"></div>
+    <div class="scheduling__calendar">
+      <div calendar="value.bind: fields.date"></div>
+      <div class="scheduling__time">
+        Selecciona un horario
+      </div>
+    </div>
   </section>
   <hr class="special-hr scheduling__hr scheduling__hr--data">
   <section class="scheduling__data" validation-errors.bind="comment">
