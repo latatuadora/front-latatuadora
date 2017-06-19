@@ -79,7 +79,7 @@ export class App {
         nav: false
       },
       {
-        route: 'agendar',
+        route: 'agendar/:id',
         name: 'scheduling',
         moduleId: 'pages/scheduling/scheduling',
         title: 'Agendar',
