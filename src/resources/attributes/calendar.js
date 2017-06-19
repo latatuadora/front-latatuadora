@@ -15,6 +15,7 @@ export class CalendarCustomAttribute {
     if (!this.value || !(this.value instanceof Date)) {
       throw new Error('Value not found or not a Date object');
     }
+    this.options.minDate = this.value;
   }
 
   attached() {

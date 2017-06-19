@@ -29,6 +29,86 @@
 .scheduling__day
   margin-top 61px
 
+  .flatpickr-calendar
+    background $blackColor
+    margin-top 44px
+    top 0
+    width 100%
+    max-width 499px
+    padding 38px 78px 55px 78px
+    box-shadow none
+    border-radius 0
+    center-block()
+
+    &::before,
+    &::after
+      content ''
+      display none
+
+  .flatpickr-month
+    color white
+
+    svg
+      fill white
+      height 25.7px
+      width 25.5px
+
+      &:hover
+        fill $dustColor
+
+  .flatpickr-next-month,
+  .flatpickr-prev-month
+    padding 0
+    height 100%
+    top 50%
+    transform translateY(-50%)
+
+  .flatpickr-current-month
+    line-height 28px
+    font-size 26px
+    padding 0
+
+    .cur-month
+      color $dustColor
+      font-weight normal
+
+  .flatpickr-weekdays
+    display none
+
+  .flatpickr-days
+    font-size 21px
+    margin-top 46px
+
+  .flatpickr-days,
+  .flatpickr-rContainer,
+  .dayContainer
+    width 100%
+    max-width initial
+
+  .flatpickr-day
+    color white
+    border none !important
+    border-radius 0
+    width 49.1px
+    height 49.1px
+    flex-basis 50px
+    max-width initial
+    line-height 49.1px
+
+    &:not(.selected):not(.disabled):hover
+      background rgba($dustColor, 80%)
+
+    &.selected
+      background $dustColor
+
+    &.disabled
+      color #828282
+
+    &.prevMonthDay,
+    &.nextMonthDay
+      visibility hidden
+      height 0
+
 .scheduling__hr--data
   margin-top 102px
 
