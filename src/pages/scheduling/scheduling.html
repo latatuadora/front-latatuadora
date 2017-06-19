@@ -35,8 +35,8 @@
       <input type="file" accept="image/*" class="scheduling__file" files="on-loaded.bind: onLoaded; file-filter.bind: 'image.*'; on-error.bind: onError; max-file-size.bind: maxFileSize; allow-drop: true">
       <img src="/src/assets/images/icons/file2.svg" alt="Archivo" class="scheduling__file-icon">
       <span class="golden-text scheduling__file-legend">Selecciona tu foto</span>
-      <span class="quotation-step-4__error" if.bind="fileErrors.type">El archivo seleccionado debe de ser una imagen</span>
-      <span class="quotation-step-4__error" if.bind="fileErrors.size">El archivo seleccionado debe pesar menos de 5MB</span>
+      <span class="scheduling__message-error" if.bind="fileErrors.type">El archivo seleccionado debe de ser una imagen</span>
+      <span class="scheduling__message-error" if.bind="fileErrors.size">El archivo seleccionado debe pesar menos de 5MB</span>
     </div>
   </section>
   <button class="site-button scheduling__submit">Solicitar cita</button>
