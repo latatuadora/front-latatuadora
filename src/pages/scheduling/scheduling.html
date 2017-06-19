@@ -17,7 +17,7 @@
       ${errorInfo.error.message}
     </span>
     <h2 class="site-title scheduling__subtitle scheduling__subtitle--reference">Sube tu referencia</h2>
-    <div class="scheduling__file-wrapper" css="background-image: ${fields.file ? 'url(' + fields.file.data + ')' : ''}">
+    <div class="scheduling__file-wrapper cover" css="background-image: ${fields.file ? 'url(' + fields.file.data + ')' : ''}">
       <input type="file" accept="image/*" class="scheduling__file" files="on-loaded.bind: onLoaded; file-filter.bind: 'image.*'; on-error.bind: onError; max-file-size.bind: maxFileSize; allow-drop: true">
       <img src="/src/assets/images/icons/file2.svg" alt="Archivo" class="scheduling__file-icon">
       <span class="golden-text scheduling__file-legend">Selecciona tu foto</span>
