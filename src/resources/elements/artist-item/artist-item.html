@@ -1,9 +1,9 @@
 <template>
   <require from="./artist-item.css"></require>
-  <div class="artist-item flip-card" ref="artistCard">
-    <div class="artist-item__inner flip-card__inner">
-      <div class="artist-item__front flip-card__front cover" css="background-image: url(${artist.imageURL})"></div>
-      <div class="artist-item__back flip-card__back">
+  <div class="artist-item ${fullCard ? 'flip-card' : ''}" ref="artistCard">
+    <div class="artist-item__inner ${fullCard ? 'flip-card__inner' : ''}">
+      <div class="artist-item__front flip-card__front cover" css="background-image: url(${artist.imageURL})" if.one-time="fullCard"></div>
+      <div class="artist-item__back ${fullCard ? 'flip-card__back' : ''}">
         <div class="artist-item__back-content">
           <button class="fa fa-heart like-button artist-item__top-like-button"></button>
           <a href="#" class="artist-item__title">${artist.name}</a>
