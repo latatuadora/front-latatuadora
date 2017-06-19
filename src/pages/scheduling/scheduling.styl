@@ -17,6 +17,8 @@
 
 .scheduling__subtitle--first
   margin-top 54px
+  width 86%
+  center-block()
 
 .scheduling__hr
   width 83.25%
@@ -232,6 +234,50 @@
   center-block()
 
 @media screen and (max-width: 767px)
+  .scheduling__title
+    margin-top 43px
+
+  .scheduling__subtitle--first
+    display none
+
+  .scheduling__main
+    .artist-item
+      margin-top 59px
+      width 320px
+      height 335px
+
+    .artist-item__back
+      padding 78px 33px 25px 33px
+
+    .artist-item__top-like-button
+      font-size 18px
+      right 22px
+
+    .artist-item__title
+      font-size 16px
+
+    .artist-item__stars
+      margin-top 15px
+      font-size 12px
+
+      .fa:not(:first-child)
+        margin-left 3.5px
+
+    .artist-item__location
+      margin-top 10.5px
+      font-size 12px
+
+    .artist-item__bottom-like-button
+      margin-top 19px
+      font-size 11px
+
+      &::before
+        font-size 19px
+        margin-right 14px
+
+    .artist-item__tags
+      margin-top 11px
+
   .scheduling__day
     .flatpickr-days
       padding 30px 50px
@@ -266,4 +312,4 @@
   .scheduling__time-icon
     width 16px
     height 18px
-    margin-right 16px
+    margin-right 12px
