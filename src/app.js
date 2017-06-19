@@ -72,10 +72,10 @@ export class App {
         nav: false
       },
       {
-        route: 'membership',
-        name: 'membership',
-        moduleId: 'pages/membership/membership',
-        title: 'Registrate',
+        route: 'signup',
+        name: 'signup',
+        moduleId: 'pages/signup/signup',
+        title: 'Regístrate',
         nav: false
       }
     ])

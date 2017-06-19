@@ -1,5 +1,4 @@
-export default class Membership {
-
+export default class Signup {
   constructor () {
     this.tags = [
       'OldSchool',
