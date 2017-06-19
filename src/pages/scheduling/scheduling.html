@@ -14,6 +14,9 @@
       <div calendar="value.bind: fields.date"></div>
       <div class="scheduling__time">
         Selecciona un horario
+        <div>
+          <span repeat.for="item of artist.schedules" click.delegate="setTime(item)">${item.time}</span>
+        </div>
       </div>
     </div>
   </section>

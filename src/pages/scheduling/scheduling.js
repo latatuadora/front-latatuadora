@@ -20,6 +20,7 @@ export class Scheduling {
 
     this.fields = {
       date: new Date(),
+      time: null,
       file: null,
       comment: ''
     };
@@ -53,7 +54,12 @@ export class Scheduling {
     this.api.getArtist(id)
       .then(artist => {
         this.artist = artist;
+        this.fields.time = this.artist.schedules[0];
       });
+  }
+
+  setTime(time) {
+    this.fields.time = time;
   }
 
   postRequest() {
