@@ -131,6 +131,11 @@
             "main": "masonry.pkgd"
           },
           {
+            "name": "flatpickr_es",
+            "path": "../node_modules/flatpickr/dist/l10n",
+            "main": "es"
+          },
+          {
             "name": "aurelia-validation",
             "path": "../node_modules/aurelia-validation/dist/amd",
             "main": "aurelia-validation"
