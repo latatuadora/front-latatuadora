@@ -67,7 +67,7 @@ export class App {
       {
         route: 'estudio/:id',
         name: 'studio',
-        moduleId: 'pages/artist/studio/studio',
+        moduleId: 'pages/artist/studio',
         title: 'Perfil de estudio',
         nav: false
       }
