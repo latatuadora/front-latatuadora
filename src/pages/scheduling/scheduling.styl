@@ -30,12 +30,10 @@
   margin-top 61px
 
   .flatpickr-calendar
-    background $blackColor
     margin-top 44px
     top 0
     width 100%
     max-width 499px
-    padding 38px 78px 55px 78px
     box-shadow none
     border-radius 0
     center-block()
@@ -47,6 +45,8 @@
 
   .flatpickr-month
     color white
+    background #1d1c1c
+    height 116px
 
     svg
       fill white
@@ -56,12 +56,16 @@
       &:hover
         fill $dustColor
 
-  .flatpickr-next-month,
-  .flatpickr-prev-month
+  .flatpickr-prev-month,
+  .flatpickr-next-month
     padding 0
     height 100%
-    top 50%
-    transform translateY(-50%)
+
+  .flatpickr-prev-month
+    left 85px
+
+  .flatpickr-next-month
+    right 85px
 
   .flatpickr-current-month
     line-height 28px
@@ -72,12 +76,22 @@
       color $dustColor
       font-weight normal
 
+    .numInputWrapper
+      width 70px
+
+  .flatpickr-next-month,
+  .flatpickr-prev-month,
+  .flatpickr-current-month
+    top 38px !important
+
   .flatpickr-weekdays
     display none
 
   .flatpickr-days
+    background $dustColor
     font-size 21px
-    margin-top 46px
+    margin-top 0
+    padding 55px 78px
 
   .flatpickr-days,
   .flatpickr-rContainer,
