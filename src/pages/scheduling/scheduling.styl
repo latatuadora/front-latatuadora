@@ -75,7 +75,7 @@
 
   .flatpickr-current-month
     line-height 28px
-    font-size 26px
+    rfont-size 26px 767px 16px
     padding 0
 
     .cur-month
@@ -97,7 +97,7 @@
     background-image url('/src/assets/images/backgrounds/scheduling.jpg')
     background-size cover
     background-position center
-    font-size 21px
+    rfont-size 21px 767px 13px
     margin-top 0
     padding 50px 73px
 
@@ -114,11 +114,11 @@
     color white
     border none !important
     border-radius 0
-    width 49.1px
-    height 49.1px
-    flex-basis 50px
+    width unit(49.1/21, 'em')
+    height unit(49.1/21, 'em')
+    flex-basis unit(49.1/21, 'em')
     max-width initial
-    line-height 49.1px
+    line-height (50/21)
     margin 5px 0
 
     &:not(.selected):not(.disabled):hover
@@ -136,8 +136,7 @@
       height 0
 
 .scheduling__calendar
-  width 100%
-  max-width 499px
+  width 499px
   center-block()
 
 .scheduling__time
@@ -231,3 +230,40 @@
   margin-bottom 58px
   margin-top 70px
   center-block()
+
+@media screen and (max-width: 767px)
+  .scheduling__day
+    .flatpickr-days
+      padding 30px 50px
+
+    .flatpickr-month
+      height 65px
+
+      svg
+        height 29px
+        width 13px
+
+    .flatpickr-current-month .numInputWrapper
+      width 47px
+
+    .flatpickr-next-month,
+    .flatpickr-prev-month,
+    .flatpickr-current-month
+      top 18px !important
+
+    .flatpickr-prev-month
+      left 72px
+
+    .flatpickr-next-month
+      right 72px
+
+  .scheduling__calendar
+    width 320px
+
+  .scheduling__time
+    padding 18px 15px 33px 15px
+
+  .scheduling__time-icon
+    width 16px
+    height 18px
+    margin-right 16px
