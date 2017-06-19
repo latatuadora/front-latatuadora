@@ -22,7 +22,6 @@ export class CalendarCustomAttribute {
 
   attached() {
     this.calendar = flatpickr(this.element, this.options);
-    console.log(this.calendar);
   }
 
   onChange = (value) => {

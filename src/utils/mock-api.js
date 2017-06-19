@@ -1,6 +1,15 @@
+import moment from 'moment';
+
 function getRandom(min, max, precision = 0) {
   var random = (Math.random() * max) + min;
   return parseFloat(random.toFixed(precision));
+}
+
+class Schedule {
+  constructor(id) {
+    this.id = id;
+    this.time = moment(getRandom(0, 2359).toString(), 'hmm').format('HH:mm');
+  }
 }
 
 class Evaluation {
@@ -49,6 +58,12 @@ class Artist {
       new Post(this),
       new Post(this),
       new Post(this)
+    ];
+    this.schedules = [
+      new Schedule(1),
+      new Schedule(2),
+      new Schedule(3),
+      new Schedule(4)
     ];
   }
 }
