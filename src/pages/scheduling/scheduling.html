@@ -1,3 +1,21 @@
 <template>
   <require from="./scheduling.css"></require>
+  <h1 class="site-title">Agendar</h1>
+  <div class="site-title scheduling__subtitle">Estás solicitando una cita con <span class="golden-text"></span></div>
+  <hr class="special-hr scheduling__hr">
+  <section class="scheduling__day">
+    <h2 class="site-title scheduling__subtitle">Elige un <span class="golden-text">día</span></h2>
+  </section>
+  <hr class="special-hr scheduling__hr">
+  <section class="scheduling__data">
+    <h2 class="site-title scheduling__subtitle">Cuéntanos sobre tu <span class="golden-text">tatuaje</span></h2>
+    <textarea class="site-input scheduling__textarea" placeholder="Escribe tus ideas"></textarea>
+    <h2 class="site-title scheduling__subtitle">Sube tu referencia</h2>
+    <div class="scheduling__file-wrapper">
+      <input type="file" accept="image/*" class="scheduling__file">
+      <img src="" alt="Archivo" class="scheduling__file-icon">
+      <span class="golden-text scheduling__file-legend">Selecciona tu foto</span>
+    </div>
+  </section>
+  <button class="site-button scheduling__submit">Solicitar cita</button>
 </template>
