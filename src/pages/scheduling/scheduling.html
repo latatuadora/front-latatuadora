@@ -14,8 +14,11 @@
       <div calendar="value.bind: fields.date"></div>
       <div class="scheduling__time">
         Selecciona un horario
-        <div>
-          <span repeat.for="item of artist.schedules" click.delegate="setTime(item)">${item.time}</span>
+        <div class="scheduling__time-inner">
+          <img class="scheduling__time-icon" src="/src/assets/images/icons/clock-white.svg" alt="Horario">
+          <div class="scheduling__schedules">
+            <span class="scheduling__schedule ${item == fields.time ? 'active' : ''}" repeat.for="item of artist.schedules" click.delegate="setTime(item)">${item.time}</span>
+          </div>
         </div>
       </div>
     </div>
