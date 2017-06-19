@@ -1,10 +1,10 @@
 export class App {
   configureRouter (config, router) {
-    var postRender = new PostRenderStep()
-    this.router = router
+    var postRender = new PostRenderStep();
+    this.router = router;
 
-    config.addPostRenderStep(postRender)
-    config.title = 'La Tatuadora'
+    config.addPostRenderStep(postRender);
+    config.title = 'La Tatuadora';
     config.map([
       {
         route: ['', 'home'],
@@ -77,14 +77,21 @@ export class App {
         moduleId: 'pages/membership/membership',
         title: 'Registrate',
         nav: false
+      },
+      {
+        route: 'agendar',
+        name: 'scheduling',
+        moduleId: 'pages/scheduling/scheduling',
+        title: 'Agendar',
+        nav: false
       }
-    ])
+    ]);
   }
 }
 
 class PostRenderStep {
   run (instruction, next) {
-    window.scrollTo(0, 0)
-    return next()
+    window.scrollTo(0, 0);
+    return next();
   }
 }
