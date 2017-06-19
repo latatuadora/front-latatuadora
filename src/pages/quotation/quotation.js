@@ -43,6 +43,17 @@ export class Quotation extends BaseMultiStep {
     }
   }
 
+  activate(params) {
+    this.getArtist(params.id);
+  }
+
+  getArtist(id) {
+    this.api.getArtist(id)
+      .then(artist => {
+        this.shared.artist = artist;
+      });
+  }
+
   next() {
     this.isValidView()
       .then(valid => {
