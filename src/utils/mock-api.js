@@ -8,7 +8,10 @@ function getRandom(min, max, precision = 0) {
 class Schedule {
   constructor(id) {
     this.id = id;
-    this.time = moment(getRandom(0, 2359).toString(), 'hmm').format('HH:mm');
+    let hour = getRandom(0, 23);
+    let minute = getRandom(0, 59);
+    let time = `${hour < 10 ? '0' : ''}${hour}${minute < 10 ? '0' : ''}${minute}`;
+    this.time = moment(time, 'hmm').format('HH:mm');
   }
 }
 
