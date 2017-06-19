@@ -8,6 +8,10 @@ client.configure(x => {
 });
 
 export class WebAPI {
+  getArtist(id) {
+    return client.get('artist', {id: id});
+  }
+
   postQuotationRequest(request) {
     return client.post('quotation', request);
   }
