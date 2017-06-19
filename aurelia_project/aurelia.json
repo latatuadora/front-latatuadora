@@ -113,9 +113,11 @@
           "aurelia-task-queue",
           "aurelia-templating",
           "aurelia-templating-binding",
+          "aurelia-http-client",
           "text",
           "jquery",
           "numeral",
+          "moment",
           "vanilla-modal",
           "nouislider",
           "swiper",
@@ -124,6 +126,11 @@
             "name": "tippy-js",
             "path": "../node_modules/tippy.js/dist",
             "main": "tippy"
+          },
+          {
+            "name": "moment_es",
+            "path": "../node_modules/moment/locale",
+            "main": "es"
           },
           {
             "name": "masonry-layout",

@@ -1,9 +1,9 @@
 import {inject} from 'aurelia-framework';
 import {Router} from 'aurelia-router';
 import {BaseMultiStep} from 'utils/base-multi-step';
-import {MockAPI} from 'utils/mock-api';
+import {WebAPI} from 'utils/web-api';
 
-@inject(Router, MockAPI)
+@inject(Router, WebAPI)
 export class Quotation extends BaseMultiStep {
   constructor(router, api) {
     super();
@@ -22,7 +22,7 @@ export class Quotation extends BaseMultiStep {
       height: 10,
       width: 10,
       artist: null,
-      style: null,
+      style: 1,
       bodyPart: {type: '', id: -1, image: ''},
       referenceFile: {file: null, data: null},
       additionalComment: '',
@@ -43,6 +43,18 @@ export class Quotation extends BaseMultiStep {
     }
   }
 
+  next() {
+    this.isValidView()
+      .then(valid => {
+        if (valid) {
+          this.currentStep++;
+          this.update();
+        } else {
+          window.scrollTo(0, 0);
+        }
+      })
+  }
+
   cancel() {
   }
 
@@ -52,19 +64,25 @@ export class Quotation extends BaseMultiStep {
         if (valid) {
           this.showLoader = true;
           this.postRequest();
+        } else {
+          window.scrollTo(0, 0);
         }
       });
   }
 
   postRequest() {
     let request = {
-      body_part: this.shared.bodyPart.id,
+      bodyPart: this.shared.bodyPart.id,
       style: this.shared.style,
-      dimensionX: this.shared.width,
-      dimensionY: this.shared.height,
-      user: this.shared.userData,
+      dimensionsX: this.shared.width,
+      dimensionsY: this.shared.height,
+      name: this.shared.userData.name,
+      telephone: this.shared.userData.phone,
+      email: this.shared.userData.email,
+      city: this.shared.userData.city,
       reference: this.shared.referenceFile.file,
-      studio: this.shared.artist ? this.shared.artist.id : null
+      comments: this.shared.additionalComment,
+      studioId: this.shared.artist ? this.shared.artist.id : null
     };
     this.api.postQuotationRequest(request)
       .then(results => {
@@ -73,12 +91,16 @@ export class Quotation extends BaseMultiStep {
   }
 
   goToResults(results) {
+    let quotationResults = JSON.parse(results.response);
+    quotationResults.hasOwnProperty('message');
+
     for (let route of this.router.routes) {
       if (route.name == this.completeDestination) {
         route.settings.resultsModel = {
           artist: this.shared.artist,
-          minAmount: results.min_amount,
-          maxAmount: results.max_amount
+          minAmount: quotationResults.minAmount,
+          maxAmount: quotationResults.maxAmount,
+          styleText: quotationResults.styleText,
         };
         break;
       }
