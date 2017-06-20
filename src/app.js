@@ -58,14 +58,15 @@ export class App {
         nav: true
       },
       {
-        route: 'cotiza/:artist?',
+        route: 'cotizar/:artist?',
         name: 'quotation',
         moduleId: 'pages/quotation/quotation',
         title: 'Cotiza',
+        href: '/cotizar',
         nav: false
       },
       {
-        route: 'cotiza/resultados',
+        route: 'cotizar/resultados',
         name: 'quotation_results',
         moduleId: 'pages/quotation-results/quotation-results',
         title: 'Resultados de tu cotización',
@@ -77,8 +78,15 @@ export class App {
         moduleId: 'pages/signup/signup',
         title: 'Regístrate',
         nav: false
+      },
+      {
+        route: 'estudio/:id',
+        name: 'studio',
+        moduleId: 'pages/artist/studio',
+        title: 'Perfil de estudio',
+        nav: false
       }
-    ])
+    ]);
   }
 }
 

@@ -27,7 +27,7 @@
           <span class="homepage-hero__middle-text-1">Cotiza tu</span>
           <span class="homepage-hero__middle-text-2">próximo tatuaje</span>
         </div>
-        <a href="#" class="site-button">Cotizar</a>
+        <a route-href="route: quotation" class="site-button">Cotizar</a>
       </div>
     </div>
     <div class="homepage-hero__right">
@@ -71,9 +71,9 @@
     </form>
     <div class="homepage-trending__items">
       <div repeat.for="tattoo of tattoos" class="homepage-trending__item cover" css="background-image: url(${tattoo.image})">
-        <div if.bind="$index == 0 || $index == 5" route-href="route: inspirate; params.bind: {style: tattoo.style_name}" class="homepage-trengind__item-layer vertical-center" click.delegate="goToGallery('style', tattoo.style_name)">${tattoo.style_name}</div>
-        <div if.bind="$index == 1 || $index == 3" route-href="route: inspirate; params.bind: {element: tattoo.element_name}" class="homepage-trengind__item-layer vertical-center" click.delegate="goToGallery('element', tattoo.element_name)">${tattoo.element_name}</div>
-        <div if.bind="$index == 2 || $index == 4" route-href="route: inspirate; params.bind: {part: tattoo.body_part_name}" class="homepage-trengind__item-layer vertical-center" click.delegate="goToGallery('part', tattoo.body_part_name)">${tattoo.body_part_name}</div>
+        <a if.bind="$index == 0 || $index == 5" route-href="route: inspirate; params.bind: {style: tattoo.style_name}" class="homepage-trengind__item-layer vertical-center">${tattoo.style_name}</a>
+        <a if.bind="$index == 1 || $index == 3" route-href="route: inspirate; params.bind: {element: tattoo.element_name}" class="homepage-trengind__item-layer vertical-center">${tattoo.element_name}</a>
+        <a if.bind="$index == 2 || $index == 4" route-href="route: inspirate; params.bind: {part: tattoo.body_part_name}" class="homepage-trengind__item-layer vertical-center">${tattoo.body_part_name}</a>
       </div>
     </div>
   </section>
@@ -88,7 +88,7 @@
     <div class="homepage-featured__items" id="homepage-featured-items">
       <artist-item repeat.for="artist of featuredArtists" artist.bind="artist"></artist-item>
     </div>
-    <a href="#" class="site-button homepage-featured__main-button">Ver todos los estudios</a>
+    <a route-href="route: search_artist; params.bind: {type: 'Estudio'}" class="site-button homepage-featured__main-button">Ver todos los estudios</a>
   </section>
   <hr class="special-hr homepage-divider">
   <section class="homepage-want-to">

@@ -1,3 +1,94 @@
+function getRandom(min, max, precision = 0) {
+  var random = (Math.random() * max) + min;
+  return parseFloat(random.toFixed(precision));
+}
+
+class Evaluation {
+  constructor() {
+    this.author = 'Mariela Tinoco S.';
+    this.stars = getRandom(0, 5, 1);
+    this.content = 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nemo distinctio harum quo expedita id. Illum maiores rerum in quidem dolorem, quis, neque animi non odio, laboriosam eveniet voluptates atque molestias.';
+  }
+}
+
+class Post {
+  constructor(artist) {
+    this.author = artist.name;
+    this.authorImage = artist.imageURL;
+    this.publicationDate = new Date().toString();
+    this.content = 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nemo distinctio harum quo expedita id. Illum maiores rerum in quidem dolorem, quis, neque animi non odio, laboriosam eveniet voluptates atque molestias.';
+  }
+}
+
+class Artist {
+  constructor(id) {
+    this.id = id;
+    this.name = 'Mock Artist ' + id;
+    this.rating = getRandom(0, 5, 1);
+    this.votes = getRandom(0, 100);
+    this.location = 'Roma, Ciudad de México';
+    this.tags = ['Tag1', 'Tag2'];
+    this.imageURL = '/src/assets/images/mock/artist' + id + '.png';
+    this.logo = '/src/assets/images/mock/studioname.png';
+    this.images = [
+      '/src/assets/images/mock/studio-carousel.jpg',
+      '/src/assets/images/mock/studio-carousel.jpg',
+      '/src/assets/images/mock/studio-carousel.jpg',
+      '/src/assets/images/mock/studio-carousel.jpg',
+      '/src/assets/images/mock/studio-carousel.jpg',
+      '/src/assets/images/mock/studio-carousel.jpg'
+    ];
+    this.evaluations = [
+      new Evaluation(),
+      new Evaluation(),
+      new Evaluation(),
+      new Evaluation()
+    ];
+    this.posts = [
+      new Post(this),
+      new Post(this),
+      new Post(this),
+      new Post(this)
+    ];
+  }
+}
+
+class Studio extends Artist {
+  constructor(id) {
+    super(id);
+    this.artists = [
+      new Artist(id + 1),
+      new Artist(id + 2),
+      new Artist(id + 3),
+      new Artist(id + 4)
+    ]
+  }
+}
+
+class Tattoo {
+  constructor(id, element, part, style) {
+    this.id = id;
+    this.description = 'Description';
+    this.votes = getRandom(1, 100);
+    this.tags = ['tag1', 'tag2'];
+    this.element_name = element;
+    this.body_part_name = part,
+    this.style_name = style,
+    this.image = '/src/assets/images/mock/tattoo' + id + '.png';
+    this.artist_name = 'Enrique Lopez';
+    this.artist_picture = '/src/assets/images/mock/artist1.png';
+    this.artist_id = getRandom(1, 8);
+    this.artist_location = 'Col. Roma';
+    this.artist_rating = getRandom(0, 5, 1);
+    this.price = getRandom(300, 4000);
+    this.currency = 'mxn';
+    this.dimensions = {
+      length: getRandom(1, 25) + ' cm',
+      width: getRandom(1, 25) + ' cm'
+    };
+  }
+}
+
 let latency = 200;
 
 let bodyParts = {
@@ -41,6 +132,36 @@ let bodyParts = {
       id: 12,
       name: 'Dedos',
       image: '/src/assets/images/mock/bodypart12.png'
+    },
+    {
+     id: 13,
+     name: 'Abdomen',
+     image: '/src/assets/images/mock/bodypart13.png'
+    },
+    {
+     id: 14,
+     name: 'Cachete izquierdo',
+     image: '/src/assets/images/mock/bodypart14.png'
+    },
+    {
+     id: 15,
+     name: 'Cachete derecho',
+     image: '/src/assets/images/mock/bodypart15.png'
+    },
+    {
+     id: 16,
+     name: 'Frente',
+     image: '/src/assets/images/mock/bodypart19.png'
+    },
+    {
+      id: 17,
+      name: 'Espinilla',
+      image: '/src/assets/images/mock/bodypart18.png'
+    },
+    {
+     id: 18,
+     name: 'Pecho',
+     image: '/src/assets/images/mock/bodypart22.png'
     }
   ],
   back: [
@@ -60,246 +181,129 @@ let bodyParts = {
       image: '/src/assets/images/mock/bodypart7.png'
     },
     {
-      id: 9,
-      name: 'Brazos',
-      image: '/src/assets/images/mock/bodypart9.png'
+     id: 9,
+     name: 'Brazos',
+     image: '/src/assets/images/mock/bodypart9.png'
+    },
+    {
+     id: 19,
+     name: 'Espalda baja',
+     image: '/src/assets/images/mock/bodypart16.png'
+    },
+    {
+     id: 20,
+     name: 'Espalda superior',
+     image: '/src/assets/images/mock/bodypart17.png'
+    },
+    {
+     id: 21,
+     name: 'Nuca',
+     image: '/src/assets/images/mock/bodypart20.png'
     }
   ]
 }
 
 let tattoos = [
-  {
-    votes: 0,
-    tags: ['tag1', 'tag2'],
-    artist_name: 'Enrique Lopez',
-    artist_picture: '/src/assets/images/mock/artist1.png',
-    artist_rating: 4.5,
-    artist_url: '#',
-    artist_location: 'Col. Roma',
-    description: 'Description',
-    tattoo_url: '#',
-    price: '300',
-    currency: 'mxn',
-    dimensions: {
-      length: '12 cm',
-      width: '12 cm'
-    },
-    slug: 'ab4Yc1',
-    element_name: 'Brazo Robot',
-    body_part_name: 'Oreja',
-    style_name: 'Dark',
-    image: '/src/assets/images/mock/tattoo1.png'
-  },
-  {
-    votes: 0,
-    tags: ['tag1', 'tag2'],
-    artist_name: 'Enrique Lopez',
-    artist_picture: '/src/assets/images/mock/artist1.png',
-    artist_rating: 4.5,
-    artist_url: '#',
-    artist_location: 'Col. Roma',
-    description: 'Description',
-    tattoo_url: '#',
-    price: '300',
-    currency: 'mxn',
-    dimensions: {
-      length: '12 cm',
-      width: '12 cm'
-    },
-    slug: 'ab4Yc1',
-    element_name: 'Brazo Robot',
-    body_part_name: 'Pierna',
-    style_name: 'Dark',
-    image: '/src/assets/images/mock/tattoo2.png'
-  },
-  {
-    votes: 0,
-    tags: ['tag1', 'tag2'],
-    artist_name: 'Enrique Lopez',
-    artist_picture: '/src/assets/images/mock/artist1.png',
-    artist_rating: 4.5,
-    artist_url: '#',
-    artist_location: 'Col. Roma',
-    description: 'Description',
-    tattoo_url: '#',
-    price: '300',
-    currency: 'mxn',
-    dimensions: {
-      length: '12 cm',
-      width: '12 cm'
-    },
-    slug: 'ab4Yc1',
-    element_name: 'Brazo Robot',
-    body_part_name: 'Oreja',
-    style_name: 'Dark',
-    image: '/src/assets/images/mock/tattoo3.png'
-  },
-  {
-    votes: 0,
-    tags: ['tag1', 'tag2'],
-    artist_name: 'Enrique Lopez',
-    artist_picture: '/src/assets/images/mock/artist1.png',
-    artist_rating: 4.5,
-    artist_url: '#',
-    artist_location: 'Col. Roma',
-    description: 'Description',
-    tattoo_url: '#',
-    price: '300',
-    currency: 'mxn',
-    dimensions: {
-      length: '12 cm',
-      width: '12 cm'
-    },
-    slug: 'ab4Yc1',
-    element_name: 'Brazo Robot',
-    body_part_name: 'Oreja',
-    style_name: 'Dark',
-    image: '/src/assets/images/mock/tattoo4.png'
-  },
-  {
-    votes: 0,
-    tags: ['tag1', 'tag2'],
-    artist_name: 'Enrique Lopez',
-    artist_picture: '/src/assets/images/mock/artist1.png',
-    artist_rating: 4.5,
-    artist_url: '#',
-    artist_location: 'Col. Roma',
-    description: 'Description',
-    tattoo_url: '#',
-    price: '300',
-    currency: 'mxn',
-    dimensions: {
-      length: '12 cm',
-      width: '12 cm'
-    },
-    slug: 'ab4Yc1',
-    element_name: 'Brazo Robot',
-    body_part_name: 'Oreja',
-    style_name: 'Religioso',
-    image: '/src/assets/images/mock/tattoo5.png'
-  },
-  {
-    votes: 0,
-    tags: ['tag1', 'tag2'],
-    artist_name: 'Enrique Lopez',
-    artist_picture: '/src/assets/images/mock/artist1.png',
-    artist_rating: 4.5,
-    artist_url: '#',
-    artist_location: 'Col. Roma',
-    description: 'Description',
-    tattoo_url: '#',
-    price: '300',
-    currency: 'mxn',
-    dimensions: {
-      length: '12 cm',
-      width: '12 cm'
-    },
-    slug: 'ab4Yc1',
-    element_name: 'Brazo Robot',
-    body_part_name: 'Oreja',
-    style_name: 'Religioso',
-    image: '/src/assets/images/mock/tattoo6.png'
-  }
-]
+  new Tattoo(1, 'Brazo Robot', 'Oreja', 'Dark'),
+  new Tattoo(2, 'Brazo Robot', 'Pierna', 'Dark'),
+  new Tattoo(3, 'Brazo Robot', 'Oreja', 'Dark'),
+  new Tattoo(4, 'Brazo Robot', 'Oreja', 'Dark'),
+  new Tattoo(5, 'Brazo Robot', 'Oreja', 'Religioso'),
+  new Tattoo(6, 'Brazo Robot', 'Oreja', 'Religioso')
+];
 
 let featuredArtists = [
-  {
-    name: 'Mock Artist 1',
-    rating: 3.5,
-    location: 'Roma, Ciudad de México',
-    tags: ['Tag1', 'Tag2'],
-    imageURL: '/src/assets/images/mock/artist1.png',
-    profileURL: '#'
-  },
-  {
-    name: 'Mock Artist 2',
-    rating: 4.5,
-    location: 'Roma, Ciudad de México',
-    tags: ['Tag1', 'Tag2', 'Tag3'],
-    imageURL: '/src/assets/images/mock/artist2.png',
-    profileURL: '#'
-  },
-  {
-    name: 'Mock Artist 3',
-    rating: 5,
-    location: 'Roma, Ciudad de México',
-    tags: ['Tag1', 'Tag2'],
-    imageURL: '/src/assets/images/mock/artist3.png',
-    profileURL: '#'
-  },
-  {
-    name: 'Mock Artist 4',
-    rating: 4,
-    location: 'Roma, Ciudad de México',
-    tags: ['Tag1', 'Tag2', 'Tag3'],
-    imageURL: '/src/assets/images/mock/artist4.png',
-    profileURL: '#'
-  },
-  {
-    name: 'Mock Artist 5',
-    rating: 4.5,
-    location: 'Roma, Ciudad de México',
-    tags: ['Tag1', 'Tag2'],
-    imageURL: '/src/assets/images/mock/artist5.png',
-    profileURL: '#'
-  },
-  {
-    name: 'Mock Artist 6',
-    rating: 3.5,
-    location: 'Roma, Ciudad de México',
-    tags: ['Tag1', 'Tag2'],
-    imageURL: '/src/assets/images/mock/artist6.png',
-    profileURL: '#'
-  },
-  {
-    name: 'Mock Artist 7',
-    rating: 5,
-    location: 'Roma, Ciudad de México',
-    tags: ['Tag1', 'Tag2', 'Tag3'],
-    imageURL: '/src/assets/images/mock/artist7.png',
-    profileURL: '#'
-  },
-  {
-    name: 'Mock Artist 8',
-    rating: 3.9,
-    location: 'Roma, Ciudad de México',
-    tags: ['Tag1', 'Tag2'],
-    imageURL: '/src/assets/images/mock/artist8.png',
-    profileURL: '#'
-  }
+  new Artist(1),
+  new Artist(2),
+  new Artist(3),
+  new Artist(4),
+  new Artist(5),
+  new Artist(6),
+  new Artist(7),
+  new Artist(8)
 ];
 
 let styles = [
   {
-    name: 'Shurado',
-    id: 0,
-    image: '/src/assets/images/mock/tattoo4.png'
-  },
-  {
     name: 'Old School',
     id: 1,
-    image: '/src/assets/images/mock/tattoo2.png'
-  },
-  {
-    name: 'Lienal',
-    id: 2,
-    image: '/src/assets/images/mock/tattoo3.png'
+    image: '/src/assets/images/mock/style14.jpg'
   },
   {
     name: 'New School',
+    id: 2,
+    image: '/src/assets/images/mock/style15.jpg'
+  },
+  {
+    name: 'Dotwork',
     id: 3,
-    image: '/src/assets/images/mock/tattoo1.png'
+    image: '/src/assets/images/mock/style10.png'
   },
   {
-    name: 'Punk',
+    name: 'Geométrico',
     id: 4,
-    image: '/src/assets/images/mock/tattoo5.png'
+    image: '/src/assets/images/mock/style9.png'
   },
   {
-    name: 'Religioso',
+    name: 'Trash Polka',
     id: 5,
-    image: '/src/assets/images/mock/tattoo6.png'
-  }
+    image: '/src/assets/images/mock/style7.png'
+  },
+  {
+    name: 'Black work',
+    id: 6,
+    image: '/src/assets/images/mock/style1.png'
+  },
+  {
+    name: 'Japones',
+    id: 8,
+    image: '/src/assets/images/mock/style13.png'
+  },
+  {
+    name: 'Tribal',
+    id: 8,
+    image: '/src/assets/images/mock/style16.jpg'
+  },
+  {
+    name: 'Tipografía',
+    id: 10,
+    image: '/src/assets/images/mock/style11.png'
+  },
+  {
+    name: 'Ilustración',
+    id: 11,
+    image: '/src/assets/images/mock/style12.png'
+  },
+  {
+    name: 'Surreal',
+    id: 12,
+    image: '/src/assets/images/mock/style6.png'
+  },
+  {
+    name: 'Biomecánico',
+    id: 13,
+    image: '/src/assets/images/mock/style8.png'
+  }//,
+  // {
+  //   name: 'Bosquejo',
+  //   id: 2,
+  //   image: '/src/assets/images/mock/style2.png'
+  // },
+  // {
+  //   name: 'Kawaii',
+  //   id: 3,
+  //   image: '/src/assets/images/mock/style3.png'
+  // },
+  // {
+  //   name: 'Oriental',
+  //   id: 4,
+  //   image: '/src/assets/images/mock/style4.png'
+  // },
+  // {
+  //   name: 'Retrato',
+  //   id: 5,
+  //   image: '/src/assets/images/mock/style5.png'
+  // }
 ];
 
 let elements = [
@@ -318,8 +322,8 @@ export class MockAPI {
 
   postQuotationRequest(request) {
     this.isRequesting = true;
-    let min = Math.floor(Math.random() * (9000 - 300)) + 300;
-    let max = Math.floor(Math.random() * (9999 - min)) + min;
+    let min = getRandom(300, 9000);
+    let max = getRandom(300, 9000);
 
     return new Promise(resolve => {
       setTimeout(() => {
@@ -366,6 +370,16 @@ export class MockAPI {
     });
   }
 
+  getStudio(id) {
+    this.isRequesting = true;
+
+    return new Promise(resolve => {
+      setTimeout(() => {
+        resolve(new Studio(id));
+        this.isRequesting = false;
+      }, latency);
+    });
+  }
 
   getStyles() {
     this.isRequesting = true;
@@ -402,6 +416,8 @@ export class MockAPI {
       }, latency)
     });
   }
+
+  getFlahes = this.getTattoos;
 
   getFeaturedArtists(type = 'featured') {
     this.isRequesting = true;

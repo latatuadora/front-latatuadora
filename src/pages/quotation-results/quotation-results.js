@@ -31,7 +31,7 @@ export class QuotationResults {
       centeredSlides: true,
       slidesPerView: 'auto',
       loop: true,
-      spaceBetween: 30,
+      spaceBetween: 0,
       paginationClickable: true,
       breakpoints: {
         909: {

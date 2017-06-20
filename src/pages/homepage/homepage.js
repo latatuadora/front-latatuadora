@@ -25,12 +25,6 @@ export class Homepage {
       })
   }
 
-  goToGallery(param, value) {
-    let query = {};
-    query[param] = value;
-    this.router.navigateToRoute('inspirate', query);
-  }
-
   getFeaturedArtists(type = 'featured') {
     this.api.getFeaturedArtists(type)
       .then(artists => {

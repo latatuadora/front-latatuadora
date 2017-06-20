@@ -1,0 +1,114 @@
+<template>
+  <require from="./studio.css"></require>
+  <require from="../../resources/attributes/swiper-carousel"></require>
+  <require from="../../resources/value-converters/date"></require>
+  <require from="../../resources/elements/gallery-item/gallery-item"></require>
+  <require from="../../resources/elements/flash-square-item/flash-square-item"></require>
+  <section class="studio__hero cover">
+    <img src="${studio.logo}" alt="Estudio" class="studio__logo">
+    <h1 class="studio__title">Estudio de <span class="golden-text">tatuaje</span></h1>
+    <div class="studio__hero-inner">
+      <div class="studio__hero-left">
+        <h2 class="studio__hero-subtitle">Cotiza tu <span class="studio__hero-subtext">próximo tatuaje</span></h2>
+        <a route-href="route: quotation; params.bind: {artist: studio.id}" class="site-button">Cotiza aquí</a>
+      </div>
+      <div class="studio__hero-right">
+        <h2 class="studio__hero-subtitle">Agenda tu <span class="studio__hero-subtext">próxima cita</span></h2>
+        <a route-href="route: quotation; params.bind: {artist: studio.id}" class="site-button">Agenda aquí</a>
+      </div>
+    </div>
+  </section>
+  <hr class="special-hr studio__hr">
+  <h2 class="studio__subtitle studio__tattoos-subtitle">Galería de tatuajes</h2>
+  <div class="studio__tattoos studio__carousel" swiper-carousel="init.bind: tattoosCarousel.init; options.one-time: tattoosCarousel.options">
+    <div class="swiper-wrapper">
+      <gallery-item class="swiper-slide" repeat.for="item of tattoos" item.bind="item" original-size.one-time="false"></gallery-item>
+    </div>
+    <div class="swiper-pagination"></div>
+    <img class="swiper-button-prev" src="/src/assets/images/icons/arrow-golden-left.svg">
+    <img class="swiper-button-next" src="/src/assets/images/icons/arrow-golden-right.svg">
+  </div>
+  <a route-href="route: inspirate; params.bind: {artist: studio.id}" class="site-button studio__gallery-button">Ver galería</a>
+  <section class="studio__flashes cover">
+    <h2 class="studio__subtitle">Flashes</h2>
+    <span class="gallery-subtitle">Diseños <span class="golden-text">únicos y exclusivos</span></span>
+    <div class="studio__flashes-carousel studio__carousel" swiper-carousel="init.bind: flashesCarousel.init; options.one-time: flashesCarousel.options">
+      <div class="swiper-wrapper">
+        <flash-square-item repeat.for="item of flashes" item.bind="item" in-carousel="true"></flash-square-item>
+      </div>
+      <div class="swiper-pagination"></div>
+    </div>
+    <a class="site-button" route-href="route: flashes; params.bind: {artist: studio.id}">Ver catálogo</a>
+  </section>
+  <hr class="special-hr studio__evaluations-hr">
+  <section class="studio__evaluations-artists">
+    <div class="studio__evaluations">
+      <div class="studio__evaluations-inner">
+        <h2 class="studio__evaluations-title">Evaluaciones</h2>
+        <div class="studio__evaluations-carousel studio__carousel" swiper-carousel="init.bind: evaluationsCarousel.init; options.one-time: evaluationsCarousel.options">
+        <div class="swiper-wrapper">
+          <div class="studio__evaluation-item swiper-slide" repeat.for="item of studio.evaluations">
+            <h3 class="studio__evaluation-title">${item.author}</h3>
+            <div class="studio__evaluation-stars">
+              <i repeat.for="i of 5" class="fa ${item.stars > i ? (item.stars > i + 0.9 ? 'fa-star' : 'fa-star-half-o') : 'fa-star-o'}"></i>
+            </div>
+            <p class="studio__evaluation-content">
+              "${item.content}"
+            </p>
+          </div>
+        </div>
+        <div class="swiper-pagination"></div>
+        <img class="swiper-button-prev" src="/src/assets/images/icons/left-arrow.png">
+        <img class="swiper-button-next" src="/src/assets/images/icons/right-arrow.png">
+      </div>
+      </div>
+      <a route-href="route: home" class="site-button">Calificar estudio</a>
+    </div>
+    <div class="studio__artists">
+      <h2 class="studio__artists-title">Tatuadores</h2>
+      <div class="studio__artists-carousel studio__carousel" swiper-carousel="init.bind: artistsCarousel.init; options.one-time: artistsCarousel.options">
+        <div class="swiper-wrapper">
+          <div class="studio__artist-item swiper-slide" repeat.for="item of studio.artists">
+            <h3 class="studio__artist-name">${item.name}</h3>
+            <img class="studio__artist-image" src="${item.imageURL}" alt="${item.name}">
+          </div>
+        </div>
+        <div class="swiper-pagination"></div>
+        <img class="swiper-button-prev" src="/src/assets/images/icons/arrow-golden-left.svg">
+        <img class="swiper-button-next" src="/src/assets/images/icons/arrow-golden-right.svg">
+      </div>
+    </div>
+  </section>
+  <section class="studio__wall">
+    <h2 class="studio__wall-title">Lo último de ${studio.name}</h2>
+    <div class="studio__wall-wrapper">
+      <div class="studio__wall-inner scrollable">
+        <div class="studio__wall-item" repeat.for="item of studio.posts">
+          <div class="studio__wall-item-header">
+            <img class="studio__wall-item-avatar circle" src="${item.authorImage}" alt="${item.author}">
+            <div class="studio__wall-item-data">
+              <span class="studio__wall-item-author">${item.author}</span>
+              <span class="studio__wall-item-date">${item.publicationDate | date}</span>
+            </div>
+          </div>
+          <div class="studio__wall-item-content">
+            ${item.content}
+          </div>
+          <div class="studio__wall-item-comments"></div>
+          <div class="studio__wall-item-newcomment">
+            <textarea placeholder="Escribir un comentario"></textarea>
+            <button class="site-button">Enviar</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <div class="studio__photos-carousel studio__carousel" swiper-carousel="init.bind: photosCarousel.init; options.one-time: photosCarousel.options">
+    <div class="swiper-wrapper">
+      <img class="swiper-slide" repeat.for="item of studio.images" src="${item}" alt="Estudio">
+    </div>
+    <div class="swiper-pagination"></div>
+    <img class="swiper-button-prev" src="/src/assets/images/icons/left-arrow.png">
+    <img class="swiper-button-next" src="/src/assets/images/icons/right-arrow.png">
+  </div>
+</template>
