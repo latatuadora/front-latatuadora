@@ -22,7 +22,7 @@
     <span class="golden-text">Comentarios</span> adicionales
   </h2>
   <div class="quotation-instructions__message-input-container" validation-errors.bind="additionalCommentErrors">
-    <textarea class="quotation-instructions__message-input" value.bind="model.additionalComment & validate" maxlength="265" maxlength="265" placeholder="Escribe aquí"></textarea>
+    <textarea class="quotation-instructions__message-input" value.bind="model.additionalComment & validate" maxlength="265" placeholder="Escribe aquí"></textarea>
     <span class="quotation-instructions__input-note">* Este campo es opcional</span>
     <span class="quotation-instructions__input-error" repeat.for="errorInfo of additionalCommentErrors">
       ${errorInfo.error.message}

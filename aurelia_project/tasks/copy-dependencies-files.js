@@ -31,13 +31,21 @@ export default function copyDependenciesFiles() {
     {
       lib: 'node_modules/swiper',
       main: '/dist/css/swiper.css'
+    },
+    {
+      lib: 'node_modules/flatpickr',
+      main: ['/dist/flatpickr.css', '/dist/ie.css']
     }
   ];
   let cssSources = [];
   let fontSources = [];
 
   sources.forEach(source => {
-    cssSources.push(source.lib + source.main);
+    if (source.main instanceof Array) {
+      source.main.forEach(elem => {cssSources.push(source.lib + elem);});
+    } else {
+      cssSources.push(source.lib + source.main);
+    }
     if (source.fonts) {
       fontSources.push(source.lib + source.fonts);
     }
