@@ -1,4 +1,5 @@
 import {HttpClient} from 'aurelia-http-client';
+import {MockAPI} from 'utils/mock-api';
 
 let client = new HttpClient();
 
@@ -8,9 +9,7 @@ client.configure(x => {
 });
 
 export class WebAPI {
-  getArtist(id) {
-    return client.get('artist', {id: id});
-  }
+  getArtist = MockAPI.prototype.getArtist;
 
   postQuotationRequest(request) {
     return client.post('quotation', request);
