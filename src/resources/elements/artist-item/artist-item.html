@@ -6,7 +6,7 @@
       <div class="artist-item__back flip-card__back">
         <div class="artist-item__back-content">
           <button class="fa fa-heart like-button artist-item__top-like-button"></button>
-          <a href="#" class="artist-item__title">${artist.name}</a>
+          <a route-href="route: studio; params.bind: {artist.id}" class="artist-item__title">${artist.name}</a>
           <div class="artist-item__stars">
             <i repeat.for="i of 5" class="fa ${artist.rating > i ? (artist.rating > i + 0.9 ? 'fa-star' : 'fa-star-half-o') : 'fa-star-o'}"></i>
           </div>
