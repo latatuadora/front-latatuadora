@@ -155,11 +155,12 @@ let bodyParts = [
 
 let groupedBodyParts = {
   front: [
+    bodyParts[2],
     bodyParts[3],
     bodyParts[4],
     bodyParts[5],
-    bodyParts[6],
-    bodyParts[8],
+    bodyParts[7],
+    bodyParts[9],
     bodyParts[10],
     bodyParts[11],
     bodyParts[12],
@@ -167,17 +168,16 @@ let groupedBodyParts = {
     bodyParts[14],
     bodyParts[15],
     bodyParts[16],
-    bodyParts[17],
-    bodyParts[18]
+    bodyParts[17]
   ],
   back: [
+    bodyParts[0],
     bodyParts[1],
-    bodyParts[2],
-    bodyParts[7],
-    bodyParts[9],
+    bodyParts[6],
+    bodyParts[8],
+    bodyParts[18],
     bodyParts[19],
-    bodyParts[20],
-    bodyParts[21]
+    bodyParts[20]
   ]
 };
 
@@ -259,8 +259,6 @@ let studioArtists = [
   new StudioArtist(4)
 ]
 
-let featuredArtists = artists;
-
 export class MockAPI {
   isRequesting = false;
 
@@ -292,6 +290,17 @@ export class MockAPI {
     });
   }
 
+  getGroupedBodyParts() {
+    this.isRequesting = true;
+
+    return new Promise(resolve => {
+      setTimeout(() => {
+        resolve(groupedBodyParts);
+        this.isRequesting = false;
+      }, latency);
+    });
+  }
+
   getElements() {
     this.isRequesting = true;
 
@@ -308,7 +317,7 @@ export class MockAPI {
 
     return new Promise(resolve => {
       setTimeout(() => {
-        resolve(featuredArtists[0]);
+        resolve(artists.length < id ? artists[id] : artists[0]);
         this.isRequesting = false;
       }, latency);
     });
@@ -339,18 +348,54 @@ export class MockAPI {
   getTattoos(data = {}) {
     this.isRequesting = true;
 
-    let results = tattoos.filter((obj) => {
-      if (data.style && data.style !== obj.style_name) {
-        return false;
-      }
-      if (data.element && data.element !== obj.element_name) {
-        return false;
-      }
-      if (data.part && data.part !== obj.body_part_name) {
-        return false;
-      }
+    // let results = tattoos.filter((obj) => {
+    //   if (data.style && data.style !== obj.style_name) {
+    //     return false;
+    //   }
+    //   if (data.element && data.element !== obj.element_name) {
+    //     return false;
+    //   }
+    //   if (data.part && data.part !== obj.body_part_name) {
+    //     return false;
+    //   }
+    //
+    //   return true;
+    // });
 
-      return true;
+    return new Promise(resolve => {
+      setTimeout(() => {
+        resolve(tattoos);
+        this.isRequesting = false;
+      }, latency)
+    });
+  }
+
+  getFlahes() {
+    this.isRequesting = true;
+    return new Promise(resolve => {
+      setTimeout(() => {
+        resolve(flashes);
+        this.isRequesting = false;
+      }, latency)
+    });
+  }
+
+  getArtists() {
+    this.isRequesting = true;
+
+    return new Promise(resolve => {
+      setTimeout(() => {
+        resolve(artists);
+        this.isRequesting = false;
+      }, latency)
+    });
+  }
+
+  getEvaluations(id) {
+    isRequesting = true;
+    let results = [];
+    results = evaluations.filter(item => {
+      return item.id == id;
     });
 
     return new Promise(resolve => {
@@ -361,18 +406,18 @@ export class MockAPI {
     });
   }
 
-  getFlahes = this.getTattoos;
-
-  getFeaturedArtists(type = 'featured') {
-    this.isRequesting = true;
+  getPosts(id) {
+    isRequesting = true;
+    let results = [];
+    results = evaluations.filter(item => {
+      return item.id == id;
+    });
 
     return new Promise(resolve => {
       setTimeout(() => {
-        resolve(featuredArtists);
+        resolve(results);
         this.isRequesting = false;
       }, latency)
     });
   }
-
-  getArtists = this.getFeaturedArtists;
 }
