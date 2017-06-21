@@ -7,7 +7,7 @@
     <div class="tattoo-modal__header">
       <img class="tattoo-modal__close" src="src/assets/images/icons/close.png" click.delegate="close()">
     </div>
-    <div if.bind="item" class="tattoos-grid__element tattoo-modal__element ${type=='flash' ? 'flashes-grid__flash-element' : ''}">
+    <div class="tattoos-grid__element tattoo-modal__element ${type=='flash' ? 'flashes-grid__flash-element' : ''}">
       <div class="tattoos-grid__element-thumbnail">
         <img class="tattoo-modal__prev" src="src/assets/images/icons/left-arrow.png" click.delegate="goPrev()">
         <img class="tattoo-modal__next" src="src/assets/images/icons/right-arrow.png" click.delegate="goNext()">
