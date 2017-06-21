@@ -8,9 +8,20 @@ export class QuotationResults {
     this.router = router;
     this.api = api;
     this.results = {};
-    this.tattoos = [];
-    this.flashes = [];
-    this.initSwiper = false;
+    this.groups = {
+      tattoos: {
+        showModal: false,
+        currentItem: null,
+        initCarousel: false,
+        items: []
+      },
+      flashes: {
+        showModal: false,
+        currentItem: null,
+        initCarousel: false,
+        items: []
+      }
+    };
     this.getItems('tattoos');
     this.getItems('flashes');
   }
@@ -46,10 +57,30 @@ export class QuotationResults {
     let method = 'get' + capitalized;
     this.api.getTattoos({artist: this.results.artist})
       .then(items => {
-        this[type] = items;
-        if (this.flashes.length && this.tattoos.length) {
-          this.initSwiper = true;
-        }
+        this.groups[type].items = items;
+        this.groups[type].showModal = true;
       });
+  }
+
+  openModal(group, index) {
+    this.groups[group].showModal = true;
+    this.groups[group].currentItem = this.groups[group].items[index];
+  }
+
+  closeModal(group) {
+    this.groups[group].showModal = false;
+  }
+
+  changeItem(next, group) {
+    let lastItem = this.groups[group].items.length - 1;
+    let currentItem = this.groups[group].currentItem.index;
+    let newIndex = 0;
+    if (next) {
+      newIndex = currentItem < lastItem ? currentItem + 1 : 0;
+    } else {
+      newIndex = currentItem > 0 ? currentItem - 1 : lastItem;
+    }
+    this.groups[group].currentItem = this.groups[group].items[newIndex];
+    this.groups[group].currentItem.index = newIndex;
   }
 }
