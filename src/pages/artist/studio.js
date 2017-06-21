@@ -11,6 +11,9 @@ class CarouselOptions {
     this.slidesPerView = 'auto';
     this.loop = false;
     this.paginationClickable = true;
+
+    this.showModal = false;
+    this.currentItem = null;
   }
 };
 
@@ -107,5 +110,27 @@ export class Studio {
         this.getTattoos();
         this.getFlashes();
       });
+  }
+
+  openModal(index) {
+    this.showModal = true;
+    this.currentItem = this.tattoos[index];
+  }
+
+  closeModal(group) {
+    this.showModal = false;
+  }
+
+  changeItem(next, group) {
+    let lastItem = this.tattoos.length - 1;
+    let currentItem = this.currentItem.index;
+    let newIndex = 0;
+    if (next) {
+      newIndex = currentItem < lastItem ? currentItem + 1 : 0;
+    } else {
+      newIndex = currentItem > 0 ? currentItem - 1 : lastItem;
+    }
+    this.currentItem = this.tattoos[newIndex];
+    this.currentItem.index = newIndex;
   }
 }
