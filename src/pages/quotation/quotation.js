@@ -44,7 +44,13 @@ export class Quotation extends BaseMultiStep {
   }
 
   activate(params) {
-    this.getArtist(params.id);
+    if (params.artist && this.isInteger(params.artist)) {
+      this.getArtist(parseInt(params.artist));
+    }
+  }
+
+  isInteger(value) {
+    return !isNaN(value) && parseInt(value) == value;
   }
 
   getArtist(id) {
