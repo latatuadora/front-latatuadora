@@ -22,9 +22,9 @@
       <div class="tattoos-grid__element-info-wrapper">
         <div class="tattoos-grid__element-info-left">
           <div class="tattoos-grid__element-info-top">
-            <a href="#"><img class="tattoos-grid__element-author-pic circle" src="${item.artist_picture}" alt="${item.artist_name}"></a>
+            <a route-href="route: studio; params.bind: {id: item.artist_id}"><img class="tattoos-grid__element-author-pic circle" src="${item.artist_picture}" alt="${item.artist_name}"></a>
             <div class="tattoos-grid__element-info">
-              <a href="#" class="tattoos-grid__element-author">${item.artist_name}</a>
+              <a route-href="route: studio; params.bind: {id: item.artist_id}" class="tattoos-grid__element-author">${item.artist_name}</a>
               <span class="tattoos-grid__element-location">${item.artist_location}</span>
               <div class="tattoos-grid__element-stars">
                 <i repeat.for="i of 5" class="fa ${item.artist_rating > i ? (item.artist_rating > i + 0.9 ? 'fa-star' : 'fa-star-half-o') : 'fa-star-o'}"></i>
@@ -48,8 +48,8 @@
         <div class="tattoos-grid__element-info-right">
           <button type="button" class="tattoos-grid__element-info-likes vote-btn fa fa-heart">${item.votes + ' Likes'}</button>
           <div class="tattoos-grid__element-buttons">
-          <a if.one-time="type!='flash'" href="#" class="site-button">Cotizar tatuaje similar</a>
-          <a if.one-time="type!='flash'" href="#" class="site-button">Ver perfil</a>
+          <a if.one-time="type!='flash'" route-href="route: quotation; params.bind: {artist: item.artist_id}" class="site-button">Cotizar tatuaje similar</a>
+          <a if.one-time="type!='flash'" route-href="route: studio; params.bind: {id: item.artist_id}" class="site-button">Ver perfil</a>
           <a if.one-time="type=='flash'" class="site-button site-button--black">Comprar flash</a>
         </div>
         </div>
