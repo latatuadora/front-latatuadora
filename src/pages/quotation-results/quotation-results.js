@@ -41,7 +41,7 @@ export class QuotationResults {
       pagination: '.swiper-pagination',
       centeredSlides: true,
       slidesPerView: 'auto',
-      loop: true,
+      loop: false,
       spaceBetween: 0,
       paginationClickable: true,
       breakpoints: {
@@ -58,7 +58,7 @@ export class QuotationResults {
     this.api.getTattoos({artist: this.results.artist})
       .then(items => {
         this.groups[type].items = items;
-        this.groups[type].showModal = true;
+        this.groups[type].initCarousel = true;
       });
   }
 

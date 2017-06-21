@@ -4,6 +4,8 @@
   <require from="../../resources/attributes/tooltip-message"></require>
   <require from="../../resources/attributes/swiper-carousel"></require>
   <require from="../../resources/elements/gallery-item/gallery-item"></require>
+  <require from="../../resources/attributes/simple-modal"></require>
+  <require from="../../resources/elements/gallery-modal/gallery-modal"></require>
   <require from="../../resources/value-converters/currency"></require>
   <div class="quotation-container quotation-results cover">
     <div class="quotation-title quotation-title__responsive">Cotiza</div>
@@ -50,9 +52,10 @@
     <div class="quotation-instructions quotation-results__flashes-instructions">
       Compra tu próximo diseño, pruébalo y agenda tu cita para tatuártelo de manera definitiva
     </div>
-    <div class="quotation-results--gallery" swiper-carousel="options.one-time: swiperOptions; init.bind: initSwiper">
+    <gallery-modal id="flashes-modal" simple-modal="show.two-way: groups.flashes.showModal" css="${groups.flashes.showModal ? 'display: block' : 'display: none'}" item.bind="groups.flashes.currentItem" go-next.call="changeItem(true, 'flashes')" go-prev.call="changeItem(false, 'flashes')" close.call="closeModal('flashes')" type="flash"></gallery-modal>
+    <div class="quotation-results--gallery" swiper-carousel="options.one-time: swiperOptions; init.bind: groups.flashes.initCarousel">
       <div class="swiper-wrapper">
-        <gallery-item class="swiper-slide ${$index > 2 ? 'hide-desktop' : ''}" repeat.for="item of flashes" item.bind="item" type="flash" original-size.one-time="false"></gallery-item>
+        <gallery-item class="swiper-slide ${$index > 2 ? 'hide-desktop' : ''}" repeat.for="item of groups.flashes.items" item.bind="item" type="flash" original-size.one-time="false" open.call="openModal('flashes', $index)"></gallery-item>
       </div>
       <div class="swiper-pagination"></div>
     </div>
@@ -63,9 +66,10 @@
     <div class="quotation-instructions quotation-results__inspirate-instructions">
       Sigue inspirándote en nuestra galería de tatuajes
     </div>
-    <div class="quotation-results--gallery" swiper-carousel="options.one-time: swiperOptions; init.bind: initSwiper">
+    <gallery-modal id="tattoos-modal" simple-modal="show.two-way: groups.tattoos.showModal" css="${groups.tattoos.showModal ? 'display: block' : 'display: none'}" item.bind="groups.tattoos.currentItem" go-next.call="changeItem(true, 'tattoos')" go-prev.call="changeItem(false, 'tattoos')" close.call="closeModal('tattoos')"></gallery-modal>
+    <div class="quotation-results--gallery" swiper-carousel="options.one-time: swiperOptions; init.bind: groups.tattoos.initCarousel">
       <div class="swiper-wrapper">
-        <gallery-item class="swiper-slide ${$index > 2 ? 'hide-desktop' : ''}" repeat.for="item of tattoos" item.bind="item" original-size.one-time="false"></gallery-item>
+        <gallery-item class="swiper-slide ${$index > 2 ? 'hide-desktop' : ''}" repeat.for="item of groups.tattoos.items" item.bind="item" original-size.one-time="false"  open.call="openModal('tattoos', $index)"></gallery-item>
       </div>
       <div class="swiper-pagination"></div>
     </div>
