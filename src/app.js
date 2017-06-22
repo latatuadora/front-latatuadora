@@ -2,6 +2,7 @@ export class App {
   configureRouter (config, router) {
     var postRender = new PostRenderStep();
     this.router = router;
+    this.sessionRouter = null;
 
     config.addPostRenderStep(postRender);
     config.title = 'La Tatuadora';
