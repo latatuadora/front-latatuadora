@@ -9,11 +9,16 @@
   text-align center
   center-block()
 
+  .input-wrapper
+    max-width 396.5px
+    center-block()
+
   .site-input
     font-size 16px
     letter-spacing -0.2px
     padding 14px 12px
-    flex-basis 344.5px
+    flex-grow 1
+    max-width calc(100% - 52px)
 
 .user__edit-photo-wrapper
   margin-top 49px
@@ -30,6 +35,21 @@
 
   .input-wrapper
     margin-top 22px
+
+    &:nth-child(1) img
+      width 30px
+
+    &:nth-child(2) img
+      width 26.7px
+      margin-left 1.75px
+
+    &:nth-child(3) img
+      width 25px
+      margin-left 2.5px
+
+    &:nth-child(4) img
+      width 16.5px
+      margin-left 7.25px
 
 .user__edit-tattooed-span
   display inline-block
@@ -59,3 +79,7 @@
 
   .input-wrapper
     margin-top 26px
+
+    img
+      width 16.5px
+      margin-left 10px
