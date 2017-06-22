@@ -11,28 +11,28 @@
         <img src="/src/assets/images/icons/avatar.svg" alt="Usuario" />
         <input value.bind="userData.username & validate" type="text" class="site-input" placeholder="Elige tu nombre de usuario">
         <div class="input-errors">
-          <div repeat.for="errorInfo of usernameErrors">${errorInfo.error.message}</div>
+          <div class="input-error" repeat.for="errorInfo of usernameErrors">${errorInfo.error.message}</div>
         </div>
       </div>
       <div class="input-wrapper" validation-errors.bind="nameErrors">
         <img src="/src/assets/images/icons/tag.svg" alt="Nombre" />
         <input value.bind="userData.name & validate" type="text" class="site-input" placeholder="Nombre">
         <div class="input-errors">
-          <div repeat.for="errorInfo of nameErrors">${errorInfo.error.message}</div>
+          <div class="input-error" repeat.for="errorInfo of nameErrors">${errorInfo.error.message}</div>
         </div>
       </div>
       <div class="input-wrapper" validation-errors.bind="emailErrors">
         <img src="/src/assets/images/icons/mail.svg" alt="Email" />
         <input value.bind="userData.email & validate" type="text" class="site-input" placeholder="Correo electrónico">
         <div class="input-errors">
-          <div repeat.for="errorInfo of emailErrors">${errorInfo.error.message}</div>
+          <div class="input-error" repeat.for="errorInfo of emailErrors">${errorInfo.error.message}</div>
         </div>
       </div>
       <div class="input-wrapper" validation-errors.bind="phoneErrors">
         <img src="/src/assets/images/icons/phone-2.svg" alt="Teléfono" />
         <input value.bind="userData.phone & validate" type="text" class="site-input" placeholder="Teléfono">
         <div class="input-errors">
-          <div repeat.for="errorInfo of phoneErrors">${errorInfo.error.message}</div>
+          <div class="input-error" repeat.for="errorInfo of phoneErrors">${errorInfo.error.message}</div>
         </div>
       </div>
       <span class="user__edit-tattooed-span">¿Estás tatuado?</span>
@@ -55,14 +55,14 @@
         <img src="/src/assets/images/icons/lock.svg" alt="Contraseña" />
         <input value.bind="passwords.new & validate" type="text" class="site-input" placeholder="Contraseña nueva">
         <div class="input-errors">
-          <div repeat.for="errorInfo of newpassErrors">${errorInfo.error.message}</div>
+          <div class="input-error" repeat.for="errorInfo of newpassErrors">${errorInfo.error.message}</div>
         </div>
       </div>
       <div class="input-wrapper" validation-errors.bind="confirmpassErrors">
         <img src="/src/assets/images/icons/lock.svg" alt="Repetir contraseña" />
         <input value.bind="passwords.confirm & validate" type="text" class="site-input" placeholder="Confirmar contraseña nueva">
         <div class="input-errors">
-          <div repeat.for="errorInfo of confirmpassErrors">${errorInfo.error.message}</div>
+          <div class="input-error" repeat.for="errorInfo of confirmpassErrors">${errorInfo.error.message}</div>
         </div>
       </div>
       <button class="site-button user__edit-button">Guardar cambios</button>
