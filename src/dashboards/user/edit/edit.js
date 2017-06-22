@@ -5,13 +5,14 @@ export class Edit {
       type: false,
       size: false
     };
-    this.fields = {
-      file: null
+    this.userData = {
+      image: '/src/assets/images/mock/avatar.png'
     };
+    this.userData.file = null;
   }
 
   onLoaded = (file, data) => {
-    this.fields.file = {
+    this.userData.file = {
       file: file,
       data: data
     };
