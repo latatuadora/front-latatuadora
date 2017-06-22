@@ -93,6 +93,13 @@ export class App {
         moduleId: 'pages/artist/studio',
         title: 'Perfil de estudio',
         nav: false
+      },
+      {
+        route: 'dashboard',
+        name: 'dashboard',
+        moduleId: 'dashboards/index',
+        title: 'Dashboard',
+        nav: false
       }
     ]);
   }
