@@ -224,10 +224,12 @@ let bodyParts = {
 let tattoos = [
   new Tattoo(1, 'Brazo Robot', 'Oreja', 'Dark'),
   new Tattoo(2, 'Brazo Robot', 'Pierna', 'Dark'),
-  new Tattoo(3, 'Brazo Robot', 'Oreja', 'Dark'),
+  new Tattoo(3, 'Brazo Robot', 'Oreja', 'Old School'),
   new Tattoo(4, 'Brazo Robot', 'Oreja', 'Dark'),
-  new Tattoo(5, 'Brazo Robot', 'Oreja', 'Religioso'),
-  new Tattoo(6, 'Brazo Robot', 'Oreja', 'Religioso')
+  new Tattoo(5, 'Brazo Robot', 'Rodilla', 'Old School'),
+  new Tattoo(6, 'Brazo Robot', 'Oreja', 'Religioso'),
+  new Tattoo(7, 'Brazo Robot', 'Rodilla', 'Religioso'),
+  new Tattoo(8, 'Brazo Robot', 'Oreja', 'Religioso')
 ];
 
 let featuredArtists = [
