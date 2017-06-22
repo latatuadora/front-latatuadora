@@ -2,8 +2,8 @@
   <require from="./edit.css"></require>
   <div class="user__edit">
     <h1 class="site-title user__edit-title">Editar perfil</h1>
-    <div class="user__edit-photo-wrapper">
-      <input id="user-profile-picture" type="file">
+    <div class="user__edit-photo-wrapper cover circle" css="background-image: url(${fields.file.data})">
+      <input id="user-profile-picture" type="file" accept="image/*" files="on-loaded.bind: onLoaded; file-filter.bind: 'image.*'; on-error.bind: onError; max-file-size.bind: maxFileSize; allow-drop: true">
     </div>
     <label class="golden-text user__edit-photo-label" for="user-profile-picture">Elegir foto</label>
     <section class="user__edit-data">
