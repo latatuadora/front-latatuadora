@@ -154,7 +154,7 @@ a.homepage-hero__small-item
   width 85%
 
 .homepage-trending
-  padding-top remify(70)
+  padding-top remify(94)
 
 .homepage-trending__form
   margin-top 17px
@@ -183,20 +183,19 @@ a.homepage-hero__small-item
   border-radius 0 2px 2px 0
 
 .homepage-trending__items
-  margin-top 81px
+  margin-top 86px
   display flex
   flex-wrap wrap
   justify-content space-between
   width 100%
-  max-width 727px
+  max-width 1024px
   center-block()
   margin-bottom remify(64)
 
 .homepage-trending__item
-  flex-basis 235px
-  height 235px
+  flex-basis 25%
+  height 25vw
   color white
-  margin-top 12px
   font-family 'BebasNeue'
   font-weight $bold
   rfont-size remify(30) 479px 13px
@@ -206,6 +205,7 @@ a.homepage-hero__small-item
 
   a
     color inherit
+    padding 25px
 
 .homepage-trengind__item-layer
   height 100%
@@ -459,6 +459,12 @@ a.homepage-hero__small-item
     margin-top 0
     flex-basis 33.3333333333%
     height 33.333333333333vw
+
+    &:nth-child(n+7)
+      display none
+
+    a
+      padding 15px
 
   .homepage-featured
     margin-top 59px

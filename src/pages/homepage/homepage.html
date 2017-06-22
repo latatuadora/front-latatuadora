@@ -71,9 +71,9 @@
     </form>
     <div class="homepage-trending__items">
       <div repeat.for="tattoo of tattoos" class="homepage-trending__item cover" css="background-image: url(${tattoo.image})">
-        <a if.bind="$index == 0 || $index == 5" route-href="route: inspirate; params.bind: {style: tattoo.style_name}" class="homepage-trengind__item-layer vertical-center">${tattoo.style_name}</a>
+        <a if.bind="$index == 0 || $index == 5 || $index == 6" route-href="route: inspirate; params.bind: {style: tattoo.style_name}" class="homepage-trengind__item-layer vertical-center">${tattoo.style_name}</a>
         <a if.bind="$index == 1 || $index == 3" route-href="route: inspirate; params.bind: {element: tattoo.element_name}" class="homepage-trengind__item-layer vertical-center">${tattoo.element_name}</a>
-        <a if.bind="$index == 2 || $index == 4" route-href="route: inspirate; params.bind: {part: tattoo.body_part_name}" class="homepage-trengind__item-layer vertical-center">${tattoo.body_part_name}</a>
+        <a if.bind="$index == 2 || $index == 4 || $index == 7" route-href="route: inspirate; params.bind: {part: tattoo.body_part_name}" class="homepage-trengind__item-layer vertical-center">${tattoo.body_part_name}</a>
       </div>
     </div>
   </section>
