@@ -9,19 +9,19 @@
     <section class="user__edit-data">
       <div class="input-wrapper">
         <img src="/src/assets/images/icons/avatar.svg" alt="Usuario" />
-        <input type="text" class="site-input" placeholder="Elige tu nombre de usuario">
+        <input value.bind="userData.username & validate" type="text" class="site-input" placeholder="Elige tu nombre de usuario">
       </div>
       <div class="input-wrapper">
         <img src="/src/assets/images/icons/tag.svg" alt="Nombre" />
-        <input type="text" class="site-input" placeholder="Nombre">
+        <input value.bind="userData.name & validate" type="text" class="site-input" placeholder="Nombre">
       </div>
       <div class="input-wrapper">
         <img src="/src/assets/images/icons/mail.svg" alt="Email" />
-          <input type="text" class="site-input" placeholder="Correo electrónico">
+        <input value.bind="userData.email & validate" type="text" class="site-input" placeholder="Correo electrónico">
       </div>
       <div class="input-wrapper">
         <img src="/src/assets/images/icons/phone-2.svg" alt="Teléfono" />
-        <input type="text" class="site-input" placeholder="Teléfono">
+        <input value.bind="userData.phone & validate" type="text" class="site-input" placeholder="Teléfono">
       </div>
       <span class="user__edit-tattooed-span">¿Estás tatuado?</span>
       <div class="user__edit-tattooed">
@@ -41,11 +41,11 @@
       <h2 class="site-title">Elige tu <span class="golden-text">contraseña</span></h2>
       <div class="input-wrapper">
         <img src="/src/assets/images/icons/lock.svg" alt="Contraseña" />
-        <input type="text" class="site-input" placeholder="Contraseña nueva">
+        <input value.bind="passwords.new & validate" type="text" class="site-input" placeholder="Contraseña nueva">
       </div>
       <div class="input-wrapper">
         <img src="/src/assets/images/icons/lock.svg" alt="Repetir contraseña" />
-        <input type="text" class="site-input" placeholder="Confirmar contraseña nueva">
+        <input value.bind="passwords.repeat & validate" type="text" class="site-input" placeholder="Confirmar contraseña nueva">
       </div>
       <button class="site-button user__edit-button">Guardar cambios</button>
     </section>
