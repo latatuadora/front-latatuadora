@@ -23,7 +23,7 @@ export class Edit {
     this.passwords = {
       current: '',
       new: '',
-      repeat: ''
+      confirm: ''
     };
     this.userData.file = null;
     this.addRules();
@@ -59,7 +59,7 @@ export class Edit {
         .withMessage('Introduce una contraseña')
         .minLength(6)
         .withMessage('La contraseña debe de contener al menos 6 catacteres')
-      .ensure('repeat')
+      .ensure('confirm')
         .satisfiesRule('matchesTo', 'new')
       .on(this.passwords);
   }
