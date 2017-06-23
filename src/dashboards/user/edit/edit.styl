@@ -129,6 +129,34 @@
       width 16.5px
       margin-left 10px
 
+#edit-profile-modal-content .modal-inner
+  width 86%
+  max-width 489px
+  center-block()
+
+.user__edit-modal-header
+  text-align right
+
+.user__edit-modal-close
+  width 26px
+
+.user__edit-modal-content
+  background #1d1c1c
+  padding 64px 46px 83px 46px
+  margin-top 29px
+  text-align center
+
+  img
+    width 58px
+
+.user__edit-modal-text
+  color white
+  font-size 19px
+  margin-top 38px
+  padding-bottom 22px
+  letter-spacing -0.3px
+  simple-border('bottom', 1px, $dustColor)
+
 @media screen and (max-width: 767px)
   .user__edit
     padding-top 43px
@@ -151,6 +179,27 @@
 
     .site-title
       padding-bottom 18px
+
+  #edit-profile-modal-content .modal-inner
+    max-width 360px
+
+  .user__edit-modal-close
+    width 23px
+
+  .user__edit-modal-content
+    background #1d1c1c
+    padding 32px 30px 46px 30px
+    margin-top 16px
+    text-align center
+
+    img
+      width 30px
+
+  .user__edit-modal-text
+    font-size 14px
+    margin-top 18px
+    line-height 1.21
+    padding-bottom 17px
 
 @media screen and (max-width: 479px)
   .user__edit-data

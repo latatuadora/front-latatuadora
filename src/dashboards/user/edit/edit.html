@@ -74,13 +74,13 @@
       </div>
       <button class="site-button user__edit-button" click.delegate="updatePassword()">Guardar cambios</button>
     </section>
-    <div id="edit-profile-modal" class="user__edit-modal" simple-modal="show.two-way: showModal" css="${showModal ? 'display: block' : 'display: none'}">
+    <div id="edit-profile-modal" class="user__edit-modal" simple-modal="show.two-way: showModal; container-id: edit-profile-modal-content" css="${showModal ? 'display: block' : 'display: none'}">
       <div class="user__edit-modal-header">
         <img class="user__edit-modal-close" src="src/assets/images/icons/close.png" click.delegate="close()">
       </div>
       <div class="user__edit-modal-content">
         <img src="/src/assets/images/icons/check.svg" alt="Listo">
-        <div class="user__edit-modal-text">¡Se ha guardado exitosiamente tu información!</div>
+        <div class="user__edit-modal-text">¡Se ha guardado exitosamente tu información!</div>
       </div>
     </div>
   </div>
