@@ -1,5 +1,6 @@
 <template>
   <require from="./edit.css"></require>
+  <require from="../../../resources/attributes/simple-modal"></require>
   <div class="user__edit">
     <h1 class="site-title user__edit-title">Editar perfil</h1>
     <div class="user__edit-photo-wrapper cover circle" css="background-image: url(${userData.file ? userData.file.data : userData.image})">
@@ -73,5 +74,6 @@
       </div>
       <button class="site-button user__edit-button" click.delegate="updatePassword()">Guardar cambios</button>
     </section>
+    <div id="edit-profile-modal" simple-modal="show.two-way: showModal" css="${showModal ? 'display: block' : 'display: none'}">aaaaaaaa</div>
   </div>
 </template>

@@ -29,6 +29,7 @@ export class Edit {
       confirm: ''
     };
     this.userData.file = null;
+    this.showModal = false;
     this.addRules();
   }
 
@@ -90,6 +91,7 @@ export class Edit {
       .then(validation => {
         if(validation.valid) {
           console.log('PUT Request');
+          this.showModal = true;
         }
       });
   }
@@ -98,7 +100,8 @@ export class Edit {
     this.passwordsController.validate()
       .then(validation => {
         if(validation.valid) {
-          console.log('PUT Request');
+          console.log('PUT Request', 'password');
+          this.showModal = true;
         }
       });
   }
