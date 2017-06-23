@@ -1,11 +1,13 @@
 import {inject, NewInstance} from 'aurelia-framework';
-import {Validator, ValidationRules, ValidationController, validateTrigger} from 'aurelia-validation';
+import {Validator, ValidationRules, ValidationControllerFactory, validateTrigger} from 'aurelia-validation';
 
-@inject(NewInstance.of(ValidationController), Validator)
+@inject(ValidationControllerFactory, Validator)
 export class Edit {
-  constructor(controller, validator) {
-    this.controller = controller;
-    this.controller.validateTrigger = validateTrigger.changeOrBlur;
+  constructor(controllerFactory, validator) {
+    this.dataController = controllerFactory.create();
+    this.passwordsController = controllerFactory.create();
+    this.dataController.validateTrigger = validateTrigger.changeOrBlur;
+    this.passwordsController.validateTrigger = validateTrigger.changeOrBlur;
     this.validator = validator;
 
     this.maxFileSize = 5 * 1024 * 1024;
@@ -31,7 +33,8 @@ export class Edit {
 
   addRules() {
     ValidationRules.customRule('matchesTo', (value, obj, propertyName) => {
-      return !value || value == obj[propertyName];
+      return (!value && !obj[propertyName]) ||
+        value == obj[propertyName];
     }, 'Los valores no coinciden');
 
     ValidationRules
@@ -79,5 +82,19 @@ export class Edit {
     } else {
       this.fileErrors.size = true;
     }
+  }
+
+  updateData() {
+    this.dataController.validate()
+      .then(validation => {
+        console.log(validation);
+      });
+  }
+
+  updatePassword() {
+    this.passwordsController.validate()
+      .then(validation => {
+        console.log(validation);
+      });
   }
 }
