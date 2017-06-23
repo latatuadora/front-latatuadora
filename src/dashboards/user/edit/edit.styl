@@ -24,11 +24,16 @@
     font-size 14px
 
   .site-input
+    color #c3c3c3
     font-size 16px
     letter-spacing -0.2px
     padding 14px 12px
     flex-grow 1
     max-width calc(100% - 52px)
+
+.user__edit-title
+  rfont-size 35px 767px 28px
+  letter-spacing -0.3px
 
 .user__edit-photo-wrapper
   margin-top 49px
@@ -112,6 +117,7 @@
 
   .site-title
     padding-bottom 12px
+    font-size 18px
 
   .input-wrapper
     margin-top 26px
@@ -119,3 +125,30 @@
     img
       width 16.5px
       margin-left 10px
+
+@media screen and (max-width: 767px)
+  .user__edit
+    padding-top 43px
+    padding-bottom 136px
+
+  .user__edit-photo-label
+    margin-top 25px
+
+  .user__edit-data .input-wrapper
+    margin-top 26px
+
+  .user__edit-hr
+    margin-top 36px
+
+  .user__edit-password
+    margin-top 46px
+
+@media screen and (max-width: 479px)
+  .user__edit-data .input-wrapper,
+  .user__edit-password .input-wrapper
+    img
+      display none
+
+    .site-input
+      padding 14px 17px
+      max-width initial
