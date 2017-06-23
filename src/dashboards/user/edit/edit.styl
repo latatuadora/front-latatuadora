@@ -14,6 +14,9 @@
     max-width 396.5px
     center-block()
 
+    label
+      display none
+
   .input-errors
     flex-basis 100%
     text-align left
@@ -134,8 +137,11 @@
   .user__edit-photo-label
     margin-top 25px
 
-  .user__edit-data .input-wrapper
-    margin-top 26px
+  .user__edit-data
+    padding-top 37px
+
+    .input-wrapper
+      margin-top 26px
 
   .user__edit-hr
     margin-top 36px
@@ -143,7 +149,13 @@
   .user__edit-password
     margin-top 46px
 
+    .site-title
+      padding-bottom 18px
+
 @media screen and (max-width: 479px)
+  .user__edit-data
+    padding-top 57px
+
   .user__edit-data .input-wrapper,
   .user__edit-password .input-wrapper
     img
@@ -152,3 +164,11 @@
     .site-input
       padding 14px 17px
       max-width initial
+
+    label
+      flex-basis 100%
+      font-size 19px
+      letter-spacing -0.2px
+      text-align left
+      margin-bottom 10px
+      display block

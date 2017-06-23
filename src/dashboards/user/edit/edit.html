@@ -11,28 +11,32 @@
     <section class="user__edit-data">
       <div class="input-wrapper">
         <img src="/src/assets/images/icons/avatar.svg" alt="Usuario" />
-        <input value.bind="userData.username & validate:dataController" type="text" class="site-input" placeholder="Elige tu nombre de usuario">
+        <label class="golden-text" for="edit-user-username">Nombre de usuario</label>
+        <input id="edit-user-username" value.bind="userData.username & validate:dataController" type="text" class="site-input" placeholder="Elige tu nombre de usuario">
         <div class="input-errors" if.bind="dataController.errors">
           <div class="input-error" repeat.for="error of dataController.errors" if.bind="error.propertyName == 'username'">${error.message}</div>
         </div>
       </div>
       <div class="input-wrapper">
         <img src="/src/assets/images/icons/tag.svg" alt="Nombre" />
-        <input value.bind="userData.name & validate:dataController" type="text" class="site-input" placeholder="Nombre">
+        <label class="golden-text" for="edit-user-name">Nombre</label>
+        <input id="edit-user-name" value.bind="userData.name & validate:dataController" type="text" class="site-input" placeholder="Nombre">
         <div class="input-errors" if.bind="dataController.errors">
           <div class="input-error" repeat.for="error of dataController.errors" if.bind="error.propertyName == 'name'">${error.message}</div>
         </div>
       </div>
       <div class="input-wrapper">
         <img src="/src/assets/images/icons/mail.svg" alt="Email" />
-        <input value.bind="userData.email & validate:dataController" type="text" class="site-input" placeholder="Correo electrónico">
+        <label class="golden-text" for="edit-user-email">Correo electrónico</label>
+        <input id="edit-user-email" value.bind="userData.email & validate:dataController" type="text" class="site-input" placeholder="Correo electrónico">
         <div class="input-errors" if.bind="dataController.errors">
           <div class="input-error" repeat.for="error of dataController.errors" if.bind="error.propertyName == 'email'">${error.message}</div>
         </div>
       </div>
       <div class="input-wrapper">
         <img src="/src/assets/images/icons/phone-2.svg" alt="Teléfono" />
-        <input value.bind="userData.phone & validate:dataController" type="text" class="site-input" placeholder="Teléfono">
+        <label class="golden-text" for="edit-user-phone">Número</label>
+        <input id="edit-user-phone" value.bind="userData.phone & validate:dataController" type="text" class="site-input" placeholder="Teléfono">
         <div class="input-errors" if.bind="dataController.errors">
           <div class="input-error" repeat.for="error of dataController.errors" if.bind="error.propertyName == 'phone'">${error.message}</div>
         </div>
