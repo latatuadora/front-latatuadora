@@ -121,6 +121,7 @@
           "vanilla-modal",
           "nouislider",
           "swiper",
+          "flatpickr",
           {
             "name": "tippy-js",
             "path": "../node_modules/tippy.js/dist",
@@ -135,6 +136,11 @@
             "name": "masonry-layout",
             "path": "../node_modules/masonry-layout/dist",
             "main": "masonry.pkgd"
+          },
+          {
+            "name": "flatpickr_es",
+            "path": "../node_modules/flatpickr/dist/l10n",
+            "main": "es"
           },
           {
             "name": "aurelia-validation",

@@ -4,11 +4,14 @@ import {bindable, containerless} from 'aurelia-framework';
 export class ArtistItem {
   @bindable artist;
   @bindable animate = false;
+  @bindable fullCard = true;
 
   attached() {
-    document.addEventListener('click', this.onClick);
-    if (this.animate) {
-      this.artistCard.classList.add('animate');
+    if (this.fullCard) {
+      document.addEventListener('click', this.onClick);
+      if (this.animate) {
+        this.artistCard.classList.add('animate');
+      }
     }
   }
 
@@ -22,6 +25,8 @@ export class ArtistItem {
   }
 
   detached() {
-    document.removeEventListener('click', this.onClick);
+    if (this.fullCard) {
+      document.removeEventListener('click', this.onClick);
+    }
   }
 }

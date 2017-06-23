@@ -15,6 +15,7 @@
     "aurelia-validation": "^1.0.0",
     "bluebird": "^3.4.1",
     "csspin": "^1.1.4",
+    "flatpickr": "^3.0.5-1",
     "font-awesome": "^4.7.0",
     "jquery": "^3.2.1",
     "masonry-layout": "^4.2.0",
