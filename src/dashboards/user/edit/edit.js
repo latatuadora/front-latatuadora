@@ -20,6 +20,7 @@ export class Edit {
       name: '',
       email: '',
       phone: '',
+      tattooed: false,
       image: '/src/assets/images/mock/avatar.png'
     };
     this.passwords = {

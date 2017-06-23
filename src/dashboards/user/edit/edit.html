@@ -38,11 +38,11 @@
       <span class="user__edit-tattooed-span">¿Estás tatuado?</span>
       <div class="user__edit-tattooed">
         <div class="site-checkbox">
-          <input type="radio" name="tattooed" id="user-tattooed-yes">
+          <input model.bind="true" checked.bind="userData.tattooed" type="radio" name="tattooed" id="user-tattooed-yes">
           <label class="login__input-label-checkbox" for="user-tattooed-yes"><span>Si</span></label>
         </div>
         <div class="site-checkbox">
-          <input type="radio" name="tattooed" id="user-tattooed-no">
+          <input model.bind="false" checked.bind="userData.tattooed" type="radio" name="tattooed" id="user-tattooed-no">
           <label class="login__input-label-checkbox" for="user-tattooed-no"><span>No</span></label>
         </div>
       </div>
