@@ -474,7 +474,7 @@ export class MockAPI {
 
   getArtists = this.getFeaturedArtists;
 
-  getQuotations(id) {
+  getQuotations(params) {
     this.isRequesting = true;
 
     return new Promise(resolve => {

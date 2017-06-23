@@ -6,7 +6,7 @@
   <hr class="special-hr user__quotations-hr">
   <section class="user__quotations-wrapper">
     <div class="user__quotations-grid">
-      <quotation-item item.bind="{}"></quotation-item>
+      <quotation-item repeat.for="item of quotations" item.bind="item"></quotation-item>
     </div>
   </section>
 </template>
