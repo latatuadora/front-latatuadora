@@ -5,6 +5,8 @@
     <div class="user__edit-photo-wrapper cover circle" css="background-image: url(${userData.file ? userData.file.data : userData.image})">
       <input id="user-profile-picture" type="file" accept="image/*" files="on-loaded.bind: onLoaded; file-filter.bind: 'image.*'; on-error.bind: onError; max-file-size.bind: maxFileSize; allow-drop: true">
     </div>
+    <div class="input-error" if.bind="fileErrors.type">El archivo seleccionado debe de ser una imagen</div>
+    <div class="input-error" if.bind="fileErrors.size">El archivo seleccionado debe pesar menos de 5MB</div>
     <label class="golden-text user__edit-photo-label" for="user-profile-picture">Elegir foto</label>
     <section class="user__edit-data">
       <div class="input-wrapper">
