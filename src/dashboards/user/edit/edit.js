@@ -88,14 +88,18 @@ export class Edit {
   updateData() {
     this.dataController.validate()
       .then(validation => {
-        console.log(validation);
+        if(validation.valid) {
+          console.log('PUT Request');
+        }
       });
   }
 
   updatePassword() {
     this.passwordsController.validate()
       .then(validation => {
-        console.log(validation);
+        if(validation.valid) {
+          console.log('PUT Request');
+        }
       });
   }
 }
