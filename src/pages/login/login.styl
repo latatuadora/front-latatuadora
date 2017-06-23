@@ -1,0 +1,167 @@
+@import '../../assets/styles/vars'
+@import '../../assets/styles/mixins'
+
+/** LOGIN **/
+.login
+  padding 61px 0 173px 0
+  position relative
+  font-size 16px
+
+.login__divider
+  margin-top 41px
+  margin-bottom 49px
+  max-width 508px
+
+.login__social
+  margin-top 49px
+
+  &-button
+    display flex
+    align-items center
+    cursor pointer
+    text-align left
+    padding 18px
+    border-width 1px
+    border-style solid
+    width 267px
+    font-size 16px
+    font-family inherit
+    letter-spacing -0.2px
+    center-block()
+
+    &--facebook
+      @extends .login__social-button
+      background-color $facebookColor
+      color #FFF
+      border-color $facebookColor
+
+    &--google
+      @extends .login__social-button
+      margin-top 17px
+      background-color #FFF
+      color $blackColor
+      border-color $borderColor
+
+.login__title
+  text-align center
+  line-height 1.6
+  letter-spacing -0.1px
+  rfont-size 30px 767px 27px
+  margin 0
+  font-weight 400
+
+.login__social-icon
+  &--facebook
+    width 11px
+    margin-right 18px
+
+  &--google
+    width 16px
+    margin-right 14px
+
+.login__form
+  color #262626
+  max-width 508px
+  width 83%
+  center-block()
+
+  .site-checkbox
+    margin-top 37px
+
+    span
+      margin-left 10px
+
+.login__form .site-checkbox,
+.login__forgotten,
+.login__input-submit
+  margin-left 163px
+
+.login__input
+  &-label
+    font-size 16px
+    letter-spacing -0.2px
+    text-align right
+    flex-basis 135px
+
+  &-email, &-password
+    padding 14px 20px
+    flex-basis 345px
+
+  &-group
+    display flex
+    align-items center
+    justify-content space-between
+
+    &:nth-child(2)
+      margin-top 20px
+
+  &-submit
+    font-size 11px
+    letter-spacing 0.5px
+    padding 12px
+    width 155px
+    margin-top 35px
+
+.login__signup
+  margin-top 28px
+  width 83.25%
+  max-width 508px
+  padding-left 163px
+  center-block()
+
+  &-link
+    color inherit
+    display inline-block
+    margin-left 17px
+    padding-bottom 2px
+    border-bottom 1px solid #262626
+
+.login__logo
+  position absolute
+  bottom 85px
+  right 0
+  width 299px
+
+.login__forgotten
+  color inherit
+  margin-top 21px
+  text-decoration none
+  display inline-block
+  padding-bottom 4px
+  simple-border('bottom', 1px, #262626)
+
+@media screen and (max-width: 850px)
+  .login__logo
+    width 180px
+
+@media screen and (max-width: 610px)
+  .login
+    padding-bottom 120px
+    padding-top 59px
+
+  .login__input-group
+    flex-wrap wrap
+
+  .login__input-label,
+  .login__input-email,
+  .login__input-password
+    flex-basis 100%
+
+  .login__input-label
+    text-align left
+
+  .login__input-email,
+  .login__input-password
+    margin-top 12px
+
+  .login__logo
+    width 110px
+    bottom 27px
+
+  .login__form .site-checkbox,
+  .login__forgotten,
+  .login__input-submit
+    margin-left 0
+
+  .login__signup
+    padding-left 0

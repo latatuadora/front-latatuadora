@@ -38,9 +38,6 @@ a
   overflow hidden
   padding 0
 
-.golden-text
-  color #a08b59
-
 // LOADERS //
 .custom-loader
   display none
@@ -95,6 +92,49 @@ textarea
   resize none
 // END FORMS //
 
+// UI COMPONENTS
+.site-input
+  background transparent
+  font-family inherit
+  border-width 1px
+  border-style solid
+  simple-border('all', 1px, $borderColor)
+
+.site-checkbox
+  cursor pointer
+
+  input
+    height 0
+    width 0
+    float left
+    opacity 0
+
+    &:checked + label::before
+      background $dustColor
+      border-color $dustColor
+
+  &.use-check input:checked + label::before
+    content '✔'
+
+  label
+    cursor pointer
+
+    &::before
+      color white
+      text-align center
+      background transparent
+      border 1px $borderColor solid
+      content ' '
+      display inline-block
+      height 18px
+      vertical-align middle
+      width 18px
+      transition border-color 0.2s, background 0.2s
+
+    >span
+      display inline-block
+      vertical-align middle
+
 .site-button
   background $dustColor
   display inline-block
@@ -136,6 +176,56 @@ textarea
   &.active
     background $blackColor
 
+.scrollable
+  overflow-x hidden
+  overflow-y auto
+
+  &::-webkit-scrollbar
+    width 9px
+
+  &::-webkit-scrollbar-track
+    background transparent
+
+  &::-webkit-scrollbar-thumb
+    background #a0a0a0
+
+    &:window-inactive
+    	background #d8d8d8
+
+.special-hr
+  background $dustColor
+  border none
+  height 1px
+  center-block()
+  position relative
+
+  &::before, &::after
+    content ' '
+    display block
+    border-radius 50%
+    position absolute
+    top 0
+    height 7px
+    width 7px
+    transform translateY(-50%)
+    border 1px $dustColor solid
+
+  &::before
+    left -7px
+
+  &::after
+    right -7px
+
+.golden-text
+  color #a08b59
+
+.site-title
+  font-weight $regular
+  margin 0
+
+// END UI COMPONENTS
+
+// LIBS
 .noUi-tooltip
   background transparent
   border none
@@ -175,7 +265,6 @@ textarea
   width 26px
   top -8px
 
-
 .tippy-tooltip.latatuadora-theme
   background-color $dustColor
   border-radius 0
@@ -189,22 +278,6 @@ textarea
   color white
   font-family 'Lato'
 
-.scrollable
-  overflow-x hidden
-  overflow-y auto
-
-  &::-webkit-scrollbar
-    width 9px
-
-  &::-webkit-scrollbar-track
-    background transparent
-
-  &::-webkit-scrollbar-thumb
-    background #a0a0a0
-
-    &:window-inactive
-    	background #d8d8d8
-
 .cp-eclipse
   animation-duration 0.85s
   background $dustColor
@@ -214,30 +287,7 @@ textarea
 
   &::before
     border-right-color $dustColor
-
-.special-hr
-  background $dustColor
-  border none
-  height 1px
-  center-block()
-  position relative
-
-  &::before, &::after
-    content ' '
-    display block
-    border-radius 50%
-    position absolute
-    top 0
-    height 7px
-    width 7px
-    transform translateY(-50%)
-    border 1px $dustColor solid
-
-  &::before
-    left -7px
-
-  &::after
-    right -7px
+// END LIBS
 
 @media screen and (max-width: 767px)
   .noUi-horizontal .noUi-handle

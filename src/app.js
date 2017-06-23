@@ -1,10 +1,10 @@
 export class App {
-  configureRouter(config, router) {
-    var postRender = new PostRenderStep();
-    this.router = router;
+  configureRouter (config, router) {
+    var postRender = new PostRenderStep()
+    this.router = router
 
-    config.addPostRenderStep(postRender);
-    config.title = 'La Tatuadora';
+    config.addPostRenderStep(postRender)
+    config.title = 'La Tatuadora'
     config.map([
       {
         route: ['', 'home'],
@@ -51,6 +51,13 @@ export class App {
         nav: true
       },
       {
+        route: 'login',
+        name: 'login',
+        moduleId: 'pages/login/login',
+        title: 'Iniciar Sesión',
+        nav: true
+      },
+      {
         route: 'cotizar/:artist?',
         name: 'quotation',
         moduleId: 'pages/quotation/quotation',
@@ -66,6 +73,13 @@ export class App {
         nav: false
       },
       {
+        route: 'signup',
+        name: 'signup',
+        moduleId: 'pages/signup/signup',
+        title: 'Regístrate',
+        nav: false
+      },
+      {
         route: 'estudio/:id',
         name: 'studio',
         moduleId: 'pages/artist/studio',
@@ -77,8 +91,8 @@ export class App {
 }
 
 class PostRenderStep {
-  run(instruction, next) {
-    window.scrollTo(0, 0);
-    return next();
+  run (instruction, next) {
+    window.scrollTo(0, 0)
+    return next()
   }
 }

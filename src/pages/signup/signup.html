@@ -1,0 +1,192 @@
+<template id="membership">
+
+  <require from="./membership.css"></require>
+
+  <div class="membership">
+
+    <header class="membership__header">
+      <h1 class="heading">Registro</h1>
+    </header>
+
+    <div class="divider--silver"></div>
+
+    <section class="membership__item user">
+      <h2 class="subheading">Selecciona tu tipo de <span class="mark">membresia</span></h2>
+
+      <div class="input__block">
+
+        <div class="membership__kind">
+          <div class="input__group--row">
+            <input class="input--radio"type="radio" name="kind" id="">
+            <label class="input--label-checkbox" for="">Estudio</label>
+          </div>
+          <div class="input__group--row">
+            <input class="input--radio"type="radio" name="kind" id="">
+            <label class="input--label-checkbox" for="">Freelance</label>
+          </div>
+        </div>
+
+        <div class="input__group">
+          <label class="input--label" for="">Nombre del Estudio</label>
+          <input type="text" class="input">
+        </div>
+
+        <div class="input__group">
+          <label class="input--label" for="">Nombre del Estudio</label>
+          <input type="text" class="input">
+        </div>
+
+        <div class="input__group">
+          <label class="input--label" for="">Correo electronico</label>
+          <input type="text" class="input">
+        </div>
+
+        <div class="input__group">
+          <label class="input--label" for="">Telefono</label>
+          <input type="text" class="input">
+        </div>
+
+        <div class="input__group">
+          <label class="input--label" for="">Contraseña</label>
+          <input type="text" class="input">
+        </div>
+
+        <div class="input__group">
+          <label class="input--label" for="">Confirmar Contraseña</label>
+          <input type="text" class="input">
+        </div>
+
+      </div>
+    </section>
+
+    <div class="divider--gold"></div>
+
+    <section class="membership__item address">
+      <h2 class="subheading">Ingresa tu <span class="mark">domicilio</span></h2>
+      <div class="input__block">
+
+        <div class="input__group">
+          <label class="input--label" for="">Calle</label>
+          <input type="text" class="input">
+        </div>
+
+        <div class="input__group">
+          <label class="input--label" for="">Numero Ext</label>
+          <input type="text" class="input">
+        </div>
+
+        <div class="input__group">
+          <label class="input--label" for="">Int</label>
+          <input type="text" class="input">
+        </div>
+
+        <div class="input__group">
+          <label class="input--label" for="">Estado</label>
+          <select class="input" name="">
+            <option value="">Estado</option>
+          </select>
+        </div>
+
+        <div class="input__group">
+          <label class="input--label" for="">Delegacion / Municipio</label>
+          <select class="input" name="">
+            <option value="">Delegacion / Municipio</option>
+          </select>
+        </div>
+
+        <div class="input__group">
+          <label class="input--label" for="">Colonia</label>
+          <select class="input" name="">
+            <option value="">Colonia</option>
+          </select>
+        </div>
+
+      </div>
+    </section>
+
+    <div class="divider--silver"></div>
+
+    <section class="membership__item cofepris">
+      <p>¿Cuantas con certificado <span class="mark">COFEPRIS</span>?</p>
+      <div class="input__block">
+
+        <div class="membership__cofepris">
+          <div class="input__group--row">
+            <input class="input--radio"type="radio" name="" id="">
+            <label class="input--label-checkbox" for="">Si</label>
+          </div>
+          <div class="input__group--row">
+            <input class="input--radio"type="radio" name="" id="">
+            <label class="input--label-checkbox" for="">No</label>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <div class="divider--gold"></div>
+
+    <section class="membership__item styles">
+      <h2 class="subheading">¿Qué <span class="mark">estilos</span> manejas?</h2>
+      <div class="input__block">
+
+        <div class="input__group-row"  >
+            <input type="checkbox" data-tag="${tag}" name="${tag}" id="${tag}" class="input--checkbox-tag" repeat.for="tag of tags">
+        </div>
+
+      </div>
+    </section>
+
+    <section class="about membership__item">
+      <h2 class="subheading">Acerca de <span class="mark">ti</span></h2>
+      <div class="input__block">
+
+        <div class="input__group">
+          <textarea name="name" class="input--area" placeholder="Máximo 265 caracteres"></textarea>
+        </div>
+
+      </div>
+    </section>
+
+    <div class="divider--silver"></div>
+
+    <section class="schedule membership__item">
+      <h2 class="subheading">Horario de <span class="mark">trabajo</span></h2>
+
+    </section>
+
+    <div class="divider--gold"></div>
+
+    <section class="photo membership__item">
+      <h2 class="subheading">Elige una foto de perfil</h2>
+      <div class="input__block">
+
+        <div class="input__group">
+          <input class="input--file" type="file" name="" id="input:file">
+          <label class="input--file-label" for="input:file">Agregar foto</label>
+        </div>
+
+      </div>
+    </section>
+
+    <div class="divider--silver"></div>
+
+    <section class="terms membership__item">
+      <div class="input__block">
+
+        <div class="input__group--row">
+          <input class="input--radio"type="radio" name="" id="">
+          <label class="input--label-checkbox" for="">Acepto <span class="mark--silver">términos y condiciones</span> y <span class="mark--silver">políticas de privacidad</span></label>
+        </div>
+
+        <div class="input__group">
+          <button class="input--submit" type="submit">subscribirme</button>
+        </div>
+
+      </div>
+    </section>
+
+
+
+  </div>
+</template>

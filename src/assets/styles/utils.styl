@@ -62,3 +62,22 @@
 
 .underline
   text-decoration underline
+
+.divider-hr
+  background $borderColor
+  border none
+  height 1px
+  position relative
+  width 100%
+  center-block()
+
+  &::before
+    content 'o'
+    position absolute
+    left 50%
+    width 38px
+    transform translate(-50%, -50%)
+    font-size 16px
+    text-align center
+    background white
+    color $borderColor
