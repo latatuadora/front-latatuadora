@@ -10,7 +10,9 @@
       <div if.one-time="!originalSize" class="tattoos-grid__element-thumbnail-img-wrapper cover" css="background-image: url(${item.image})"></div>
     </div>
     <div class="tattoos-grid__element-info-wrapper quotations-grid__element-info">
-      <a route-href="route: studio; params.bind: {id: item.artist.id}"></a><img src="${item.artist.logo}" alt="${item.artist.name}">
+      <a route-href="route: studio; params.bind: {id: item.artist.id}">
+        <img class="quotations-grid__element-logo" src="${item.artist.logo}" alt="${item.artist.name}">
+      </a>
       <div class="quotations-grid__element-info-bottom">
         <div class="quotations-grid__element-characteristic">
           <img src="/src/assets/images/icons/size.png" alt="Medidas" />
