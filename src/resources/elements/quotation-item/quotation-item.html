@@ -3,9 +3,9 @@
   <require from="../gallery-item/gallery-item.css"></require>
   <require from="../../value-converters/currency"></require>
   <div class="tattoos-grid__element quotations-grid__element">
-    <div class="quotations-grid__element-thumbnail">
+    <div class="tattoos-grid__element-thumbnail quotations-grid__element-thumbnail">
       <div if.one-time="originalSize" class="tattoos-grid__element-thumbnail-img-wrapper" click.delegate="open()">
-        <img class="tattoos-grid__element-thumbnail-img" src="${item.image}" alt="Tatuaje de ${item.artist_name}">
+        <img class="tattoos-grid__element-thumbnail-img" src="${item.image}" alt="Cotización con ${item.artist_name}">
       </div>
       <div if.one-time="!originalSize" class="tattoos-grid__element-thumbnail-img-wrapper cover" css="background-image: url(${item.image})"></div>
     </div>
@@ -16,11 +16,11 @@
           <img src="/src/assets/images/icons/size.png" alt="Medidas" />
           <span>${item.dimensionsX} x ${item.dimensionsY}</span>
         </div>
-        <div class="quotations-grid__element-characteristic">
+        <div class="quotations-grid__element-characteristic half-basis">
           <img src="/src/assets/images/icons/body.png" alt="Parte del cuerpo" />
           <span>${item.bodyPart.name}</span>
         </div>
-        <div class="quotations-grid__element-characteristic">
+        <div class="quotations-grid__element-characteristic half-basis">
           <img src="/src/assets/images/icons/style.png" alt="Estilo" />
           <span>${item.style.name}</span>
         </div>

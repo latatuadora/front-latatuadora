@@ -1,2 +1,45 @@
 @import '../../../assets/styles/vars'
 @import '../../../assets/styles/mixins'
+
+.quotations-grid__element
+  width 266.7px
+
+  .quotations-grid__element-thumbnail .tattoos-grid__element-thumbnail-img
+    cursor default
+
+  .quotations-grid__element-info
+    padding 19px 40px 21px 40px
+
+  .site-button
+    margin-top 26px
+    font-size 12px
+    padding 7px
+    width 135.6px
+
+.quotations-grid__element-info-bottom
+  font-size 13px
+  margin-top 13px
+  padding 6px 18px 0 18px
+  display flex
+  flex-wrap wrap
+  justify-content space-between
+  simple-border('top', 1px, $dustColor)
+
+.quotations-grid__element-characteristic
+  display flex
+  text-align left
+  margin-top 12px
+  flex-basis 100%
+  align-items center
+
+  &.half-basis
+    flex-basis 50%
+    width 50%
+
+  img
+    margin-right 7px
+    height 17.5px
+
+  span
+    text-overflow ellipsis
+    overflow hidden
