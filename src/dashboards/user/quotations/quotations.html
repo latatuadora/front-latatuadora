@@ -10,5 +10,6 @@
     <div class="user__quotations-grid" masonry-grid>
       <quotation-item repeat.for="item of quotations" item.bind="item" masonry-item></quotation-item>
     </div>
+    <div if.bind="showLoader" class="tattoos-grid-loader cp-spinner cp-eclipse"></div>
   </section>
 </template>

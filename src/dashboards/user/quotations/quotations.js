@@ -10,15 +10,21 @@ export class Quotations {
       page: 1
     };
     this.quotations = [];
+    this.showLoader = false;
     this.loadMore();
   }
 
   loadMore() {
-    this.api.getQuotations(this.params)
-      .then(quotations => {
-        quotations.forEach(quotation => {
-          this.quotations.push(quotation);
+    if (!this.showLoader) {
+      this.showLoader = true;
+      this.api.getQuotations(this.params)
+        .then(quotations => {
+          quotations.forEach(quotation => {
+            this.quotations.push(quotation);
+          });
+          this.showLoader = false;
+          this.params.page += 1;
         });
-      })
+    }
   }
 }
