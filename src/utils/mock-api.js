@@ -19,7 +19,7 @@ class Quotation {
   constructor(id) {
     this.id = id;
     this.artist = featuredArtists[getRandom(0, 7)];
-    this.image = '/src/assets/images/mock/tatto' + getRandom(1, 8) + '.png';
+    this.image = '/src/assets/images/mock/tattoo' + getRandom(1, 8) + '.png';
     this.dimensionsY = getRandom(1, 25) + ' cm';
     this.dimensionsX = getRandom(1, 25) + ' cm';
     this.style = styles[2];

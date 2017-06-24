@@ -1,6 +1,7 @@
 <template>
-  <require from="../gallery-item/gallery-item.css"></require>
   <require from="./quotation-item.css"></require>
+  <require from="../gallery-item/gallery-item.css"></require>
+  <require from="../../value-converters/currency"></require>
   <div class="tattoos-grid__element quotations-grid__element">
     <div class="quotations-grid__element-thumbnail">
       <div if.one-time="originalSize" class="tattoos-grid__element-thumbnail-img-wrapper" click.delegate="open()">
@@ -9,23 +10,23 @@
       <div if.one-time="!originalSize" class="tattoos-grid__element-thumbnail-img-wrapper cover" css="background-image: url(${item.image})"></div>
     </div>
     <div class="tattoos-grid__element-info-wrapper quotations-grid__element-info">
-      <a route-href="route: studio; params.bind: {id: item.artist.id}"></a><img src="${item.artist.image}" alt="${item.artist.name}">
+      <a route-href="route: studio; params.bind: {id: item.artist.id}"></a><img src="${item.artist.logo}" alt="${item.artist.name}">
       <div class="quotations-grid__element-info-bottom">
         <div class="quotations-grid__element-characteristic">
-          <i class="fa"></i>
-          <span></span>
+          <img src="/src/assets/images/icons/size.png" alt="Medidas" />
+          <span>${item.dimensionsX} x ${item.dimensionsY}</span>
         </div>
         <div class="quotations-grid__element-characteristic">
-          <i class="fa"></i>
-          <span></span>
+          <img src="/src/assets/images/icons/body.png" alt="Parte del cuerpo" />
+          <span>${item.bodyPart.name}</span>
         </div>
         <div class="quotations-grid__element-characteristic">
-          <i class="fa"></i>
-          <span></span>
+          <img src="/src/assets/images/icons/style.png" alt="Estilo" />
+          <span>${item.style.name}</span>
         </div>
         <div class="quotations-grid__element-characteristic">
-          <i class="fa"></i>
-          <span></span>
+          <img src="/src/assets/images/icons/price.png" alt="Precio" />
+          <span>${item.min|currency:'':true} - ${item.max|currency:'':true}</span>
         </div>
       </div>
       <a route-href="route: scheduling; params.bind: {id: item.artist.id}" class="site-button quotations-grid__element-button">Agendar cita</a>
