@@ -45,10 +45,46 @@ export class Favourites extends BaseGallery {
   }
 
   getType1() {
-    this.lists.type1 = ['Tatuajes', 'Flashes'];
+    this.lists.type1 = [
+      {
+        name: 'Tatuajes',
+        id: 1
+      },
+      {
+        name: 'Flashes',
+        id: 2
+      }
+    ];
+  }
+
+  setType1 = (item) => {
+    if (item.name !== this.params.type1) {
+      this.params.type1 = item.name;
+      this.activeIds.type1 = item.id;
+      this.filterItems();
+      this.allEmpty = false;
+    }
+  }
+
+  setType2 = (item) => {
+    if (item.name !== this.params.type2) {
+      this.params.type2 = item.name;
+      this.activeIds.type2 = item.id;
+      this.filterItems();
+      this.allEmpty = false;
+    }
   }
 
   getType2() {
-    this.lists.type2 = ['Estudio', 'Freelancer'];
+    this.lists.type2 = [
+      {
+        name: 'Estudio',
+        id: 1
+      },
+      {
+        name: 'Freelancer',
+        id: 2
+      }
+    ];
   }
 }
