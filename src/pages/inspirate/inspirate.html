@@ -30,13 +30,13 @@
       <div class="gallery-filter" click.delegate="resetFilters()">Todos</div>
     </div>
   </div>
-  <gallery-modal id="inspirate-content" simple-modal="show.two-way: showModal" css="${showModal ? 'display: block' : 'display: none'}" item.bind="currentItem" close.call="closeModal(currentItem.index)" go-next.call="nextItem()" go-prev.call="previousItem()" close.call="closeModal()"></gallery-modal>
+  <gallery-modal id="inspirate-content" simple-modal="show.two-way: showModal" css="${showModal ? 'display: block' : 'display: none'}" item.bind="currentItem"  go-next.call="nextItem()" go-prev.call="previousItem()" close.call="closeModal()"></gallery-modal>
   <section class="tattoos-grid-container">
     <div class="tattoos-grid" masonry-grid infinite-scroll="callback.call: loadMore()">
       <gallery-item repeat.for="item of items" open.call="openModal($index)" item.bind="item" masonry-item>
       </gallery-item>
     </div>
-    <img if.bind="showLoader" class="tattoos-grid-loader" src="src/assets/images/icons/loader.gif" alt="Loader">
+    <div if.bind="showLoader" class="tattoos-grid-loader cp-spinner cp-eclipse"></div>
     <img class="tattoos-grid-icon" src="src/assets/images/icons/tattoos-gallery-icon.svg" alt="Inspírate">
   </section>
 </template>

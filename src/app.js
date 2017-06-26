@@ -79,13 +79,13 @@ export class App {
         title: 'Agendar',
         nav: false
       },
-      {
+      /*{
         route: 'signup',
         name: 'signup',
         moduleId: 'pages/signup/signup',
         title: 'Regístrate',
         nav: false
-      },
+      },*/
       {
         route: 'estudio/:id',
         name: 'studio',
