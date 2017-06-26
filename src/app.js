@@ -2,6 +2,7 @@ export class App {
   configureRouter (config, router) {
     var postRender = new PostRenderStep();
     this.router = router;
+    this.sessionRouter = null;
 
     config.addPostRenderStep(postRender);
     config.title = 'La Tatuadora';
@@ -91,6 +92,13 @@ export class App {
         name: 'studio',
         moduleId: 'pages/artist/studio',
         title: 'Perfil de estudio',
+        nav: false
+      },
+      {
+        route: 'dashboard',
+        name: 'dashboard',
+        moduleId: 'dashboards/index',
+        title: 'Dashboard',
         nav: false
       }
     ]);

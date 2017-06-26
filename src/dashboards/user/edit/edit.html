@@ -1,0 +1,87 @@
+<template>
+  <require from="./edit.css"></require>
+  <require from="../../../resources/attributes/simple-modal"></require>
+  <div class="user__edit">
+    <h1 class="site-title user__edit-title">Editar perfil</h1>
+    <div class="user__edit-photo-wrapper cover circle" css="background-image: url(${userData.file ? userData.file.data : userData.image})">
+      <input id="user-profile-picture" type="file" accept="image/*" files="on-loaded.bind: onLoaded; file-filter.bind: 'image.*'; on-error.bind: onError; max-file-size.bind: maxFileSize; allow-drop: true">
+    </div>
+    <div class="input-error" if.bind="fileErrors.type">El archivo seleccionado debe de ser una imagen</div>
+    <div class="input-error" if.bind="fileErrors.size">El archivo seleccionado debe pesar menos de 5MB</div>
+    <label class="golden-text user__edit-photo-label" for="user-profile-picture">Elegir foto</label>
+    <section class="user__edit-data">
+      <div class="input-wrapper">
+        <img src="/src/assets/images/icons/avatar.svg" alt="Usuario" />
+        <label class="golden-text" for="edit-user-username">Nombre de usuario</label>
+        <input id="edit-user-username" value.bind="userData.username & validate:dataController" type="text" class="site-input" placeholder="Elige tu nombre de usuario">
+        <div class="input-errors" if.bind="dataController.errors">
+          <div class="input-error" repeat.for="error of dataController.errors" if.bind="error.propertyName == 'username'">${error.message}</div>
+        </div>
+      </div>
+      <div class="input-wrapper">
+        <img src="/src/assets/images/icons/tag.svg" alt="Nombre" />
+        <label class="golden-text" for="edit-user-name">Nombre</label>
+        <input id="edit-user-name" value.bind="userData.name & validate:dataController" type="text" class="site-input" placeholder="Nombre">
+        <div class="input-errors" if.bind="dataController.errors">
+          <div class="input-error" repeat.for="error of dataController.errors" if.bind="error.propertyName == 'name'">${error.message}</div>
+        </div>
+      </div>
+      <div class="input-wrapper">
+        <img src="/src/assets/images/icons/mail.svg" alt="Email" />
+        <label class="golden-text" for="edit-user-email">Correo electrónico</label>
+        <input id="edit-user-email" value.bind="userData.email & validate:dataController" type="text" class="site-input" placeholder="Correo electrónico">
+        <div class="input-errors" if.bind="dataController.errors">
+          <div class="input-error" repeat.for="error of dataController.errors" if.bind="error.propertyName == 'email'">${error.message}</div>
+        </div>
+      </div>
+      <div class="input-wrapper">
+        <img src="/src/assets/images/icons/phone-2.svg" alt="Teléfono" />
+        <label class="golden-text" for="edit-user-phone">Número</label>
+        <input id="edit-user-phone" value.bind="userData.phone & validate:dataController" type="text" class="site-input" placeholder="Teléfono">
+        <div class="input-errors" if.bind="dataController.errors">
+          <div class="input-error" repeat.for="error of dataController.errors" if.bind="error.propertyName == 'phone'">${error.message}</div>
+        </div>
+      </div>
+      <span class="user__edit-tattooed-span">¿Estás tatuado?</span>
+      <div class="user__edit-tattooed">
+        <div class="site-checkbox">
+          <input model.bind="true" checked.bind="userData.tattooed" type="radio" name="tattooed" id="user-tattooed-yes">
+          <label class="login__input-label-checkbox" for="user-tattooed-yes"><span>Si</span></label>
+        </div>
+        <div class="site-checkbox">
+          <input model.bind="false" checked.bind="userData.tattooed" type="radio" name="tattooed" id="user-tattooed-no">
+          <label class="login__input-label-checkbox" for="user-tattooed-no"><span>No</span></label>
+        </div>
+      </div>
+      <button class="site-button user__edit-button" click.delegate="updateData()">Guardar cambios</button>
+    </section>
+    <hr class="special-hr user__edit-hr">
+    <section class="user__edit-password">
+      <h2 class="site-title">Elige tu <span class="golden-text">contraseña</span></h2>
+      <div class="input-wrapper">
+        <img src="/src/assets/images/icons/lock.svg" alt="Contraseña" />
+        <input value.bind="passwords.new & validate:passwordsController" type="text" class="site-input" placeholder="Contraseña nueva">
+        <div class="input-errors" if.bind="passwordsController.errors">
+          <div class="input-error" repeat.for="error of passwordsController.errors" if.bind="error.propertyName == 'new'">${error.message}</div>
+        </div>
+      </div>
+      <div class="input-wrapper">
+        <img src="/src/assets/images/icons/lock.svg" alt="Repetir contraseña" />
+        <input value.bind="passwords.confirm & validate:passwordsController" type="text" class="site-input" placeholder="Confirmar contraseña nueva">
+        <div class="input-errors" if.bind="passwordsController.errors">
+          <div class="input-error" repeat.for="error of passwordsController.errors" if.bind="error.propertyName == 'confirm'">${error.message}</div>
+        </div>
+      </div>
+      <button class="site-button user__edit-button" click.delegate="updatePassword()">Guardar cambios</button>
+    </section>
+    <div id="edit-profile-modal" class="user__edit-modal" simple-modal="show.two-way: showModal; container-id: edit-profile-modal-content" css="${showModal ? 'display: block' : 'display: none'}">
+      <div class="user__edit-modal-header">
+        <img class="user__edit-modal-close" src="src/assets/images/icons/close.png" click.delegate="close()">
+      </div>
+      <div class="user__edit-modal-content">
+        <img src="/src/assets/images/icons/check.svg" alt="Listo">
+        <div class="user__edit-modal-text">¡Se ha guardado exitosamente tu información!</div>
+      </div>
+    </div>
+  </div>
+</template>
