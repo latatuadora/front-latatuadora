@@ -1,3 +1,19 @@
 <template>
   <require from="./favourites.css"></require>
+  <require from="../../../resources/attributes/masonry-grid"></require>
+  <require from="../../../resources/attributes/masonry-item"></require>
+  <require from="../../../resources/attributes/infinite-scroll"></require>
+  <div class="user__favourites">
+    <h1 class="gallery-title user__favourites-title">Me gusta</h1>
+    <span class="gallery-subtitle user__favourites-subtitle">Aquí encontrarás <span class="golden-text">tatuajes y estudios</span> que te han gustado a lo largo del tiempo</span>
+    <hr class="special-hr user__favourites-hr">
+    <section class="tattoos-grid-container user__favourites-grid-container">
+      <div class="tattoos-grid user__favourites-grid" masonry-grid infinite-scroll="callback.call: loadMore()">
+        <gallery-item repeat.for="item of items" open.call="openModal($index)" item.bind="item" masonry-item>
+        </gallery-item>
+      </div>
+      <div if.bind="showLoader" class="tattoos-grid-loader cp-spinner cp-eclipse"></div>
+      <img class="tattoos-grid-icon" src="src/assets/images/icons/tattoos-gallery-icon.svg" alt="Favoritos">
+    </section>
+  </div>
 </template>
