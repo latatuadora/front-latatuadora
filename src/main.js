@@ -1,4 +1,4 @@
-import 'fetch';
+import fetch from 'whatwg-fetch';
 import environment from './environment';
 
 export function configure(aurelia) {
