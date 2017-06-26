@@ -114,7 +114,9 @@
           "aurelia-templating",
           "aurelia-templating-binding",
           "whatwg-fetch",
+          "extend",
           "aurelia-fetch-client",
+          "aurelia-api",
           "text",
           "jquery",
           "numeral",
@@ -142,6 +144,16 @@
             "name": "flatpickr_es",
             "path": "../node_modules/flatpickr/dist/l10n",
             "main": "es"
+          },
+          {
+            "name": "aurelia-authentication",
+            "path": "../node_modules/aurelia-authentication/dist/amd",
+            "main": "aurelia-authentication"
+          },
+          {
+            "name": "jwt-decode",
+            "path": "../node_modules/jwt-decode/lib",
+            "main": "index"
           },
           {
             "name": "aurelia-validation",
