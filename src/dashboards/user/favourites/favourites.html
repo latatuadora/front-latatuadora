@@ -13,7 +13,7 @@
       <span>${showFilters ? 'Ocultar filtros' : 'Filtrar'}</span>
       <img src="src/assets/images/icons/filter.svg" alt="Filtrar">
     </button>
-    <div class="gallery-filters ${showFilters ? 'show' : 'hide'}">
+    <div class="gallery-filters user__favourites-filters ${showFilters ? 'show' : 'hide'}">
       <div class="gallery-filter-wrapper ${params.type1 || allEmpty ? 'active' : ''}">
         <div click.delegate="toggleDropdown('type1')" ref="type1Filter" class="gallery-filter">${params.type1 ? params.type1 : 'Tipo'}</div>
         <dropdown-modal type="list" active-id.bind="activeIds.type1" list.bind="lists.type1" item-name="name" on-click.bind="setType1" ref-element.bind="type1Filter" visible.bind="showDropdowns.type1" close.call="toggleDropdown('type1')" top-reference=".site-navbar" center-at="633"></dropdown-modal>
