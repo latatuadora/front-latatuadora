@@ -2,7 +2,7 @@ import {inject} from 'aurelia-framework';
 
 export class App {
   configureRouter (config, router) {
-    var postRender = new PostRenderStep();
+    let postRender = new PostRenderStep();
     this.router = router;
 
     config.addPostRenderStep(postRender);
