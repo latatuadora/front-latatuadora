@@ -1,5 +1,6 @@
 <template>
   <require from="./navbar.css"></require>
+  <require from="../../value-converters/filter-routes"></require>
   <nav class="site-navbar">
     <div class="site-navbar__desktop-logo-container">
       <a route-href="route: home"><img src="src/assets/images/logos/logo-text-golden.png" alt="La Tatuadora"></a>
@@ -12,7 +13,7 @@
         <a route-href="route: home"><img src="src/assets/images/logos/logo-golden.png" alt="La Tatuadora"></a>
       </div>
       <div class="site-navbar__menu">
-        <a repeat.for="item of router.navigation" href.bind="item.href" class="site-navbar__menu-link ${item.isActive ? 'active' : ''}">${item.title}</a>
+        <a repeat.for="item of router.navigation | filterRoutes" href.bind="item.href" class="site-navbar__menu-link ${item.isActive ? 'active' : ''}">${item.title}</a>
       </div>
       <form action="." method="post" class="site-navbar__search" id="navbar-search-form">
         <input id="navbar-search-input" class="site-navbar__search-input" type="search" name="search" placeholder="Buscar...">
