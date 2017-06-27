@@ -108,6 +108,7 @@ export class App {
           1: 'perfil/editar'
         },
         nav: false,
+        auth: true,
         role: 1,
         navigationStrategy: this.rolesStrategy
       },
@@ -118,6 +119,7 @@ export class App {
         title: 'Cotizaciones',
         nav: true,
         level: 1,
+        auth: true,
         role: 1,
         navigationStrategy: this.rolesStrategy
       },
@@ -128,6 +130,7 @@ export class App {
         title: 'Me gusta',
         nav: true,
         level: 1,
+        auth: true,
         role: 1,
         navigationStrategy: this.rolesStrategy
       },
@@ -138,6 +141,7 @@ export class App {
         title: 'Editar perfil',
         nav: true,
         level: 1,
+        auth: true,
         role: 1,
         navigationStrategy: this.rolesStrategy
       }
