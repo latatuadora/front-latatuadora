@@ -18,4 +18,12 @@ export class Session {
       localStorage.setItem('latatuadora_com_usertype', type);
     }
   }
+
+  typeMatches(type) {
+    if (Array.isArray(type)) {
+      return type.indexOf(this.userType) != -1;
+    } else {
+      return this.userType == type;
+    }
+  }
 }
