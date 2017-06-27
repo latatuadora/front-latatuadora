@@ -112,7 +112,7 @@ export class App {
         navigationStrategy: this.rolesStrategy
       },
       {
-        route: 'cotizaciones',
+        route: 'dashboard/cotizaciones',
         name: 'quotations',
         moduleId: 'dashboards/user/quotations/quotations',
         title: 'Cotizaciones',
@@ -122,7 +122,7 @@ export class App {
         navigationStrategy: this.rolesStrategy
       },
       {
-        route: 'favoritos',
+        route: 'dashboard/favoritos',
         name: 'favourites',
         moduleId: 'dashboards/user/favourites/favourites',
         title: 'Me gusta',
@@ -132,7 +132,7 @@ export class App {
         navigationStrategy: this.rolesStrategy
       },
       {
-        route: 'perfil/editar',
+        route: 'dashboard/perfil/editar',
         name: 'edit_profile',
         moduleId: 'dashboards/user/edit/edit',
         title: 'Editar perfil',
