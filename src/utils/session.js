@@ -1,9 +1,9 @@
 export class Session {
   constructor() {
-    this.getUserType();
+    this.initUserType();
   }
 
-  getUserType() {
+  initUserType() {
     let type = localStorage.getItem('latatuadora_com_usertype');
     if (type == null) {
       this.setUserType(0);
