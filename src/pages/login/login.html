@@ -1,4 +1,4 @@
-<template>
+value.bind="fields.email" <template>
   <require from="./login.css"></require>
 
   <div class="login">
@@ -24,18 +24,18 @@
           <label class="login__input-label" for="email">
             Correo electrónico
           </label>
-          <input class="site-input login__input-email" id="email" type="email">
+          <input value.bind="fields.email" class="site-input login__input-email" id="email" type="email">
         </div>
         <div class="login__input-group">
           <label class="login__input-label" for="password">Contraseña</label>
-          <input class="site-input login__input-password" id="password" type="password">
+          <input value.bind="fields.password" class="site-input login__input-password" id="password" type="password">
         </div>
         <a route-href="route: home" class="login__item login__forgotten">Olvidé mi contraseña</a>
         <div class="site-checkbox use-check">
           <input type="checkbox" name="save" id="save">
           <label class="login__input-label-checkbox" for="save"><span>Guardar contraseña</span></label>
         </div>
-        <button class="site-button login__input-submit" type="submit">Iniciar Sesión</button>
+        <button class="site-button login__input-submit" type="submit" click.delegate="login()">Iniciar Sesión</button>
       </form>
     </div>
 
