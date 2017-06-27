@@ -1,12 +1,6 @@
 import {inject} from 'aurelia-framework';
-import {Session} from 'utils/session';
 
-@inject(Session)
 export class App {
-  constructor(session) {
-    this.session = session;
-  }
-
   configureRouter (config, router) {
     var postRender = new PostRenderStep();
     this.router = router;
