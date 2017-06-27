@@ -3,7 +3,15 @@ export class FilterRoutesValueConverter {
     return routes.filter(route => {
       let navRole = route.config.role ? route.config.role : 0;
       let navLevel = route.config.level ? route.config.level : 0;
-      return navRole == role && level == navLevel;
+      let roleMatches;
+
+      if (Array.isArray(navRole)) {
+        roleMatches = navRole.indexOf(role) != -1;
+      } else {
+        roleMatches = navRole == role;
+      }
+      
+      return roleMatches && level == navLevel;
     });
   }
 }
