@@ -3,7 +3,8 @@ import environment from './environment';
 
 let authConfig = {
   endpoint: 'login',
-  loginUrl: 'login'
+  loginUrl: 'login',
+  loginRedirect: '#/dashboard'
 };
 
 export function configure(aurelia) {
