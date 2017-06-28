@@ -5,45 +5,45 @@ import {AuthService} from 'aurelia-authentication';
 export class Session {
   constructor(authService) {
     this.authService = authService;
-    this.initUserType();
+    this.initRole();
   }
 
-  initUserType() {
+  initRole() {
     if (this.authService.isAuthenticated()) {
-      let type = localStorage.getItem('latatuadora_com_usertype');
-      if (type == null) {
+      let role = localStorage.getItem('latatuadora_com_role');
+      if (role == null) {
         this.authService.logout('#/login');
       } else {
-        this.setUserType(parseInt(type), false);
+        this.setRole(parseInt(role), false);
       }
     } else {
-      this.setUserType(0);
+      this.setRole(0);
     }
   }
 
   logout() {
     this.authService.logout('#/login');
-    this.setUserType(0);
+    this.setRole(0);
   }
 
   login(fields) {
     this.authService.login(fields)
       .then(response => {
-        this.setUserType(response.usertype);
+        this.setRole(response.usertype);
       })
       .catch(response => {
         console.log(response);
       });
   }
 
-  setUserType(type, setInStorage = true) {
-    this.userType = type;
+  setRole(role, setInStorage = true) {
+    this.role = role;
     if (setInStorage) {
-      localStorage.setItem('latatuadora_com_usertype', type);
+      localStorage.setItem('latatuadora_com_role', role);
     }
   }
 
-  typeMatches(types, currentType = this.userType) {
-    return type.indexOf(currentType) != -1
+  isAllowed(allowedRoles, currentRole = this.role) {
+    return allowedRoles.indexOf(currentRole) != -1
   }
 }
