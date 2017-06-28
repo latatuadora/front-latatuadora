@@ -167,7 +167,6 @@ class RoleStep {
 
   run(instruction, next) {
     if (instruction.config.auth && instruction.config.roles) {
-      let role = this.session.role.toString();
       let isAllowed = this.session.isAllowed(instruction.config.roles);
       if (!isAllowed) {
         return next.cancel(new Redirect('error'));
