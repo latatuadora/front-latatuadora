@@ -3,10 +3,8 @@ import {Redirect} from 'aurelia-router';
 import {AuthenticateStep} from 'aurelia-authentication';
 import {Session} from 'utils/session';
 
-@inject(Session)
 export class App {
   constructor(session) {
-    this.session = session;
     this.errorRoute = {
       route: 'error',
       name: 'error',
@@ -110,10 +108,10 @@ export class App {
         name: 'dashboard',
         nav: false,
         auth: true,
-        redirects: {
-          1: 'dashboard/perfil/editar'
-        },
-        navigationStrategy: this.redirectionStrategy
+        moduleId: 'pages/homepage/homepage',
+        redirections: {
+          3: 'dashboard/perfil/editar'
+        }
       },
       {
         route: 'dashboard/cotizaciones',
@@ -143,45 +141,21 @@ export class App {
         nav: true,
         level: 1,
         auth: true,
-        roles: [1]
+        roles: [3]
       }
     ];
   }
 
   configureRouter (config, router) {
-    let postRender = new PostRenderStep();
     this.router = router;
 
-    config.addPostRenderStep(postRender);
-    config.addPipelineStep('authorize', RoleStep);
+    config.addPostRenderStep(PostRenderStep);
     config.addPipelineStep('authorize', AuthenticateStep);
+    config.addPipelineStep('authorize', RoleStep);
+    config.addPipelineStep('authorize', PolymorphicStep);
     config.title = 'La Tatuadora';
     config.map(this.baseRoutes.concat(this.sessionRoutes));
     config.mapUnknownRoutes(this.errorRoute);
-  }
-
-  redirectionStrategy = (instruction) => {
-    let role = this.session.role.toString();
-
-    if (instruction.config.auth && !this.session.authService.isAuthenticated()) {
-      instruction.config.redirect = 'login';
-    } else if (instruction.config.redirects[role] == undefined) {
-      throw new Error('There is no redirection defined for this role.');
-    } else {
-      instruction.config.redirect = instruction.config.redirects[role];
-    }
-  }
-
-  polymorphicStrategy = (instruction) => {
-    let role = this.session.role.toString();
-
-    if (instruction.config.auth && !this.session.authService.isAuthenticated()) {
-      instruction.config.redirect = 'login';
-    } else if (instruction.config.modules[role] == undefined) {
-      throw new Error('There is no module defined for this role.');
-    } else {
-      instruction.config.moduleId = instruction.config.modules[role];
-    }
   }
 }
 
@@ -201,6 +175,31 @@ class RoleStep {
     }
     if (this.session.authService.isAuthenticated() && instruction.config.name == 'login') {
       return next.cancel(new Redirect('dashboard'));
+    }
+    return next();
+  }
+}
+
+@inject(Session)
+class PolymorphicStep {
+  constructor(session) {
+    this.session = session;
+  }
+
+  run(instruction, next) {
+    let role = this.session.role.toString();
+    if (instruction.config.redirections) {
+      if (instruction.config.redirections[role] == undefined) {
+        throw new Error('There is no redirection defined for this role.');
+      } else {
+        return next.cancel(new Redirect(instruction.config.redirections[role]));
+      }
+    } else if (instruction.config.modules) {
+      if (instruction.config.modules[role] == undefined) {
+        throw new Error('There is no module defined for this role.');
+      } else {
+        instruction.config.moduleId = instruction.config.modules[role];
+      }
     }
     return next();
   }
