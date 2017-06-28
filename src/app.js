@@ -1,4 +1,6 @@
 import {inject} from 'aurelia-framework';
+import {Redirect} from 'aurelia-router';
+import {AuthenticateStep} from 'aurelia-authentication';
 import {Session} from 'utils/session';
 
 @inject(Session)
@@ -104,13 +106,9 @@ export class App {
     this.sessionRoutes = [
       {
         route: 'dashboard',
-        redirects: {
-          1: 'perfil/editar'
-        },
+        moduleId: 'dashboards/user/edit/edit',
         nav: false,
-        auth: true,
-        role: 1,
-        navigationStrategy: this.rolesStrategy
+        auth: true
       },
       {
         route: 'dashboard/cotizaciones',
@@ -153,6 +151,8 @@ export class App {
     this.router = router;
 
     config.addPostRenderStep(postRender);
+    config.addPipelineStep('authorize', AuthenticateStep);
+    config.addPipelineStep('authorize', RoleStep);
     config.title = 'La Tatuadora';
     config.map(this.baseRoutes.concat(this.sessionRoutes));
   }
@@ -179,8 +179,26 @@ export class App {
   }
 }
 
+@inject(Session)
+class RoleStep {
+  constructor(session) {
+    this.session = session;
+  }
+
+  run(instruction, next) {
+    if (instruction.config.role) {
+      let type = this.session.userType.toString();
+      let isAllowed = this.session.typeMatches(instruction.config.role);
+      if (!isAllowed) {
+        return next.cancel(new Redirect('login'));
+      }
+    }
+    return next();
+  }
+}
+
 class PostRenderStep {
-  run (instruction, next) {
+  run(instruction, next) {
     window.scrollTo(0, 0);
     return next();
   }
