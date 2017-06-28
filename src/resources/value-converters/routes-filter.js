@@ -1,4 +1,4 @@
-export class FilterRoutesValueConverter {
+export class RoutesFilterValueConverter {
   toView(routes, level = 0, role = 0) {
     return routes.filter(route => {
       let navRoles = route.config.roles ? route.config.roles : [0];
