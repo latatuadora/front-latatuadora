@@ -119,7 +119,7 @@ export class App {
         level: 1,
         auth: true,
         role: 1,
-        navigationStrategy: this.rolesStrategy
+        navigationStrategy: this.redirectionStrategy
       },
       {
         route: 'dashboard/favoritos',
@@ -157,7 +157,7 @@ export class App {
     config.map(this.baseRoutes.concat(this.sessionRoutes));
   }
 
-  rolesStrategy = (instruction) => {
+  redirectionStrategy = (instruction) => {
     let type = this.session.userType.toString();
     let isAllowed = this.session.typeMatches(instruction.config.role);
 
@@ -190,7 +190,7 @@ class RoleStep {
       let type = this.session.userType.toString();
       let isAllowed = this.session.typeMatches(instruction.config.role);
       if (!isAllowed) {
-        return next.cancel(new Redirect('login'));
+        return next.cancel(new Redirect('error'));
       }
     }
     return next();
