@@ -7,6 +7,13 @@ import {Session} from 'utils/session';
 export class App {
   constructor(session) {
     this.session = session;
+    this.errorRoute = {
+      route: 'error',
+      name: 'error',
+      moduleId: 'pages/homepage/homepage',
+      title: 'Error',
+      nav: false
+    };
     this.baseRoutes = [
       {
         route: ['', 'home'],
@@ -95,13 +102,7 @@ export class App {
         title: 'Perfil de estudio',
         nav: false
       },
-      {
-        route: 'error',
-        name: 'error',
-        moduleId: 'pages/homepage/homepage',
-        title: 'Error',
-        nav: false
-      }
+      this.errorRoute
     ];
     this.sessionRoutes = [
       {
@@ -156,6 +157,7 @@ export class App {
     config.addPipelineStep('authorize', RoleStep);
     config.title = 'La Tatuadora';
     config.map(this.baseRoutes.concat(this.sessionRoutes));
+    config.mapUnknownRoutes(this.errorRoute);
   }
 
   redirectionStrategy = (instruction) => {
