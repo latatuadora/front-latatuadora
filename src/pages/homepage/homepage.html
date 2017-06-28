@@ -90,8 +90,8 @@
     </div>
     <a route-href="route: search_artist; params.bind: {type: 'Estudio'}" class="site-button homepage-featured__main-button">Ver todos los estudios</a>
   </section>
-  <hr class="special-hr homepage-divider">
-  <section class="homepage-want-to">
+  <hr class="special-hr homepage-divider" if.bind="session.role == 0">
+  <section class="homepage-want-to" if.bind="session.role == 0">
     <div class="homepage-want-to__inner">
       <div class="homepage-want-to__buttons">
         <button type="button" click.delegate="changeIWantTo(1)" class="site-button ${iWantTo == 1 ? 'active' : ''}">Quiero tatuarme</button>
