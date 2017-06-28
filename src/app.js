@@ -122,7 +122,7 @@ export class App {
         nav: true,
         level: 1,
         auth: true,
-        role: 1
+        roles: [1]
       },
       {
         route: 'dashboard/favoritos',
@@ -132,7 +132,7 @@ export class App {
         nav: true,
         level: 1,
         auth: true,
-        role: 1
+        roles: [1]
       },
       {
         route: 'dashboard/perfil/editar',
@@ -142,7 +142,7 @@ export class App {
         nav: true,
         level: 1,
         auth: true,
-        role: 1
+        roles: [1]
       }
     ];
   }
@@ -184,9 +184,9 @@ class RoleStep {
   }
 
   run(instruction, next) {
-    if (instruction.config.auth && instruction.config.role) {
+    if (instruction.config.auth && instruction.config.roles) {
       let type = this.session.userType.toString();
-      let isAllowed = this.session.typeMatches(instruction.config.role);
+      let isAllowed = this.session.typeMatches(instruction.config.roles);
       if (!isAllowed) {
         return next.cancel(new Redirect('error'));
       }
