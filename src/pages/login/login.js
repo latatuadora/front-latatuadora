@@ -13,6 +13,14 @@ export class Login {
       email: '',
       password: ''
     };
+    this.showLoaders = {
+      social: false,
+      form: false
+    };
+    this.badRequests = {
+      social: false,
+      form: false
+    };
     this.setRules();
   }
 
@@ -32,10 +40,15 @@ export class Login {
   }
 
   login() {
+    this.showLoaders.form = true;
     this.controller.validate()
       .then(validation => {
         if (validation.valid) {
-          this.session.authService.login(this.fields);
+          this.session.authService.login(this.fields)
+            .catch(() => {
+              this.badRequests.form = true;
+              this.showLoaders.form = false;
+            });
         }
       });
   }

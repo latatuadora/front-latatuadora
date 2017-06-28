@@ -19,7 +19,7 @@ value.bind="fields.email" <template>
     <hr class="divider-hr login__divider">
 
     <div class="login__item login__form">
-      <form>
+      <form if.bind="!showLoaders.form">
         <div class="login__input-group" validation-errors.bind="emailErrors">
           <label class="login__input-label" for="email">
             Correo electrónico
@@ -47,6 +47,7 @@ value.bind="fields.email" <template>
         </div>
         <button class="site-button login__input-submit" type="submit" click.delegate="login()">Iniciar Sesión</button>
       </form>
+      <div if.bind="showLoaders.form" class="tattoos-grid-loader cp-spinner cp-eclipse"></div>
     </div>
 
     <div class="login__item login__signup">
