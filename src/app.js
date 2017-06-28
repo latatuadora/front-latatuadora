@@ -153,8 +153,8 @@ export class App {
     this.router = router;
 
     config.addPostRenderStep(postRender);
-    config.addPipelineStep('authorize', AuthenticateStep);
     config.addPipelineStep('authorize', RoleStep);
+    config.addPipelineStep('authorize', AuthenticateStep);
     config.title = 'La Tatuadora';
     config.map(this.baseRoutes.concat(this.sessionRoutes));
     config.mapUnknownRoutes(this.errorRoute);
@@ -163,19 +163,25 @@ export class App {
   redirectionStrategy = (instruction) => {
     let role = this.session.role.toString();
 
-    if (instruction.config.redirects[role] == undefined) {
+    if (instruction.config.auth && !this.session.authService.isAuthenticated()) {
+      instruction.config.redirect = 'login';
+    } else if (instruction.config.redirects[role] == undefined) {
       throw new Error('There is no redirection defined for this role.');
+    } else {
+      instruction.config.redirect = instruction.config.redirects[role];
     }
-    instruction.config.redirect = instruction.config.redirects[role];
   }
 
   polymorphicStrategy = (instruction) => {
     let role = this.session.role.toString();
 
-    if (instruction.config.modules[role] == undefined) {
+    if (instruction.config.auth && !this.session.authService.isAuthenticated()) {
+      instruction.config.redirect = 'login';
+    } else if (instruction.config.modules[role] == undefined) {
       throw new Error('There is no module defined for this role.');
+    } else {
+      instruction.config.moduleId = instruction.config.modules[role];
     }
-    instruction.config.moduleId = instruction.config.modules[role];
   }
 }
 
