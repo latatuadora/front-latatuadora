@@ -1,4 +1,5 @@
 <template>
+  <require from="./flashes.css"></require>
   <require from="../../resources/elements/gallery-item/gallery-item"></require>
   <require from="../../resources/elements/gallery-modal/gallery-modal"></require>
   <require from="../../resources/attributes/simple-modal"></require>
@@ -27,7 +28,7 @@
     </div>
   </div>
   <gallery-modal id="flashes-content" simple-modal="show.two-way: showModal" css="${showModal ? 'display: block' : 'display: none'}" item.bind="currentItem" go-next.call="nextItem()" go-prev.call="previousItem()" type="flash" close.call="closeModal()"></gallery-modal>
-  <section class="tattoos-grid-container">
+  <section class="tattoos-grid-container flashes__grid-container">
     <div class="tattoos-grid flashes-grid" masonry-grid infinite-scroll="callback.call: loadMore()">
       <gallery-item repeat.for="item of items" open.call="openModal($index)" item.bind="item" type="flash" masonry-item>
       </gallery-item>

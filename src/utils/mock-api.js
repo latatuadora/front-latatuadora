@@ -484,4 +484,6 @@ export class MockAPI {
       }, latency)
     });
   }
+
+  getFavourites = this.getTattoos;
 }
