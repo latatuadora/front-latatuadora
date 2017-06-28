@@ -1,11 +1,9 @@
 import {inject} from 'aurelia-framework';
-import {AuthService} from 'aurelia-authentication';
 import {Session} from 'utils/session';
 
-@inject(AuthService, Session)
+@inject(Session)
 export class Login {
-  constructor(authService, session) {
-    this.authService = authService;
+  constructor(session) {
     this.session = session;
     this.fields = {
       email: '',
@@ -14,12 +12,6 @@ export class Login {
   }
 
   login() {
-    return this.authService.login(this.fields)
-      .then(response => {
-        this.session.setUserType(response.usertype);
-      })
-      .catch(response => {
-        console.log(response);
-      });
+    this.session.authService.login(this.fields);
   }
 }

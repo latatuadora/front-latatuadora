@@ -30,6 +30,9 @@ export class Session {
     this.authService.login(fields)
       .then(response => {
         this.setUserType(response.usertype);
+      })
+      .catch(response => {
+        console.log(response);
       });
   }
 
