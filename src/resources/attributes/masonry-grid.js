@@ -1,9 +1,8 @@
-import {customAttribute, inject, bindable} from 'aurelia-framework';
+import {inject} from 'aurelia-framework';
 import masonry from 'masonry-layout';
 
-@customAttribute('masonry-grid')
 @inject(Element)
-export class MasonryGrid {
+export class MasonryGridCustomAttribute {
   constructor(element) {
     this.element = element;
     this.masonry = null;
