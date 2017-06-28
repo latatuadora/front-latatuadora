@@ -13,9 +13,7 @@ client.configure(x => {
     });
 });
 
-export class WebAPI {
-  getArtist = MockAPI.prototype.getArtist;
-
+export class WebAPI extends MockAPI {
   postQuotationRequest(request) {
     return client.fetch('quotation', {
       method: 'post',
