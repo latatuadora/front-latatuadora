@@ -37,7 +37,7 @@
         </nav>
       </div>
       <div class="site-footer__right">
-        <div if.bind="session.role == 0" class="site-footer__signup">
+        <div if.bind="!session.authService.authenticated" class="site-footer__signup">
           <span class="site-footer__signup-title">¿Eres estudio o artista tatuador?</span>
           <a route-href="route: signup" class="site-button">Regístrate</a>
         </div>
