@@ -29,8 +29,7 @@ export class Inspirate extends BaseGallery {
   getBodyParts() {
     this.api.getBodyParts()
       .then(parts => {
-        this.lists.parts = parts.front.concat(parts.back);
-        this.lists.parts.forEach(part => {
+        parts.forEach(part => {
           if (this.params.part == part.name) {
             this.activeIds.part = part.id;
           }
