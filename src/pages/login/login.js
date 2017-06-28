@@ -13,6 +13,7 @@ export class Login {
       email: '',
       password: ''
     };
+    this.rememberMe = false;
     this.showLoaders = {
       social: false,
       form: false

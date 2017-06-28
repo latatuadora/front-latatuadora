@@ -44,7 +44,7 @@ value.bind="fields.email" <template>
         </div>
         <a route-href="route: home" class="login__item login__forgotten">Olvidé mi contraseña</a>
         <div class="site-checkbox use-check">
-          <input type="checkbox" name="save" id="save">
+          <input checked.bind="rememberMe" type="checkbox" name="save" id="save">
           <label class="login__input-label-checkbox" for="save"><span>Guardar contraseña</span></label>
         </div>
         <div if.bind="badRequests.form" class="login__request-error">Usuario y/o contraseña invalidos</div>
