@@ -3,23 +3,34 @@ import {AuthService} from 'aurelia-authentication';
 
 @inject(AuthService)
 export class Session {
-  constructor(auth) {
-    this.initUserType(auth);
+  constructor(authService) {
+    this.authService = authService;
+    this.initUserType();
   }
 
-  initUserType(auth) {
-    if (auth.isAuthenticated()) {
-      console.log('authenticated');
+  initUserType() {
+    if (this.authService.isAuthenticated()) {
       let type = localStorage.getItem('latatuadora_com_usertype');
       if (type == null) {
-        auth.logout('#/login');
+        this.authService.logout('#/login');
       } else {
         this.setUserType(parseInt(type), false);
       }
     } else {
       this.setUserType(0);
-      console.log('not authenticated');
     }
+  }
+
+  logout() {
+    this.authService.logout('#/login');
+    this.setUserType(0);
+  }
+
+  login(fields) {
+    this.authService.login(fields)
+      .then(response => {
+        this.setUserType(response.usertype);
+      });
   }
 
   setUserType(type, setInStorage = true) {
@@ -29,11 +40,11 @@ export class Session {
     }
   }
 
-  typeMatches(type) {
+  typeMatches(type, currentType = this.userType) {
     if (Array.isArray(type)) {
-      return type.indexOf(this.userType) != -1;
+      return type.indexOf(currentType) != -1;
     } else {
-      return this.userType == type;
+      return currentType == type;
     }
   }
 }
