@@ -10,6 +10,13 @@ let routers = {
       moduleId: 'dashboards/user/edit/edit',
       title: 'Editar perfil',
       nav: true
+    },
+    {
+      route: 'cotizaciones',
+      name: 'quotations',
+      moduleId: 'dashboards/user/quotations/quotations',
+      title: 'Cotizaciones',
+      nav: true
     }
   ],
   studio: []
