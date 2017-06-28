@@ -193,6 +193,9 @@ class RoleStep {
         return next.cancel(new Redirect('error'));
       }
     }
+    if (this.session.authService.isAuthenticated() && instruction.config.name == 'login') {
+      return next.cancel(new Redirect('dashboard'));
+    }
     return next();
   }
 }
