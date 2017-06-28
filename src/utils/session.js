@@ -1,11 +1,14 @@
 import {inject} from 'aurelia-framework';
 import {AuthService} from 'aurelia-authentication';
+import { EventAggregator } from 'aurelia-event-aggregator';
 
-@inject(AuthService)
+@inject(AuthService, EventAggregator)
 export class Session {
-  constructor(authService) {
+  constructor(authService, eventAgreggator) {
     this.authService = authService;
+    this.eventAgreggator = eventAgreggator;
     this.initRole();
+    this.setListener();
   }
 
   initRole() {
@@ -19,6 +22,14 @@ export class Session {
     } else {
       this.setRole(0);
     }
+  }
+
+  setListener() {
+    this.eventAgreggator.subscribe('authentication-change', authenticated => {
+      if (!authenticated) {
+        this.setRole(0);
+      }
+    });
   }
 
   logout() {
