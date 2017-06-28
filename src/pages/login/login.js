@@ -43,14 +43,19 @@ export class Login {
   login() {
     this.showLoaders.form = true;
     this.controller.validate()
-      .then(validation => {
-        if (validation.valid) {
-          this.session.authService.login(this.fields)
-            .catch(() => {
-              this.badRequests.form = true;
-              this.showLoaders.form = false;
-            });
-        }
-      });
+      .then(this.loginValidation);
+  }
+
+  loginValidation = (validation) => {
+    if (validation.valid) {
+      this.session.authService.login(this.fields)
+        .then(response => {
+          this.session.setRole(response.usertype);
+        })
+        .catch(() => {
+          this.badRequests.form = true;
+          this.showLoaders.form = false;
+        });
+    }
   }
 }

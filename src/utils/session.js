@@ -12,7 +12,7 @@ export class Session {
     if (this.authService.isAuthenticated()) {
       let role = localStorage.getItem('latatuadora_com_role');
       if (role == null) {
-        this.authService.logout('#/login');
+        this.logout();
       } else {
         this.setRole(parseInt(role), false);
       }
@@ -22,16 +22,12 @@ export class Session {
   }
 
   logout() {
-    this.authService.logout('#/login');
     this.setRole(0);
+    this.authService.logout('#/login');
   }
 
   login(fields) {
-    this.authService.login(fields)
-      .then(response => {
-        this.setRole(response.usertype);
-        return response;
-      });
+    this.authService.login(fields);
   }
 
   setRole(role, setInStorage = true) {
