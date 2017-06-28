@@ -1,9 +1,35 @@
+import moment from 'moment';
+
 function getRandom(min, max, precision = 0) {
   var random = (Math.random() * max) + min;
   return parseFloat(random.toFixed(precision));
 }
 
 let latency = 200;
+
+class Schedule {
+  constructor(id) {
+    this.id = id;
+    let hour = getRandom(0, 23);
+    let minute = getRandom(0, 59);
+    let time = `${hour < 10 ? '0' : ''}${hour}${minute < 10 ? '0' : ''}${minute}`;
+    this.time = moment(time, 'hmm').format('HH:mm');
+  }
+}
+
+class Quotation {
+  constructor(id) {
+    this.id = id;
+    this.artist = featuredArtists[getRandom(0, 7)];
+    this.image = '/src/assets/images/mock/tattoo' + getRandom(1, 8) + '.png';
+    this.dimensionsY = getRandom(1, 25) + ' cm';
+    this.dimensionsX = getRandom(1, 25) + ' cm';
+    this.style = styles[2];
+    this.bodyPart = groupedBodyParts.front[2];
+    this.min = getRandom(300, 9000);
+    this.max = getRandom(this.min, 9000);
+  }
+}
 
 class Evaluation {
   constructor(id) {
@@ -52,6 +78,12 @@ class Artist {
       2,
       3,
       4
+    ];
+    this.schedules = [
+      new Schedule(1),
+      new Schedule(2),
+      new Schedule(3),
+      new Schedule(4)
     ];
   }
 }
@@ -206,14 +238,14 @@ let elements = [
 ];
 
 let tattoos = [
-  new Tattoo(1),
-  new Tattoo(2),
-  new Tattoo(3),
-  new Tattoo(4),
-  new Tattoo(5),
-  new Tattoo(6),
-  new Tattoo(7),
-  new Tattoo(8)
+  new Tattoo(1, 'Brazo Robot', 'Oreja', 'Dark'),
+  new Tattoo(2, 'Brazo Robot', 'Pierna', 'Dark'),
+  new Tattoo(3, 'Brazo Robot', 'Oreja', 'Old School'),
+  new Tattoo(4, 'Brazo Robot', 'Oreja', 'Dark'),
+  new Tattoo(5, 'Brazo Robot', 'Rodilla', 'Old School'),
+  new Tattoo(6, 'Brazo Robot', 'Oreja', 'Religioso'),
+  new Tattoo(7, 'Brazo Robot', 'Rodilla', 'Religioso'),
+  new Tattoo(8, 'Brazo Robot', 'Oreja', 'Religioso')
 ];
 
 let flashes = [
@@ -252,12 +284,22 @@ let artists = [
   new Freelancer(8)
 ];
 
+let featuredArtists = artists;
+
 let studioArtists = [
   new StudioArtist(1),
   new StudioArtist(2),
   new StudioArtist(3),
   new StudioArtist(4)
 ]
+
+let quotations = [
+  new Quotation(1),
+  new Quotation(2),
+  new Quotation(3),
+  new Quotation(4),
+  new Quotation(5)
+];
 
 export class MockAPI {
   isRequesting = false;
@@ -420,4 +462,19 @@ export class MockAPI {
       }, latency)
     });
   }
+
+  getFeaturedArtists = this.getArtists;
+
+  getQuotations(params) {
+    this.isRequesting = true;
+
+    return new Promise(resolve => {
+      setTimeout(() => {
+        resolve(quotations);
+        this.isRequesting = false;
+      }, latency)
+    });
+  }
+
+  getFavourites = this.getTattoos;
 }

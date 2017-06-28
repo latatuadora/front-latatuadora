@@ -6,10 +6,7 @@ export class FlashSquareItem extends ArtistItem {
   @bindable item;
   @bindable animate = false;
   @bindable inCarousel = false;
-
-  constructor() {
-    super();
-  }
+  @bindable fullCard = true;
 
   attached() {
     super.attached();

@@ -1,17 +1,28 @@
-import {HttpClient} from 'aurelia-http-client';
+import {HttpClient, json} from 'aurelia-fetch-client';
 import {MockAPI} from 'utils/mock-api';
 
 let client = new HttpClient();
 
 client.configure(x => {
-  x.withBaseUrl('http://70.35.203.91/');
-  x.withHeader('Accept', 'application/json');
+  x.withBaseUrl('http://35.161.232.194:1337/')
+    .withDefaults({
+      credentials: 'same-origin',
+      headers: {
+        'Accept': 'application/json'
+      }
+    });
 });
 
 export class WebAPI {
   getArtist = MockAPI.prototype.getArtist;
 
   postQuotationRequest(request) {
-    return client.post('quotation', request);
+    return client.fetch('quotation', {
+      method: 'post',
+      body: json(request)
+    })
+    .then(response => {
+      return response.json();
+    });
   }
 }

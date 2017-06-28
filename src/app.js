@@ -1,11 +1,18 @@
-export class App {
-  configureRouter (config, router) {
-    var postRender = new PostRenderStep()
-    this.router = router
+import {inject} from 'aurelia-framework';
+import {Redirect} from 'aurelia-router';
+import {AuthenticateStep} from 'aurelia-authentication';
+import {Session} from 'utils/session';
 
-    config.addPostRenderStep(postRender)
-    config.title = 'La Tatuadora'
-    config.map([
+export class App {
+  constructor(session) {
+    this.errorRoute = {
+      route: 'error',
+      name: 'error',
+      moduleId: 'pages/homepage/homepage',
+      title: 'Error',
+      nav: false
+    };
+    this.baseRoutes = [
       {
         route: ['', 'home'],
         name: 'home',
@@ -73,26 +80,134 @@ export class App {
         nav: false
       },
       {
+        route: 'agendar/:id',
+        name: 'scheduling',
+        moduleId: 'pages/scheduling/scheduling',
+        title: 'Agendar',
+        nav: false
+      },
+      /*{
         route: 'signup',
         name: 'signup',
         moduleId: 'pages/signup/signup',
         title: 'Regístrate',
         nav: false
-      },
+      },*/
       {
         route: 'estudio/:id',
         name: 'studio',
         moduleId: 'pages/artist/studio',
         title: 'Perfil de estudio',
         nav: false
+      },
+      this.errorRoute
+    ];
+    this.sessionRoutes = [
+      {
+        route: 'dashboard',
+        name: 'dashboard',
+        nav: false,
+        auth: true,
+        moduleId: 'pages/homepage/homepage',
+        redirections: {
+          3: 'dashboard/perfil/editar'
+        }
+      },
+      {
+        route: 'dashboard/cotizaciones',
+        name: 'quotations',
+        moduleId: 'dashboards/user/quotations/quotations',
+        title: 'Cotizaciones',
+        nav: true,
+        level: 1,
+        auth: true,
+        roles: [1]
+      },
+      {
+        route: 'dashboard/favoritos',
+        name: 'favourites',
+        moduleId: 'dashboards/user/favourites/favourites',
+        title: 'Me gusta',
+        nav: true,
+        level: 1,
+        auth: true,
+        roles: [1]
+      },
+      {
+        route: 'dashboard/perfil/editar',
+        name: 'edit_profile',
+        moduleId: 'dashboards/user/edit/edit',
+        title: 'Editar perfil',
+        nav: true,
+        level: 1,
+        auth: true,
+        roles: [3]
       }
-    ]);
+    ];
+  }
+
+  configureRouter (config, router) {
+    this.router = router;
+
+    config.addPostRenderStep(PostRenderStep);
+    config.addPipelineStep('authorize', AuthenticateStep);
+    config.addPipelineStep('authorize', RoleStep);
+    config.addPipelineStep('authorize', PolymorphicStep);
+    config.title = 'La Tatuadora';
+    config.map(this.baseRoutes.concat(this.sessionRoutes));
+    config.mapUnknownRoutes(this.errorRoute);
+  }
+}
+
+@inject(Session)
+class RoleStep {
+  constructor(session) {
+    this.session = session;
+  }
+
+  run(instruction, next) {
+    if (instruction.config.auth && instruction.config.roles) {
+      let role = this.session.role.toString();
+      let isAllowed = this.session.isAllowed(instruction.config.roles);
+      if (!isAllowed) {
+        return next.cancel(new Redirect('error'));
+      }
+    }
+    if (this.session.authService.isAuthenticated() && instruction.config.name == 'login') {
+      return next.cancel(new Redirect('dashboard'));
+    }
+    return next();
+  }
+}
+
+@inject(Session)
+class PolymorphicStep {
+  constructor(session) {
+    this.session = session;
+  }
+
+  run(instruction, next) {
+    let role = this.session.role.toString();
+    if (instruction.config.redirections) {
+      if (instruction.config.redirections[role] == undefined) {
+        throw new Error('There is no redirection defined for this role.');
+      } else {
+        return next.cancel(new Redirect(instruction.config.redirections[role]));
+      }
+    } else if (instruction.config.modules) {
+      if (instruction.config.modules[role] == undefined) {
+        throw new Error('There is no module defined for this role.');
+      } else {
+        instruction.config.moduleId = instruction.config.modules[role];
+      }
+    }
+    return next();
   }
 }
 
 class PostRenderStep {
-  run (instruction, next) {
-    window.scrollTo(0, 0)
-    return next()
+  run(instruction, next) {
+    window.scrollTo(0, 0);
+    return next();
   }
 }

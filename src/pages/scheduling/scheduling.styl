@@ -1,0 +1,364 @@
+@import '../../assets/styles/vars'
+@import '../../assets/styles/mixins'
+
+.scheduling__title
+  font-size 35px
+  letter-spacing -0.3px
+  color #1d1d1d
+  margin-top 65px
+  width 86%
+  center-block()
+
+.scheduling__subtitle
+  rfont-size 25px 767px 18px
+  letter-spacing -0.3px
+  text-align center
+  color #1d1d1d
+
+.scheduling__subtitle--first
+  margin-top 54px
+  width 86%
+  center-block()
+
+.scheduling__hr
+  width 83.25%
+  max-width 889px
+
+.scheduling__main
+  text-align center
+
+  .artist-item
+    display inline-block
+    width 249px
+    height 258px
+    margin-top 66px
+
+.scheduling__hr--day
+  margin-top 76px
+
+.scheduling__day
+  margin-top 61px
+
+  .flatpickr-calendar
+    margin-top 44px
+    top 0
+    width 100%
+    box-shadow none
+    border-radius 0
+
+    &::before,
+    &::after
+      content ''
+      display none
+
+  .flatpickr-month
+    color white
+    background #1d1c1c
+    height 116px
+
+    svg
+      fill white
+      height 25.7px
+      width 25.5px
+
+      &:hover
+        fill $dustColor
+
+  .flatpickr-prev-month,
+  .flatpickr-next-month
+    padding 0
+    height 100%
+
+  .flatpickr-prev-month
+    left 85px
+
+  .flatpickr-next-month
+    right 85px
+
+  .flatpickr-current-month
+    line-height 28px
+    rfont-size 26px 767px 16px
+    padding 0
+
+    .cur-month
+      color $dustColor
+      font-weight normal
+
+    .numInputWrapper
+      width 70px
+
+  .flatpickr-next-month,
+  .flatpickr-prev-month,
+  .flatpickr-current-month
+    top 38px !important
+
+  .flatpickr-weekdays
+    display none
+
+  .flatpickr-days
+    background-image url('/src/assets/images/backgrounds/scheduling.jpg')
+    background-size cover
+    background-position center
+    rfont-size 21px 767px 13px
+    margin-top 0
+    padding 50px 73px
+
+  .flatpickr-days,
+  .flatpickr-rContainer,
+  .dayContainer
+    width 100%
+    max-width initial
+
+  .dayContainer
+    min-width 100%
+
+  .flatpickr-day
+    color white
+    border none !important
+    border-radius 0
+    width unit(49.1/21, 'em')
+    height unit(49.1/21, 'em')
+    flex-basis unit(49.1/21, 'em')
+    max-width initial
+    line-height (50/21)
+    margin 5px 0
+
+    &:not(.selected):not(.disabled):hover
+      background rgba($dustColor, 80%)
+
+    &.selected
+      background $dustColor
+
+    &.disabled
+      color #828282
+
+    &.prevMonthDay,
+    &.nextMonthDay
+      visibility hidden
+      height 0
+
+.scheduling__calendar
+  width 499px
+  center-block()
+
+.scheduling__time
+  background $dustColor
+  font-size 16px
+  color white
+  text-align center
+  padding 33px 15px
+
+.scheduling__time-inner
+  margin-top 22px
+  display flex
+  align-items center
+  justify-content center
+
+.scheduling__time-icon
+  margin-right 24px
+  width 26px
+  height 26px
+
+.scheduling__schedules
+  rfont-size 20px 767px 14px
+  letter-spacing -0.15px
+  display flex
+  align-items center
+  justify-content space-around
+
+.scheduling__schedule
+  margin 0 5.5px
+  cursor pointer
+
+  &.active,
+  &:hover
+    rfont-size 27px 767px 20px
+
+.scheduling__hr--data
+  margin-top 102px
+
+.scheduling__data
+  margin-top 65px
+  width 85.31%
+  max-width 677px
+  center-block()
+
+.scheduling__textarea
+  rfont-size 18px 767px 15px
+  letter-spacing 0.2px
+  padding 1em unit(24/18, 'em')
+  height 147px
+  margin-top 45px
+  width 100%
+
+.scheduling__subtitle--reference
+  margin-top 40px
+
+.scheduling__file-wrapper
+  background-color #f5f5f5
+  text-align center
+  margin-top 28px
+
+.scheduling__file-layer
+  background-color rgba(#f5f5f5, 80%)
+  position relative
+  padding 45px 25px
+  height 100%
+
+.scheduling__file
+  opacity 0
+  position absolute
+  height 100%
+  width 100%
+  top 0
+  left 0
+  z-index 2
+  cursor pointer
+
+.scheduling__file-icon
+  width 83px
+  display block
+  center-block()
+
+.scheduling__file-legend
+  rfont-size 13px 767px 12px
+  padding 0 6px 4px 6px
+  display inline-block
+  margin-top 11px
+  simple-border('bottom', 1px, $dustColor)
+
+.scheduling__submit
+  display block
+  font-size 13px
+  letter-spacing 0.6px
+  padding 14px
+  width 188px
+  margin-bottom 58px
+  margin-top 70px
+  center-block()
+
+.scheduling__message-error
+  display block
+  margin-top 11px
+  rfont-size 17px 767px 14px
+
+@media screen and (max-width: 767px)
+  .scheduling__title
+    margin-top 43px
+
+  .scheduling__hr
+    &::before,
+    &::after
+      display none
+
+  .scheduling__subtitle--first
+    display none
+
+  .scheduling__main
+    .artist-item
+      margin-top 59px
+      width 320px
+      height 335px
+
+    .artist-item__back
+      padding 78px 33px 25px 33px
+
+    .artist-item__top-like-button
+      font-size 18px
+      right 22px
+
+    .artist-item__title
+      font-size 16px
+
+    .artist-item__stars
+      margin-top 15px
+      font-size 12px
+
+      .fa:not(:first-child)
+        margin-left 3.5px
+
+    .artist-item__location
+      margin-top 10.5px
+      font-size 12px
+
+    .artist-item__bottom-like-button
+      margin-top 19px
+      font-size 11px
+
+      &::before
+        font-size 19px
+        margin-right 14px
+
+    .artist-item__tags
+      margin-top 11px
+
+  .scheduling__hr--day
+    margin-top 38px
+
+  .scheduling__day
+    margin-top 38px
+
+    .flatpickr-days
+      padding 30px 50px
+
+    .flatpickr-month
+      height 65px
+
+      svg
+        height 29px
+        width 13px
+
+    .flatpickr-current-month .numInputWrapper
+      width 47px
+
+    .flatpickr-next-month,
+    .flatpickr-prev-month,
+    .flatpickr-current-month
+      top 18px !important
+
+    .flatpickr-prev-month
+      left 72px
+
+    .flatpickr-next-month
+      right 72px
+
+  .scheduling__calendar
+    width 320px
+
+  .scheduling__time
+    padding 18px 15px 33px 15px
+
+  .scheduling__time-icon
+    width 16px
+    height 18px
+    margin-right 12px
+
+  .scheduling__hr--data
+    margin-top 50px
+
+  .scheduling__data
+    margin-top 34px
+
+  .scheduling__textarea
+    margin-top 41px
+    padding 1em
+
+  .scheduling__subtitle--reference
+    display none
+
+  .scheduling__file-wrapper
+    margin-top 22.2px
+
+  .scheduling__file-layer
+    padding 34px 18px 32px 18px
+
+  .scheduling__file-icon
+    width 65px
+
+  .scheduling__file-legend
+    margin-top 14px
+    padding 0 2px 4px 2px
+
+  .scheduling__submit
+    margin-top 53px
+    margin-bottom 49px

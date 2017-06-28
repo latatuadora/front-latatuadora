@@ -90,9 +90,16 @@ input, textarea, button, select
 
 textarea
   resize none
+
+label
+  cursor pointer
 // END FORMS //
 
 // UI COMPONENTS
+.input-wrapper
+  display flex
+  justify-content space-between
+
 .site-input
   background transparent
   font-family inherit
@@ -117,8 +124,6 @@ textarea
     content '✔'
 
   label
-    cursor pointer
-
     &::before
       color white
       text-align center
