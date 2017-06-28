@@ -30,9 +30,7 @@ export class Session {
     this.authService.login(fields)
       .then(response => {
         this.setRole(response.usertype);
-      })
-      .catch(response => {
-        console.log(response);
+        return response;
       });
   }
 
