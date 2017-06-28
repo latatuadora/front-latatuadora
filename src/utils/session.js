@@ -1,14 +1,24 @@
+import {inject} from 'aurelia-framework';
+import {AuthService} from 'aurelia-authentication';
+
+@inject(AuthService)
 export class Session {
-  constructor() {
-    this.initUserType();
+  constructor(auth) {
+    this.initUserType(auth);
   }
 
-  initUserType() {
-    let type = localStorage.getItem('latatuadora_com_usertype');
-    if (type == null) {
-      this.setUserType(0);
+  initUserType(auth) {
+    if (auth.isAuthenticated()) {
+      console.log('authenticated');
+      let type = localStorage.getItem('latatuadora_com_usertype');
+      if (type == null) {
+        auth.logout('#/login');
+      } else {
+        this.setUserType(parseInt(type), false);
+      }
     } else {
-      this.setUserType(parseInt(type), false);
+      this.setUserType(0);
+      console.log('not authenticated');
     }
   }
 
