@@ -47,7 +47,7 @@ value.bind="fields.email" <template>
           <input checked.bind="rememberMe" type="checkbox" name="save" id="save">
           <label class="login__input-label-checkbox" for="save"><span>Guardar contraseña</span></label>
         </div>
-        <div if.bind="badRequests.form" class="login__request-error">Usuario y/o contraseña invalidos</div>
+        <div if.bind="badRequests.form" class="login__request-error">Usuario y/o contraseña inválidos</div>
         <button class="site-button login__input-submit" type="submit" click.delegate="login()">Iniciar Sesión</button>
       </form>
       <div if.bind="showLoaders.form" class="tattoos-grid-loader cp-spinner cp-eclipse"></div>
