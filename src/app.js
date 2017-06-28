@@ -159,21 +159,21 @@ export class App {
   }
 
   redirectionStrategy = (instruction) => {
-    let type = this.session.userType.toString();
+    let role = this.session.role.toString();
 
-    if (instruction.config.redirects[type] == undefined) {
+    if (instruction.config.redirects[role] == undefined) {
       throw new Error('There is no redirection defined for this role.');
     }
-    instruction.config.redirect = instruction.config.redirects[type];
+    instruction.config.redirect = instruction.config.redirects[role];
   }
 
   polymorphicStrategy = (instruction) => {
-    let type = this.session.type.toString();
+    let role = this.session.role.toString();
 
-    if (instruction.config.modules[type] == undefined) {
+    if (instruction.config.modules[role] == undefined) {
       throw new Error('There is no module defined for this role.');
     }
-    instruction.config.moduleId = instruction.config.modules[type];
+    instruction.config.moduleId = instruction.config.modules[role];
   }
 }
 
@@ -185,8 +185,8 @@ class RoleStep {
 
   run(instruction, next) {
     if (instruction.config.auth && instruction.config.roles) {
-      let type = this.session.userType.toString();
-      let isAllowed = this.session.typeMatches(instruction.config.roles);
+      let role = this.session.role.toString();
+      let isAllowed = this.session.isAllowed(instruction.config.roles);
       if (!isAllowed) {
         return next.cancel(new Redirect('error'));
       }
