@@ -106,9 +106,13 @@ export class App {
     this.sessionRoutes = [
       {
         route: 'dashboard',
-        moduleId: 'dashboards/user/edit/edit',
+        name: 'dashboard',
         nav: false,
-        auth: true
+        auth: true,
+        redirects: {
+          1: 'dashboard/perfil/editar'
+        },
+        navigationStrategy: this.redirectionStrategy
       },
       {
         route: 'dashboard/cotizaciones',
@@ -118,8 +122,7 @@ export class App {
         nav: true,
         level: 1,
         auth: true,
-        role: 1,
-        navigationStrategy: this.redirectionStrategy
+        role: 1
       },
       {
         route: 'dashboard/favoritos',
@@ -129,8 +132,7 @@ export class App {
         nav: true,
         level: 1,
         auth: true,
-        role: 1,
-        navigationStrategy: this.rolesStrategy
+        role: 1
       },
       {
         route: 'dashboard/perfil/editar',
@@ -140,8 +142,7 @@ export class App {
         nav: true,
         level: 1,
         auth: true,
-        role: 1,
-        navigationStrategy: this.rolesStrategy
+        role: 1
       }
     ];
   }
@@ -183,7 +184,7 @@ class RoleStep {
   }
 
   run(instruction, next) {
-    if (instruction.config.role) {
+    if (instruction.config.auth && instruction.config.role) {
       let type = this.session.userType.toString();
       let isAllowed = this.session.typeMatches(instruction.config.role);
       if (!isAllowed) {
