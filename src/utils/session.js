@@ -43,11 +43,7 @@ export class Session {
     }
   }
 
-  typeMatches(type, currentType = this.userType) {
-    if (Array.isArray(type)) {
-      return type.indexOf(currentType) != -1;
-    } else {
-      return currentType == type;
-    }
+  typeMatches(types, currentType = this.userType) {
+    return type.indexOf(currentType) != -1
   }
 }
