@@ -46,11 +46,16 @@ export class WebAPI extends MockAPI {
 
   getFlashes(params) {
     let query = getQuery(params);
-    return client.fetch('flash' + query, {
-      method: 'get'
-    })
-    .then(response => {
-      return response.json();
-    });
+    return client.fetch('flash' + query, {method: 'get'})
+      .then(response => {
+        return response.json();
+      });
+  }
+
+  getArtists() {
+    return client.fetch('user', {method: 'get'})
+      .then(response => {
+        return response.json();
+      });
   }
 }

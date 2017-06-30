@@ -1,8 +1,8 @@
 import {inject} from 'aurelia-framework';
-import {MockAPI} from 'utils/mock-api';
+import {WebAPI} from 'utils/web-api';
 import {BaseGallery} from 'utils/base-gallery';
 
-@inject(MockAPI)
+@inject(WebAPI)
 export class SearchArtist extends BaseGallery {
   constructor(api) {
     super(api);

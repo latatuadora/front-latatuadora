@@ -158,7 +158,7 @@ export class BaseGallery {
   }
 
   addItem(item) {
-    if (!item.image.includes('http')) {
+    if (!item.image || !item.image.includes('http')) {
       item.image = '/src/assets/images/mock/tattoo3.png';
     }
     if (!item.artist_picture) {
