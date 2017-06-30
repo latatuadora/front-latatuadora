@@ -108,16 +108,13 @@ export class Quotation extends BaseMultiStep {
   }
 
   goToResults(results) {
-    let quotationResults = JSON.parse(results.response);
-    quotationResults.hasOwnProperty('message');
-
     for (let route of this.router.routes) {
       if (route.name == this.completeDestination) {
         route.settings.resultsModel = {
           artist: this.shared.artist,
-          minAmount: quotationResults.minAmount,
-          maxAmount: quotationResults.maxAmount,
-          styleText: quotationResults.styleText,
+          minAmount: results.minAmount,
+          maxAmount: results.maxAmount,
+          styleText: results.styleText,
         };
         break;
       }

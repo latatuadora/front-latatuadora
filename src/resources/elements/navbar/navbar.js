@@ -1,13 +1,13 @@
 import {Router} from 'aurelia-router';
-import {inject, bindable} from 'aurelia-framework';
+import {inject} from 'aurelia-framework';
 import {Menu} from 'utils/menu';
+import {Session} from 'utils/session';
 
-@inject(Router)
+@inject(Router, Session)
 export class Navbar {
-  @bindable sessionRouter;
-
-  constructor(router) {
+  constructor(router, session) {
     this.router = router;
+    this.session = session;
   }
 
   attached() {
