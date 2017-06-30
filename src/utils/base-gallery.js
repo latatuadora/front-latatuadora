@@ -135,11 +135,6 @@ export class BaseGallery {
   filterItems() {
     this.items = [];
     this.params.page = 1;
-    this.showLoader = true;
-    if (this.__masonry_grid__) {
-      this.__masonry_grid__.resetCols();
-    }
-
     this.showLoader = false;
     this.loadMore();
   }

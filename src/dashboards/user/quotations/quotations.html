@@ -2,14 +2,13 @@
   <require from="./quotations.css"></require>
   <require from="../../../resources/elements/quotation-item/quotation-item"></require>
   <require from="../../../resources/attributes/masonry-grid"></require>
-  <require from="../../../resources/attributes/masonry-item"></require>
   <require from="../../../resources/attributes/infinite-scroll"></require>
   <h1 class="site-title user__quotations-title">Cotizaciones</h1>
   <span class="site-title user__quotations-subtitle">Haz cotizado con los <span class="golden-text">siguientes tatuadores</span></span>
   <hr class="special-hr user__quotations-hr">
   <section class="user__quotations-wrapper">
     <div class="user__quotations-grid" masonry-grid infinite-scroll="callback.call: loadMore()">
-      <quotation-item repeat.for="item of quotations" item.bind="item" masonry-item></quotation-item>
+      <quotation-item repeat.for="item of quotations" item.bind="item"></quotation-item>
     </div>
     <div if.bind="showLoader" class="tattoos-grid-loader cp-spinner cp-eclipse"></div>
   </section>
