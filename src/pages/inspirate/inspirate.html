@@ -14,16 +14,16 @@
   </button>
   <div class="gallery-filters ${showFilters ? 'show' : 'hide'}">
     <div class="gallery-filter-wrapper styles-filter ${params.style || allEmpty ? 'active' : ''}">
-      <div click.delegate="toggleDropdown('styles')" ref="styleFilter" class="gallery-filter">${params.style ? params.style : 'Estilo'}</div>
-      <dropdown-modal type="list" active-id.bind="activeIds.style" list.bind="lists.styles" item-name="name" on-click.bind="setStyle" ref-element.bind="styleFilter" visible.bind="showDropdowns.styles" close.call="toggleDropdown('styles')" top-reference=".site-navbar" center-at="633"></dropdown-modal>
+      <div click.delegate="toggleDropdown('styles')" ref="styleFilter" class="gallery-filter">${params.style ? activeElements.style.name : 'Estilo'}</div>
+      <dropdown-modal type="list" active-id.bind="params.style" list.bind="lists.styles" item-name="name" on-click.bind="setStyle" ref-element.bind="styleFilter" visible.bind="showDropdowns.styles" close.call="toggleDropdown('styles')" top-reference=".site-navbar" center-at="633"></dropdown-modal>
     </div>
     <div class="gallery-filter-wrapper elements-filter ${params.element || allEmpty ? 'active' : ''}">
-      <div click.delegate="toggleDropdown('elements')" ref="elementFilter" class="gallery-filter">${params.element ? params.element : 'Elemento'}</div>
-      <dropdown-modal type="list" active-id.bind="activeIds.element" list.bind="lists.elements" item-name="name" on-click.bind="setElement" ref-element.bind="elementFilter" visible.bind="showDropdowns.elements" close.call="toggleDropdown('elements')" top-reference=".site-navbar" center-at="633"></dropdown-modal>
+      <div click.delegate="toggleDropdown('elements')" ref="elementFilter" class="gallery-filter">${params.element ? activeElements.element.name : 'Elemento'}</div>
+      <dropdown-modal type="list" active-id.bind="params.element" list.bind="lists.elements" item-name="name" on-click.bind="setElement" ref-element.bind="elementFilter" visible.bind="showDropdowns.elements" close.call="toggleDropdown('elements')" top-reference=".site-navbar" center-at="633"></dropdown-modal>
     </div>
     <div class="gallery-filter-wrapper parts-filter ${params.part || allEmpty ? 'active' : ''}">
-      <div click.delegate="toggleDropdown('parts')" ref="partFilter" class="gallery-filter">${params.part ? params.part : 'Parte del cuerpo'}</div>
-      <dropdown-modal type="list" active-id.bind="activeIds.part" list.bind="lists.parts" item-name="name" on-click.bind="setBodyPart" ref-element.bind="partFilter" visible.bind="showDropdowns.parts" close.call="toggleDropdown('parts')" top-reference=".site-navbar" center-at="633"></dropdown-modal>
+      <div click.delegate="toggleDropdown('parts')" ref="partFilter" class="gallery-filter">${params.part ? activeElements.part.name : 'Parte del cuerpo'}</div>
+      <dropdown-modal type="list" active-id.bind="params.part" list.bind="lists.parts" item-name="name" on-click.bind="setBodyPart" ref-element.bind="partFilter" visible.bind="showDropdowns.parts" close.call="toggleDropdown('parts')" top-reference=".site-navbar" center-at="633"></dropdown-modal>
     </div>
     <div class="gallery-filter-wrapper all-filter no-arrow ${allEmpty ? 'active' : ''}">
       <div class="gallery-filter" click.delegate="resetFilters()">Todos</div>

@@ -7,8 +7,8 @@ export class Inspirate extends BaseGallery {
   constructor(api) {
     super(api);
     this.apiMethod = 'getTattoos';
-    this.params['part'] = '';
-    this.activeIds['part'] = {};
+    this.params['part'] = null;
+    this.activeElements['part'] = null;
     this.lists['parts'] = [];
     this.showDropdowns['parts'] = false;
   }
@@ -16,8 +16,7 @@ export class Inspirate extends BaseGallery {
   checkParams(params) {
     super.checkParams(params);
     if (params.part) {
-      this.params.part = params.part;
-      this.activeIds.part = -1;
+      this.params.part = parseInt(params.part);
     }
   }
 
@@ -30,25 +29,26 @@ export class Inspirate extends BaseGallery {
     this.api.getBodyParts()
       .then(parts => {
         parts.forEach(part => {
-          if (this.params.part == part.name) {
-            this.activeIds.part = part.id;
+          if (this.params.part == part.id) {
+            this.activeElements.part = part;
           }
         });
+        this.lists.parts = parts;
       });
   }
 
   setBodyPart = part => {
-    if (part.name !== this.params.part) {
-      this.params.part = part.name;
-      this.activeIds.part = part.id;
+    if (part.id !== this.params.part) {
+      this.params.part = part.id;
+      this.activeElements.part = part;
       this.filterItems();
-      this.allEmpty = true;
+      this.allEmpty = false;
     }
   }
 
   resetParams() {
     super.resetParams();
-    this.params['part'] = '';
-    this.activeIds['part'] = -1;
+    this.params['part'] = null;
+    this.activeElements['part'] = null;
   }
 }
