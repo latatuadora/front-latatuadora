@@ -140,17 +140,31 @@ export class BaseGallery {
   }
 
   loadMore() {
-    if (!this.showLoader) {
+    if (!this.showLoader && this.params.page != null) {
       this.showLoader = true;
       this.api[this.apiMethod](this.params, this.params.page)
         .then(items => {
           items.forEach(item => {
-            this.items.push(item);
+            this.addItem(item);
           });
           this.showLoader = false;
-          this.params.page += 1;
+          if (items.length) {
+            this.params.page += 1;
+          } else {
+            this.params.page = null;
+          }
         });
     }
+  }
+
+  addItem(item) {
+    if (!item.image.includes('http')) {
+      item.image = '/src/assets/images/mock/tattoo3.png';
+    }
+    if (!item.artist_picture) {
+      item.artist_picture = '/src/assets/images/mock/artist3.png';
+    }
+    this.items.push(item);
   }
 
   openModal(index) {
