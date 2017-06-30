@@ -58,4 +58,18 @@ export class WebAPI extends MockAPI {
         return response.json();
       });
   }
+
+  getStyles() {
+    return client.fetch('style', {method: 'get'})
+      .then(response => {
+        return response.json();
+      });
+  }
+
+  getBodyParts() {
+    return client.fetch('bodypart', {method: 'get'})
+      .then(response => {
+        return response.json();
+      });
+  }
 }
