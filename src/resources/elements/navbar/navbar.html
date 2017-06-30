@@ -13,13 +13,13 @@
         <a route-href="route: home"><img src="src/assets/images/logos/logo-golden.png" alt="La Tatuadora"></a>
       </div>
       <div class="site-navbar__menu">
-        <a repeat.for="item of router.navigation | routesFilter" href.bind="item.href" class="site-navbar__menu-link ${item.isActive ? 'active' : ''}">${item.title}</a>
+        <a repeat.for="item of router.navigation | routesFilter" href.bind="item.href" class="site-navbar__menu-link ${item.isActive ? 'active' : ''}" if.bind="!(item.config.name == 'login' && session.authService.authenticated)">${item.title}</a>
       </div>
       <form action="." method="post" class="site-navbar__search" id="navbar-search-form">
         <input id="navbar-search-input" class="site-navbar__search-input" type="search" name="search" placeholder="Buscar...">
         <button type="submit" class="site-navbar__search-button fa fa-search" name="submit"></button>
       </form>
-      <a if.bind="session.role == 0" route-href="route: signup" class="site-button site-navbar__signup-button">Regístrate</a>
+      <a if.bind="!session.authService.authenticated" route-href="route: signup" class="site-button site-navbar__signup-button">Regístrate</a>
     </div>
   </nav>
 </template>

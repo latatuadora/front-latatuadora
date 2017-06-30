@@ -12,9 +12,8 @@ export class RoutesFilterValueConverter {
       let navRoles = route.config.roles ? route.config.roles : [0];
       let navLevel = route.config.level ? route.config.level : 0;
       let roleMatches = navRoles.indexOf(role) != -1;
-      let hideLogin = route.config.name == 'login' && this.session.authService.isAuthenticated();
 
-      return roleMatches && level == navLevel && !hideLogin;
+      return roleMatches && level == navLevel;
     });
   }
 }
