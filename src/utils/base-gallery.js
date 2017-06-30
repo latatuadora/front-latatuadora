@@ -156,6 +156,9 @@ export class BaseGallery {
   }
 
   addItem(item) {
+    if (item.sellImageUrl && !item.sellImageUrl.includes('http')) {
+      item.sellImageUrl = '/src/assets/images/mock/tattoo3.png';
+    }
     if (!item.image || !item.image.includes('http')) {
       item.image = '/src/assets/images/mock/tattoo3.png';
     }
