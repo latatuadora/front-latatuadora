@@ -17,6 +17,11 @@ export class App {
         route: ['', 'home'],
         name: 'home',
         moduleId: 'pages/homepage/homepage',
+        redirections: {
+          2: 'dashboard',
+          3: 'dashboard',
+          others: false
+        },
         title: 'Inicio',
         nav: true
       },
@@ -24,6 +29,11 @@ export class App {
         route: 'news',
         name: 'news',
         moduleId: 'pages/homepage/homepage',
+        redirections: {
+          2: 'dashboard',
+          3: 'dashboard',
+          others: false
+        },
         title: 'News',
         nav: true
       },
@@ -31,6 +41,11 @@ export class App {
         route: 'inspirate/:artist?',
         name: 'inspirate',
         moduleId: 'pages/inspirate/inspirate',
+        redirections: {
+          2: 'dashboard',
+          3: 'dashboard',
+          others: false
+        },
         title: 'Inspírate',
         href: '/inspirate',
         nav: true
@@ -39,6 +54,11 @@ export class App {
         route: 'flashes/:artist?',
         name: 'flashes',
         moduleId: 'pages/flashes/flashes',
+        redirections: {
+          2: 'dashboard',
+          3: 'dashboard',
+          others: false
+        },
         title: 'Flashes',
         href: '/flashes',
         nav: true
@@ -47,6 +67,11 @@ export class App {
         route: 'buscartatuador',
         name: 'search_artist',
         moduleId: 'pages/search-artist/search-artist',
+        redirections: {
+          2: 'dashboard',
+          3: 'dashboard',
+          others: false
+        },
         title: 'Busca un tatuador',
         nav: true
       },
@@ -54,6 +79,11 @@ export class App {
         route: 'tatuate',
         name: 'tatuate',
         moduleId: 'pages/tatuate/tatuate',
+        redirections: {
+          2: 'dashboard',
+          3: 'dashboard',
+          others: false
+        },
         title: 'Tatúate',
         nav: true
       },
@@ -61,6 +91,10 @@ export class App {
         route: 'login',
         name: 'login',
         moduleId: 'pages/login/login',
+        redirections: {
+          0: false,
+          others: 'dashboard'
+        },
         title: 'Iniciar Sesión',
         nav: true
       },
@@ -68,6 +102,11 @@ export class App {
         route: 'cotizar/:artist?',
         name: 'quotation',
         moduleId: 'pages/quotation/quotation',
+        redirections: {
+          2: 'dashboard',
+          3: 'dashboard',
+          others: false
+        },
         title: 'Cotiza',
         href: '/cotizar',
         nav: false
@@ -76,6 +115,11 @@ export class App {
         route: 'cotizar/resultados',
         name: 'quotation_results',
         moduleId: 'pages/quotation-results/quotation-results',
+        redirections: {
+          2: 'dashboard',
+          3: 'dashboard',
+          others: false
+        },
         title: 'Resultados de tu cotización',
         nav: false
       },
@@ -83,6 +127,11 @@ export class App {
         route: 'agendar/:id',
         name: 'scheduling',
         moduleId: 'pages/scheduling/scheduling',
+        redirections: {
+          2: 'dashboard',
+          3: 'dashboard',
+          others: false
+        },
         title: 'Agendar',
         nav: false
       },
@@ -91,7 +140,8 @@ export class App {
         name: 'signup',
         moduleId: 'pages/signup/signup',
         title: 'Regístrate',
-        nav: false
+        nav: false,
+        roles: [0]
       },*/
       {
         route: 'estudio/:id',
@@ -121,7 +171,7 @@ export class App {
         nav: true,
         level: 1,
         auth: true,
-        roles: [1]
+        roles: [3]
       },
       {
         route: 'dashboard/favoritos',
@@ -131,17 +181,23 @@ export class App {
         nav: true,
         level: 1,
         auth: true,
-        roles: [1]
+        roles: [3]
       },
       {
         route: 'dashboard/perfil/editar',
         name: 'edit_profile',
         moduleId: 'dashboards/user/edit/edit',
+        modules: {
+          1: '...',
+          2: '...',
+          3: '...',
+          4: '...'
+        },
         title: 'Editar perfil',
         nav: true,
         level: 1,
         auth: true,
-        roles: [3]
+        roles: [1,2,3,4]
       }
     ];
   }
@@ -166,14 +222,12 @@ class RoleStep {
   }
 
   run(instruction, next) {
-    if (instruction.config.auth && instruction.config.roles) {
+    if (instruction.config.roles) {
+      let role = this.session.role.toString();
       let isAllowed = this.session.isAllowed(instruction.config.roles);
       if (!isAllowed) {
         return next.cancel(new Redirect('error'));
       }
-    }
-    if (this.session.authService.isAuthenticated() && instruction.config.name == 'login') {
-      return next.cancel(new Redirect('dashboard'));
     }
     return next();
   }
@@ -189,8 +243,12 @@ class PolymorphicStep {
     let role = this.session.role.toString();
     if (instruction.config.redirections) {
       if (instruction.config.redirections[role] == undefined) {
-        throw new Error('There is no redirection defined for this role.');
-      } else {
+        if (instruction.config.redirections.others == undefined) {
+          throw new Error('There is no redirection defined for this role.');
+        } else if (instruction.config.redirections.others) {
+          return next.cancel(new Redirect(instruction.config.redirections.others));
+        }
+      } else if (instruction.config.redirections[role]) {
         return next.cancel(new Redirect(instruction.config.redirections[role]));
       }
     } else if (instruction.config.modules) {
