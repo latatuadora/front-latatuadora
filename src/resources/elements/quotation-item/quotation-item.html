@@ -1,0 +1,45 @@
+<template>
+  <require from="./quotation-item.css"></require>
+
+  <div class="my-quotation">
+    <div class="my-quotation__img"></div>
+    <div class="my-quotation__block">
+      <div class="my-quotation-flex-row my-quotation__block-user">
+        <div>
+          <img class="my-quotation__block-img" src="src/assets/images/mock/profile-circle.png">
+        </div>
+        <div class="my-quotation__space-block">
+          <div class="my-quotation-flex-row">
+            <h4 class="my-quotation__title">Arturo Martínez</h4>
+          </div>
+          <h5 class="my-quotation__date">10. 08. 2017</h5>
+        </div>
+      </div>
+    </div>
+    <hr class="my-quotation__separator">
+    <div class="my-quotation__block-info">
+      <div class="my-quotation-flex-row my-quotation__vertical-center">
+        <i class="my-quotation__icons fa fa-arrows-alt"></i>
+        <h5 class="my-quotation__measure">12 cm x 12 cm</h5>
+      </div>
+      <div class="my-quotation-flex-row">
+        <div class="my-quotation-flex-row my-quotation__vertical-center">
+          <img class="my-quotation__icon-img" src="src/assets/images/icons/torso.png">
+          <h5 class="my-quotation__measure">Torso</h5>
+        </div>
+        <div class="my-quotation-flex-row my-quotation__vertical-center">
+          <img class="my-quotation__icon-img--space" src="src/assets/images/icons/shape-m.png">
+          <h5 class="my-quotation__measure">Shurado</h5>
+        </div>
+      </div>
+      <div class="my-quotation-flex-row my-quotation__vertical-center">
+        <img class="my-quotation__icon-img" src="src/assets/images/icons/np-dollar.png">
+        <h5 class="my-quotation__price">$ 300 - $500</h5>
+      </div>
+      <div class="my-quotation-flex-row my-quotation__vertical-center space">
+        <input type="checkbox" name="save" id="save">
+        <label for="save"><span class="my-quotation__contact">Contáctalo</span></label>
+      </div>
+    </div>
+  </div>
+</template>
