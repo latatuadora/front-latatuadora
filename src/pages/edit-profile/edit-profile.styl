@@ -1,12 +1,6 @@
 @import '../../assets/styles/vars'
 @import '../../assets/styles/mixins'
-
-.separator:after
-  content ""
-  height 10px
-  width 10px
-  background-color gold
-  border-radius 50px
+@import '../../assets/styles/base'
 
 .content-row
   display flex
@@ -22,10 +16,14 @@
   flex-wrap wrap
   justify-content center
   
+.content-justify
+  display flex
+  justify-content center
+  
 .wdt-53
   width 53%
   
-.v-align
+.hor-align
   display flex
   align-items center
   
@@ -62,14 +60,26 @@
 .mar-hor-18
   margin 18px 0px
   
+.mar-hor-16
+  margin 0px 16px
+  
 .mar-bott-62
   margin-bottom 62px
+  
+.mar-bott-27
+  margin-bottom 27px
   
 .pdd-bott-68
   padding-bottom 68px
   
 .bgc-262626
   background-color #262626
+  
+.separator
+  height 1.8px
+  width 80%
+  margin 40px 0px 20px 0px
+  opacity 0.6
   
 .profile__btn
   display flex
@@ -145,6 +155,134 @@
   align-items center
   justify-content center
   
+.profile__wall
+  position relative
+  width 484px
+  height 92px
+  
+.profile__txtarea
+  width 484px
+  height 92px
+  padding 10px 0px 38px 10px
+  border solid 1px #d9d9d9
+  
+.profile__btn-publish
+  position absolute
+  width: 87.6px;
+  height: 28.6px;
+  border-radius: 2px;
+  border none
+  background-color: #b5a274;
+  right 15px
+  bottom 8px
+  color #fff
+  font-family 'Lato'
+  font-size 9px
+  font-weight $regular
+  
+.profile__post-img
+  margin-right 23px
+  
+.profile__post-user
+  color #1d1c1c
+  font-family 'Lato'
+  font-size 23px
+  font-weight $regular
+  margin 0px
+  
+.profile__post-date
+  color #bdbdbd
+  font-family 'Lato'
+  font-size 13px
+  font-weight $regular
+  margin 0px
+  
+.profile__post-txt
+  color #898989
+  font-family 'Lato'
+  font-size 12px
+  font-weight $regular
+  margin-top 23px
+  
+.profile__hr
+  border solid 1px #e5e5e5
+  width 484px
+  margin 32px 0px
+  
+.profile__info-1
+  position relative
+  width 599px
+  height 112px
+  
+.profile__info-2
+  position relative
+  width 599px
+  height 78px
+  
+.profile__info-3
+  position relative
+  width 599px
+  height 45px
+  
+.profile__info-4
+  position relative
+  width 210px
+  height 45px
+  
+.profile__info-icons
+  position absolute
+  right 12px
+  bottom 12px
+  
+.profile_info-i
+  color #cfcfcf
+  font-size 15px
+  
+.profile__info
+  color #c8c8c8
+  background-color transparent
+  border solid 1px #fff
+  font-family 'Lato'
+  font-size 13px
+  font-weight $regular
+  height 45px
+  padding-left 17px
+  
+.height-112
+  height 112px !important
+  padding 17px 17px 41px 17px
+  
+.height-78
+  height 78px !important
+  padding 17px 17px 39px 17px
+  
+.profile__info-lg
+  width 599px
+  
+.profile__info-sm
+  width 210px
+  
+.profile__studio
+  position relative
+  width 241px
+  height 195px
+
+.profile__img-studio
+  width 241px
+  height 195px
+  
+.profile__icon-studio
+  position absolute
+  top 0px
+  right 0px
+  background-color #b09c6c
+  color #fff
+  padding 6px 10px
+  
+.profile__save
+  background-color #454545 !important
+  margin-bottom 71px
+  
 .vertical-separator
   width 1px
   height 112px
@@ -214,9 +352,37 @@
   &:hover
     .tooltiptext
         visibility visible
+        
+::-webkit-input-placeholder { /* Safari y Chrome */
+   color #9b9b9b
+   font-family 'Lato'
+   font-size 13px
+   font-weight $regular
+}
+ 
+:-moz-placeholder { /* Firefox hasta v18 */
+   color #9b9b9b
+   font-family 'Lato'
+   font-size 13px
+   font-weight $regular 
+}
+ 
+::-moz-placeholder {  /* Firefox 19+ */
+   color #9b9b9b
+   font-family 'Lato'
+   font-size 13px
+   font-weight $regular
+}
+ 
+:-ms-input-placeholder {  /* IE 10+´*/
+   color #9b9b9b
+   font-family 'Lato'
+   font-size 13px
+   font-weight $regular
+}
   
 @media screen and (max-width: 975px)
-  .flex-row
+  .content-column--mobile
     display flex
     flex 1
     flex-direction column
