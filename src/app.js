@@ -92,6 +92,34 @@ export class App {
         moduleId: 'pages/artist/studio',
         title: 'Perfil de estudio',
         nav: false
+      },
+      {
+        route: 'mistatuajes',
+        name: 'my_tattoos',
+        moduleId: 'pages/menu-page-artist/my-tattoos/my-tattoos',
+        title: 'Mis tatuajes',
+        nav: false
+      },
+      {
+        route: 'misflashes',
+        name: 'my_flashes',
+        moduleId: 'pages/menu-page-artist/my-flashes/my-flashes',
+        title: 'Mis Flashes',
+        nav: false
+      },
+      {
+        route: 'miscotizaciones',
+        name: 'my_quotations',
+        moduleId: 'pages/menu-page-artist/my-quotations/my-quotations',
+        title: 'Mis cotizaciones',
+        nav: false
+      },
+      {
+        route: 'editarperfil',
+        name: 'edit_profile',
+        moduleId: 'pages/edit-profile/edit-profile',
+        title: 'Editar perfil',
+        nav: false
       }
     ]);
   }
