@@ -1,0 +1,107 @@
+<template>
+  <require from="resources/elements/menu-artist/menu-artist"></require>
+  <require from="resources/elements/menu-artist/menu-artist.css"></require>
+  <require from="./edit-profile.css"></require>
+  <require from="resources/elements/tattoo-item/tattoo-item"></require>
+  <require from="resources/elements/flash-item/flash-item"></require>
+  <require from="resources/elements/artist-tattoo-item/artist-tattoo-item"></require>
+
+  <div class="content-row content-column--mobile">
+    <menu-artist></menu-artist>
+    <div class="content-column">
+      <div class="background-profile">
+        <img src="src/assets/images/logos/bad-tattoo.png">
+        <h1 class="menu-page-title">${profile[0]} <span class="menu-page-description">${profile[1]}</span></h1>
+        <div class="content-row v-align">
+          <button class="profile__btn">Solicitudes de agendación</button>
+          <div class="vertical-separator"></div>
+          <button class="profile__btn">Cotizaciones</button>
+        </div>
+      </div>
+      <!--SECCIÓN MIS TATUAJES-->
+      <div class="content-column v-align">
+        <h5 class="profile__title-black">Mis tatuajes</h5>
+        <div class="content-row">
+          <tattoo-item repeat.for="item of 3"></tattoo-item>
+        </div>
+        <div class="content-row v-align mar-ver-60-64">
+          <button class="profile__btn mar-right-27">Ver todos</button>
+          <button class="profile__btn">
+            <i class="new-tattoo--mobile__icon fa fa-plus-circle"></i>
+            <p class="new-tattoo--mobile__txt">Agregar nuevo</p>
+          </button>
+        </div>
+      </div>
+      <!--SECCIÓN MIS FLASHES-->
+      <div class="profile-background-flash">
+        <h5 class="profile__title-white">Mis flashes</h5>
+        <div class="content-row">
+          <flash-item repeat.for="item of 3"></flash-item>
+        </div>
+        <div class="content-row v-align mar-ver-60-64">
+          <button class="profile__btn mar-right-27">Ver todos</button>
+          <button class="profile__btn">
+            <i class="new-tattoo--mobile__icon fa fa-plus-circle"></i>
+            <p class="new-tattoo--mobile__txt">Agregar nuevo</p>
+          </button>
+        </div>
+      </div>
+      <!--SECCIÓN MIS REDES SOCIALES-->
+      <div class="content-column v-align mar-bott-62">
+        <h5 class="profile__title-black">Mis redes sociales</h5>
+        <form>
+          <div class="v-align">
+            <img src="src/assets/images/icons/face.png">
+            <input class="profile__input" type="text" name="">
+            <div class="tooltip">
+              <img src="src/assets/images/icons/face.png">
+              <span class="tooltiptext">Ingresa aquí el enlace a tu página</span>
+            </div>
+          </div>
+          <div class="v-align">
+            <img src="src/assets/images/icons/face.png">
+            <input class="profile__input mar-hor-18" type="text" name="">
+            <div class="tooltip">
+              <img src="src/assets/images/icons/face.png">
+              <span class="tooltiptext">Ingresa aquí el enlace a tu página</span>
+            </div>
+          </div>
+          <div class="v-align">
+            <img src="src/assets/images/icons/face.png">
+            <input class="profile__input" type="text" name="">
+            <div class="tooltip">
+              <img src="src/assets/images/icons/face.png">
+              <span class="tooltiptext">Ingresa aquí el enlace a tu página</span>
+            </div>
+          </div>
+        </form>
+      </div>
+      <!--SECCIÓN MIS ESTILOS-->
+      <div class="content-column v-align bgc-262626 pdd-bott-68">
+        <h5 class="profile__title-white">Mis estilos</h5>
+        <p class="profile__p">Selecciona los estilos que <span class="profile__p-span">manejan</span> en el estudio</p>
+        <div class="content-wrap wdt-53">
+          <div repeat.for="tag of tags" class="profile__tag">${tag.name}</div>
+        </div>
+      </div>
+      <!--SECCIÓN MIS TATUADORES-->
+      <div class="content-column v-align pdd-bott-68">
+        <h5 class="profile__title-black">Mis tatuadores</h5>
+        <div class="content-row content-wrap">
+          <artist-tattoo-item repeat.for="item of 6"></artist-tattoo-item>
+        </div>
+        <div class="content-row v-align mar-ver-60-64">
+          <button class="profile__btn mar-right-27">Ver todos</button>
+          <button class="profile__btn">
+            <i class="new-tattoo--mobile__icon fa fa-plus-circle"></i>
+            <p class="new-tattoo--mobile__txt">Agregar nuevo</p>
+          </button>
+        </div>
+      </div>
+      <!--SECCIÓN MI MURO-->
+      <div>
+        <h5 class="profile__title-black">Mi muro</h5>
+      </div>
+    </div>
+  </div>
+</template>
