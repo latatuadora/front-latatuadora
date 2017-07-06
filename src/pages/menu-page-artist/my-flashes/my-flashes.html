@@ -1,0 +1,28 @@
+<template>
+	<require from="./my-flashes.css"></require>
+  <require from="resources/elements/menu-artist/menu-artist.css"></require>
+  <require from="resources/elements/menu-artist/menu-artist"></require>
+  <require from="resources/elements/flash-item/flash-item"></require>
+
+  <div class="flex-row flex-column">
+    <menu-artist></menu-artist>
+    <div class="menu-page-content">
+      <h1 class="menu-page-title">${title[0]} <span class="menu-page-description">${title[1]}</span></h1>
+      <div class="flex-row flash-opt__block">
+        <h3 class=" flash-opt flash-opt__select">Galería</h3>
+        <h3 class="flash-opt flash-opt__normal flash-opt__margin">Vendidos</h3>
+        <h3 class="flash-opt flash-opt__normal">Todos</h3>
+      </div>
+      <div class="menu-page-tattoo">
+        <div class="new-flash">
+          <img src="src/assets/images/etc/group-7.png">
+        </div>
+        <button class="new-tattoo--mobile">
+          <i class="new-tattoo--mobile__icon fa fa-plus-circle"></i>
+          <p class="new-tattoo--mobile__txt">Agregar nuevo flash</p>
+        </button>
+        <flash-item repeat.for="item of 5"></flash-item>
+      </div>
+    </div>
+  </div>
+</template>
