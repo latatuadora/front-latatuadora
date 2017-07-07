@@ -2,14 +2,14 @@
   <require from="./my-quotations.css"></require>
   <require from="resources/elements/menu-artist/menu-artist.css"></require>
   <require from="resources/elements/menu-artist/menu-artist"></require>
-  <require from="resources/elements/quotation-item/quotation-item"></require>
+  <require from="resources/elements/my-quotation-item/my-quotation-item"></require>
 
   <div class="flex-row flex-column">
     <menu-artist></menu-artist>
     <div class="menu-page-content">
       <h1 class="menu-page-title">${quotations[0]} <span class="menu-page-description">${quotations[1]}</span></h1>
       <div class="menu-page-tattoo">
-        <quotation-item repeat.for="item of 5"></quotation-item>
+        <my-quotation-item repeat.for="item of 5"></my-quotation-item>
       </div>
     </div>
   </div>
