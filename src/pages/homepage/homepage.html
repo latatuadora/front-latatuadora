@@ -71,9 +71,9 @@
     </form>
     <div class="homepage-trending__items">
       <div repeat.for="tattoo of tattoos" class="homepage-trending__item cover" css="background-image: url(${tattoo.image})">
-        <a if.bind="$index == 0 || $index == 5" route-href="route: inspirate; params.bind: {style: tattoo.style_name}" class="homepage-trengind__item-layer vertical-center">${tattoo.style_name}</a>
+        <a if.bind="$index == 0 || $index == 5 || $index == 6" route-href="route: inspirate; params.bind: {style: tattoo.style_name}" class="homepage-trengind__item-layer vertical-center">${tattoo.style_name}</a>
         <a if.bind="$index == 1 || $index == 3" route-href="route: inspirate; params.bind: {element: tattoo.element_name}" class="homepage-trengind__item-layer vertical-center">${tattoo.element_name}</a>
-        <a if.bind="$index == 2 || $index == 4" route-href="route: inspirate; params.bind: {part: tattoo.body_part_name}" class="homepage-trengind__item-layer vertical-center">${tattoo.body_part_name}</a>
+        <a if.bind="$index == 2 || $index == 4 || $index == 7" route-href="route: inspirate; params.bind: {part: tattoo.body_part_name}" class="homepage-trengind__item-layer vertical-center">${tattoo.body_part_name}</a>
       </div>
     </div>
   </section>
@@ -90,8 +90,8 @@
     </div>
     <a route-href="route: search_artist; params.bind: {type: 'Estudio'}" class="site-button homepage-featured__main-button">Ver todos los estudios</a>
   </section>
-  <hr class="special-hr homepage-divider">
-  <section class="homepage-want-to">
+  <hr class="special-hr homepage-divider" if.bind="!session.authService.authenticated">
+  <section class="homepage-want-to" if.bind="!session.authService.authenticated">
     <div class="homepage-want-to__inner">
       <div class="homepage-want-to__buttons">
         <button type="button" click.delegate="changeIWantTo(1)" class="site-button ${iWantTo == 1 ? 'active' : ''}">Quiero tatuarme</button>

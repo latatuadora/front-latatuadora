@@ -44,7 +44,13 @@ export class Quotation extends BaseMultiStep {
   }
 
   activate(params) {
-    this.getArtist(params.id);
+    if (params.artist && this.isInteger(params.artist)) {
+      this.getArtist(parseInt(params.artist));
+    }
+  }
+
+  isInteger(value) {
+    return !isNaN(value) && parseInt(value) == value;
   }
 
   getArtist(id) {
@@ -102,16 +108,13 @@ export class Quotation extends BaseMultiStep {
   }
 
   goToResults(results) {
-    let quotationResults = JSON.parse(results.response);
-    quotationResults.hasOwnProperty('message');
-
     for (let route of this.router.routes) {
       if (route.name == this.completeDestination) {
         route.settings.resultsModel = {
           artist: this.shared.artist,
-          minAmount: quotationResults.minAmount,
-          maxAmount: quotationResults.maxAmount,
-          styleText: quotationResults.styleText,
+          minAmount: results.minAmount,
+          maxAmount: results.maxAmount,
+          styleText: results.styleText,
         };
         break;
       }

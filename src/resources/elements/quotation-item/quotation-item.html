@@ -1,45 +1,37 @@
 <template>
   <require from="./quotation-item.css"></require>
-
-  <div class="my-quotation">
-    <div class="my-quotation__img"></div>
-    <div class="my-quotation__block">
-      <div class="my-quotation-flex-row my-quotation__block-user">
-        <div>
-          <img class="my-quotation__block-img" src="src/assets/images/mock/profile-circle.png">
-        </div>
-        <div class="my-quotation__space-block">
-          <div class="my-quotation-flex-row">
-            <h4 class="my-quotation__title">Arturo Martínez</h4>
-          </div>
-          <h5 class="my-quotation__date">10. 08. 2017</h5>
-        </div>
+  <require from="../gallery-item/gallery-item.css"></require>
+  <require from="../../value-converters/currency"></require>
+  <div class="tattoos-grid__element quotations-grid__element">
+    <div class="tattoos-grid__element-thumbnail quotations-grid__element-thumbnail">
+      <div if.one-time="originalSize" class="tattoos-grid__element-thumbnail-img-wrapper" click.delegate="open()">
+        <img class="tattoos-grid__element-thumbnail-img" src="${item.image}" alt="Cotización con ${item.artist_name}">
       </div>
+      <div if.one-time="!originalSize" class="tattoos-grid__element-thumbnail-img-wrapper cover" css="background-image: url(${item.image})"></div>
     </div>
-    <hr class="my-quotation__separator">
-    <div class="my-quotation__block-info">
-      <div class="my-quotation-flex-row my-quotation__vertical-center">
-        <i class="my-quotation__icons fa fa-arrows-alt"></i>
-        <h5 class="my-quotation__measure">12 cm x 12 cm</h5>
-      </div>
-      <div class="my-quotation-flex-row">
-        <div class="my-quotation-flex-row my-quotation__vertical-center">
-          <img class="my-quotation__icon-img" src="src/assets/images/icons/torso.png">
-          <h5 class="my-quotation__measure">Torso</h5>
+    <div class="tattoos-grid__element-info-wrapper quotations-grid__element-info">
+      <a route-href="route: studio; params.bind: {id: item.artist.id}">
+        <img class="quotations-grid__element-logo" src="${item.artist.logo}" alt="${item.artist.name}">
+      </a>
+      <div class="quotations-grid__element-info-bottom">
+        <div class="quotations-grid__element-characteristic">
+          <img src="/src/assets/images/icons/size.png" alt="Medidas" />
+          <span>${item.dimensionsX} x ${item.dimensionsY}</span>
         </div>
-        <div class="my-quotation-flex-row my-quotation__vertical-center">
-          <img class="my-quotation__icon-img--space" src="src/assets/images/icons/shape-m.png">
-          <h5 class="my-quotation__measure">Shurado</h5>
+        <div class="quotations-grid__element-characteristic half-basis">
+          <img src="/src/assets/images/icons/body.png" alt="Parte del cuerpo" />
+          <span>${item.bodyPart.name}</span>
+        </div>
+        <div class="quotations-grid__element-characteristic half-basis">
+          <img src="/src/assets/images/icons/style.png" alt="Estilo" />
+          <span>${item.style.name}</span>
+        </div>
+        <div class="quotations-grid__element-characteristic">
+          <img src="/src/assets/images/icons/price.png" alt="Precio" />
+          <span>${item.min|currency:'':true} - ${item.max|currency:'':true}</span>
         </div>
       </div>
-      <div class="my-quotation-flex-row my-quotation__vertical-center">
-        <img class="my-quotation__icon-img" src="src/assets/images/icons/np-dollar.png">
-        <h5 class="my-quotation__price">$ 300 - $500</h5>
-      </div>
-      <div class="my-quotation-flex-row my-quotation__vertical-center space">
-        <input type="checkbox" name="save" id="save">
-        <label for="save"><span class="my-quotation__contact">Contáctalo</span></label>
-      </div>
+      <a route-href="route: scheduling; params.bind: {id: item.artist.id}" class="site-button quotations-grid__element-button">Agendar cita</a>
     </div>
   </div>
 </template>
