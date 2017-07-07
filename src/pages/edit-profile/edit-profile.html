@@ -12,17 +12,18 @@
       <div class="background-profile">
         <img src="src/assets/images/logos/bad-tattoo.png">
         <h1 class="menu-page-title">${profile[0]} <span class="menu-page-description">${profile[1]}</span></h1>
-        <div class="content-row hor-align">
+        <div class="content-row hor-align content-column--mobile mar-lf-negative">
           <button class="profile__btn">Solicitudes de agendación</button>
           <div class="vertical-separator"></div>
+          <hr class="special-hr separator hide-desktop separator--mobile">
           <button class="profile__btn">Cotizaciones</button>
         </div>
       </div>
       <!--SECCIÓN MIS TATUAJES-->
       <div class="content-column hor-align">
         <h5 class="profile__title-black">Mis tatuajes</h5>
-        <div class="content-row">
-          <tattoo-item repeat.for="item of 3"></tattoo-item>
+        <div class="content-row content-column--mobile wdt-100">
+          <tattoo-item repeat.for="item of 3""></tattoo-item>
         </div>
         <div class="content-row hor-align mar-ver-60-64">
           <button class="profile__btn mar-right-27">Ver todos</button>
@@ -35,7 +36,7 @@
       <!--SECCIÓN MIS FLASHES-->
       <div class="profile-background-flash">
         <h5 class="profile__title-white">Mis flashes</h5>
-        <div class="content-row">
+        <div class="content-row content-column--mobile wdt-100">
           <flash-item repeat.for="item of 3"></flash-item>
         </div>
         <div class="content-row hor-align mar-ver-60-64">
@@ -49,38 +50,70 @@
       <!--SECCIÓN MIS REDES SOCIALES-->
       <div class="content-column hor-align mar-bott-62">
         <h5 class="profile__title-black">Mis redes sociales</h5>
-        <form>
+        <form class="wdt-100 pdd-hor-24">
           <div class="hor-align">
             <img src="src/assets/images/icons/face.png">
             <input class="profile__input" type="text" name="">
-            <div class="tooltip">
-              <img src="src/assets/images/icons/face.png">
+            <img src="src/assets/images/icons/info.png">
+            <div class="tooltip">              
               <span class="tooltiptext">Ingresa aquí el enlace a tu página</span>
             </div>
           </div>
           <div class="hor-align">
-            <img src="src/assets/images/icons/face.png">
+            <img src="src/assets/images/icons/insta.png">
             <input class="profile__input mar-hor-18" type="text" name="">
-            <div class="tooltip">
-              <img src="src/assets/images/icons/face.png">
+            <img src="src/assets/images/icons/info.png">
+            <div class="tooltip">              
               <span class="tooltiptext">Ingresa aquí el enlace a tu página</span>
             </div>
           </div>
           <div class="hor-align">
-            <img src="src/assets/images/icons/face.png">
+            <img src="src/assets/images/icons/periscope.png">
             <input class="profile__input" type="text" name="">
-            <div class="tooltip">
-              <img src="src/assets/images/icons/face.png">
+            <img src="src/assets/images/icons/info.png">
+            <div class="tooltip">              
               <span class="tooltiptext">Ingresa aquí el enlace a tu página</span>
             </div>
           </div>
         </form>
       </div>
+
+
+
+
+
+      <div class="content-column hor-align mar-bott-62">
+        <h5 class="profile__title-black">Mis redes sociales</h5>
+        <form class="wdt-100 pdd-hor-24">
+          <div class="content-row hor-align">
+            <div class="content-column content-justify hor-align">
+              <img src="src/assets/images/icons/face.png">
+              <img src="src/assets/images/icons/insta.png">
+              <img src="src/assets/images/icons/periscope.png">
+            </div>
+            <div class="content-column content-justify">
+              <input class="profile__input" type="text" name="">
+              <input class="profile__input mar-hor-18" type="text" name="">
+              <input class="profile__input" type="text" name="">
+            </div>
+            <div class="content-column content-justify">
+              <img src="src/assets/images/icons/info.png">
+              <img src="src/assets/images/icons/info.png">
+              <img src="src/assets/images/icons/info.png">
+            </div>
+          </div>
+        </form>
+      </div>
+
+
+
+
+
       <!--SECCIÓN MIS ESTILOS-->
       <div class="content-column hor-align bgc-262626 pdd-bott-68">
         <h5 class="profile__title-white">Mis estilos</h5>
-        <p class="profile__p">Selecciona los estilos que <span class="profile__p-span">manejan</span> en el estudio</p>
-        <div class="content-wrap wdt-53">
+        <p class="profile__p hide-mobile">Selecciona los estilos que <span class="profile__p-span">manejan</span> en el estudio</p>
+        <div class="content-wrap wdt-53 wdt-100">
           <div repeat.for="tag of tags" class="profile__tag">${tag.name}</div>
         </div>
       </div>
@@ -109,7 +142,7 @@
           <button class="profile__btn-publish">Publicar</button>
         </div>
         <hr class="profile__hr">
-        <div class="content-column" style="width: 484px;">
+        <div class="content-column profile__post">
           <div class="content-row hor-align">
             <div>
               <img class="profile__post-img" src="src/assets/images/mock/profile-post.png">
@@ -124,7 +157,7 @@
       </div>
       <!--SECCIÓN DATOS DEL ESTUDIO-->
       <div class="profile-background-flash pdd-bott-68">
-        <h5 class="profile__title-white">Descripción del <span class="menu-page-description">estudio</span></h5>
+        <h5 class="profile__title-white font-23">Descripción del <span class="menu-page-description">estudio</span></h5>
         <div class="profile__info-1">
           <textarea class="profile__info profile__info-lg height-112" value="${description}"></textarea>
           <div class="profile__info-icons">
@@ -132,7 +165,7 @@
             <i class="profile_info-i fa fa-trash"></i>
           </div>
         </div>
-        <h5 class="profile__title-white">Dirección del <span class="menu-page-description">estudio</span></h5>
+        <h5 class="profile__title-white font-23">Dirección del <span class="menu-page-description">estudio</span></h5>
         <div class="profile__info-2 mar-bott-27">
           <textarea class="profile__info profile__info-lg height-78" value="${address}"></textarea>
           <div class="profile__info-icons">
@@ -143,17 +176,17 @@
         <div class="profile__info-3">
           <input class="profile__info profile__info-lg" type="" placeholder="Link de Google Maps aquí" name="">
         </div>
-        <h5 class="profile__title-white">Teléfonos del <span class="menu-page-description">estudio</span></h5>
-        <div class="content-row">
-          <div class="profile__info-4 mar-right-27">
+        <h5 class="profile__title-white font-23">Teléfonos del <span class="menu-page-description">estudio</span></h5>
+        <div class="content-row content-column--mobile">
+          <div class="profile__info-4 mar-right-27 mar-bott-13">
             <input class="profile__info profile__info-sm" type="" placeholder="Teléfono fijo" name="">
-            <div class="profile__info-icons">
+            <div class="profile__info-icons pencil">
               <i class="profile_info-i fa fa-pencil"></i>
             </div>
           </div>
           <div class="profile__info-4">
             <input class="profile__info profile__info-sm" type="" placeholder="Télefono Celular" name="">
-            <div class="profile__info-icons">
+            <div class="profile__info-icons pencil">
               <i class="profile_info-i fa fa-pencil"></i>
             </div>
           </div>
@@ -195,7 +228,7 @@
         <hr class="special-hr separator">
       </div>
       <!--SALVAR CAMBIOS-->
-      <div style="display: flex; justify-content: flex-end; margin-right: 17%;">
+      <div class="profile__content-save">
         <button class="profile__btn profile__save">Guardar cambios</button>
       </div>
     </div>
