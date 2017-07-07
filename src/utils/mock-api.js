@@ -15,6 +15,20 @@ class Schedule {
   }
 }
 
+class Quotation {
+  constructor(id) {
+    this.id = id;
+    this.artist = featuredArtists[getRandom(0, 7)];
+    this.image = '/src/assets/images/mock/tattoo' + getRandom(1, 8) + '.png';
+    this.dimensionsY = getRandom(1, 25) + ' cm';
+    this.dimensionsX = getRandom(1, 25) + ' cm';
+    this.style = styles[2];
+    this.bodyPart = bodyParts.front[2];
+    this.min = getRandom(300, 9000);
+    this.max = getRandom(this.min, 9000);
+  }
+}
+
 class Evaluation {
   constructor() {
     this.author = 'Mariela Tinoco S.';
@@ -224,10 +238,12 @@ let bodyParts = {
 let tattoos = [
   new Tattoo(1, 'Brazo Robot', 'Oreja', 'Dark'),
   new Tattoo(2, 'Brazo Robot', 'Pierna', 'Dark'),
-  new Tattoo(3, 'Brazo Robot', 'Oreja', 'Dark'),
+  new Tattoo(3, 'Brazo Robot', 'Oreja', 'Old School'),
   new Tattoo(4, 'Brazo Robot', 'Oreja', 'Dark'),
-  new Tattoo(5, 'Brazo Robot', 'Oreja', 'Religioso'),
-  new Tattoo(6, 'Brazo Robot', 'Oreja', 'Religioso')
+  new Tattoo(5, 'Brazo Robot', 'Rodilla', 'Old School'),
+  new Tattoo(6, 'Brazo Robot', 'Oreja', 'Religioso'),
+  new Tattoo(7, 'Brazo Robot', 'Rodilla', 'Religioso'),
+  new Tattoo(8, 'Brazo Robot', 'Oreja', 'Religioso')
 ];
 
 let featuredArtists = [
@@ -333,6 +349,14 @@ let elements = [
     name: 'Femenino',
     id: 1
   }
+];
+
+let quotations = [
+  new Quotation(1),
+  new Quotation(2),
+  new Quotation(3),
+  new Quotation(4),
+  new Quotation(5)
 ];
 
 export class MockAPI {
@@ -449,4 +473,17 @@ export class MockAPI {
   }
 
   getArtists = this.getFeaturedArtists;
+
+  getQuotations(params) {
+    this.isRequesting = true;
+
+    return new Promise(resolve => {
+      setTimeout(() => {
+        resolve(quotations);
+        this.isRequesting = false;
+      }, latency)
+    });
+  }
+
+  getFavourites = this.getTattoos;
 }

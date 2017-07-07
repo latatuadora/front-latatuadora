@@ -1,5 +1,6 @@
+import {bindable} from 'aurelia-framework';
+
 export class QuotationItem {
-  constructor () {
-    console.log("Se muestra el item de cotización");
-  }
+  @bindable item;
+  @bindable originalSize = true;
 }

@@ -1,0 +1,226 @@
+@import '../../../assets/styles/vars'
+@import '../../../assets/styles/mixins'
+
+.user__edit
+  padding-top 59px
+  padding-bottom 141px
+  width 81.56%
+  max-width 951px
+  text-align center
+  center-block()
+
+  .input-wrapper
+    flex-wrap wrap
+    max-width 396.5px
+    center-block()
+
+    label
+      display none
+
+  .input-errors
+    flex-basis 100%
+    text-align left
+    padding-left 52px
+
+  .input-error
+    margin-top 8px
+    font-size 14px
+
+  .site-input
+    color #c3c3c3
+    font-size 16px
+    letter-spacing -0.2px
+    padding 14px 12px
+    flex-grow 1
+    max-width calc(100% - 52px)
+
+.user__edit-title
+  rfont-size 35px 767px 28px
+  letter-spacing -0.3px
+
+.user__edit-photo-wrapper
+  margin-top 49px
+  width 146px
+  height 146px
+  position relative
+  center-block()
+
+  input
+    position absolute
+    top 0
+    left 0
+    width 100%
+    height 100%
+    opacity 0
+    cursor pointer
+
+.user__edit-photo-label
+  margin-top 31px
+  display inline-block
+  padding 0 0.5px 1px 0.5px
+  font-size 13px
+  simple-border('bottom', 1px, $dustColor)
+
+.user__edit-data
+  padding-top 20px
+
+  .input-wrapper
+    margin-top 22px
+
+    &:nth-child(1) img
+      width 30px
+
+    &:nth-child(2) img
+      width 26.7px
+      margin-left 1.75px
+
+    &:nth-child(3) img
+      width 25px
+      margin-left 2.5px
+
+    &:nth-child(4) img
+      width 16.5px
+      margin-left 7.25px
+
+.user__edit-tattooed-span
+  display inline-block
+  margin-top 38px
+  font-size 18px
+  color #1d1c1c
+
+.user__edit-tattooed
+  color #1d1c1c
+  display flex
+  justify-content space-between
+  margin-top 28px
+  width 111px
+  font-size 16px
+  letter-spacing -0.2px
+  center-block()
+
+  .site-checkbox
+    label::before
+      height 13px
+      width 13px
+      margin-right 9px
+
+.user__edit-button
+  margin-top 46px
+  font-size 11px
+  letter-spacing 0.5px
+  padding 11.5px
+  width 187px
+
+.user__edit-hr
+  margin-top 83px
+  width 93.48%
+
+.user__edit-password
+  margin-top 44px
+
+  .site-title
+    padding-bottom 12px
+    font-size 18px
+
+  .input-wrapper
+    margin-top 26px
+
+    img
+      width 16.5px
+      margin-left 10px
+
+#edit-profile-modal-content .modal-inner
+  width 86%
+  max-width 489px
+  center-block()
+
+.user__edit-modal-header
+  text-align right
+
+.user__edit-modal-close
+  width 26px
+
+.user__edit-modal-content
+  background #1d1c1c
+  padding 64px 46px 83px 46px
+  margin-top 29px
+  text-align center
+
+  img
+    width 58px
+
+.user__edit-modal-text
+  color white
+  font-size 19px
+  margin-top 38px
+  padding-bottom 22px
+  letter-spacing -0.3px
+  simple-border('bottom', 1px, $dustColor)
+
+@media screen and (max-width: 767px)
+  .user__edit
+    padding-top 43px
+    padding-bottom 136px
+
+  .user__edit-photo-label
+    margin-top 25px
+
+  .user__edit-data
+    padding-top 37px
+
+    .input-wrapper
+      margin-top 26px
+
+  .user__edit-hr
+    margin-top 36px
+
+  .user__edit-password
+    margin-top 46px
+
+    .site-title
+      padding-bottom 18px
+
+  #edit-profile-modal-content .modal-inner
+    max-width 360px
+
+  .user__edit-modal-close
+    width 23px
+
+  .user__edit-modal-content
+    background #1d1c1c
+    padding 32px 30px 46px 30px
+    margin-top 16px
+    text-align center
+
+    img
+      width 30px
+
+  .user__edit-modal-text
+    font-size 14px
+    margin-top 18px
+    line-height 1.21
+    padding-bottom 17px
+
+@media screen and (max-width: 479px)
+  .user__edit-data
+    padding-top 57px
+
+  .user__edit-data .input-wrapper,
+  .user__edit-password .input-wrapper
+    img
+      display none
+
+    .site-input
+      padding 14px 17px
+      max-width initial
+
+    label
+      flex-basis 100%
+      font-size 19px
+      letter-spacing -0.2px
+      text-align left
+      margin-bottom 10px
+      display block
+
+    .input-errors
+      padding-left 0

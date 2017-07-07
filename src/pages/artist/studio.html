@@ -3,6 +3,8 @@
   <require from="../../resources/attributes/swiper-carousel"></require>
   <require from="../../resources/value-converters/date"></require>
   <require from="../../resources/elements/gallery-item/gallery-item"></require>
+  <require from="../../resources/attributes/simple-modal"></require>
+  <require from="../../resources/elements/gallery-modal/gallery-modal"></require>
   <require from="../../resources/elements/flash-square-item/flash-square-item"></require>
   <section class="studio__hero cover">
     <img src="${studio.logo}" alt="Estudio" class="studio__logo">
@@ -19,10 +21,11 @@
     </div>
   </section>
   <hr class="special-hr studio__hr">
+  <gallery-modal id="tattoos-modal" simple-modal="show.two-way: showModal" css="${showModal ? 'display: block' : 'display: none'}" item.bind="currentItem" go-next.call="changeItem(true)" go-prev.call="changeItem(false)" close.call="closeModal()"></gallery-modal>
   <h2 class="studio__subtitle studio__tattoos-subtitle">Galería de tatuajes</h2>
   <div class="studio__tattoos studio__carousel" swiper-carousel="init.bind: tattoosCarousel.init; options.one-time: tattoosCarousel.options">
     <div class="swiper-wrapper">
-      <gallery-item class="swiper-slide" repeat.for="item of tattoos" item.bind="item" original-size.one-time="false"></gallery-item>
+      <gallery-item class="swiper-slide" repeat.for="item of tattoos" item.bind="item" original-size.one-time="false" open.call="openModal($index)"></gallery-item>
     </div>
     <div class="swiper-pagination"></div>
     <img class="swiper-button-prev" src="/src/assets/images/icons/arrow-golden-left.svg">
@@ -69,8 +72,10 @@
       <div class="studio__artists-carousel studio__carousel" swiper-carousel="init.bind: artistsCarousel.init; options.one-time: artistsCarousel.options">
         <div class="swiper-wrapper">
           <div class="studio__artist-item swiper-slide" repeat.for="item of studio.artists">
-            <h3 class="studio__artist-name">${item.name}</h3>
-            <img class="studio__artist-image" src="${item.imageURL}" alt="${item.name}">
+            <a route-href="route: studio; params.bind: {id: item.id}">
+              <h3 class="studio__artist-name">${item.name}</h3>
+              <img class="studio__artist-image" src="${item.imageURL}" alt="${item.name}">
+            </a>
           </div>
         </div>
         <div class="swiper-pagination"></div>

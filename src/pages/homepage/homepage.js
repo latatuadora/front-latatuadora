@@ -1,12 +1,14 @@
-import {MockAPI} from 'utils/mock-api';
 import {inject} from 'aurelia-framework';
 import {Router} from 'aurelia-router';
+import {MockAPI} from 'utils/mock-api';
+import {Session} from 'utils/session';
 
-@inject(MockAPI, Router)
+@inject(MockAPI, Router, Session)
 export class Homepage {
-  constructor(api, router) {
+  constructor(api, router, session) {
     this.api = api;
     this.router = router;
+    this.session = session;
     this.iWantTo = 1;
     this.featuredOption = 1;
     this.featuredArtists = [];

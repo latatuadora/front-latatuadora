@@ -48,5 +48,8 @@ export class SimpleModalCustomAttribute {
   detached() {
     let modal = document.getElementById(this.containerId);
     modal.parentNode.removeChild(modal);
+    this.modal.destroy();
+    document.getElementsByTagName('body')[0].classList.remove('vanilla-modal');
+    document.getElementsByTagName('body')[0].removeAttribute('data-current-modal');
   }
 }
