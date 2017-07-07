@@ -3,8 +3,8 @@ export class BaseGallery {
     this.api = api;
     this.apiMethod = 'getItems';
     this.params = {
-      style: '',
-      element: '',
+      style: null,
+      element: null,
       artist: null,
       page: 1
     };
@@ -12,9 +12,9 @@ export class BaseGallery {
       styles: [],
       elements: []
     };
-    this.activeIds = {
-      style: -1,
-      element: -1
+    this.activeElements = {
+      style: null,
+      element: null
     };
     this.showDropdowns = {
       styles: false,
@@ -42,12 +42,10 @@ export class BaseGallery {
       this.artist = this.getArtist(params.artist);
     }
     if (params.style) {
-      this.params.style = params.style;
-      this.activeIds.style = -1;
+      this.params.style = parseInt(params.style);
     }
     if (params.element) {
-      this.params.element = params.element;
-      this.activeIds.element = -1;
+      this.params.element = parseInt(params.element);
     }
   }
 
@@ -75,8 +73,8 @@ export class BaseGallery {
     this.api.getStyles()
       .then(styles => {
         styles.forEach(style => {
-          if (this.params.style == style.name) {
-            this.activeIds.style = style.id;
+          if (this.params.style == style.id) {
+            this.activeElements.style = style;
           }
         });
         this.lists.styles = styles;
@@ -87,8 +85,8 @@ export class BaseGallery {
     this.api.getElements()
       .then(elements => {
         elements.forEach(element => {
-          if (this.params.element == element.name) {
-            this.activeIds.element = element.id;
+          if (this.params.element == element.id) {
+            this.activeElements.element = element;
           }
         });
         this.lists.elements = elements;
@@ -96,18 +94,18 @@ export class BaseGallery {
   }
 
   setStyle = style => {
-    if (style.name !== this.params.style) {
-      this.params.style = style.name;
-      this.activeIds.style = style.id;
+    if (style.id !== this.params.style) {
+      this.params.style = style.id;
+      this.activeElements.style = style;
       this.filterItems();
       this.allEmpty = false;
     }
   }
 
   setElement = element => {
-    if (element.name !== this.params.element) {
-      this.params.element = element.name;
-      this.activeIds.element = element.id;
+    if (element.id !== this.params.element) {
+      this.params.element = element.id;
+      this.activeElements.element = element;
       this.filterItems();
       this.allEmpty = false;
     }
@@ -115,14 +113,14 @@ export class BaseGallery {
 
   resetParams() {
     this.params = {
-      style: '',
-      element: '',
+      style: null,
+      element: null,
       artist: null,
       page: 1
     };
-    this.activeIds = {
-      style: -1,
-      element: -1
+    this.activeElements = {
+      style: null,
+      element: null
     };
     this.allEmpty = true;
   }
@@ -140,17 +138,34 @@ export class BaseGallery {
   }
 
   loadMore() {
-    if (!this.showLoader) {
+    if (!this.showLoader && this.params.page != null) {
       this.showLoader = true;
-      this.api[this.apiMethod](this.params, this.params.page)
+      this.api[this.apiMethod](this.params)
         .then(items => {
           items.forEach(item => {
-            this.items.push(item);
+            this.addItem(item);
           });
           this.showLoader = false;
-          this.params.page += 1;
+          if (items.length) {
+            this.params.page += 1;
+          } else {
+            this.params.page = null;
+          }
         });
     }
+  }
+
+  addItem(item) {
+    if (item.sellImageUrl && !item.sellImageUrl.includes('http')) {
+      item.sellImageUrl = '/src/assets/images/mock/tattoo3.png';
+    }
+    if (!item.image || !item.image.includes('http')) {
+      item.image = '/src/assets/images/mock/tattoo3.png';
+    }
+    if (!item.artist_picture) {
+      item.artist_picture = '/src/assets/images/mock/artist3.png';
+    }
+    this.items.push(item);
   }
 
   openModal(index) {

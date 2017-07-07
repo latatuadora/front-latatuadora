@@ -4,18 +4,18 @@
   <require from="../../value-converters/currency"></require>
   <div class="artist-item flash-square-item flip-card" ref="artistCard">
     <div class="artist-item__inner flip-card__inner">
-      <div class="artist-item__front flip-card__front cover" css="background-image: url(${item.image})"></div>
-      <div class="flash-square-item__back flip-card__back cover" css="background-image: url(${item.image})">
+      <div class="artist-item__front flip-card__front cover" css="background-image: url(${item.sellImageUrl})"></div>
+      <div class="flash-square-item__back flip-card__back cover" css="background-image: url(${item.sellImageUrl})">
         <div class="artist-item__back-content">
           <button class="fa fa-heart like-button artist-item__top-like-button"></button>
           <button class="fa fa-share like-button artist-item__top-share-button"></button>
           <div class="flash-square-item__element-price">
             <i class="fa fa-usd circle"></i>
-            <span>${item.price | currency: item.currency}</span>
+            <span>${item.amount | currency: 'mxn'}</span>
           </div>
           <div class="flash-square-item__element-dimensions">
             <i class="fa fa-arrows-alt"></i>
-            <span>${item.dimensions.length} x ${item.dimensions.width}</span>
+            <span>${item.dimensionsY} x ${item.dimensionsX}</span>
           </div>
           <button class="fa fa-heart like-button artist-item__bottom-like-button">${item.votes} Likes</button>
           <div class="artist-item__tags">

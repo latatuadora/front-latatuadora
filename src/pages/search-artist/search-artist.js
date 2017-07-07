@@ -1,24 +1,24 @@
 import {inject} from 'aurelia-framework';
-import {MockAPI} from 'utils/mock-api';
+import {WebAPI} from 'utils/web-api';
 import {BaseGallery} from 'utils/base-gallery';
 
-@inject(MockAPI)
+@inject(WebAPI)
 export class SearchArtist extends BaseGallery {
   constructor(api) {
     super(api);
     this.apiMethod = 'getArtists';
     this.params = {
-      style: '',
-      type: '',
+      style: null,
+      type: null,
       page: 1
     };
     this.lists = {
       styles: [],
       types: []
     };
-    this.activeIds = {
-      style: -1,
-      type: -1
+    this.activeElements = {
+      style: null,
+      type: null
     };
     this.showDropdowns = {
       styles: false,
@@ -28,12 +28,10 @@ export class SearchArtist extends BaseGallery {
 
   checkParams(params) {
     if (params.style) {
-      this.params.style = params.style;
-      this.activeIds.style = -1;
+      this.params.style = parseInt(params.style);
     }
     if (params.type) {
-      this.params.type = params.type;
-      this.activeIds.type = -1;
+      this.params.type = parseInt(params.type);
     }
   }
 
@@ -53,30 +51,30 @@ export class SearchArtist extends BaseGallery {
         name: 'Freelance'
       }
     ];
-    if (this.params.type == this.lists.types[0].name) {
-      this.activeIds.type = 0;
-    } else if (this.params.type == this.lists.types[1].name) {
-      this.activeIds.type = 1;
+    if (this.params.type == this.lists.types[0].id) {
+      this.activeElements.type = this.lists.types[0]
+    } else if (this.params.type == this.lists.types[1].id) {
+      this.activeElements.type = this.lists.types[1];
     }
   }
 
   setType = type => {
-    if (type.name !== this.params.type) {
-      this.params.type = type.name;
-      this.activeIds.type = type.id;
+    if (type.id !== this.params.type) {
+      this.params.type = type.id;
+      this.activeElements.type = type;
       this.filterItems();
     }
   }
 
   resetParams() {
     this.params = {
-      style: '',
-      type: '',
+      style: null,
+      type: null,
       page: 1
     };
-    this.activeIds = {
-      style: -1,
-      type: -1
+    this.activeElements = {
+      style: null,
+      type: null
     };
   }
 }

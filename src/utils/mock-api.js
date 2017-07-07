@@ -5,6 +5,8 @@ function getRandom(min, max, precision = 0) {
   return parseFloat(random.toFixed(precision));
 }
 
+let latency = 200;
+
 class Schedule {
   constructor(id) {
     this.id = id;
@@ -23,14 +25,15 @@ class Quotation {
     this.dimensionsY = getRandom(1, 25) + ' cm';
     this.dimensionsX = getRandom(1, 25) + ' cm';
     this.style = styles[2];
-    this.bodyPart = bodyParts.front[2];
+    this.bodyPart = groupedBodyParts.front[2];
     this.min = getRandom(300, 9000);
     this.max = getRandom(this.min, 9000);
   }
 }
 
 class Evaluation {
-  constructor() {
+  constructor(id) {
+    this.id = id;
     this.author = 'Mariela Tinoco S.';
     this.stars = getRandom(0, 5, 1);
     this.content = 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nemo distinctio harum quo expedita id. Illum maiores rerum in quidem dolorem, quis, neque animi non odio, laboriosam eveniet voluptates atque molestias.';
@@ -38,9 +41,9 @@ class Evaluation {
 }
 
 class Post {
-  constructor(artist) {
-    this.author = artist.name;
-    this.authorImage = artist.imageURL;
+  constructor(id, artistId) {
+    this.id = id;
+    this.author = artistId;
     this.publicationDate = new Date().toString();
     this.content = 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nemo distinctio harum quo expedita id. Illum maiores rerum in quidem dolorem, quis, neque animi non odio, laboriosam eveniet voluptates atque molestias.';
   }
@@ -54,7 +57,7 @@ class Artist {
     this.votes = getRandom(0, 100);
     this.location = 'Roma, Ciudad de México';
     this.tags = ['Tag1', 'Tag2'];
-    this.imageURL = '/src/assets/images/mock/artist' + id + '.png';
+    this.image = '/src/assets/images/mock/artist' + id + '.png';
     this.logo = '/src/assets/images/mock/studioname.png';
     this.images = [
       '/src/assets/images/mock/studio-carousel.jpg',
@@ -65,16 +68,16 @@ class Artist {
       '/src/assets/images/mock/studio-carousel.jpg'
     ];
     this.evaluations = [
-      new Evaluation(),
-      new Evaluation(),
-      new Evaluation(),
-      new Evaluation()
+      1,
+      2,
+      3,
+      4
     ];
     this.posts = [
-      new Post(this),
-      new Post(this),
-      new Post(this),
-      new Post(this)
+      1,
+      2,
+      3,
+      4
     ];
     this.schedules = [
       new Schedule(1),
@@ -85,155 +88,154 @@ class Artist {
   }
 }
 
+class Freelancer extends Artist {
+  constructor(id) {
+    super(id);
+  }
+}
+
+class StudioArtist extends Artist {
+  constructor(id) {
+    super(id);
+  }
+}
+
 class Studio extends Artist {
   constructor(id) {
     super(id);
     this.artists = [
-      new Artist(id + 1),
-      new Artist(id + 2),
-      new Artist(id + 3),
-      new Artist(id + 4)
-    ]
+      id + 1,
+      id + 2,
+      id + 3,
+      id + 4
+    ];
+  }
+}
+
+class Element {
+  constructor(id, name) {
+    this.id = id;
+    this.name = name;
+  }
+}
+
+class Style extends Element {
+  constructor(id, name, image) {
+    super(id, name);
+    this.image = image;
+  }
+}
+
+class BodyPart extends Style {
+  constructor(id, name, image) {
+    super(id, name, image);
   }
 }
 
 class Tattoo {
-  constructor(id, element, part, style) {
+  constructor(id) {
     this.id = id;
-    this.description = 'Description';
     this.votes = getRandom(1, 100);
     this.tags = ['tag1', 'tag2'];
-    this.element_name = element;
-    this.body_part_name = part,
-    this.style_name = style,
     this.image = '/src/assets/images/mock/tattoo' + id + '.png';
-    this.artist_name = 'Enrique Lopez';
-    this.artist_picture = '/src/assets/images/mock/artist1.png';
-    this.artist_id = getRandom(1, 8);
-    this.artist_location = 'Col. Roma';
-    this.artist_rating = getRandom(0, 5, 1);
-    this.price = getRandom(300, 4000);
-    this.currency = 'mxn';
-    this.dimensions = {
-      length: getRandom(1, 25) + ' cm',
-      width: getRandom(1, 25) + ' cm'
-    };
+    this.dimensionsX = getRandom(1, 25);
+    this.dimensionsY = getRandom(1, 25);
+    this.element = id;
+    this.partbody = id;
+    this.style = id;
+    this.artistId = getRandom(1, 8);
+    this.freelancerId = null;
   }
 }
 
-let latency = 200;
+class Flash extends Tattoo {
+  constructor(id) {
+    super(id);
+    this.realImage = this.image;
+    this.sellImage = this.image;
+    this.amount = getRandom(300, 2500);
+    this.significant = 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.';
+    this.copyright = true;
+    this.sell = true;
+    this.sizeId = id;
+  }
+}
 
-let bodyParts = {
+let bodyParts = [
+  new BodyPart(1, 'Espalda', '/src/assets/images/mock/bodypart1.png'),
+  new BodyPart(2, 'Hombros', '/src/assets/images/mock/bodypart2.png'),
+  new BodyPart(3, 'Oreja', '/src/assets/images/mock/bodypart3.png'),
+  new BodyPart(4, 'Manos', '/src/assets/images/mock/bodypart4.png'),
+  new BodyPart(5, 'Pies', '/src/assets/images/mock/bodypart5.png'),
+  new BodyPart(6, 'Muñeca', '/src/assets/images/mock/bodypart6.png'),
+  new BodyPart(7, 'Pantorrilla', '/src/assets/images/mock/bodypart7.png'),
+  new BodyPart(8, 'Rodilla', '/src/assets/images/mock/bodypart8.png'),
+  new BodyPart(9, 'Brazos', '/src/assets/images/mock/bodypart9.png'),
+  new BodyPart(10, 'Pierna', '/src/assets/images/mock/bodypart10.png'),
+  new BodyPart(11, 'Cuello', '/src/assets/images/mock/bodypart11.png'),
+  new BodyPart(12, 'Dedos', '/src/assets/images/mock/bodypart12.png'),
+  new BodyPart(13, 'Abdomen', '/src/assets/images/mock/bodypart13.png'),
+  new BodyPart(14, 'Cachete izquierdo', '/src/assets/images/mock/bodypart14.png'),
+  new BodyPart(15, 'Cachete derecho', '/src/assets/images/mock/bodypart15.png'),
+  new BodyPart(16, 'Frente', '/src/assets/images/mock/bodypart16.png'),
+  new BodyPart(17, 'Espinilla', '/src/assets/images/mock/bodypart17.png'),
+  new BodyPart(18, 'Pecho', '/src/assets/images/mock/bodypart18.png'),
+  new BodyPart(19, 'Espalda baja', '/src/assets/images/mock/bodypart19.png'),
+  new BodyPart(20, 'Espalda superior', '/src/assets/images/mock/bodypart20.png'),
+  new BodyPart(21, 'Nuca', '/src/assets/images/mock/bodypart21.png')
+];
+
+let groupedBodyParts = {
   front: [
-    {
-      id: 3,
-      name: 'Oreja',
-      image: '/src/assets/images/mock/bodypart3.png'
-    },
-    {
-      id: 4,
-      name: 'Manos',
-      image: '/src/assets/images/mock/bodypart4.png'
-    },
-    {
-      id: 5,
-      name: 'Pies',
-      image: '/src/assets/images/mock/bodypart5.png'
-    },
-    {
-      id: 6,
-      name: 'Muñeca',
-      image: '/src/assets/images/mock/bodypart6.png'
-    },
-    {
-      id: 8,
-      name: 'Rodilla',
-      image: '/src/assets/images/mock/bodypart8.png'
-    },
-    {
-      id: 10,
-      name: 'Pierna',
-      image: '/src/assets/images/mock/bodypart10.png'
-    },
-    {
-      id: 11,
-      name: 'Cuello',
-      image: '/src/assets/images/mock/bodypart11.png'
-    },
-    {
-      id: 12,
-      name: 'Dedos',
-      image: '/src/assets/images/mock/bodypart12.png'
-    },
-    {
-     id: 13,
-     name: 'Abdomen',
-     image: '/src/assets/images/mock/bodypart13.png'
-    },
-    {
-     id: 14,
-     name: 'Cachete izquierdo',
-     image: '/src/assets/images/mock/bodypart14.png'
-    },
-    {
-     id: 15,
-     name: 'Cachete derecho',
-     image: '/src/assets/images/mock/bodypart15.png'
-    },
-    {
-     id: 16,
-     name: 'Frente',
-     image: '/src/assets/images/mock/bodypart19.png'
-    },
-    {
-      id: 17,
-      name: 'Espinilla',
-      image: '/src/assets/images/mock/bodypart18.png'
-    },
-    {
-     id: 18,
-     name: 'Pecho',
-     image: '/src/assets/images/mock/bodypart22.png'
-    }
+    bodyParts[2],
+    bodyParts[3],
+    bodyParts[4],
+    bodyParts[5],
+    bodyParts[7],
+    bodyParts[9],
+    bodyParts[10],
+    bodyParts[11],
+    bodyParts[12],
+    bodyParts[13],
+    bodyParts[14],
+    bodyParts[15],
+    bodyParts[16],
+    bodyParts[17]
   ],
   back: [
-    {
-      id: 1,
-      name: 'Espalda',
-      image: '/src/assets/images/mock/bodypart1.png'
-    },
-    {
-      id: 2,
-      name: 'Hombros',
-      image: '/src/assets/images/mock/bodypart2.png'
-    },
-    {
-      id: 7,
-      name: 'Pantorrilla',
-      image: '/src/assets/images/mock/bodypart7.png'
-    },
-    {
-     id: 9,
-     name: 'Brazos',
-     image: '/src/assets/images/mock/bodypart9.png'
-    },
-    {
-     id: 19,
-     name: 'Espalda baja',
-     image: '/src/assets/images/mock/bodypart16.png'
-    },
-    {
-     id: 20,
-     name: 'Espalda superior',
-     image: '/src/assets/images/mock/bodypart17.png'
-    },
-    {
-     id: 21,
-     name: 'Nuca',
-     image: '/src/assets/images/mock/bodypart20.png'
-    }
+    bodyParts[0],
+    bodyParts[1],
+    bodyParts[6],
+    bodyParts[8],
+    bodyParts[18],
+    bodyParts[19],
+    bodyParts[20]
   ]
-}
+};
+
+let styles = [
+  new Style(1, 'Old School', '/src/assets/images/mock/style14.jpg'),
+  new Style(2, 'New School', '/src/assets/images/mock/style15.jpg'),
+  new Style(3, 'Dotwork', '/src/assets/images/mock/style10.jpg'),
+  new Style(4, 'Geométrico', '/src/assets/images/mock/style9.jpg'),
+  new Style(5, 'Trash Polka', '/src/assets/images/mock/style7.jpg'),
+  new Style(6, 'Black work', '/src/assets/images/mock/style1.jpg'),
+  new Style(7, 'Japones', '/src/assets/images/mock/style13.jpg'),
+  new Style(8, 'Tribal', '/src/assets/images/mock/style16.jpg'),
+  new Style(9, 'Tipografía', '/src/assets/images/mock/style11.jpg'),
+  new Style(10, 'Ilustración', '/src/assets/images/mock/style12.jpg'),
+  new Style(11, 'Surreal', '/src/assets/images/mock/style6.jpg'),
+  new Style(12, 'Biomecánico', '/src/assets/images/mock/style8.jpg')/*,
+  new Style(13, 'Bosquejo', '/src/assets/images/mock/style2.jpg'),
+  new Style(14, 'Kawaii', '/src/assets/images/mock/style3.jpg'),
+  new Style(15, 'Oriental', '/src/assets/images/mock/style4.jpg'),
+  new Style(16, 'Retrato', '/src/assets/images/mock/style5.jpg')*/
+];
+
+let elements = [
+  new Element(1, 'Mangas'),
+  new Element(2, 'Femenino')
+];
 
 let tattoos = [
   new Tattoo(1, 'Brazo Robot', 'Oreja', 'Dark'),
@@ -246,110 +248,50 @@ let tattoos = [
   new Tattoo(8, 'Brazo Robot', 'Oreja', 'Religioso')
 ];
 
-let featuredArtists = [
-  new Artist(1),
-  new Artist(2),
-  new Artist(3),
-  new Artist(4),
-  new Artist(5),
-  new Artist(6),
-  new Artist(7),
-  new Artist(8)
+let flashes = [
+  new Flash(1),
+  new Flash(2),
+  new Flash(3),
+  new Flash(4),
+  new Flash(5),
+  new Flash(6),
+  new Flash(7),
+  new Flash(8)
 ];
 
-let styles = [
-  {
-    name: 'Old School',
-    id: 1,
-    image: '/src/assets/images/mock/style14.jpg'
-  },
-  {
-    name: 'New School',
-    id: 2,
-    image: '/src/assets/images/mock/style15.jpg'
-  },
-  {
-    name: 'Dotwork',
-    id: 3,
-    image: '/src/assets/images/mock/style10.png'
-  },
-  {
-    name: 'Geométrico',
-    id: 4,
-    image: '/src/assets/images/mock/style9.png'
-  },
-  {
-    name: 'Trash Polka',
-    id: 5,
-    image: '/src/assets/images/mock/style7.png'
-  },
-  {
-    name: 'Black work',
-    id: 6,
-    image: '/src/assets/images/mock/style1.png'
-  },
-  {
-    name: 'Japones',
-    id: 8,
-    image: '/src/assets/images/mock/style13.png'
-  },
-  {
-    name: 'Tribal',
-    id: 8,
-    image: '/src/assets/images/mock/style16.jpg'
-  },
-  {
-    name: 'Tipografía',
-    id: 10,
-    image: '/src/assets/images/mock/style11.png'
-  },
-  {
-    name: 'Ilustración',
-    id: 11,
-    image: '/src/assets/images/mock/style12.png'
-  },
-  {
-    name: 'Surreal',
-    id: 12,
-    image: '/src/assets/images/mock/style6.png'
-  },
-  {
-    name: 'Biomecánico',
-    id: 13,
-    image: '/src/assets/images/mock/style8.png'
-  }//,
-  // {
-  //   name: 'Bosquejo',
-  //   id: 2,
-  //   image: '/src/assets/images/mock/style2.png'
-  // },
-  // {
-  //   name: 'Kawaii',
-  //   id: 3,
-  //   image: '/src/assets/images/mock/style3.png'
-  // },
-  // {
-  //   name: 'Oriental',
-  //   id: 4,
-  //   image: '/src/assets/images/mock/style4.png'
-  // },
-  // {
-  //   name: 'Retrato',
-  //   id: 5,
-  //   image: '/src/assets/images/mock/style5.png'
-  // }
+let evaluations = [
+  new Evaluation(1),
+  new Evaluation(2),
+  new Evaluation(3),
+  new Evaluation(4)
 ];
 
-let elements = [
-  {
-    name: 'Mangas',
-    id: 0
-  },
-  {
-    name: 'Femenino',
-    id: 1
-  }
+let posts = [
+  new Post(1, 1),
+  new Post(2, 1),
+  new Post(3, 1),
+  new Post(4, 1)
 ];
+
+let artists = [
+  new Freelancer(1),
+  new Freelancer(2),
+  new Studio(3),
+  new Studio(4),
+  new Freelancer(5),
+  new Studio(6),
+  new Studio(7),
+  new Freelancer(8)
+];
+
+let featuredArtists = artists;
+
+let studioArtists = [
+  new StudioArtist(1),
+  new StudioArtist(2),
+  new StudioArtist(3),
+  new StudioArtist(4)
+]
 
 let quotations = [
   new Quotation(1),
@@ -390,6 +332,17 @@ export class MockAPI {
     });
   }
 
+  getGroupedBodyParts() {
+    this.isRequesting = true;
+
+    return new Promise(resolve => {
+      setTimeout(() => {
+        resolve(groupedBodyParts);
+        this.isRequesting = false;
+      }, latency);
+    });
+  }
+
   getElements() {
     this.isRequesting = true;
 
@@ -406,7 +359,7 @@ export class MockAPI {
 
     return new Promise(resolve => {
       setTimeout(() => {
-        resolve(featuredArtists[0]);
+        resolve(artists.length < id ? artists[id] : artists[0]);
         this.isRequesting = false;
       }, latency);
     });
@@ -437,18 +390,54 @@ export class MockAPI {
   getTattoos(data = {}) {
     this.isRequesting = true;
 
-    let results = tattoos.filter((obj) => {
-      if (data.style && data.style !== obj.style_name) {
-        return false;
-      }
-      if (data.element && data.element !== obj.element_name) {
-        return false;
-      }
-      if (data.part && data.part !== obj.body_part_name) {
-        return false;
-      }
+    // let results = tattoos.filter((obj) => {
+    //   if (data.style && data.style !== obj.style_name) {
+    //     return false;
+    //   }
+    //   if (data.element && data.element !== obj.element_name) {
+    //     return false;
+    //   }
+    //   if (data.part && data.part !== obj.body_part_name) {
+    //     return false;
+    //   }
+    //
+    //   return true;
+    // });
 
-      return true;
+    return new Promise(resolve => {
+      setTimeout(() => {
+        resolve(tattoos);
+        this.isRequesting = false;
+      }, latency)
+    });
+  }
+
+  getFlahes() {
+    this.isRequesting = true;
+    return new Promise(resolve => {
+      setTimeout(() => {
+        resolve(flashes);
+        this.isRequesting = false;
+      }, latency)
+    });
+  }
+
+  getArtists() {
+    this.isRequesting = true;
+
+    return new Promise(resolve => {
+      setTimeout(() => {
+        resolve(artists);
+        this.isRequesting = false;
+      }, latency)
+    });
+  }
+
+  getEvaluations(id) {
+    isRequesting = true;
+    let results = [];
+    results = evaluations.filter(item => {
+      return item.id == id;
     });
 
     return new Promise(resolve => {
@@ -459,20 +448,22 @@ export class MockAPI {
     });
   }
 
-  getFlahes = this.getTattoos;
-
-  getFeaturedArtists(type = 'featured') {
-    this.isRequesting = true;
+  getPosts(id) {
+    isRequesting = true;
+    let results = [];
+    results = evaluations.filter(item => {
+      return item.id == id;
+    });
 
     return new Promise(resolve => {
       setTimeout(() => {
-        resolve(featuredArtists);
+        resolve(results);
         this.isRequesting = false;
       }, latency)
     });
   }
 
-  getArtists = this.getFeaturedArtists;
+  getFeaturedArtists = this.getArtists;
 
   getQuotations(params) {
     this.isRequesting = true;
