@@ -1,0 +1,29 @@
+<template>
+  <div class="menu-artist__mobile">
+    <div class="btn-hamburguer">
+      <div class="btn-hamburguer__line"></div>
+      <div class="btn-hamburguer__line btn-hamburguer__line--space"></div>
+      <div class="btn-hamburguer__line"></div>
+    </div>
+  </div>
+  <div class="menu-artist">
+    <ul class="menu-artist__list">
+      <li repeat.for="item of menu">
+        <a class="menu-artist__anchor" href.bind="route.href">
+          <img class="menu-artist__img" src="${item.img}">
+          <p class="menu-artist__txt">${item.text}</p>
+        </a>
+      </li>
+    </ul>
+  </div>
+  <div class="menu-artist__content-mobile">
+    <ul class="menu-artist__list-mobile">
+      <li repeat.for="item of menu">
+        <a class="menu-artist__anchor-mobile" href="">
+          <img class="menu-artist__img-mobile" src="${item.img}">
+          <p class="menu-artist__txt-mobile">${item.text}</p>
+        </a>
+      </li>
+    </ul>
+  </div>
+</template>

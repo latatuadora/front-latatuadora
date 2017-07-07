@@ -1,6 +1,196 @@
 @import '../../../assets/styles/vars'
 @import '../../../assets/styles/mixins'
 
+.my-quotation
+  position relative
+  background-color #262626
+  width 222px
+  height 424px
+  margin 8px
+  
+.my-quotation-flex-row
+  display flex
+  flex-direction row
+  
+.my-quotation__vertical-center
+  align-items center
+  margin-top 7px
+  
+.my-quotation__options
+  background-color #b09c6c
+  display flex
+  flex 1
+  flex-direction row
+  position absolute
+  top 0px
+  right 0px
+  
+.my-quotation__options-icon
+  color #fff
+  font-size 13.8px
+  padding 5px
+  
+.my-quotation__img
+  background-image url("src/assets/images/mock/group-2.png");
+  background-size cover
+  background-repeat no-repeat
+  background-position center center
+  height 223px
+  
+.my-quotation__block
+  /*height 126px*/
+  
+.my-quotation__block-user
+  margin 16px 0px 0px 22px
+  
+.my-quotation__block-img
+  width 29px
+  
+.my-quotation__block-info
+  margin 0px 22px 0px 22px
+  
+.my-quotation__space-block
+  padding-left 10px
+  
+.my-quotation__separator
+  display flex
+  border solid 1px #b09c6c
+  margin 15px 22px
+  
+.my-quotation__title
+  color: #fff
+  font-family 'Lato'
+  font-size 14px
+  font-weight $regular
+  margin 0px
+  padding 0px 0px 3px 0px
+  
+.my-quotation__date
+  color #b09c6c
+  font-family 'Lato'
+  font-size 8px
+  font-weight $regular
+  margin 0px
+ 
+.my-quotation__icon-heart
+  background-color #b09c6c
+  color #fff
+  border none
+  font-size 11.4px
+  margin-left 30px
+  
+.my-quotation__likes
+  font-family 'Lato'
+  font-weight $regular
+  font-size 9px
+  margin-left 5px
+  
+.my-quotation__icons
+  color #b09c6c
+  font-size 17px
+  margin-right 10px
+  
+.my-quotation__icon-img
+  margin-right 8px
+  width 18px
+  
+.my-quotation__icon-img--space
+  margin 0px 5px 0px 6px
+  width 9px
+  
+.my-quotation__price
+  margin 0px
+  color #fff
+  font-size 14px
+  font-family 'Lato'
+  font-weight $regular
+  
+.my-quotation__measure
+  margin 0px
+  color #fff
+  font-size 13px
+  font-family 'Lato'
+  font-weight $regular
+  
+.my-quotation__contact
+  color: #fff
+  font-family 'Lato'
+  font-size 12px
+  font-weight $regular
+  margin-left 10px
+  
+.space
+  margin-top 22px
+  
+@media screen and (max-width: 975px)
+  .my-quotation__vertical-center
+    margin-top 17px
+
+  .my-quotation
+    height 623px
+    margin 7.1px 0px
+    
+  .my-quotation__options-icon
+    font-size 20.3px
+    padding 8px
+    
+  .my-quotation__img
+    background-image url("src/assets/images/mock/group-copy-4.png");
+    background-size cover
+    background-repeat no-repeat
+    background-position center center
+    height 334px
+    
+  .my-quotation__block-info
+    margin 19px 0px 0px 21.5px
+    
+  .my-quotation__block-img
+    width 44px
+    
+  .my-quotation__space-block
+    padding-left 12.5px
+    
+  .my-quotation__separator
+    margin 23px 22px
+
+  .my-quotation__title
+    font-size 15px
+    
+  .my-quotation__date
+    font-size 9px
+    
+  .my-quotation__tag-style
+    height 26.5px
+    margin 25.9px 2.6px 3px 2.6px
+    
+  .my-quotation__tag-txt
+    font-size 10px
+    
+  .my-quotation__icon-heart
+    font-size 16.8px
+    margin-left 60px
+    
+  .my-quotation__likes
+    font-size 10px
+    
+  .my-quotation
+    width: 100%
+    
+  .my-quotation__icons
+    font-size 30px
+    
+  .my-quotation__icon-img
+    width 30px
+    
+  .my-quotation__icon-img--space
+    width 12px
+    margin 0px 8px 0px 30px
+    
+  .my-quotation__price
+    font-size 15px
+    
+  .my-quotation__measure
+    font-size 14px
 .quotations-grid__element
   width 266.7px
   margin 12.5px
