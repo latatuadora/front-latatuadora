@@ -6,12 +6,12 @@
   <h1 class="gallery-title">Busca <span class="golden-text">tu</span> tatuador</h1>
   <div class="gallery-filters artists-filters">
     <div class="gallery-filter-wrapper ${params.style ? 'active' : ''}">
-      <div click.delegate="toggleDropdown('styles')" ref="styleFilter" class="gallery-filter">${params.style ? params.style : 'Estilo'}</div>
-      <dropdown-modal type="list" active-id.bind="activeIds.style" list.bind="lists.styles" item-name="name" on-click.bind="setStyle" ref-element.bind="styleFilter" visible.bind="showDropdowns.styles" close.call="toggleDropdown('styles')" top-reference=".site-navbar" center-at="633"></dropdown-modal>
+      <div click.delegate="toggleDropdown('styles')" ref="styleFilter" class="gallery-filter">${params.style ? activeElements.style.name : 'Estilo'}</div>
+      <dropdown-modal type="list" active-id.bind="params.style" list.bind="lists.styles" item-name="name" on-click.bind="setStyle" ref-element.bind="styleFilter" visible.bind="showDropdowns.styles" close.call="toggleDropdown('styles')" top-reference=".site-navbar" center-at="633"></dropdown-modal>
     </div>
     <div class="gallery-filter-wrapper ${params.type ? 'active' : ''}">
-      <div click.delegate="toggleDropdown('types')" ref="typeFilter" class="gallery-filter">${params.type ? params.type : 'Tipo'}</div>
-      <dropdown-modal type="list" active-id.bind="activeIds.type" list.bind="lists.types" item-name="name" on-click.bind="setType" ref-element.bind="typeFilter" visible.bind="showDropdowns.types" close.call="toggleDropdown('types')" top-reference=".site-navbar" center-at="633"></dropdown-modal>
+      <div click.delegate="toggleDropdown('types')" ref="typeFilter" class="gallery-filter">${params.type ? activeElements.type.name : 'Tipo'}</div>
+      <dropdown-modal type="list" active-id.bind="params.type" list.bind="lists.types" item-name="name" on-click.bind="setType" ref-element.bind="typeFilter" visible.bind="showDropdowns.types" close.call="toggleDropdown('types')" top-reference=".site-navbar" center-at="633"></dropdown-modal>
     </div>
     <div class="gallery-search">
       <input type="search" class="gallery-search__input" placeholder="Busca tu colonia">
