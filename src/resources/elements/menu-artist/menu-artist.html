@@ -9,9 +9,9 @@
   <div class="menu-artist">
     <ul class="menu-artist__list">
       <li repeat.for="item of menu">
-        <a class="menu-artist__anchor" href.bind="route.href">
+        <a class="menu-artist__anchor" href="#/${item.routePage}">
           <img class="menu-artist__img" src="${item.img}">
-          <p class="menu-artist__txt">${item.text}</p>
+          <p class="menu-artist__txt">${item.text} </p>
         </a>
       </li>
     </ul>
