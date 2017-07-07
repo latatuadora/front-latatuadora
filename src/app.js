@@ -135,51 +135,54 @@ export class App {
         title: 'Agendar',
         nav: false
       },
-      /*{
+      {
         route: 'signup',
         name: 'signup',
         moduleId: 'pages/signup/signup',
         title: 'Regístrate',
         nav: false,
         roles: [0]
-      },*/
+      },
       {
         route: 'estudio/:id',
         name: 'studio',
         moduleId: 'pages/artist/studio',
         title: 'Perfil de estudio',
-        nav: false
+        nav: false,
+        roles: [0]
       },
-/*<<<<<<< views/B5_basic_structure_dynamic_menu_raul
       {
         route: 'mistatuajes',
         name: 'my_tattoos',
         moduleId: 'pages/menu-page-artist/my-tattoos/my-tattoos',
         title: 'Mis tatuajes',
-        nav: false
+        nav: false,
+        roles: [0]
       },
       {
         route: 'misflashes',
         name: 'my_flashes',
         moduleId: 'pages/menu-page-artist/my-flashes/my-flashes',
         title: 'Mis Flashes',
-        nav: false
+        nav: false,
+        roles: [0]
       },
       {
         route: 'miscotizaciones',
         name: 'my_quotations',
         moduleId: 'pages/menu-page-artist/my-quotations/my-quotations',
         title: 'Mis cotizaciones',
-        nav: false
+        nav: false,
+        roles: [0]
       },
       {
         route: 'editarperfil',
         name: 'edit_profile',
         moduleId: 'pages/edit-profile/edit-profile',
         title: 'Editar perfil',
-        nav: false
-      }
-=======*/
+        nav: false,
+        roles: [0]
+      },
       this.errorRoute
     ];
     this.sessionRoutes = [
