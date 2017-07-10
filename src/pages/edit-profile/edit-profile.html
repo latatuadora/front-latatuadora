@@ -5,6 +5,7 @@
   <require from="resources/elements/tattoo-item/tattoo-item"></require>
   <require from="resources/elements/flash-item/flash-item"></require>
   <require from="resources/elements/artist-tattoo-item/artist-tattoo-item"></require>
+  <require from="resources/elements/study-image/study-image"></require>
 
   <div class="content-row content-column--mobile">
     <menu-artist></menu-artist>
@@ -28,7 +29,7 @@
         <div class="content-row hor-align mar-ver-60-64">
           <button class="profile__btn mar-right-27">Ver todos</button>
           <button class="profile__btn">
-            <i class="new-tattoo--mobile__icon fa fa-plus-circle"></i>
+            <img class="new-tattoo--mobile__icon" src="src/assets/images/icons/plus_circle.svg">
             <p class="new-tattoo--mobile__txt">Agregar nuevo</p>
           </button>
         </div>
@@ -42,7 +43,7 @@
         <div class="content-row hor-align mar-ver-60-64">
           <button class="profile__btn mar-right-27">Ver todos</button>
           <button class="profile__btn">
-            <i class="new-tattoo--mobile__icon fa fa-plus-circle"></i>
+            <img class="new-tattoo--mobile__icon" src="src/assets/images/icons/plus_circle.svg">
             <p class="new-tattoo--mobile__txt">Agregar nuevo</p>
           </button>
         </div>
@@ -52,63 +53,31 @@
         <h5 class="profile__title-black">Mis redes sociales</h5>
         <form class="wdt-100 pdd-hor-24">
           <div class="hor-align">
-            <img src="src/assets/images/icons/face.png">
+            <img class="profile_img-11 mar-hor-7" src="src/assets/images/icons/face.png">
             <input class="profile__input" type="text" name="">
-            <img src="src/assets/images/icons/info.png">
-            <div class="tooltip">              
+            <div class="tooltip">       
+              <img src="src/assets/images/icons/info.png">
               <span class="tooltiptext">Ingresa aquí el enlace a tu página</span>
             </div>
           </div>
           <div class="hor-align">
-            <img src="src/assets/images/icons/insta.png">
+            <img class="profile_img-26" src="src/assets/images/icons/insta.png">
             <input class="profile__input mar-hor-18" type="text" name="">
-            <img src="src/assets/images/icons/info.png">
-            <div class="tooltip">              
+            <div class="tooltip">
+              <img src="src/assets/images/icons/info.png">
               <span class="tooltiptext">Ingresa aquí el enlace a tu página</span>
             </div>
           </div>
           <div class="hor-align">
-            <img src="src/assets/images/icons/periscope.png">
+            <img class="profile_img-26" src="src/assets/images/icons/periscope.png">
             <input class="profile__input" type="text" name="">
-            <img src="src/assets/images/icons/info.png">
-            <div class="tooltip">              
+            <div class="tooltip">
+              <img src="src/assets/images/icons/info.png">
               <span class="tooltiptext">Ingresa aquí el enlace a tu página</span>
             </div>
           </div>
         </form>
       </div>
-
-
-
-
-
-      <div class="content-column hor-align mar-bott-62">
-        <h5 class="profile__title-black">Mis redes sociales</h5>
-        <form class="wdt-100 pdd-hor-24">
-          <div class="content-row hor-align">
-            <div class="content-column content-justify hor-align">
-              <img src="src/assets/images/icons/face.png">
-              <img src="src/assets/images/icons/insta.png">
-              <img src="src/assets/images/icons/periscope.png">
-            </div>
-            <div class="content-column content-justify">
-              <input class="profile__input" type="text" name="">
-              <input class="profile__input mar-hor-18" type="text" name="">
-              <input class="profile__input" type="text" name="">
-            </div>
-            <div class="content-column content-justify">
-              <img src="src/assets/images/icons/info.png">
-              <img src="src/assets/images/icons/info.png">
-              <img src="src/assets/images/icons/info.png">
-            </div>
-          </div>
-        </form>
-      </div>
-
-
-
-
-
       <!--SECCIÓN MIS ESTILOS-->
       <div class="content-column hor-align bgc-262626 pdd-bott-68">
         <h5 class="profile__title-white">Mis estilos</h5>
@@ -120,13 +89,13 @@
       <!--SECCIÓN MIS TATUADORES-->
       <div class="content-column hor-align">
         <h5 class="profile__title-black">Mis tatuadores</h5>
-        <div class="content-row content-wrap">
+        <div class="content-row content-wrap content-wrap--mobile">
           <artist-tattoo-item repeat.for="item of 6"></artist-tattoo-item>
         </div>
         <div class="content-row hor-align mar-ver-60-64">
           <button class="profile__btn mar-right-27">Ver todos</button>
           <button class="profile__btn">
-            <i class="new-tattoo--mobile__icon fa fa-plus-circle"></i>
+            <img class="new-tattoo--mobile__icon" src="src/assets/images/icons/plus_circle.svg">
             <p class="new-tattoo--mobile__txt">Agregar nuevo</p>
           </button>
         </div>
@@ -141,7 +110,9 @@
           <textarea class="profile__txtarea" placeholder="Escribir nueva entrada"></textarea>
           <button class="profile__btn-publish">Publicar</button>
         </div>
-        <hr class="profile__hr">
+        <div class="profile__block-hr">
+          <hr class="profile__hr">
+        </div>
         <div class="content-column profile__post">
           <div class="content-row hor-align">
             <div>
@@ -203,29 +174,18 @@
       <div class="content-column hor-align">
         <h5 class="profile__title-black">Imágenes del <span class="menu-page-description">estudio</span></h5>
         <div class="content-row">
-          <div class="profile__studio">
-            <i class="profile__icon-studio fa fa-trash"></i>
-            <img class="profile__img-studio" src="src/assets/images/mock/studio-carousel.jpg">
-          </div>
-          <div class="profile__studio mar-hor-16">
-            <i class="profile__icon-studio fa fa-trash"></i>
-            <img class="profile__img-studio" src="src/assets/images/mock/studio-carousel.jpg">
-          </div>
-          <div class="profile__studio">
-            <i class="profile__icon-studio fa fa-trash"></i>
-            <img class="profile__img-studio" src="src/assets/images/mock/studio-carousel.jpg">
-          </div>
+          <study-image repeat.for="item of 3"></study-image>
         </div>
         <div class="content-row hor-align mar-ver-60-64">
           <button class="profile__btn mar-right-27">Ver todos</button>
           <button class="profile__btn">
-            <i class="new-tattoo--mobile__icon fa fa-plus-circle"></i>
+            <img class="new-tattoo--mobile__icon" src="src/assets/images/icons/plus_circle.svg">
             <p class="new-tattoo--mobile__txt">Agregar nuevo</p>
           </button>
         </div>
       </div>
       <div class="content-justify">
-        <hr class="special-hr separator">
+        <hr class="special-hr separator hide-mobile">
       </div>
       <!--SALVAR CAMBIOS-->
       <div class="profile__content-save">
