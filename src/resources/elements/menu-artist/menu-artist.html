@@ -8,10 +8,10 @@
   </div>
   <div class="menu-artist">
     <ul class="menu-artist__list">
-      <li repeat.for="item of menu">
+      <li class="menu-artist__txt" repeat.for="item of menu">
         <a class="menu-artist__anchor" href="#/${item.routePage}">
           <img class="menu-artist__img" src="${item.img}">
-          <p class="menu-artist__txt">${item.text} </p>
+          ${item.text}
         </a>
       </li>
     </ul>
