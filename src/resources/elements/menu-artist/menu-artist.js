@@ -44,8 +44,8 @@ export class MenuArtist {
         img: 'src/assets/images/icons/avatar.png',
         text: "Mis tatuadores",
         title: ["Mis", "tatuadores"],
-        route: '/tattooartist',
-        routePage: 'mistatuajes'
+        route: '../../../menu-page-artist/my-tattoo-artist/my-tattoo-artist',
+        routePage: 'mistatuadores'
       },
       {
         img: 'src/assets/images/icons/np-price.png',
