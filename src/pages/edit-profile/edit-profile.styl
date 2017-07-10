@@ -26,30 +26,6 @@
   display flex
   align-items center
   
-.flash-opt__block
-  margin-bottom 55px
-  
-.flash-opt
-  font-family 'Lato'
-  font-size 21px
-  font-weight $regular
-  margin 0px
-  
-.flash-opt__select
-  color #b09c6c
-
-.flash-opt__normal
-  color #262626
-  
-.flash-opt__margin
-  margin 0px 25px 0px 25px
-
-.menu-page-content
-  display flex
-  width 100%
-  align-items center
-  flex-direction column
-  
 .mar-right-27
   margin-right 27px
   
@@ -61,6 +37,9 @@
   
 .mar-hor-16
   margin 0px 16px
+  
+.mar-hor-7
+  margin 0px 7.5px
   
 .mar-bott-62
   margin-bottom 62px
@@ -79,7 +58,7 @@
   
 .separator
   height 1.8px
-  width 100%
+  width 85%
   margin 40px 0px 20px 0px
   opacity 0.6
   
@@ -267,27 +246,11 @@
 .profile__info-sm
   width 210px
   
-.profile__studio
-  position relative
-  width 241px
-  height 195px
-
-.profile__img-studio
-  width 241px
-  height 195px
-  
-.profile__icon-studio
-  position absolute
-  top 0px
-  right 0px
-  background-color #b09c6c
-  color #fff
-  padding 6px 10px
-  
 .profile__content-save
   display flex
   justify-content flex-end
   margin-right 17%
+  margin-top 60px
   
 .profile__save
   background-color #454545 !important
@@ -308,29 +271,14 @@
   
 .menu-page-description
   color: #b09c6c;
-  
-.menu-page-tattoo
-  display flex
-  flex-direction row
-  flex-wrap wrap
-  justify-content center
-
-.new-flash
-  display flex
-  justify-content center
-  align-items center
-  width 222px
-  height 353px
-  background-color #1d1c1c
-  margin 8px 8px 0px 8px
 
 .hide-desktop
   display none
   
 .new-tattoo--mobile__icon
     color: #fff
-    font-size 20px
     margin-right 12px
+    width 20px
     
 .tooltip
   position relative
@@ -391,11 +339,20 @@
    font-size 13px
    font-weight $regular
 }
+
+.profile_img-11
+    width 11px
+    
+.profile_img-26
+    width 26px
   
 @media screen and (max-width: 975px)
   .content-column--mobile
     display flex
     flex-direction column
+    
+  .content-wrap--mobile
+    flex-wrap nowrap
     
   .background-profile
     height 492px
@@ -445,7 +402,17 @@
     bottom 15px
 
   .mar-bott-13
-    margin-bottom 13px    
+    margin-bottom 13px
+    
+  .mar-hor-7
+    margin 0px 6.2px
+    
+  .height-78
+    padding 14px
+    
+  .height-112
+    padding 14px 14px 24px 14px
+    font-size 11px
     
   .profile__post
     width 100%
@@ -460,11 +427,13 @@
 
   .wdt-100
     width: 100%
+
+  .profile__block-hr
+    width 100%
+    padding 0px 24px
     
   .profile__hr
     width 100%
-    margin-left 24px
-    margin-riht 24px
     
   .profile__info-1,
     .profile__info-2,
@@ -488,6 +457,7 @@
   .profile__btn
     height 35px
     padding 0px 14px
+    font-size 12px
     
   .font-23
     font-size 23px
@@ -498,10 +468,17 @@
   .profile__content-save
     margin-right 0%
     justify-content center
+    margin-top 0px
 
   .profile__save
     height 47px
     width 188px
+    
+  .profile_img-11
+    width 11px
+    
+  .profile_img-26
+    width 26px
       
   .menu-page-tattoo
     flex-direction column
@@ -509,27 +486,15 @@
   .mar-right-27
     margin-right 9px
     
-  .new-tattoo--mobile
-    display flex
-    flex-direction row
-    justify-content center
-    align-items center
-    background-color #b09c6c
-    cursor pointer
-    margin 0px 32px 48px 32px
-    border-radius 2px
-    border none
-    height 47.9px
-    
   .new-tattoo--mobile__icon
     color: #fff
-    font-size 20px
     margin-right 12px
+    width 15px
     
   .new-tattoo--mobile__txt
     color #fff
     font-family 'Lato'
-    font-size 13px
+    font-size 12px
     font-weight $regular
     text-transform uppercase
     margin 0px
