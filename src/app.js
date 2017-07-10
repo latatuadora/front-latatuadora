@@ -176,6 +176,14 @@ export class App {
         roles: [0]
       },
       {
+        route: 'mistatuadores',
+        name: 'my-tattoo-artist',
+        moduleId: 'pages/menu-page-artist/my-tattoo-artist/my-tattoo-artist',
+        title: 'Mis tatuadores',
+        nav: false,
+        roles: [0]
+      },
+      {
         route: 'editarperfil',
         name: 'edit_profile',
         moduleId: 'pages/edit-profile/edit-profile',
