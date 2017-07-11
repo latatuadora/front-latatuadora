@@ -1,0 +1,25 @@
+<template>
+  <require from="./my-tattoo-artist.css"></require>
+  <require from="resources/elements/menu-artist/menu-artist.css"></require>
+  <require from="resources/elements/menu-artist/menu-artist"></require>
+  <require from="resources/elements/artist-tattoo-item/artist-tattoo-item"></require>
+
+  <div class="flex-row flex-column">
+    <menu-artist></menu-artist>
+    <div class="menu-page-content">
+      <h1 class="menu-page-title">${artist[0]} <span class="menu-page-description">${artist[1]}</span></h1>
+      <hr class="special-hr separator">
+      <button class="new-tattoo-artist--mobile hide-desktop">
+        <img class="mar-right-10" src="src/assets/images/icons/plus_circle.svg">
+        Agregar nuevo tatuador
+      </button>
+      <div class="menu-page-tattoo">
+        <div class="new-tattoo-artist">
+          <img src="src/assets/images/etc/new-plus.png">
+          <p class="new-tattoo-artist--txt">Agregar <span class="new-tattoo-artist--highlight">tatuador</span> nuevo</p>
+        </div>
+        <artist-tattoo-item repeat.for="item of 5"></artist-tattoo-item>
+      </div>
+    </div>
+  </div>
+</template>

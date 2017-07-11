@@ -176,10 +176,34 @@ export class App {
         roles: [0]
       },
       {
+        route: 'mistatuadores',
+        name: 'my-tattoo-artist',
+        moduleId: 'pages/menu-page-artist/my-tattoo-artist/my-tattoo-artist',
+        title: 'Mis tatuadores',
+        nav: false,
+        roles: [0]
+      },
+      {
+        route: 'agendacion/solicitud',
+        name: 'scheduling-request',
+        moduleId: 'pages/menu-page-artist/scheduling-request/scheduling-request',
+        title: 'Solicitudes de agendación',
+        nav: false,
+        roles: [0]
+      },
+      {
         route: 'editarperfil',
         name: 'edit_profile',
         moduleId: 'pages/edit-profile/edit-profile',
         title: 'Editar perfil',
+        nav: false,
+        roles: [0]
+      },
+      {
+        route: 'galeriaimagen',
+        name: 'image-gallery',
+        moduleId: 'pages/image-gallery/image-gallery',
+        title: 'Galería de imágenes del estudio',
         nav: false,
         roles: [0]
       },

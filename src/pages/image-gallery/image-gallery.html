@@ -1,0 +1,41 @@
+<template>
+  <require from="./image-gallery.css"></require>
+  <require from="resources/elements/menu-artist/menu-artist.css"></require>
+  <require from="resources/elements/menu-artist/menu-artist"></require>
+  <require from="resources/elements/study-image/study-image"></require>
+
+  <div class="flex-row flex-column">
+    <menu-artist></menu-artist>
+    <div class="menu-page-content">
+      <h1 class="menu-page-title">${gallery[0]} <span class="menu-page-description">${gallery[1]}</span></h1>
+      <hr class="special-hr separator">
+      <a class="hide-desktop show-mobile" href="">
+        <div class="return">
+          <div class="circle-return">
+            <img class="left-arrow" src="/src/assets/images/icons/left-arrow.png">
+          </div>
+          <h6 class="txt-return">Regresar</h6>
+        </div>
+      </a>
+      <button class="new-tattoo-artist--mobile hide-desktop">
+        <img class="mar-right-10" src="src/assets/images/icons/plus_circle.svg">
+        Agregar foto nueva
+      </button>
+      <div class="menu-page-tattoo">
+        <div class="new-photo">
+          <a class="anchor-return hide-mobile" href="">
+            <div class="return">
+              <div class="circle-return">
+                <img class="left-arrow" src="/src/assets/images/icons/left-arrow.png">
+              </div>
+              <h6 class="txt-return">Regresar</h6>
+            </div>
+          </a>
+          <img class="new-photo__plus" src="src/assets/images/etc/new-plus.png">
+          <p class="new-photo__txt">Agregar <span class="new-photo__txt-gold">foto</span> nueva</p>
+        </div>
+        <study-image repeat.for="item of 11"></study-image>
+      </div>
+    </div>
+  </div>
+</template>
