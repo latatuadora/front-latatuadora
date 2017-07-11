@@ -1,0 +1,97 @@
+@import '../../../assets/styles/vars'
+@import '../../../assets/styles/mixins'
+
+.scheduling
+  height 514px
+  width 322px
+  background-color #1d1c1c
+  margin 8px  
+
+.scheduling__bg
+  background url('src/assets/images/mock/group-8.png')
+  background-repeat no-repeat
+  background-size cover
+  height 130px
+  
+.scheduling__header
+  display flex
+  flex-direction row
+  align-items center
+  border-bottom 1px solid #b09c6c
+  margin-right 17px
+  
+.base-txt
+  font-family 'Lato'
+  font-weight $regular
+  margin 0px
+
+.scheduling__header-dd,
+  .scheduling__header-mm
+    font-size 31px
+  
+.scheduling__header-dd
+  background-color #b09c6c
+  color #fff
+  padding 15px
+  
+.scheduling__header-mm
+  color #fff
+  margin-left 15px
+  flex-basis 53%
+  
+.scheduling__header-ln
+  height 40px
+  width 1px
+  background-color #b2b2b2
+  margin 0px 7px
+  
+.scheduling__header-hrs
+  color #b09c6c
+  font-size 18px
+  margin-bottom -7px
+  
+.scheduling_img-user
+  display flex
+  align-items center
+  justify-content center
+  margin-top 12px
+  
+.scheduling__img
+  width 30px
+  margin-right 5px
+  
+.scheduling__data,
+  .scheduling__desc-txt
+    color #fff
+    font-size 14px
+    text-align center
+    
+.scheduling__desc-gold
+  color #b09c6c
+  
+.scheduling__desc
+  color #fff
+  font-size 13px
+  text-align center
+  
+.scheduling__desc-txt
+  padding 0px 39px
+  
+.separator-gold
+  border solid 1px #b09c6c
+  margin 20px 21px
+  
+.mar-ver-9
+  margin 9px 0px
+  
+.mar-bott-14
+  margin-bottom 14px
+  
+.mar-top-24
+  margin-top 24px
+  
+@media screen and (max-width: 975px)
+  .scheduling
+    margin 8px 0px
+    width 100%
+  
