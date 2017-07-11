@@ -38,7 +38,7 @@ export class MenuArtist {
         text: "Solicitudes de agendación",
         title: ["solicitudes", "de agendación"],
         route: '../../../pages/menu-page-artist/scheduling-request/scheduling-request',
-        routePage: 'soliagendacion'
+        routePage: 'agendacion/solicitud'
       },
       {
         img: 'src/assets/images/icons/avatar.png',
