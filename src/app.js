@@ -184,7 +184,7 @@ export class App {
         roles: [0]
       },
       {
-        route: 'soliagendacion',
+        route: 'agendacion/solicitud',
         name: 'scheduling-request',
         moduleId: 'pages/menu-page-artist/scheduling-request/scheduling-request',
         title: 'Solicitudes de agendación',
