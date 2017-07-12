@@ -178,8 +178,16 @@ export class App {
       {
         route: 'posiblesclientes',
         name: 'possible-client',
-        moduleId: 'pages/menu-page-artist/possible-client/possible-client',
+        moduleId: 'pages/menu-page-artist/possible-client/possible-client/possible-client',
         title: 'Posibles Clientes',
+        nav: false,
+        roles: [0]
+      },
+      {
+        route: 'posiblesclientes/paquetes',
+        name: 'leads-packages',
+        moduleId: 'pages/menu-page-artist/possible-client/leads-packages/leads-packages',
+        title: 'Paquetes',
         nav: false,
         roles: [0]
       },
