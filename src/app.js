@@ -176,6 +176,14 @@ export class App {
         roles: [0]
       },
       {
+        route: 'posiblesclientes',
+        name: 'possible-client',
+        moduleId: 'pages/menu-page-artist/possible-client/possible-client',
+        title: 'Posibles Clientes',
+        nav: false,
+        roles: [0]
+      },
+      {
         route: 'mistatuadores',
         name: 'my-tattoo-artist',
         moduleId: 'pages/menu-page-artist/my-tattoo-artist/my-tattoo-artist',
