@@ -1,0 +1,19 @@
+<template>
+  <require from="./possible-client.css"></require>
+  <require from="resources/elements/menu-artist/menu-artist.css"></require>
+  <require from="resources/elements/menu-artist/menu-artist"></require>
+  <require from="resources/elements/possible-client-item/possible-client-item"></require>
+
+  <div class="flex-row">
+    <menu-artist></menu-artist>
+    <div class="menu-page-content">
+      <h1 class="menu-page-title">${client[0]} <span class="menu-page-description">${client[1]}</span></h1>
+      <h5 class="menu-page-subt">Leads</h5>
+      <hr class="special-hr separator">
+      <div class="menu-page-tattoo">
+        <possible-client-item repeat.for="item of 4"></possible-client-item>
+      </div>
+      <button class="possible-client__btn buy-leads">Comprar leads</button>
+    </div>
+  </div>
+</template>
