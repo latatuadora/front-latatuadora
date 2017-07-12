@@ -192,6 +192,14 @@ export class App {
         roles: [0]
       },
       {
+        route: 'posiblesclientes/pagos',
+        name: 'leads-payment',
+        moduleId: 'pages/menu-page-artist/possible-client/leads-payment/leads-payment',
+        title: 'Pago',
+        nav: false,
+        roles: [0]
+      },
+      {
         route: 'mistatuadores',
         name: 'my-tattoo-artist',
         moduleId: 'pages/menu-page-artist/my-tattoo-artist/my-tattoo-artist',
