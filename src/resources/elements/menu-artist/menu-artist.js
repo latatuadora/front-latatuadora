@@ -31,7 +31,7 @@ export class MenuArtist {
         text: "Posibles clientes",
         title: ["Posibles", "clientes"],
         route: '/clientes',
-        routePage: 'mistatuajes'
+        routePage: 'posiblesclientes'
       },
       {
         img: 'src/assets/images/icons/np-clock.png',
