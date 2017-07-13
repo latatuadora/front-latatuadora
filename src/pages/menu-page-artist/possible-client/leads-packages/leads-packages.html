@@ -1,0 +1,35 @@
+<template>
+  <require from="./leads-packages.css"></require>
+  <require from="resources/elements/menu-artist/menu-artist.css"></require>
+  <require from="resources/elements/menu-artist/menu-artist"></require>
+  <require from="resources/elements/leads-package-item/leads-package-item"></require>
+
+  <div class="flex-row">
+    <menu-artist></menu-artist>
+    <div class="leads-package">
+      <h1 class="leads-package-title">${leadsPackages}</h1>
+      <hr class="special-hr separator">
+      <div class="leads-package-wrap">
+        <leads-package-item repeat.for="item of 6"></leads-package-item>
+      </div>
+      <a class="hide-desktop show-mobile" href="#/posiblesclientes">
+        <div class="return ver-align">
+          <div class="circle-return">
+            <img class="left-arrow" src="/src/assets/images/icons/left-arrow.png">
+          </div>
+          <h6 class="txt-return">Regresar</h6>
+        </div>
+      </a>
+      <div class="hide-mobile leads-return">
+        <a href="#/posiblesclientes">
+          <div class="return ver-align">
+            <div class="circle-return">
+              <img class="left-arrow" src="/src/assets/images/icons/left-arrow.png">
+            </div>
+            <h6 class="txt-return">Regresar</h6>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+</template>
