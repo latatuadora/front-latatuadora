@@ -1,0 +1,58 @@
+<template>
+  <require from="./leads-payment.css"></require>
+  <require from="resources/elements/menu-artist/menu-artist.css"></require>
+  <require from="resources/elements/menu-artist/menu-artist"></require>
+
+  <div class="c-flex c-row c-row--mobile">
+    <menu-artist></menu-artist>
+    <div class="c-flex ver-cen c-col wdt-100">
+      <h1 class="base-txt-pay leads-payment__title">${payment}</h1>
+      <hr class="special-hr separator">
+      <div class="c-flex ver-cen hor-cen c-col wdt-100">
+        <h5 class="base-txt-pay payment-leads__quantity">Estás comprando 50 Leads</h5>
+        <h6 class="base-txt-pay payment-leads__total">Un total de: <span class="payment-leads__gold">$1,000 MXN</span></h6>
+        <hr class="gray-separator">
+        <h5 class="base-txt-pay payment-leads__select">Selecciona el <span class="payment-leads__gold">método de pago</span> que deseas utilizar:</h5>
+        <div class="c-flex c-row c-rel c-row--mobile wdt-100--mobile ver-cen--mobile">
+          <div class="c-flex c-col c-col--mobile ver-cen--mobile payment-leads__select mar-bott-10">
+            <div class="c-flex ver-cen hor-cen payment-leads__card">
+              <img class="payment-leads__card-img" src="src/assets/images/logos/paypal.png">
+            </div>
+            <div class="c-flex hor-cen">
+              <p class="base-txt-pay payment-leads__method">Pago por medio de PayPal</p>
+            </div>
+          </div>
+          <hr class="gray-separator desk">
+          <div class="c-flex c-col c-col--mobile ver-cen--mobile payment-leads__select mar-bott-10">
+            <div class="c-flex ver-cen hor-cen payment-leads__card">
+              <img class="payment-leads__card-img" src="src/assets/images/logos/conekta.png">
+            </div>
+            <div class="c-flex hor-cen">
+              <p class="base-txt-pay payment-leads__method">Pago con tarjeta de crédito o debito</p>
+            </div>
+          </div>
+          <hr class="gray-separator desk">
+          <div class="c-flex c-col c-col--mobile ver-cen--mobile payment-leads__select mar-bott-10">
+            <div class="c-flex ver-cen hor-cen payment-leads__card">
+              <img class="payment-leads__card-img" src="src/assets/images/logos/compro-pago.png">
+            </div>
+            <div class="c-flex hor-cen">
+              <p class="base-txt-pay payment-leads__method">Pago en efectivo en más de 87 sucursales</p>
+            </div>
+          </div>
+          <hr class="gray-separator desk">
+          <div class="payment-leads-return c-abs c-abs--mobile mar--mobile">
+            <a href="#/posiblesclientes">
+              <div class="c-flex ver-cen hor-cen c-row">
+                <div class="payment-leads__circle c-flex ver-cen hor-cen">
+                  <img class="payment-leads__arrow" src="/src/assets/images/icons/left-arrow.png">
+                </div>
+                <h6 class="base-txt-pay payment-leads__txt-return">Regresar</h6>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</template>
