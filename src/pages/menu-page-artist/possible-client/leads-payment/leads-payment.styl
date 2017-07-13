@@ -1,0 +1,178 @@
+@import '../../../../assets/styles/vars'
+@import '../../../../assets/styles/mixins'
+@import '../../../../assets/styles/base'
+
+a
+  outline 0
+
+.c-flex
+  display flex
+
+.c-row
+  flex-direction row
+
+.c-col
+  flex-direction column
+
+.ver-cen
+  align-items center
+
+.hor-cen
+  justify-content center
+
+.c-rel
+  position relative
+
+.c-abs
+  position absolute
+  left 0px
+  bottom -55px
+
+.desk
+  display none
+
+.separator
+  width 85%
+  margin 46px 0px
+
+.base-txt-pay
+  color: #1d1c1c
+  font-family 'Lato'
+  font-weight $regular
+
+.wdt-100
+  width 100%
+
+.leads-payment__title  
+  font-size 25px
+  margin 68px 0px 6px 0px
+
+.payment-leads__quantity,
+  .payment-leads__select
+    font-size 23px
+
+.payment-leads__quantity
+  margin 0px 0px 22px 0px
+
+.payment-leads__total
+  font-size 20px
+  margin 0px
+
+.payment-leads__gold
+  color #b09c6c
+
+.payment-leads__select
+  margin 0px 0px 50px 0px
+
+.payment-leads__circle
+  background-color #b09c6c
+  border-radius 50px
+  height 30px
+  width 30px
+
+.payment-leads__txt-return
+  color #595959
+  font-size 13px
+  text-transform uppercase
+  margin 0px
+  margin-left 10px
+
+.payment-leads__arrow
+  width 8px
+
+.payment-leads__card
+  border-radius 13px
+  width 199px
+  height 111px 
+  background-color #f9f9f9
+  margin 0px 9px
+
+.payment-leads__card:hover
+  content "Hola"
+  border solid 5px #b09c6c
+  border-radius 13px
+
+.payment-leads__card-img
+  width 147px
+
+.payment-leads__method
+  font-size 14px
+  margin 23px 0px
+  padding 0px 17px
+  text-align center
+  width 199px
+
+.gray-separator
+  border solid 1px #dedede
+  width 85%
+  margin 36px 0px 50px 0px
+
+@media screen and (max-width: 975px)
+  .c-row--mobile
+    flex-direction column
+
+  .c-col--mobile
+    flex-direction row
+
+  .wdt-100--mobile
+    width 100%
+
+  .ver-cen--mobile
+    align-items center
+
+  .hor-cen--mobile
+    justify-content center
+
+  .desk
+    display block
+    
+  .c-abs--mobile
+    position static
+    
+  .mar--mobile
+    margin-bottom 40px
+
+  .leads-payment__title
+    font-size 20px
+
+  .payment-leads__quantity,
+    .payment-leads__select
+      font-size 18px
+
+  .payment-leads__total
+    font-size 15px
+
+  .payment-leads__select
+    margin-left 20px
+    margin-right 20px
+    text-align center
+    
+  .mar-bott-10
+    margin-bottom 10px
+
+  .leads-payment__container
+    margin-bottom 63px
+
+  .payment-leads__card
+    width auto
+    height auto
+    margin 0px 0px
+    padding 16px 13px
+
+  .payment-leads__card-img
+    max-width 100%
+
+  .payment-leads__method
+    margin 0px
+    text-align left
+
+  .separator
+    margin 35px 0px
+
+  .leads-payment__content
+    flex-direction column
+    width: 100%
+
+  .leads-payment__title
+    margin-bottom 0px
+    margin-top 35px
