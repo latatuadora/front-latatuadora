@@ -1,0 +1,109 @@
+@import '../../../../assets/styles/vars'
+@import '../../../../assets/styles/mixins'
+@import '../../../../assets/styles/base'
+
+.flex-row
+  display flex
+  flex 1
+  flex-direction row
+  
+.leads-return
+  display flex
+  width 61%
+  margin 0px 0px 60px 16px
+
+.return
+  justify-content center
+  
+.ver-align
+  display flex
+  flex-direction row
+  align-items center
+  margin-top 60px
+  
+.circle-return
+  align-items center
+  background-color #b09c6c
+  border-radius 50px
+  display flex
+  justify-content center
+  height 30px
+  width 30px
+  
+.left-arrow
+  width 8px
+  
+.txt-return
+  color #595959
+  font-family 'Lato'
+  font-size 13px
+  font-weight $regular
+  text-transform uppercase
+  margin 0px
+  margin-left 10px
+
+.separator
+  width 85%
+  margin 46px 0px
+
+.leads-package
+  display flex
+  width 100%
+  align-items center
+  flex-direction column
+  
+.show-desktop
+  display block
+
+.hide-desktop
+  display none
+
+.leads-package-title
+  color: #1d1c1c
+  font-family 'Lato'
+  font-size 25px
+  font-weight $regular
+  margin 68px 0px 6px 0px
+  
+.menu-page-subt
+  color #c9c9c9
+  font-family 'Lato'
+  font-size 20px
+  font-weight $regular
+  margin 0px
+  
+.menu-page-description
+  color: #b09c6c
+  
+.leads-package-wrap
+  display flex
+  flex-direction row
+  flex-wrap wrap
+  justify-content center
+  width 61%
+  
+@media screen and (max-width: 975px)
+  .show-mobile
+    display block
+    
+  .hide-mobile
+    display none
+
+  .flex-row
+    display flex
+    flex 1
+    flex-direction column
+    
+  .leads-package
+    margin-bottom 63px
+    
+  .separator
+    margin 35px 0px
+    
+  .leads-package-wrap
+    width: 100%
+    justify-content space-between
+    
+  .leads-package-title
+    margin-bottom 0px
+    margin-top 35px
