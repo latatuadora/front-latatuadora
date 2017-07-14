@@ -200,10 +200,26 @@ export class App {
         roles: [0]
       },
       {
+        route: 'posiblesclientes/conekta',
+        name: 'payment-conkecta',
+        moduleId: 'pages/menu-page-artist/possible-client/payment-conekta/payment-conekta',
+        title: 'Pago - Conekta',
+        nav: false,
+        roles: [0]
+      },
+      {
         route: 'mistatuadores',
         name: 'my-tattoo-artist',
         moduleId: 'pages/menu-page-artist/my-tattoo-artist/my-tattoo-artist',
         title: 'Mis tatuadores',
+        nav: false,
+        roles: [0]
+      },
+      {
+        route: 'promocionarme',
+        name: 'promote-me',
+        moduleId: 'pages/menu-page-artist/promote-me/promote-me',
+        title: 'Promocionarme',
         nav: false,
         roles: [0]
       },
