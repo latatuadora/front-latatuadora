@@ -51,8 +51,8 @@ export class MenuArtist {
         img: 'src/assets/images/icons/np-price.png',
         text: "Promocionarme",
         title: ["Promocionarme"],
-        route: '/promocionarme',
-        routePage: 'mistatuajes'
+        route: '../../../menu-page-artist/promote-me/promote-me',
+        routePage: 'promocionarme'
       },
       {
         img: 'src/assets/images/icons/np-star.png',
