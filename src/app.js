@@ -224,6 +224,14 @@ export class App {
         roles: [0]
       },
       {
+        route: 'evaluaciones',
+        name: 'evaluations',
+        moduleId: 'pages/menu-page-artist/evaluations/evaluations',
+        title: 'Evaluaciones',
+        nav: false,
+        roles: [0]
+      },
+      {
         route: 'agendacion/solicitud',
         name: 'scheduling-request',
         moduleId: 'pages/menu-page-artist/scheduling-request/scheduling-request',
