@@ -59,7 +59,7 @@ export class MenuArtist {
         text: "Evaluaciones",
         title: ["evaluaciones"],
         route: '/evaluaciones',
-        routePage: 'mistatuajes'
+        routePage: 'evaluaciones'
       }
     ];
   }
