@@ -1,0 +1,64 @@
+<template>
+  <require from="./payment-conekta.css"></require>
+
+  <require from="resources/elements/menu-artist/menu-artist.css"></require>
+  <require from="resources/elements/menu-artist/menu-artist"></require>
+
+  <div class="c-flex c-row c-col--mob">
+    <menu-artist></menu-artist>
+    <div class="c-flex ver-cen c-col wdt-100">
+      <h1 class="base-txt-pay leads-payment__title">${conekta}</h1>
+      <h5 class="base-txt-pay leads-payment__subt mar-0">Conekta</h5>
+      <hr class="special-hr separator">
+      <div class="c-flex ver-cen hor-cen c-col wdt-100">
+        <div class="c-flex c-row ver-cen c-col--mob">
+          <h5 class="base-txt-pay payment-leads__quantity mar-0">Estás comprando 50 Leads</h5>
+          <div class="ver-hr hide-mob"></div>
+          <h6 class="base-txt-pay payment-leads__quantity mar-0">Un total de: <span class="payment-leads__gold">$1,000 MXN</span></h6>
+        </div>
+        <hr class="gray-separator">
+        <div class="c-flex wdt-100--mob">
+          <form class="wdt-100--mob">
+            <div class="c-flex c-row c-col--mob ver-cen ver-start--mob mar-hor-24">
+              <h5 class="base-txt-pay conekta-txt wdt-180px mar-bott-13--mob">Nombre del titular</h5>
+              <div class="c-rel wdt-100--mob">
+                <input class="conekta__input-base input-lg" type="" name="">
+                <i class="fa fa-lock conekta__icon-lock"></i>
+              </div>
+            </div>
+            <div class="c-flex c-row c-col--mob ver-cen ver-start--mob mar-ver-30 mar-hor-24">
+              <h5 class="base-txt-pay conekta-txt wdt-180px mar-bott-13--mob">Número de la tarjeta</h5>
+              <input class="conekta__input-base input-lg base-txt-pay" placeholder="0000/0000/0000/0000" type="" name="">
+            </div>
+            <div class="c-flex c-row ver-cen ver-start--mob mar-hor-24 c-rel--mob ver-end--mob">
+              <h5 class="base-txt-pay conekta-txt wdt-180px mar-bott-13--mob c-abs--mob top-0">Fecha de vencimiento</h5>
+              <div class="c-rel wdt-100--mob">
+                <input class="conekta__input-base input-sm base-txt-pay" placeholder="MM" type="" name="">
+              </div>
+              <div class="c-rel wdt-100--mob mar-hor-14">
+                <input class="conekta__input-base input-sm base-txt-pay" placeholder="AA" type="" name="">
+              </div>
+              <div class="c-rel c-flex c-row c-col--mob wdt-100--mob ver-start--mob ver-cen">
+                <h5 class="base-txt-pay conekta-txt mar-bott-13--mob">CCV</h5>
+                <input class="conekta__input-base input-md mar-lft-10 base-txt-pay" placeholder="000" type="" name="">
+              </div>
+            </div>
+            <div class="c-flex hor-end hor-cen--mob">
+              <input type="submit" value="Pagar" name="" class="gold__btn mar-top-30">
+            </div>
+          </form>
+        </div>
+        <div class="c-flex ver-cen return-conf c-abs--static mar--mobile">
+          <a href="#/posiblesclientes">
+            <div class="c-flex ver-cen hor-cen c-row">
+              <div class="payment-leads__circle c-flex ver-cen hor-cen">
+                <img class="payment-leads__arrow" src="/src/assets/images/icons/left-arrow.png">
+              </div>
+              <h6 class="base-txt-pay payment-leads__txt-return">Regresar</h6>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</template>
