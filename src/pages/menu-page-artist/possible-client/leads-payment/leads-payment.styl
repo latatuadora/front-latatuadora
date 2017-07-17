@@ -5,97 +5,94 @@
 a
   outline 0
 
-.c-flex
+.content-flex
   display flex
 
-.c-row
+.content-row
   flex-direction row
 
-.c-col
+.content-column
   flex-direction column
 
-.ver-cen
+.vertical-center
   align-items center
 
-.hor-cen
+.horizontal-center
   justify-content center
 
-.c-rel
+.content-relative
   position relative
 
-.c-abs
+.content-absolute
   position absolute
   left 0px
-  bottom -55px
+  bottom -45px
 
-.desk
+.hide-desktop
   display none
 
 .separator
   width 85%
   margin 46px 0px
 
-.base-txt-pay
+.text-base
   color: #1d1c1c
   font-family 'Lato'
   font-weight $regular
 
-.wdt-100
+.width-100
   width 100%
 
-.leads-payment__title  
+.leads-payment-title  
   font-size 25px
   margin 68px 0px 6px 0px
 
-.payment-leads__quantity,
-  .payment-leads__select
+.payment-leads-quantity,
+  .payment-leads-select
     font-size 23px
 
-.payment-leads__quantity
+.payment-leads-quantity
   margin 0px 0px 22px 0px
 
-.payment-leads__total
+.payment-leads-total
   font-size 20px
   margin 0px
 
-.payment-leads__gold
+.payment-leads-gold
   color #b09c6c
 
-.payment-leads__select
-  margin 0px 0px 50px 0px
-
-.payment-leads__circle
+.payment-leads-circle
   background-color #b09c6c
   border-radius 50px
   height 30px
   width 30px
 
-.payment-leads__txt-return
+.payment-leads-text-return
   color #595959
   font-size 13px
   text-transform uppercase
   margin 0px
   margin-left 10px
 
-.payment-leads__arrow
+.payment-leads-arrow
   width 8px
 
-.payment-leads__card
+.payment-leads-card
   border-radius 13px
   width 199px
   height 111px 
   background-color #f9f9f9
   margin 0px 9px
 
-.payment-leads__card:hover
+.payment-leads-card:hover
   content "Hola"
   border solid 5px #b09c6c
   border-radius 13px
 
-.payment-leads__card-img
+.payment-leads-card-img
   width 147px
 
-.payment-leads__method
+.payment-leads-method
   font-size 14px
   margin 23px 0px
   padding 0px 17px
@@ -108,71 +105,59 @@ a
   margin 36px 0px 50px 0px
 
 @media screen and (max-width: 975px)
-  .c-row--mobile
+  .content-row-mobile
     flex-direction column
 
-  .c-col--mobile
+  .content-column-mobile
     flex-direction row
 
-  .wdt-100--mobile
+  .width-100-mobile
     width 100%
 
-  .ver-cen--mobile
+  .vertical-center-mobile
     align-items center
 
-  .hor-cen--mobile
-    justify-content center
-
-  .desk
+  .show-mobile
     display block
     
-  .c-abs--mobile
+  .content-static-mobile
     position static
     
-  .mar--mobile
+  .margin-bottom-40px-mobile
     margin-bottom 40px
 
-  .leads-payment__title
+  .leads-payment-title
     font-size 20px
+    margin-bottom 0px
+    margin-top 35px
 
-  .payment-leads__quantity,
-    .payment-leads__select
+  .payment-leads-quantity,
+    .payment-leads-select
       font-size 18px
 
-  .payment-leads__total
+  .payment-leads-total
     font-size 15px
 
-  .payment-leads__select
+  .payment-leads-select
     margin-left 20px
     margin-right 20px
     text-align center
     
-  .mar-bott-10
+  .margin-bottom-10px
     margin-bottom 10px
 
-  .leads-payment__container
-    margin-bottom 63px
-
-  .payment-leads__card
+  .payment-leads-card
     width auto
     height auto
     margin 0px 0px
     padding 16px 13px
 
-  .payment-leads__card-img
+  .payment-leads-card-img
     max-width 100%
 
-  .payment-leads__method
+  .payment-leads-method
     margin 0px
     text-align left
 
   .separator
     margin 35px 0px
-
-  .leads-payment__content
-    flex-direction column
-    width: 100%
-
-  .leads-payment__title
-    margin-bottom 0px
-    margin-top 35px
