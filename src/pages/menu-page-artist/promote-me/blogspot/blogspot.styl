@@ -1,0 +1,350 @@
+@import '../../../../assets/styles/vars'
+@import '../../../../assets/styles/mixins'
+@import '../../../../assets/styles/base'
+
+a
+  outline 0
+
+.c-flex
+  display flex
+
+.c-row
+  flex-direction row
+
+.c-col
+  flex-direction column
+
+.ver-cen
+  align-items center
+
+.hor-cen
+  justify-content center
+  
+.hor-end
+  justify-content flex-end
+  
+.hor-start
+  justify-content flex-start
+
+.c-rel
+  position relative
+
+.c-abs
+  position absolute
+  left 0px
+  bottom -55px
+
+.show-desk
+  display block
+  
+.hide-desk
+  display none
+
+.separator
+  width 85%
+  margin 46px 0px
+  
+.ver-hr
+  background-color #979797
+  height 37px
+  margin 0px 30px
+  width 1px
+
+.base-txt-pay
+  color: #1d1c1c
+  font-family 'Lato'
+  font-weight $regular
+  
+.descript
+  font-size 21px
+  
+.txt-cen
+  text-align center
+
+.wdt-100
+  width 100%
+  
+.wdt-50
+  width 50%
+ 
+.wdt-180px
+ width 180px 
+  
+.mar-0
+  margin 0px
+  
+.mar-lft-10
+  margin-left 10px
+  
+.mar-ver-30
+  margin 30px 0px
+  
+.mar-ver-20-48
+  margin 20px 0px 48px 0px
+  
+.mar-hor-14
+  margin 0px 16px 0px 14px
+  
+.mar-top-30
+  margin-top 30px
+  
+.mar-bott-72px
+  margin 0px 0px 72px 0px
+
+.leads-payment__title  
+  font-size 25px
+  margin 68px 0px 6px 0px
+  
+.leads-payment__subt
+  font-size 20px
+  color #c9c9c9
+  
+.subt
+  font-size 20px
+  
+.conekta-txt
+  color #262626
+  font-size 16px
+  margin 0px
+
+.conekta__input-base
+  background-color #fff
+  border solid 1px #e6e6e6
+  height 47px
+  
+.input-lg
+  width 344px
+  padding-left 10px
+  
+.input-md
+  width 111px
+  
+.input-sm
+  width 80px
+  
+.input-md,
+  .input-sm
+    text-align center
+    
+.gold__btn
+  color #fff
+  background-color #b09c6c
+  border none
+  border-radius 2px
+  font-family 'Lato'
+  font-size 13px
+  font-weight $regular
+  height 48px
+  outline 0 !important
+  text-transform uppercase
+  width 147px
+  
+.conekta__icon-lock
+  position absolute
+  right 0px
+  top 50%
+  transform translateY(-50%)
+  color #e8e8e8
+  right 12px
+
+.payment-leads__quantity,
+  .payment-leads__select
+    font-size 23px
+
+.payment-leads__total
+  font-size 20px
+  margin 0px
+
+.payment-leads__gold
+  color #b09c6c
+  
+.txt-gold
+  color #b09c6c
+
+.payment-leads__select
+  margin 0px 0px 50px 0px
+
+.payment-leads__circle
+  background-color #b09c6c
+  border-radius 50px
+  height 30px
+  width 30px
+
+.payment-leads__txt-return
+  color #595959
+  font-size 13px
+  text-transform uppercase
+  margin 0px
+  margin-left 10px
+
+.payment-leads__arrow
+  width 8px
+
+.payment-leads__card
+  border-radius 13px
+  width 199px
+  height 111px 
+  background-color #f9f9f9
+  margin 0px 9px
+
+.payment-leads__card:hover
+  content "Hola"
+  border solid 5px #b09c6c
+  border-radius 13px
+
+.payment-leads__card-img
+  width 147px
+
+.payment-leads__method
+  font-size 14px
+  margin 23px 0px
+  padding 0px 17px
+  text-align center
+  width 199px
+
+.gray-separator
+  border solid 1px #dedede
+  width 45%
+  margin 36px 0px 50px 0px
+  
+.return-conf
+  align-self flex-start
+  margin 63px 0px 46px 150px
+  
+::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+  color: #b1b1b1;
+}
+::-moz-placeholder { /* Firefox 19+ */
+  color: #b1b1b1;
+}
+:-ms-input-placeholder { /* IE 10+ */
+  color: #b1b1b1;
+}
+
+@media screen and (max-width: 975px)
+  .c-col--mob
+    flex-direction column
+
+  .c-row--mob
+    flex-direction row
+
+  .wdt-100--mob
+    width 100%
+    
+  .wdt-180px
+    width initial
+
+  .ver-cen--mobile
+    align-items center
+    
+  .ver-start--mob
+    align-items flex-start
+    
+  .ver-end--mob
+    align-items flex-end
+
+  .hor-cen--mob
+    justify-content center
+
+  .desk
+    display block
+    
+  .show-mob
+    display block
+    
+  .hide-mob
+    display none
+    
+  .descript
+    font-size 16px
+    
+  .input-lg,
+    .input-md,
+      .input-sm
+        width 100%
+    
+  .c-abs--static
+    position static
+    
+  .c-rel--mob
+    position relative
+    
+  .c-abs--mob
+    position absolute
+    
+  .top-0
+    top 0px
+    
+  .wdt-50
+    width 70%
+    
+  .return-conf
+    align-self initial
+    align-items center
+    margin-left 0px
+    
+  .mar--mobile
+    margin-bottom 40px
+    
+  .mar-hor-24
+    margin-left 24px
+    margin-right 24px
+    
+  .mar-hor-14
+    margin 0px 14px
+    
+  .mar-bott-13--mob
+    margin-bottom 13px
+    
+  .mar-lft-10
+    margin-left 0px
+    
+  .mar-bott-72px
+    margin-left 40px
+    margin-right 40px
+    text-align center
+
+  .leads-payment__title
+    font-size 20px
+
+  .payment-leads__quantity,
+    .payment-leads__select
+      font-size 18px
+
+  .payment-leads__total
+    font-size 15px
+
+  .payment-leads__select
+    margin-left 20px
+    margin-right 20px
+    text-align center
+    
+  .mar-bott-10
+    margin-bottom 10px
+
+  .leads-payment__container
+    margin-bottom 63px
+
+  .payment-leads__card
+    width auto
+    height auto
+    margin 0px 0px
+    padding 16px 13px
+
+  .payment-leads__card-img
+    max-width 100%
+
+  .payment-leads__method
+    margin 0px
+    text-align left
+
+  .separator
+    margin 35px 0px
+
+  .leads-payment__content
+    flex-direction column
+    width: 100%
+
+  .leads-payment__title
+    margin-bottom 0px
+    margin-top 35px
