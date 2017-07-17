@@ -1,5 +1,5 @@
 export class LeadsPackages {
   constructor () {
-    this.leadsPackages = "Paquetes";
+    this.leadsPackagesTitle = "Paquetes";
   }
 }
