@@ -218,7 +218,15 @@ export class App {
       {
         route: 'promocionarme',
         name: 'promote-me',
-        moduleId: 'pages/menu-page-artist/promote-me/promote-me',
+        moduleId: 'pages/menu-page-artist/promote-me/promote-me/promote-me',
+        title: 'Promocionarme',
+        nav: false,
+        roles: [0]
+      },
+      {
+        route: 'promocionarme/blogspot',
+        name: 'promote-me-blog',
+        moduleId: 'pages/menu-page-artist/promote-me/blogspot/blogspot',
         title: 'Promocionarme',
         nav: false,
         roles: [0]
