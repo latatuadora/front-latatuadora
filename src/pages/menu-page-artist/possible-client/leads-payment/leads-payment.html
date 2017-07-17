@@ -3,51 +3,51 @@
   <require from="resources/elements/menu-artist/menu-artist.css"></require>
   <require from="resources/elements/menu-artist/menu-artist"></require>
 
-  <div class="c-flex c-row c-row--mobile">
+  <div class="content-flex content-row content-row-mobile">
     <menu-artist></menu-artist>
-    <div class="c-flex ver-cen c-col wdt-100">
-      <h1 class="base-txt-pay leads-payment__title">${payment}</h1>
+    <div class="content-flex vertical-center content-column width-100">
+      <h1 class="text-base leads-payment-title">${paymentTitle}</h1>
       <hr class="special-hr separator">
-      <div class="c-flex ver-cen hor-cen c-col wdt-100">
-        <h5 class="base-txt-pay payment-leads__quantity">Estás comprando 50 Leads</h5>
-        <h6 class="base-txt-pay payment-leads__total">Un total de: <span class="payment-leads__gold">$1,000 MXN</span></h6>
+      <div class="content-flex vertical-center horizontal-center content-column width-100">
+        <h5 class="text-base payment-leads-quantity">Estás comprando 50 Leads</h5>
+        <h6 class="text-base payment-leads-total">Un total de: <span class="payment-leads-gold">$1,000 MXN</span></h6>
         <hr class="gray-separator">
-        <h5 class="base-txt-pay payment-leads__select">Selecciona el <span class="payment-leads__gold">método de pago</span> que deseas utilizar:</h5>
-        <div class="c-flex c-row c-rel c-row--mobile wdt-100--mobile ver-cen--mobile">
-          <div class="c-flex c-col c-col--mobile ver-cen--mobile payment-leads__select mar-bott-10">
-            <div class="c-flex ver-cen hor-cen payment-leads__card">
-              <img class="payment-leads__card-img" src="src/assets/images/logos/paypal.png">
+        <h5 class="text-base payment-leads-select">Selecciona el <span class="payment-leads-gold">método de pago</span> que deseas utilizar:</h5>
+        <div class="content-flex content-row content-relative content-row-mobile width-100-mobile vertical-center-mobile">
+          <div class="content-flex content-column content-column-mobile vertical-center-mobile payment-leads-select margin-bottom-10px">
+            <div class="content-flex vertical-center horizontal-center payment-leads-card">
+              <img class="payment-leads-card-img" src="src/assets/images/logos/paypal.png">
             </div>
-            <div class="c-flex hor-cen">
-              <p class="base-txt-pay payment-leads__method">Pago por medio de PayPal</p>
-            </div>
-          </div>
-          <hr class="gray-separator desk">
-          <div class="c-flex c-col c-col--mobile ver-cen--mobile payment-leads__select mar-bott-10">
-            <div class="c-flex ver-cen hor-cen payment-leads__card">
-              <img class="payment-leads__card-img" src="src/assets/images/logos/conekta.png">
-            </div>
-            <div class="c-flex hor-cen">
-              <p class="base-txt-pay payment-leads__method">Pago con tarjeta de crédito o debito</p>
+            <div class="content-flex horizontal-center">
+              <p class="text-base payment-leads-method">Pago por medio de PayPal</p>
             </div>
           </div>
-          <hr class="gray-separator desk">
-          <div class="c-flex c-col c-col--mobile ver-cen--mobile payment-leads__select mar-bott-10">
-            <div class="c-flex ver-cen hor-cen payment-leads__card">
-              <img class="payment-leads__card-img" src="src/assets/images/logos/compro-pago.png">
+          <hr class="gray-separator hide-desktop show-mobile">
+          <div class="content-flex content-column content-column-mobile vertical-center-mobile payment-leads-select margin-bottom-10px">
+            <div class="content-flex vertical-center horizontal-center payment-leads-card">
+              <img class="payment-leads-card-img" src="src/assets/images/logos/conekta.png">
             </div>
-            <div class="c-flex hor-cen">
-              <p class="base-txt-pay payment-leads__method">Pago en efectivo en más de 87 sucursales</p>
+            <div class="content-flex horizontal-center">
+              <p class="text-base payment-leads-method">Pago con tarjeta de crédito o debito</p>
             </div>
           </div>
-          <hr class="gray-separator desk">
-          <div class="payment-leads-return c-abs c-abs--mobile mar--mobile">
+          <hr class="gray-separator hide-desktop show-mobile">
+          <div class="content-flex content-column content-column-mobile vertical-center-mobile payment-leads-select margin-bottom-10px">
+            <div class="content-flex vertical-center horizontal-center payment-leads-card">
+              <img class="payment-leads-card-img" src="src/assets/images/logos/compro-pago.png">
+            </div>
+            <div class="content-flex horizontal-center">
+              <p class="text-base payment-leads-method">Pago en efectivo en más de 87 sucursales</p>
+            </div>
+          </div>
+          <hr class="gray-separator hide-desktop show-mobile">
+          <div class="payment-leads-return content-absolute content-static-mobile margin-bottom-40px-mobile">
             <a href="#/posiblesclientes">
-              <div class="c-flex ver-cen hor-cen c-row">
-                <div class="payment-leads__circle c-flex ver-cen hor-cen">
-                  <img class="payment-leads__arrow" src="/src/assets/images/icons/left-arrow.png">
+              <div class="content-flex vertical-center horizontal-center content-row">
+                <div class="payment-leads-circle content-flex vertical-center horizontal-center">
+                  <img class="payment-leads-arrow" src="/src/assets/images/icons/left-arrow.png">
                 </div>
-                <h6 class="base-txt-pay payment-leads__txt-return">Regresar</h6>
+                <h6 class="text-base payment-leads-text-return">Regresar</h6>
               </div>
             </a>
           </div>
