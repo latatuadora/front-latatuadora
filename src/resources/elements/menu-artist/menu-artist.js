@@ -31,7 +31,7 @@ export class MenuArtist {
         text: "Posibles clientes",
         title: ["Posibles", "clientes"],
         route: '/clientes',
-        routePage: 'mistatuajes'
+        routePage: 'posiblesclientes'
       },
       {
         img: 'src/assets/images/icons/np-clock.png',
@@ -51,15 +51,15 @@ export class MenuArtist {
         img: 'src/assets/images/icons/np-price.png',
         text: "Promocionarme",
         title: ["Promocionarme"],
-        route: '/promocionarme',
-        routePage: 'mistatuajes'
+        route: '../../../menu-page-artist/promote-me/promote-me',
+        routePage: 'promocionarme'
       },
       {
         img: 'src/assets/images/icons/np-star.png',
         text: "Evaluaciones",
         title: ["evaluaciones"],
         route: '/evaluaciones',
-        routePage: 'mistatuajes'
+        routePage: 'evaluaciones'
       }
     ];
   }

@@ -176,10 +176,66 @@ export class App {
         roles: [0]
       },
       {
+        route: 'posiblesclientes',
+        name: 'possible-client',
+        moduleId: 'pages/menu-page-artist/possible-client/possible-client/possible-client',
+        title: 'Posibles Clientes',
+        nav: false,
+        roles: [0]
+      },
+      {
+        route: 'posiblesclientes/paquetes',
+        name: 'leads-packages',
+        moduleId: 'pages/menu-page-artist/possible-client/leads-packages/leads-packages',
+        title: 'Paquetes',
+        nav: false,
+        roles: [0]
+      },
+      {
+        route: 'posiblesclientes/pagos',
+        name: 'leads-payment',
+        moduleId: 'pages/menu-page-artist/possible-client/leads-payment/leads-payment',
+        title: 'Pago',
+        nav: false,
+        roles: [0]
+      },
+      {
+        route: 'posiblesclientes/conekta',
+        name: 'payment-conkecta',
+        moduleId: 'pages/menu-page-artist/possible-client/payment-conekta/payment-conekta',
+        title: 'Pago - Conekta',
+        nav: false,
+        roles: [0]
+      },
+      {
         route: 'mistatuadores',
         name: 'my-tattoo-artist',
         moduleId: 'pages/menu-page-artist/my-tattoo-artist/my-tattoo-artist',
         title: 'Mis tatuadores',
+        nav: false,
+        roles: [0]
+      },
+      {
+        route: 'promocionarme',
+        name: 'promote-me',
+        moduleId: 'pages/menu-page-artist/promote-me/promote-me/promote-me',
+        title: 'Promocionarme',
+        nav: false,
+        roles: [0]
+      },
+      {
+        route: 'promocionarme/blogspot',
+        name: 'promote-me-blog',
+        moduleId: 'pages/menu-page-artist/promote-me/blogspot/blogspot',
+        title: 'Promocionarme',
+        nav: false,
+        roles: [0]
+      },
+      {
+        route: 'evaluaciones',
+        name: 'evaluations',
+        moduleId: 'pages/menu-page-artist/evaluations/evaluations',
+        title: 'Evaluaciones',
         nav: false,
         roles: [0]
       },
