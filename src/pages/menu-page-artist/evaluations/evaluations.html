@@ -5,13 +5,13 @@
   <require from="resources/elements/menu-artist/menu-artist"></require>
   <require from="../../../resources/elements/evaluation-item/evaluation-item"></require>
 
-  <div class="c-flex c-row c-col--mob">
+  <div class="content-flex content-row content-column-mobile">
     <menu-artist></menu-artist>
-    <div class="c-flex ver-cen c-col wdt-100">
-      <h1 class="base-txt-pay leads-payment__title">${evaluations}</h1>
+    <div class="content-flex vertical-center content-column width-100">
+      <h1 class="text-base text-black title margin-vertical-68px-6px">${evaluations}</h1>
       <hr class="special-hr separator">
-      <h6 class="base-txt-pay txt-gold subt mar-bott-72px">Conoce que dicen los usuarios de ti</h6>
-      <div class="c-flex ver-cen hor-cen c-col wdt-100">
+      <h6 class="text-base text-black text-gold subtitle margin-bottom-72px mar-horizontal-40px-mobile">Conoce que dicen los usuarios de ti</h6>
+      <div class="content-flex vertical-center horizontal-center content-column width-100">
         <evaluation-item repeat.for="item of 2"></evaluation-item>
       </div>
     </div>
