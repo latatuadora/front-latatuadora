@@ -287,6 +287,14 @@ export class App {
         nav: false,
         roles: [0]
       },
+      {
+        route: 'suscribir',
+        name: 'subscribe',
+        moduleId: 'pages/subscribe-newsletter/subscribe-newsletter',
+        title: 'Editar Perfil',
+        nav: false,
+        roles: [0]
+      },
       this.errorRoute
     ];
     this.sessionRoutes = [
