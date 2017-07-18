@@ -1,51 +1,16 @@
 @import '../../../../assets/styles/vars'
-@import '../../../../assets/styles/mixins'
 @import '../../../../assets/styles/base'
 
-a
-  outline 0
-
-.content-flex
-  display flex
-
-.content-row
-  flex-direction row
-
-.content-column
-  flex-direction column
-
-.vertical-center
-  align-items center
-
-.horizontal-center
-  justify-content center
-
-.content-relative
-  position relative
-
-.content-absolute
-  position absolute
+.absolute-left-0px-bottom-45px-negative
   left 0px
   bottom -45px
-
-.hide-desktop
-  display none
 
 .separator
   width 85%
   margin 46px 0px
 
-.text-base
-  color: #1d1c1c
-  font-family 'Lato'
-  font-weight $regular
-
-.width-100
-  width 100%
-
-.leads-payment-title  
+.title  
   font-size 25px
-  margin 68px 0px 6px 0px
 
 .payment-leads-quantity,
   .payment-leads-select
@@ -57,9 +22,6 @@ a
 .payment-leads-total
   font-size 20px
   margin 0px
-
-.payment-leads-gold
-  color #b09c6c
 
 .payment-leads-circle
   background-color #b09c6c
@@ -105,29 +67,10 @@ a
   margin 36px 0px 50px 0px
 
 @media screen and (max-width: 975px)
-  .content-row-mobile
-    flex-direction column
-
-  .content-column-mobile
-    flex-direction row
-
-  .width-100-mobile
-    width 100%
-
-  .vertical-center-mobile
-    align-items center
-
-  .show-mobile
-    display block
-    
-  .content-static-mobile
-    position static
-    
   .margin-bottom-40px-mobile
     margin-bottom 40px
-
-  .leads-payment-title
-    font-size 20px
+    
+  .margin-vertical-35px-0px-mobile
     margin-bottom 0px
     margin-top 35px
 
@@ -145,6 +88,9 @@ a
     
   .margin-bottom-10px
     margin-bottom 10px
+    
+  .margin-bottom-40px-mobile
+    margin-bottom 40px
 
   .payment-leads-card
     width auto
@@ -161,3 +107,6 @@ a
 
   .separator
     margin 35px 0px
+    
+  .gray-separator
+    margin 5px 0px 15px 0px
