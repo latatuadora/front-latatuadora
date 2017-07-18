@@ -288,10 +288,10 @@ export class App {
         roles: [0]
       },
       {
-        route: 'suscribir',
-        name: 'subscribe',
-        moduleId: 'pages/subscribe-newsletter/subscribe-newsletter',
-        title: 'Editar Perfil',
+        route: 'nosotros',
+        name: 'about-us',
+        moduleId: 'pages/about-us/about-us',
+        title: 'Acerca de nosotros',
         nav: false,
         roles: [0]
       },
