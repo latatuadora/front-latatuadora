@@ -1,5 +1,5 @@
 export class LeadsPayment {
   constructor () {
-    this.paymentTitle = "Pagos";
+    this.paymentTitle = "Pago";
   }
 }
