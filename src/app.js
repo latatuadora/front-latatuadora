@@ -271,6 +271,14 @@ export class App {
         nav: false,
         roles: [0]
       },
+      {
+        route: 'preguntas/cotizaciones',
+        name: 'question-quotation',
+        moduleId: 'pages/frecuent-questions/question-quotation/question-quotation',
+        title: 'Preguntas - Cotizaciones',
+        nav: false,
+        roles: [0]
+      },
       this.errorRoute
     ];
     this.sessionRoutes = [
