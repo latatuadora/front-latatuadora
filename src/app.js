@@ -263,6 +263,14 @@ export class App {
         nav: false,
         roles: [0]
       },
+      {
+        route: 'news/blog',
+        name: 'news-blog',
+        moduleId: 'pages/news-blog/news-blog',
+        title: 'News Blog',
+        nav: false,
+        roles: [0]
+      },
       this.errorRoute
     ];
     this.sessionRoutes = [
