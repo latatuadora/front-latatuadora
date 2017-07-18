@@ -279,6 +279,14 @@ export class App {
         nav: false,
         roles: [0]
       },
+      {
+        route: 'politicaprivacidad',
+        name: 'notice-privacy',
+        moduleId: 'pages/notice-privacy/notice-privacy',
+        title: 'Política de Privacidad',
+        nav: false,
+        roles: [0]
+      },
       this.errorRoute
     ];
     this.sessionRoutes = [
