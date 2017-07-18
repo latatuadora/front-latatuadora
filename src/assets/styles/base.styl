@@ -314,3 +314,111 @@ label
 
     &::after
       right -2.1px
+
+a
+  outline 0
+
+.content-flex
+  display flex
+
+.content-row
+  flex-direction row
+
+.content-column
+  flex-direction column
+
+.vertical-center
+  align-items center
+
+.horizontal-center
+  justify-content center
+  
+.horizontal-end
+  justify-content flex-end
+
+.content-relative
+  position relative
+  
+.content-absolute
+  position absolute
+  
+.hide-desktop
+  display none
+
+.text-base
+  font-family 'Lato'
+  font-weight $regular
+  
+.text-black
+  color: #1d1c1c
+
+.width-100
+  width 100%
+
+.title
+  font-size 25px
+  
+.subtitle
+  font-size 20px
+  
+.text-gray-subtitle
+  color #c9c9c9
+  
+.text-gold
+  color $dustColor
+  
+.margin-vertical-68px-6px
+  margin 68px 0px 6px 0px
+  
+::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+  color: #b1b1b1;
+}
+::-moz-placeholder { /* Firefox 19+ */
+  color: #b1b1b1;
+}
+:-ms-input-placeholder { /* IE 10+ */
+  color: #b1b1b1;
+}
+
+@media screen and (max-width: 975px)
+  .content-row-mobile
+    flex-direction row
+
+  .content-column-mobile
+    flex-direction column
+
+  .width-100-mobile
+    width 100%
+    
+  .vertical-center-mobile
+    align-items center
+    
+  .vertical-start-mobile
+    align-items flex-start
+    
+  .vertical-end-mobile
+    align-items flex-end
+
+  .horizontal-center-mobile
+    justify-content center
+    
+  .show-mobile
+    display block
+    
+  .hide-mobile
+    display none
+    
+  .content-static-mobile
+    position static
+    
+  .content-relative-mobile
+    position relative
+    
+  .content-absolute-mobile
+    position absolute
+
+  .title
+    font-size 20px
+    
+  .subtitle
+    font-size 15px
