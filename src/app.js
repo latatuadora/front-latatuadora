@@ -295,6 +295,14 @@ export class App {
         nav: false,
         roles: [0]
       },
+      {
+        route: 'contacto',
+        name: 'contact',
+        moduleId: 'pages/contact/contact',
+        title: 'Contacto',
+        nav: false,
+        roles: [0]
+      },
       this.errorRoute
     ];
     this.sessionRoutes = [
