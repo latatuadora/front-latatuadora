@@ -311,6 +311,14 @@ export class App {
         nav: false,
         roles: [0]
       },
+      {
+        route: 'comofunciona',
+        name: 'how-it-work',
+        moduleId: 'pages/how-it-work/how-it-work',
+        title: '¿Cómo funciona?',
+        nav: false,
+        roles: [0]
+      },
       this.errorRoute
     ];
     this.sessionRoutes = [
