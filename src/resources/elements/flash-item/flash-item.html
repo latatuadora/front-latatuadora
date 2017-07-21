@@ -1,6 +1,9 @@
 <template>
   <require from="./flash-item.css"></require>
 
+  <require from="resources/attributes/simple-modal"></require>
+  <require from="resources/elements/modals/delete-flash-modal/delete-flash-modal"></require>
+
   <div class="my-flash">
     <div class="my-flash__options">
       <div>
@@ -9,8 +12,9 @@
         </a>
       </div>
       <div>
+        <delete-flash-modal id="delete-flash-content" simple-modal="show.two-way: showModal" css="${showModal ? 'display: block' : 'display: none'}" flash.bind="flash"  go-next.call="nextItem()" go-prev.call="previousItem()" close.call="closeModal()"></delete-flash-modal>
         <a>
-          <img class="my-flash__options-icon" src="src/assets/images/icons/trashflash.png">
+          <img click.trigger="openModal()" class="my-flash__options-icon" src="src/assets/images/icons/trashflash.png">
         </a>
       </div>
     </div>
@@ -35,7 +39,7 @@
           </div>
           <div class="my-flash-flex-row my-flash__vertical-center">
             <i class="my-flash__icons fa fa-arrows-alt"></i>
-            <h5 class="my-flash__price">$ 3000.00</h5>
+            <h5 class="my-flash__price">${flash.precio}</h5>
           </div>
           <div class="my-flash-flex-row my-flash__vertical-center">
             <i class="my-flash__icons fa fa-circle"></i>
