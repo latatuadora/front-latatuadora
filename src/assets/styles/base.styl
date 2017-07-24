@@ -326,8 +326,11 @@ a
 
 .content-column
   flex-direction column
+  
+.content-wrap
+  flex-wrap wrap
 
-.vertical-center
+.content-vertical-center
   align-items center
 
 .horizontal-center
@@ -335,6 +338,9 @@ a
   
 .horizontal-end
   justify-content flex-end
+  
+.align-self-start
+  align-self flex-start
 
 .content-relative
   position relative
@@ -351,9 +357,18 @@ a
   
 .text-black
   color: #1d1c1c
+  
+.text-black-two
+  color #2f2f2f
+  
+.text-white
+  color #fff
 
 .width-100
   width 100%
+  
+.width-50
+  width 50%
 
 .title
   font-size 25px
@@ -361,14 +376,60 @@ a
 .subtitle
   font-size 20px
   
+.bullets
+  font-size 18px
+  
+.description
+  font-size 21px
+  
+.paragraph
+  font-size 14px
+  
+.lineheight-30px
+  line-height 30px
+  
+.text-center
+  text-align center
+  
+.text-justify
+  text-align justify
+  
 .text-gray-subtitle
   color #c9c9c9
   
 .text-gold
   color $dustColor
   
+.margin-0px
+  margin 0px
+  
 .margin-vertical-68px-6px
   margin 68px 0px 6px 0px
+  
+.margin-right-30px
+  margin 0px 30px 0px 0px
+  
+.input-base
+  background-color #fff
+  border solid 1px #e6e6e6
+  height 47px
+  
+.button-base
+  background-color #b09c6c
+  border none
+  border-radius 2px
+  color #fff
+  font-size 14px
+  height 47px
+  outline 0 !important
+  text-transform uppercase
+  
+.explore-studies
+  color #1d1c1c
+  border-bottom: 2px solid #b6a371;
+
+.explore-studies:visited
+  color #1d1c1c
   
 ::-webkit-input-placeholder { /* Chrome/Opera/Safari */
   color: #b1b1b1;
@@ -386,11 +447,14 @@ a
 
   .content-column-mobile
     flex-direction column
+    
+  .content-wrap-mobile
+    flex-wrap wrap
 
   .width-100-mobile
     width 100%
     
-  .vertical-center-mobile
+  .content-vertical-center-mobile
     align-items center
     
   .vertical-start-mobile
@@ -398,6 +462,9 @@ a
     
   .vertical-end-mobile
     align-items flex-end
+    
+  .horizontal-start-mobile
+    justify-content flex-start
 
   .horizontal-center-mobile
     justify-content center
@@ -419,6 +486,18 @@ a
 
   .title
     font-size 20px
-    
+
   .subtitle
     font-size 15px
+
+  .description
+    font-size 16px
+
+  .bullets
+    font-size 14px
+    
+  .lineheight-24px-mobile
+    line-height 24px
+    
+  .margin-bottom-20px-mobile
+    margin 0px 0px 20px 0px

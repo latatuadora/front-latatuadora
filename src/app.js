@@ -263,6 +263,62 @@ export class App {
         nav: false,
         roles: [0]
       },
+      {
+        route: 'news/blog',
+        name: 'news-blog',
+        moduleId: 'pages/news-blog/news-blog',
+        title: 'News Blog',
+        nav: false,
+        roles: [0]
+      },
+      {
+        route: 'preguntas/cotizaciones',
+        name: 'question-quotation',
+        moduleId: 'pages/frecuent-questions/question-quotation/question-quotation',
+        title: 'Preguntas - Cotizaciones',
+        nav: false,
+        roles: [0]
+      },
+      {
+        route: 'politicaprivacidad',
+        name: 'notice-privacy',
+        moduleId: 'pages/notice-privacy/notice-privacy',
+        title: 'Política de Privacidad',
+        nav: false,
+        roles: [0]
+      },
+      {
+        route: 'nosotros',
+        name: 'about-us',
+        moduleId: 'pages/about-us/about-us',
+        title: 'Acerca de nosotros',
+        nav: false,
+        roles: [0]
+      },
+      {
+        route: 'contacto',
+        name: 'contact',
+        moduleId: 'pages/contact/contact',
+        title: 'Contacto',
+        nav: false,
+        roles: [0]
+      },
+      {
+        route: 'buscar',
+        name: 'search-tatuadora',
+        moduleId: 'pages/search-tatuadora/search-tatuadora',
+        title: 'Buscar',
+        nav: false,
+        roles: [0]
+      },
+      {
+        route: 'comofunciona',
+        name: 'how-it-work',
+        moduleId: 'pages/how-it-work/how-it-work',
+        title: '¿Cómo funciona?',
+        nav: false,
+        roles: [0]
+      },
       this.errorRoute
     ];
     this.sessionRoutes = [
