@@ -1,0 +1,30 @@
+<template>
+  <require from="./favorite-studies-item.css"></require>
+
+  <div class="studies-item width-100-mobile">
+	<div class="studies-item-background-img"></div>
+	<div class="content-mosaic-padding-10px-15px content-mosaic-padding-18px-30px-mobile">
+	  <div class="content-flex content-row">
+		<div class="width-100">
+		  <div class="content-flex content-row vertical-center justify-between">
+			<h4 class="text-base text-white text-mosaic-title margin-0px">Dejavu</h4>
+			<h6 class="studies-item-icon-heart margin-0px fa fa-heart"> <span class="text-base text-mosaic-likes margin-left-5px">13 Likes</span></h6>
+		  </div>
+		  <div class="line-height-0px margin-vertical-10px margin-vertical-18px-mobile">
+			<i class="icon-mosaic-star fa fa-star"></i>
+			<i class="icon-mosaic-star fa fa-star"></i>
+			<i class="icon-mosaic-star fa fa-star"></i>
+			<i class="icon-mosaic-star fa fa-star-o"></i>
+			<i class="icon-mosaic-star fa fa-star-o"></i>
+		  </div>
+		  <h5 class="text-base text-white text-mosaic-location margin-0px">Ciudad de México</h5>
+		</div>
+	  </div>
+	  <ul class="content-flex content-row ul-mosaic-tags content-wrap horizontal-start margin-top-10px">
+		<li class="content-flex vertical-center horizontal-center li-mosaic-tag" repeat.for="item of 6">
+		  <a class="text-base text-mosaic-tag">Acuarela</a>
+		</li>
+	  </ul>
+	</div>
+  </div>
+</template>
