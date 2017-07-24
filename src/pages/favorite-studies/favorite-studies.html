@@ -1,0 +1,18 @@
+<template>
+  <require from="./favorite-studies.css"></require>
+  <require from="resources/elements/favorite-studies-item/favorite-studies-item"></require>
+
+  <div class="content-flex content-column vertical-center margin-vertical-60px-70px width-100">
+	<h1 class="text-base text-black title margin-bottom-30px">${favoriteStudies.title}</h1>
+	<h2 class="text-base text-black text-center subtitle margin-0px margin-horizontal-30px-mobile">${favoriteStudies.subtitleFirts} <span class="text-gold">${favoriteStudies.subtitleSecond}</span> ${favoriteStudies.subtitleThird}</h2>
+	<div class="special-hr gold-hr margin-vertical-47px show-desktop hide-mobile"></div>
+	<div class="gold-hr margin-vertical-47px hide-desktop show-mobile"></div>
+	<div class="content-flex content-row margin-bottom-59px">
+	  <h2 class="text-base text-black subtitle margin-right-30px">Estudios</h2>
+	  <h2 class="text-base text-gold subtitle margin-0px">Todos</h2>
+	</div>
+	<div class="content-flex content-row content-column-mobile horizontal-center content-wrap width-100-mobile">
+	  <favorite-studies-item repeat.for="item of 5"></favorite-studies-item>
+	</div>
+  </div>
+</template>
