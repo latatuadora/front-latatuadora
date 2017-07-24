@@ -335,6 +335,14 @@ export class App {
         nav: false,
         roles: [0]
       },
+      {
+        route: 'comprar/flash',
+        name: 'buy-flash',
+        moduleId: 'pages/buy-flash/buy-flash',
+        title: 'Comprar flash',
+        nav: false,
+        roles: [0]
+      },
       this.errorRoute
     ];
     this.sessionRoutes = [
