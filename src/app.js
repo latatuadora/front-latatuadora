@@ -327,6 +327,14 @@ export class App {
         nav: false,
         roles: [0]
       },
+      {
+        route: 'agendacion/solicitud/perfil',
+        name: 'scheduling-request-profile',
+        moduleId: 'pages/scheduling-request-profile/scheduling-request-profile',
+        title: 'Solicitudes de agendación - Perfil',
+        nav: false,
+        roles: [0]
+      },
       this.errorRoute
     ];
     this.sessionRoutes = [
