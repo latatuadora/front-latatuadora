@@ -351,6 +351,22 @@ export class App {
         nav: false,
         roles: [0]
       },
+      {
+        route: 'registro/pago',
+        name: 'signup-payment',
+        moduleId: 'pages/signup-payment/signup-payment',
+        title: 'Registro - Pago',
+        nav: false,
+        roles: [0]
+      },
+      {
+        route: 'registro/pago/conekta',
+        name: 'signup-payment-conekta',
+        moduleId: 'pages/signup-payment-conekta/signup-payment-conekta',
+        title: 'Registro - Pago Conekta',
+        nav: false,
+        roles: [0]
+      },
       this.errorRoute
     ];
     this.sessionRoutes = [
