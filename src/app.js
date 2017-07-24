@@ -343,6 +343,14 @@ export class App {
         nav: false,
         roles: [0]
       },
+      {
+        route: 'comprar/flash/conekta',
+        name: 'payment-flash-conekta',
+        moduleId: 'pages/payment-flash-conekta/payment-flash-conekta',
+        title: 'Pago flash Conekta',
+        nav: false,
+        roles: [0]
+      },
       this.errorRoute
     ];
     this.sessionRoutes = [
