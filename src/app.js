@@ -319,6 +319,14 @@ export class App {
         nav: false,
         roles: [0]
       },
+      {
+        route: 'estudiosfavoritos',
+        name: 'favorite-studies',
+        moduleId: 'pages/favorite-studies/favorite-studies',
+        title: 'Estudios Favoritos',
+        nav: false,
+        roles: [0]
+      },
       this.errorRoute
     ];
     this.sessionRoutes = [
