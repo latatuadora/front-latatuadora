@@ -1,5 +1,7 @@
 <template>
   <require from="./tattoo-item.css"></require>
+  <require from="resources/attributes/simple-modal"></require>
+  <require from="resources/elements/modals/delete-tattoo-modal/delete-tattoo-modal"></require>
 
   <div class="my-tattoo">
     <div class="my-tattoo__options">
@@ -9,7 +11,8 @@
         </a>
       </div>
       <div>
-        <a>
+        <delete-tattoo-modal id="delete-tattoo-content" simple-modal="show.two-way: showModal" css="${showModal ? 'display: block' : 'display: none'}" item.bind="currentItem"  go-next.call="nextItem()" go-prev.call="previousItem()" close.call="closeModal()"></delete-tattoo-modal>
+        <a click.trigger="openModal()">
           <img class="my-flash__options-icon" src="src/assets/images/icons/trashflash.png">
         </a>
       </div>
