@@ -6,25 +6,27 @@
   <require from="resources/elements/flash-item/flash-item"></require>
   <require from="resources/elements/artist-tattoo-item/artist-tattoo-item"></require>
   <require from="resources/elements/study-image/study-image"></require>
+  <require from="resources/attributes/simple-modal"></require>
+  <require from="resources/elements/modals/successful-change-modal/successful-change-modal"></require>
 
-  <div class="content-row content-column--mobile">
+  <div class="content-flex content-row content-column-mobile">
     <menu-artist></menu-artist>
     <div class="content-column">
       <div class="background-profile">
         <img src="src/assets/images/logos/bad-tattoo.png">
         <h1 class="menu-page-title">${profile[0]} <span class="menu-page-description">${profile[1]}</span></h1>
-        <div class="content-row hor-align content-column--mobile mar-lf-negative">
+        <div class="content-row hor-align content-column-mobile mar-lf-negative">
           <button class="profile__btn">Solicitudes de agendación</button>
-          <div class="vertical-separator"></div>
-          <hr class="special-hr separator hide-desktop separator--mobile">
+          <div class="vertical-separator show-desktop hide-mobile"></div>
+          <hr class="special-hr separator hide-desktop show-mobile margin-vertical-57px-37px-mobile">
           <button class="profile__btn">Cotizaciones</button>
         </div>
       </div>
       <!--SECCIÓN MIS TATUAJES-->
       <div class="content-column hor-align">
         <h5 class="profile__title-black">Mis tatuajes</h5>
-        <div class="content-row content-column--mobile wdt-100">
-          <tattoo-item repeat.for="item of 3""></tattoo-item>
+        <div class="content-row content-column-mobile wdt-100">
+          <tattoo-item repeat.for="item of 3"></tattoo-item>
         </div>
         <div class="content-row hor-align mar-ver-60-64">
           <button class="profile__btn mar-right-27">Ver todos</button>
@@ -37,7 +39,7 @@
       <!--SECCIÓN MIS FLASHES-->
       <div class="profile-background-flash">
         <h5 class="profile__title-white">Mis flashes</h5>
-        <div class="content-row content-column--mobile wdt-100">
+        <div class="content-row content-column-mobile wdt-100">
           <flash-item repeat.for="item of 3"></flash-item>
         </div>
         <div class="content-row hor-align mar-ver-60-64">
@@ -148,7 +150,7 @@
           <input class="profile__info profile__info-lg" type="" placeholder="Link de Google Maps aquí" name="">
         </div>
         <h5 class="profile__title-white font-23">Teléfonos del <span class="menu-page-description">estudio</span></h5>
-        <div class="content-row content-column--mobile">
+        <div class="content-row content-column-mobile">
           <div class="profile__info-4 mar-right-27 mar-bott-13">
             <input class="profile__info profile__info-sm" type="" placeholder="Teléfono fijo" name="">
             <div class="profile__info-icons pencil">
@@ -188,8 +190,9 @@
         <hr class="special-hr separator hide-mobile">
       </div>
       <!--SALVAR CAMBIOS-->
+      <successful-change-modal id="successful-change-content" simple-modal="show.two-way: showModal" css="${showModal ? 'display: block' : 'display: none'}" item.bind="currentItem"  go-next.call="nextItem()" go-prev.call="previousItem()" close.call="closeModal()"></successful-change-modal>
       <div class="profile__content-save">
-        <button class="profile__btn profile__save">Guardar cambios</button>
+        <button class="profile__btn profile__save" click.trigger="openModal()">Guardar cambios</button>
       </div>
     </div>
   </div>

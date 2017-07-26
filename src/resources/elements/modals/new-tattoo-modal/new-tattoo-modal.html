@@ -1,0 +1,63 @@
+<template>
+	<require from="./new-tattoo-modal.css"></require>
+	<require from="resources/attributes/simple-modal"></require>
+  <require from="resources/elements/modals/success-tattoo-modal/success-tattoo-modal"></require>	
+
+  <div class="tattoo-modal">
+    <div class="tattoo-modal__header">
+      <img class="tattoo-modal__close" src="src/assets/images/icons/close.png" click.delegate="close()">
+    </div>
+    <div class="tattoos-grid__element tattoo-modal__element">
+      <div class="tattoos-grid__element-info-wrapper margin-horizontal-12px-mobile modal-padding-0px">
+        <div class="content-flex content-column content-vertical-center width-100">
+					<div>
+						<h1 class="text-base text-white title margin-vertical-30px">Nuevo <span class="text-gold">tatuaje</span></h1>
+					</div>
+					<form class=" width-100" action="">
+						<div class="content-flex content-column content-vertical-center horizontal-center container-upload-img">
+							<img class="upload-img" src="src/assets/images/mock/upload-img.png" alt="">
+							<a href="">
+								<span class="text-base text-gold bullets text-underline">Selecciona tu foto</span>
+							</a>
+						</div>
+					</form>
+					<div class="align-self-start padding-43px-98px padding-29-25px-mobile width-100">
+						<div class="content-flex content-column content-vertical-center-mobile">
+							<select class="margin-bottom-20px" name="" id="">
+								<option value="">Estilo</option>
+							</select>
+							<div class="content-flex content-row content-vertical-center horizontal-center gray-tag">
+								<p class="text-base text-white bullets margin-0px">Skull</p>
+								<img class="close-tag-img" src="src/assets/images/icons/close.png" alt="">
+							</div>
+						</div>
+						<div class="gray-line margin-vertical-30px width-100"></div>
+						<div class="content-flex content-column content-vertical-center-mobile">
+							<select class="margin-bottom-20px" name="" id="">
+								<option value="">Elemento</option>
+							</select>
+							<div class="content-flex content-row content-vertical-center horizontal-center gray-tag">
+								<p class="text-base text-white bullets margin-0px">Skull</p>
+								<img class="close-tag-img" src="src/assets/images/icons/close.png" alt="">
+							</div>
+						</div>
+						<div class="gray-line margin-vertical-30px width-100"></div>
+						<div class="content-flex content-column content-vertical-center-mobile">
+							<select class="margin-bottom-20px" name="" id="">
+								<option value="">Parte del cuerpo</option>
+							</select>
+							<div class="content-flex content-row content-vertical-center horizontal-center gray-tag">
+								<p class="text-base text-white bullets margin-0px">Skull</p>
+								<img class="close-tag-img" src="src/assets/images/icons/close.png" alt="">
+							</div>
+						</div>
+						<success-tattoo-modal id="new-tattoo-content" simple-modal="show.two-way: showModal" css="${showModal ? 'display: block' : 'display: none'}" item.bind="currentItem"  go-next.call="nextItem()" go-prev.call="previousItem()" close.call="closeModal()"></success-tattoo-modal>
+						<div class="content-flex horizontal-end horizontal-center-mobile margin-top-30px">
+							<input class="button-base" value="Guardar cambios" type="submit" click.trigger="openModal()">
+						</div>
+					</div>
+				</div>
+      </div>
+    </div>
+  </div>
+</template>
