@@ -1,0 +1,37 @@
+<template>
+  <require from="./recover-pass-modal.css"></require>
+  <require from="resources/elements/modals/send-mail-modal/send-mail-modal"></require>
+
+  <div class="tattoo-modal">
+    <div class="tattoo-modal__header">
+      <img class="tattoo-modal__close" src="src/assets/images/icons/close.png" click.delegate="close()">
+    </div>
+    <div class="tattoos-grid__element tattoo-modal__element width-auto">
+      <div class="tattoos-grid__element-info-wrapper margin-horizontal-12px-mobile padding-vertical-60px padding-vertical-54px-mobile">
+        <div class="content-flex content-column content-vertical-center width-100">
+          <h1 class="text-base text-white subtitle text-center marging-bottom-30px">¿Olvidaste tu contraseña?</h1>
+          <h2 class="text-base text-gold text-center bullets margin-0px">No te preocupes, llena el siguiente campo y te enviaremos<br>un link  para recuperar tu contraseña</h2>
+          <div class="succes-separator recover-hr-gold"></div>
+          <form class="width-100" action="">
+            <div class="content-flex content-column">
+              <input class="text-base text-white paragraph send-mail-input marging-bottom-30px" type="text" placeholder="Ingresa tu email">
+              <send-mail-modal id="send-mail-content" simple-modal="show.two-way: showModal" css="${showModal ? 'display: block' : 'display: none'}" item.bind="currentItem"  go-next.call="nextItem()" go-prev.call="previousItem()" close.call="closeModal()"></send-mail-modal>
+              <div class="content-flex align-self-end align-selft-center-mobile">
+                <input class="button-base btn-send-dimensions" value="Enviar" type="submit" click.trigger="openModal()">
+              </div>
+            </div>
+          </form>
+          <div class="succes-separator recover-hr-gold"></div>
+					<div class="width-100">
+            <h4 class="text-base text-gold paragraph marging-bottom-30px">
+              Regresar a <a href=""><span class="login-link">Iniciar sesión</span></a>
+            </h4>
+            <h4 class="text-base text-gray-subtitle paragraph margin-0px">
+              ¿No tienes una cuenta? <a href=""><span class="signup-link">Regístrate</span></a>
+            </h4>
+          </div>
+				</div>
+      </div>
+    </div>
+  </div>
+</template>
