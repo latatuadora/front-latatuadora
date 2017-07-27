@@ -3,6 +3,8 @@
 
   <require from="resources/elements/menu-artist/menu-artist.css"></require>
   <require from="resources/elements/menu-artist/menu-artist"></require>
+  <require from="resources/attributes/simple-modal"></require>
+  <require from="resources/elements/modals/thanks-purchase-modal/thanks-purchase-modal"></require>
 
   <div class="content-flex content-row content-column-mobile">
     <menu-artist></menu-artist>
@@ -44,7 +46,8 @@
               </div>
             </div>
             <div class="content-flex horizontal-end horizontal-center-mobile">
-              <input type="submit" value="Pagar" name="" class="button-golden margin-top-30px">
+              <thanks-purchase-modal id="thanks-purchase-content" simple-modal="show.two-way: showModal" css="${showModal ? 'display: block' : 'display: none'}" item.bind="currentItem"  go-next.call="nextItem()" go-prev.call="previousItem()" close.call="closeModal()"></thanks-purchase-modal>
+              <input type="submit" value="Pagar" name="" class="button-golden margin-top-30px" click.trigger="openModal()">
             </div>
           </form>
         </div>

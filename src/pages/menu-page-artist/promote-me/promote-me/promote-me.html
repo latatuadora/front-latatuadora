@@ -1,8 +1,9 @@
 <template>
   <require from="./promote-me.css"></require>
-
   <require from="resources/elements/menu-artist/menu-artist.css"></require>
   <require from="resources/elements/menu-artist/menu-artist"></require>
+  <require from="resources/attributes/simple-modal"></require>
+  <require from="resources/elements/modals/promote-fb-modal/promote-fb-modal"></require>
 
   <div class="c-flex c-row c-col--mob">
     <menu-artist></menu-artist>
@@ -16,7 +17,8 @@
         </div>
         <div class="c-flex c-row mar--mobile">
           <img class="frame-gold promote-img mar-rgt-18px" src="src/assets/images/mock/blogspot.png">
-          <img class="frame-gold promote-img" src="src/assets/images/mock/fb-live.png">
+          <promote-fb-modal id="promote-fb-content" simple-modal="show.two-way: showModal" css="${showModal ? 'display: block' : 'display: none'}" item.bind="currentItem"  go-next.call="nextItem()" go-prev.call="previousItem()" close.call="closeModal()"></promote-fb-modal>
+          <img class="frame-gold promote-img" src="src/assets/images/mock/fb-live.png" click.trigger="openModal()">
         </div>
       </div>
     </div>
