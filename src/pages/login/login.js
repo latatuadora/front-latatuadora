@@ -1,10 +1,12 @@
 import {inject, NewInstance} from 'aurelia-framework';
 import {Validator, ValidationRules, ValidationController, validateTrigger} from 'aurelia-validation';
 import {Session} from 'utils/session';
+import {BaseModal} from 'utils/base-modal';
 
 @inject(NewInstance.of(ValidationController), Validator, Session)
-export class Login {
+export class Login extends BaseModal {
   constructor(controller, validator, session) {
+    super();
     this.controller = controller;
     this.controller.validateTrigger = validateTrigger.changeOrBlur;
     this.validator = validator;
