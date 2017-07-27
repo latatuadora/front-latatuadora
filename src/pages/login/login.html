@@ -1,5 +1,7 @@
 <template>
   <require from="./login.css"></require>
+  <require from="resources/attributes/simple-modal"></require>
+  <require from="resources/elements/modals/recover-pass-modal/recover-pass-modal"></require>
 
   <div class="login">
 
@@ -42,7 +44,8 @@
             </div>
           </div>
         </div>
-        <a route-href="route: home" class="login__item login__forgotten">Olvidé mi contraseña</a>
+        <recover-pass-modal id="recover-pass-content" simple-modal="show.two-way: showModal" css="${showModal ? 'display: block' : 'display: none'}" item.bind="currentItem"  go-next.call="nextItem()" go-prev.call="previousItem()" close.call="closeModal()"></recover-pass-modal>
+        <a route-href="route: home" class="login__item login__forgotten" click.trigger="openModal()">Olvidé mi contraseña</a>
         <div class="site-checkbox use-check">
           <input checked.bind="rememberMe" type="checkbox" name="save" id="save">
           <label class="login__input-label-checkbox" for="save"><span>Guardar contraseña</span></label>
