@@ -1,8 +1,10 @@
 import {inject} from 'aurelia-framework';
 import {MockAPI} from 'utils/mock-api';
+import {BaseModal} from 'utils/base-modal';
 
-class CarouselOptions {
+class CarouselOptions extends BaseModal {
   constructor(includeArrows) {
+    super();
     this.pagination = '.swiper-pagination';
     if (includeArrows) {
       this.prevButton = '.swiper-button-prev';
