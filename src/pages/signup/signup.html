@@ -1,6 +1,8 @@
 <template id="membership">
 
   <require from="./signup.css"></require>
+  <require from="resources/attributes/simple-modal"></require>
+  <require from="resources/elements/modals/terms-signup-modal/terms-signup-modal"></require>
 
   <div class="membership">
 
@@ -237,7 +239,8 @@
 
         <div class="input__group--row">
           <input class="input--radio"type="radio" name="" id="">
-          <label class="input--label-checkbox" for="">Acepto <span class="mark--silver">términos y condiciones</span> y <span class="mark--silver">políticas de privacidad</span></label>
+          <terms-signup-modal id="terms-signup-content" simple-modal="show.two-way: showModal" css="${showModal ? 'display: block' : 'display: none'}" item.bind="currentItem"  go-next.call="nextItem()" go-prev.call="previousItem()" close.call="closeModal()"></terms-signup-modal>
+          <label class="input--label-checkbox" for="">Acepto <span class="mark--silver" click.trigger="openModal()">términos y condiciones</span> y <span class="mark--silver">políticas de privacidad</span></label>
         </div>
 
         <div class="input__group">
