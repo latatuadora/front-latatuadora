@@ -3,9 +3,11 @@
   <require from="../../resources/attributes/swiper-carousel"></require>
   <require from="../../resources/value-converters/date"></require>
   <require from="../../resources/elements/gallery-item/gallery-item"></require>
-  <require from="../../resources/attributes/simple-modal"></require>
   <require from="../../resources/elements/gallery-modal/gallery-modal"></require>
   <require from="../../resources/elements/flash-square-item/flash-square-item"></require>
+  <require from="resources/attributes/simple-modal"></require>
+  <require from="resources/elements/modals/rate-study-modal/rate-study-modal"></require>
+
   <section class="studio__hero cover">
     <img src="${studio.logo}" alt="Estudio" class="studio__logo">
     <h1 class="studio__title">Estudio de <span class="golden-text">tatuaje</span></h1>
@@ -65,7 +67,8 @@
         <img class="swiper-button-next" src="/src/assets/images/icons/right-arrow.png">
       </div>
       </div>
-      <a route-href="route: home" class="site-button">Calificar estudio</a>
+      <rate-study-modal id="rate-study-content" simple-modal="show.two-way: showModal" css="${showModal ? 'display: block' : 'display: none'}" item.bind="currentItem"  go-next.call="nextItem()" go-prev.call="previousItem()" close.call="closeModal()"></rate-study-modal>
+      <a route-href="route: home" class="site-button" click.trigger="openModal()">Calificar estudio</a>
     </div>
     <div class="studio__artists">
       <h2 class="studio__artists-title">Tatuadores</h2>
