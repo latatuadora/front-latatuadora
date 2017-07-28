@@ -2,6 +2,9 @@
   <require from="./scheduling.css"></require>
   <require from="../../resources/attributes/calendar"></require>
   <require from="../../resources/elements/artist-item/artist-item"></require>
+  <require from="resources/attributes/simple-modal"></require>
+  <require from="resources/elements/modals/confirm-scheduling-modal/confirm-scheduling-modal"></require>
+
   <section class="scheduling__main">
     <h1 class="site-title scheduling__title">Agendar</h1>
     <div class="site-title scheduling__subtitle scheduling__subtitle--first">Estás solicitando una cita con <span class="golden-text">${artist.name}</span></div>
@@ -41,5 +44,6 @@
       </div>
     </div>
   </section>
-  <button class="site-button scheduling__submit">Solicitar cita</button>
+  <confirm-scheduling-modal id="confirm-scheduling-content" simple-modal="show.two-way: showModal" css="${showModal ? 'display: block' : 'display: none'}" item.bind="currentItem"  go-next.call="nextItem()" go-prev.call="previousItem()" close.call="closeModal()"></confirm-scheduling-modal>
+  <button class="site-button scheduling__submit" click.trigger="openModal()">Solicitar cita</button>
 </template>
