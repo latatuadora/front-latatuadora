@@ -1,10 +1,12 @@
 import {inject, NewInstance} from 'aurelia-framework';
 import {Validator, ValidationRules, ValidationController, validateTrigger} from 'aurelia-validation';
 import {MockAPI} from 'utils/mock-api';
+import {BaseModal} from 'utils/base-modal';
 
 @inject(MockAPI, NewInstance.of(ValidationController), Validator)
-export class Scheduling {
+export class Scheduling extends BaseModal {
   constructor(api, controller, validator) {
+    super();
     this.api = api;
     this.controller = controller;
     this.validator = validator;
