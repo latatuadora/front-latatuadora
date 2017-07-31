@@ -2,6 +2,7 @@
   <require from="./artist-tattoo-item.css"></require>
   <require from="resources/attributes/simple-modal"></require>
   <require from="resources/elements/modals/edit-tattoo-artist-modal/edit-tattoo-artist-modal"></require>
+  <require from="resources/elements/modals/delete-tattoo-artist-modal/delete-tattoo-artist-modal"></require>
 
   <div class="artist-tattoo">
     <img class="artist-tattoo__img" src="src/assets/images/mock/group-11.png">
@@ -14,8 +15,9 @@
       <a click.trigger="openModal()">
         <div class="artist-tattoo__icon edit-artist"></div>
       </a>
+      <delete-tattoo-artist-modal id="delete-tattoo-artist-content" simple-modal="show.two-way: showModal" css="${showModal ? 'display: block' : 'display: none'}" item.bind="currentItem"  go-next.call="nextItem()" go-prev.call="previousItem()" close.call="closeModal()"></delete-tattoo-artist-modal>
       <a click.trigger="openModal()">
-        <div class="artist-tattoo__icon delete-artist"></div>
+        <div class="artist-tattoo__icon delete-artist" click.trigger="openModal()"></div>
       </a>
     </div>
   </div>
