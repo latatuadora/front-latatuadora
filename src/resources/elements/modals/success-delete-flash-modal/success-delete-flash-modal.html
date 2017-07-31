@@ -1,0 +1,18 @@
+<template>
+  <require from="./success-delete-flash-modal.css"></require>
+  <div class="tattoo-modal">
+    <div class="tattoo-modal__header">
+      <img class="tattoo-modal__close" src="src/assets/images/icons/close.png" click.delegate="close()">
+    </div>
+    <div class="tattoos-grid__element tattoo-modal__element width-auto max-width-489px">
+      <div class="tattoos-grid__element-info-wrapper margin-horizontal-12px-mobile padding-vertical-94px padding-vertical-82px-54-mobile">
+        <div class="content-flex content-column content-vertical-center width-100">
+					<img class="success-img margin-bottom-34px" src="src/assets/images/icons/success.png" alt="">
+					<h1 class="text-base text-white subtitle text-center margin-0px">¡Tus Flash ha sido eliminado!</h1>
+					<div class="succes-separator"></div>
+					<h6 class="text-base text-gold text-center bullets margin-0px">Puedes volver a subir un Flash en cualquier momento desde la sección "mis flashes"</h6>
+				</div>
+      </div>
+    </div>
+  </div>
+</template>

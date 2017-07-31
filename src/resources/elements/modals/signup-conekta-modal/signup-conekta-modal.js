@@ -1,7 +1,6 @@
 import {bindable} from 'aurelia-framework';
-import {BaseModal} from 'utils/base-modal';
 
-export class DeleteFlashModal extends BaseModal {
+export class SignupConektaModal {
   @bindable flash;
   @bindable type = 'tattoo';
   @bindable vote;

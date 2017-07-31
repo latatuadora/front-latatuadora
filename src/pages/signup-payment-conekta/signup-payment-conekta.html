@@ -1,5 +1,7 @@
 <template>
-  <require from="./signup-payment-conekta.css"></require>
+	<require from="./signup-payment-conekta.css"></require>
+	<require from="resources/attributes/simple-modal"></require>
+  <require from="resources/elements/modals/signup-conekta-modal/signup-conekta-modal"></require>
 
 	<div class="content-flex content-vertical-center content-column width-100 margin-vertical-60px-70px">
 	  <h1 class="text-base text-black title margin-bottom-8px margin-bottom-13px-mobile">${paySignup.title}</h1>
@@ -38,8 +40,9 @@
 					<input class="conekta-input-base input-medium margin-left-10px margin-left-0px-mobile text-base" placeholder="000" type="" name="">
 					</div>
 				</div>
+				<signup-conekta-modal id="signup-conekta-content" simple-modal="show.two-way: showModal" css="${showModal ? 'display: block' : 'display: none'}" item.bind="currentItem"  go-next.call="nextItem()" go-prev.call="previousItem()" close.call="closeModal()"></signup-conekta-modal>
 				<div class="content-flex horizontal-end horizontal-center-mobile">
-					<input type="submit" value="Pagar" name="" class="button-golden margin-top-30px">
+					<input type="submit" value="Pagar" name="" class="button-golden margin-top-30px" click.trigger="openModal()">
 				</div>
 				</form>
 			</div>
