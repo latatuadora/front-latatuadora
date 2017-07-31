@@ -1,6 +1,8 @@
 <template>
 	<require from="./edit-tattoo-artist-modal.css"></require>
 	<require from="resources/elements/tattoo-item-modal/tattoo-item-modal"></require>
+	<require from="resources/attributes/simple-modal"></require>
+  <require from="resources/elements/modals/success-change-artist-modal/success-change-artist-modal"></require>
 
   <div class="tattoo-modal">
 	<div class="tattoo-modal__header">
@@ -33,7 +35,8 @@
 								</div>
 							</div>
 						</div>
-						<div class="special-hr vertical-hr-gold margin-vertical-35px"></div>
+						<div class="special-hr edit-artist-hr-gold margin-vertical-35px show-desktop hide-mobile"></div>
+						<div class="edit-artist-hr-gold margin-vertical-35px hide-desktop show-mobile"></div>
 						<div class="content-flex content-column width-100-mobile">
 							<h2 class="text-base text-white subtitle margin-bottom-18px">Descripción</h2>
 							<div class="content-relative">
@@ -82,7 +85,8 @@
 								<option value="">Estilos</option>
 							</select>
 						</div>
-						<div class="special-hr vertical-hr-gold margin-vertical-35px"></div>
+						<div class="special-hr edit-artist-hr-gold margin-vertical-35px show-desktop hide-mobile"></div>
+						<div class="edit-artist-hr-gold margin-vertical-35px hide-desktop show-mobile"></div>
 						<div class="content-flex content-column content-vertical-center">
 							<h1 class="text-base text-white text-center title margin-0px">Agregar tatuajes al nuevo <span class="text-gold">tatuador</span></h1>
 							<h3 class="text-base text-white text-center bullets margin-vertical-24px-69px width-437px width-auto-mobile">A continuación selecciona de tu galería de tatuajes, los que haya hecho este tatuador</h3>
@@ -90,8 +94,9 @@
 								<tattoo-item-modal repeat.for="tattoo of 5"></tattoo-item-modal>
 							</div>
 						</div>
+						<success-change-artist-modal id="success-change-artist-content" simple-modal="show.two-way: showModal" css="${showModal ? 'display: block' : 'display: none'}" item.bind="currentItem"  go-next.call="nextItem()" go-prev.call="previousItem()" close.call="closeModal()"></success-change-artist-modal>
 						<div class="content-flex align-self-end align-self-center-mobile margin-top-45px">
-							<input class="button-base" type="submit" value="Guardar cambios">
+							<input class="button-base" type="submit" value="Guardar cambios" click.trigger="openModal()">
 						</div>
 					</div>
 				</form>
