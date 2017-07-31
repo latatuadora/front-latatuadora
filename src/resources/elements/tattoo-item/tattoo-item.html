@@ -2,11 +2,13 @@
   <require from="./tattoo-item.css"></require>
   <require from="resources/attributes/simple-modal"></require>
   <require from="resources/elements/modals/delete-tattoo-modal/delete-tattoo-modal"></require>
+  <require from="resources/elements/modals/successful-edit-tattoo-modal/successful-edit-tattoo-modal"></require>
 
   <div class="my-tattoo">
     <div class="my-tattoo__options">
       <div>
-        <a>
+        <successful-edit-tattoo-modal id="delete-tattoo-content" simple-modal="show.two-way: showModal" css="${showModal ? 'display: block' : 'display: none'}" item.bind="currentItem"  go-next.call="nextItem()" go-prev.call="previousItem()" close.call="closeModal()"></successful-edit-tattoo-modal>
+        <a click.trigger="openModal()">
           <img class="my-flash__options-icon my-flash-mar-rgt" src="src/assets/images/icons/pencilin.png">
         </a>
       </div>
