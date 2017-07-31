@@ -1,6 +1,7 @@
 import {bindable} from 'aurelia-framework';
+import {BaseModal} from 'utils/base-modal';
 
-export class EditTattooArtistModal {
+export class EditTattooArtistModal extends BaseModal {
   @bindable flash;
   @bindable type = 'tattoo';
   @bindable vote;
