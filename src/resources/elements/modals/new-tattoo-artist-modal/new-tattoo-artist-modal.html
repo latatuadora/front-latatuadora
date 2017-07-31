@@ -1,6 +1,8 @@
 <template>
 	<require from="./new-tattoo-artist-modal.css"></require>
 	<require from="resources/elements/tattoo-item-modal/tattoo-item-modal"></require>
+	<require from="resources/attributes/simple-modal"></require>
+	<require from="resources/elements/modals/success-new-artist-modal/success-new-artist-modal"></require>
 
   <div class="tattoo-modal">
 	<div class="tattoo-modal__header">
@@ -58,8 +60,9 @@
 								<tattoo-item-modal repeat.for="tattoo of 5"></tattoo-item-modal>
 							</div>
 						</div>
+						<success-new-artist-modal id="success-new-artist-content" simple-modal="show.two-way: showModal" css="${showModal ? 'display: block' : 'display: none'}" item.bind="currentItem"  go-next.call="nextItem()" go-prev.call="previousItem()" close.call="closeModal()"></success-new-artist-modal>
 						<div class="content-flex align-self-end align-self-center-mobile margin-top-45px">
-							<input class="button-base" type="submit" value="Guardar cambios">
+							<input class="button-base" type="submit" value="Guardar cambios" click.trigger="openModal()">
 						</div>
 					</div>
 				</form>
