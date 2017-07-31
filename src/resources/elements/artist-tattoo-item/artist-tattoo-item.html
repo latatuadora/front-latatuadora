@@ -1,5 +1,7 @@
 <template>
   <require from="./artist-tattoo-item.css"></require>
+  <require from="resources/attributes/simple-modal"></require>
+  <require from="resources/elements/modals/edit-tattoo-artist-modal/edit-tattoo-artist-modal"></require>
 
   <div class="artist-tattoo">
     <img class="artist-tattoo__img" src="src/assets/images/mock/group-11.png">
@@ -8,7 +10,13 @@
     <hr class="artist-tattoo__separator">
     <p class="artist-tattoo__description">Artista plástico egresado de la ENPEG.<br>Tatuador en potencia. Comprometido, bailador y amante del Jazz</p>
     <div class="artist-tattoo__opts">
-      <img class="artist-tattoo__icon" src="src/assets/images/icons/pencil-trash-gold.png">
+      <edit-tattoo-artist-modal id="edit-tattoo-artist-content" simple-modal="show.two-way: showModal" css="${showModal ? 'display: block' : 'display: none'}" item.bind="currentItem"  go-next.call="nextItem()" go-prev.call="previousItem()" close.call="closeModal()"></edit-tattoo-artist-modal>
+      <a click.trigger="openModal()">
+        <div class="artist-tattoo__icon edit-artist"></div>
+      </a>
+      <a click.trigger="openModal()">
+        <div class="artist-tattoo__icon delete-artist"></div>
+      </a>
     </div>
   </div>
 </template>
