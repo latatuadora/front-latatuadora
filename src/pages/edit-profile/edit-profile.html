@@ -1,6 +1,5 @@
 <template>
   <require from="resources/elements/menu-artist/menu-artist"></require>
-  <require from="resources/elements/menu-artist/menu-artist.css"></require>
   <require from="./edit-profile.css"></require>
   <require from="resources/elements/tattoo-item/tattoo-item"></require>
   <require from="resources/elements/flash-item/flash-item"></require>
@@ -85,7 +84,7 @@
         <h5 class="profile__title-white">Mis estilos</h5>
         <p class="profile__p hide-mobile">Selecciona los estilos que <span class="profile__p-span">manejan</span> en el estudio</p>
         <div class="content-wrap wdt-53 wdt-100">
-          <div repeat.for="tag of tags" class="profile__tag">${tag.name}</div>
+          <input type="checkbox" data-tag="${tag.name}" name="${tag}" id="${tag.name}" class="profile__tag" repeat.for="tag of tags">
         </div>
       </div>
       <!--SECCIÓN MIS TATUADORES-->
