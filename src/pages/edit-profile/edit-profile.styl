@@ -1,5 +1,4 @@
 @import '../../assets/styles/vars'
-@import '../../assets/styles/mixins'
 @import '../../assets/styles/base'
 
 .content-row
@@ -127,6 +126,7 @@
   color #b19d69
   
 .profile__tag
+  appearance none
   width 111px
   height 34px
   background-color #bec3c6
@@ -135,6 +135,13 @@
   display flex
   align-items center
   justify-content center
+  color #fff
+
+.profile__tag:checked
+  background-color $dustColor
+
+.profile__tag:before
+  content attr(data-tag)
   
 .profile__wall
   position relative
