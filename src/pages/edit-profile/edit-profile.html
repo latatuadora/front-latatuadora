@@ -10,67 +10,73 @@
 
   <div class="content-flex content-row content-column-mobile">
     <menu-artist></menu-artist>
-    <div class="content-column">
-      <div class="background-profile">
+    <div class="content-flex content-column">
+      <div class="content-flex content-column horizontal-center align-self-start content-vertical-center  background-profile">
         <img src="src/assets/images/logos/bad-tattoo.png">
-        <h1 class="menu-page-title">${profile[0]} <span class="menu-page-description">${profile[1]}</span></h1>
-        <div class="content-row hor-align content-column-mobile mar-lf-negative">
-          <button class="profile__btn">Solicitudes de agendación</button>
+        <h1 class="text-base text-white title margin-bottom-45px">${editProfile.titleWhite} <span class="text-gold">${editProfile.titleGold}</span></h1>
+        <div class="content-flex content-row content-vertical-center content-column-mobile margin-left-negative-100px margin-0px-mobile">
+          <button class="button-base dust-button padding-horizontal-28px">Solicitudes de agendación</button>
           <div class="vertical-separator show-desktop hide-mobile"></div>
-          <hr class="special-hr separator hide-desktop show-mobile margin-vertical-57px-37px-mobile">
-          <button class="profile__btn">Cotizaciones</button>
+          <div class="special-hr separator hide-desktop show-mobile margin-vertical-57px-37px-mobile"></div>
+          <button class="button-base dust-button padding-horizontal-28px">Cotizaciones</button>
         </div>
       </div>
       <!--SECCIÓN MIS TATUAJES-->
-      <div class="content-column hor-align">
-        <h5 class="profile__title-black">Mis tatuajes</h5>
-        <div class="content-row content-column-mobile wdt-100">
+      <div class="content-flex content-column content-vertical-center">
+        <h5 class="text-base text-black title">Mis tatuajes</h5>
+        <div class="content-flex content-row horizontal-center content-column-mobile width-100">
           <tattoo-item repeat.for="item of 3"></tattoo-item>
         </div>
-        <div class="content-row hor-align mar-ver-60-64">
-          <button class="profile__btn mar-right-27">Ver todos</button>
-          <button class="profile__btn">
-            <img class="new-tattoo--mobile__icon" src="src/assets/images/icons/plus_circle.svg">
-            <p class="new-tattoo--mobile__txt">Agregar nuevo</p>
+        <div class="content-flex content-row content-vertical-center margin-top-60px">
+          <button class="button-base profile-button-mobile dust-button padding-horizontal-28px margin-right-27px margin-right-10px-mobile">Ver todos</button>
+          <button class="content-flex content-row content-vertical-center button-base dust-button padding-horizontal-28px profile-button-mobile">
+            <img class="button-icon-plus" src="src/assets/images/icons/plus_circle.svg">
+            Agregar nuevo
           </button>
         </div>
       </div>
       <!--SECCIÓN MIS FLASHES-->
-      <div class="profile-background-flash">
-        <h5 class="profile__title-white">Mis flashes</h5>
-        <div class="content-row content-column-mobile wdt-100">
+      <div class="background-section">
+        <h5 class="text-base text-white title">Mis flashes</h5>
+        <div class="content-flex content-row horizontal-center content-column-mobile width-100">
           <flash-item repeat.for="item of 3"></flash-item>
         </div>
-        <div class="content-row hor-align mar-ver-60-64">
-          <button class="profile__btn mar-right-27">Ver todos</button>
-          <button class="profile__btn">
-            <img class="new-tattoo--mobile__icon" src="src/assets/images/icons/plus_circle.svg">
-            <p class="new-tattoo--mobile__txt">Agregar nuevo</p>
+        <div class="content-flex content-row content-vertical-center margin-top-60px">
+          <button class="button-base profile-button-mobile dust-button padding-horizontal-28px margin-right-27px margin-right-10px-mobile">Ver todos</button>
+          <button class="content-flex content-row content-vertical-center button-base dust-button padding-horizontal-28px profile-button-mobile">
+            <img class="button-icon-plus" src="src/assets/images/icons/plus_circle.svg">
+            Agregar nuevo
           </button>
         </div>
       </div>
       <!--SECCIÓN MIS REDES SOCIALES-->
-      <div class="content-column hor-align mar-bott-62">
-        <h5 class="profile__title-black">Mis redes sociales</h5>
-        <form class="wdt-100 pdd-hor-24">
-          <div class="hor-align">
-            <img class="profile_img-11 mar-hor-7" src="src/assets/images/icons/face.png">
+      <div class="content-flex content-column content-vertical-center mar-bott-62">
+        <h5 class="text-base text-black title">Mis redes sociales</h5>
+        <form class="content-flex content-column content-vertical-center width-100 pdd-hor-24">
+          <div class="content-flex content-vertical-center width-100-mobile">
+            <div class="width-26px">
+              <img class="profile_img-11" src="src/assets/images/icons/face.png">
+            </div>
             <input class="profile__input" type="text" name="">
-            <div class="tooltip">       
+            <div class="tooltip">
               <img src="src/assets/images/icons/info.png">
               <span class="tooltiptext">Ingresa aquí el enlace a tu página</span>
             </div>
           </div>
-          <div class="hor-align">
-            <img class="profile_img-26" src="src/assets/images/icons/insta.png">
+          <div class="content-flex content-vertical-center width-100-mobile">
+            <div class="width-26px">
+              <img class="profile_img-26" src="src/assets/images/icons/insta.png">
+            </div>
             <input class="profile__input mar-hor-18" type="text" name="">
             <div class="tooltip">
               <img src="src/assets/images/icons/info.png">
               <span class="tooltiptext">Ingresa aquí el enlace a tu página</span>
             </div>
           </div>
-          <div class="hor-align">
-            <img class="profile_img-26" src="src/assets/images/icons/periscope.png">
+          <div class="content-flex content-vertical-center width-100-mobile">
+            <div class="width-26px">
+              <img class="profile_img-26" src="src/assets/images/icons/periscope.png">
+            </div>
             <input class="profile__input" type="text" name="">
             <div class="tooltip">
               <img src="src/assets/images/icons/info.png">
@@ -80,33 +86,33 @@
         </form>
       </div>
       <!--SECCIÓN MIS ESTILOS-->
-      <div class="content-column hor-align bgc-262626 pdd-bott-68">
-        <h5 class="profile__title-white">Mis estilos</h5>
-        <p class="profile__p hide-mobile">Selecciona los estilos que <span class="profile__p-span">manejan</span> en el estudio</p>
-        <div class="content-wrap wdt-53 wdt-100">
+      <div class="content-flex content-column content-vertical-center bgc-262626 pdd-bott-68">
+        <h5 class="text-base text-white title margin-0px">Mis estilos</h5>
+        <p class="text-base text-white bullets show-desktop hide-mobile">Selecciona los estilos que <span class="text-gold margin-vertical-30px-55px">manejan</span> en el estudio</p>
+        <div class="content-flex horizontal-center content-wrap wdt-53 width-100-mobile">
           <input type="checkbox" data-tag="${tag.name}" name="${tag}" id="${tag.name}" class="profile__tag" repeat.for="tag of tags">
         </div>
       </div>
       <!--SECCIÓN MIS TATUADORES-->
-      <div class="content-column hor-align">
-        <h5 class="profile__title-black">Mis tatuadores</h5>
-        <div class="content-row content-wrap content-wrap--mobile">
+      <div class="content-flex content-column content-vertical-center">
+        <h5 class="text-base text-black title">Mis tatuadores</h5>
+        <div class="content-flex content-row horizontal-center content-wrap content-wrap--mobile">
           <artist-tattoo-item repeat.for="item of 6"></artist-tattoo-item>
         </div>
-        <div class="content-row hor-align mar-ver-60-64">
-          <button class="profile__btn mar-right-27">Ver todos</button>
-          <button class="profile__btn">
-            <img class="new-tattoo--mobile__icon" src="src/assets/images/icons/plus_circle.svg">
-            <p class="new-tattoo--mobile__txt">Agregar nuevo</p>
+        <div class="content-flex content-row content-vertical-center margin-top-60px">
+          <button class="button-base profile-button-mobile dust-button padding-horizontal-28px margin-right-27px margin-right-10px-mobile">Ver todos</button>
+          <button class="content-flex content-row content-vertical-center button-base dust-button padding-horizontal-28px profile-button-mobile">
+            <img class="button-icon-plus" src="src/assets/images/icons/plus_circle.svg">
+            Agregar nuevo
           </button>
         </div>
       </div>
-      <div class="content-justify">
+      <div class="content-flex content-horizontal">
         <hr class="special-hr separator">
       </div>
       <!--SECCIÓN MI MURO-->
-      <div class="content-column hor-align pdd-bott-68">
-        <h5 class="profile__title-black">Mi muro</h5>
+      <div class="content-flex content-column content-vertical-center pdd-bott-68">
+        <h5 class="text-base text-black title">Mi muro</h5>
         <div class="profile__wall">
           <textarea class="profile__txtarea" placeholder="Escribir nueva entrada"></textarea>
           <button class="profile__btn-publish">Publicar</button>
@@ -114,8 +120,8 @@
         <div class="profile__block-hr">
           <hr class="profile__hr">
         </div>
-        <div class="content-column profile__post">
-          <div class="content-row hor-align">
+        <div class="content-flex content-column profile__post">
+          <div class="content-flex content-row content-vertical-center">
             <div>
               <img class="profile__post-img" src="src/assets/images/mock/profile-post.png">
             </div>
@@ -128,64 +134,68 @@
         </div>
       </div>
       <!--SECCIÓN DATOS DEL ESTUDIO-->
-      <div class="profile-background-flash pdd-bott-68">
-        <h5 class="profile__title-white font-23">Descripción del <span class="menu-page-description">estudio</span></h5>
-        <div class="profile__info-1">
+      <div class="background-section pdd-bott-68 padding-horizontal-24px-mobile">
+        <h5 class="text-base text-white title">Descripción del <span class="text-gold">estudio</span></h5>
+        <div class="profile__info-1 content-relative">
           <textarea class="profile__info profile__info-lg height-112" value="${description}"></textarea>
-          <div class="profile__info-icons">
-            <i class="profile_info-i fa fa-pencil"></i>
-            <i class="profile_info-i fa fa-trash"></i>
+          <div class="content-absolute top-17px-right-10px top-auto-bottom-10px">
+            <div class="content-flex content-row content">
+              <div class="background-icon edit-text margin-right-5px"></div>
+              <div class="background-icon delete-text"></div>
+            </div>
           </div>
         </div>
-        <h5 class="profile__title-white font-23">Dirección del <span class="menu-page-description">estudio</span></h5>
-        <div class="profile__info-2 mar-bott-27">
+        <h5 class="text-base text-white title">Dirección del <span class="text-gold">estudio</span></h5>
+        <div class="profile__info-2 mar-bott-27 content-relative">
           <textarea class="profile__info profile__info-lg height-78" value="${address}"></textarea>
-          <div class="profile__info-icons">
-            <i class="profile_info-i fa fa-pencil"></i>
-            <i class="profile_info-i fa fa-trash"></i>
+          <div class="content-absolute top-17px-right-10px top-auto-bottom-10px">
+            <div class="content-flex content-row content">
+              <div class="background-icon edit-text margin-right-5px"></div>
+              <div class="background-icon delete-text"></div>
+            </div>
           </div>
         </div>
         <div class="profile__info-3">
           <input class="profile__info profile__info-lg" type="" placeholder="Link de Google Maps aquí" name="">
         </div>
-        <h5 class="profile__title-white font-23">Teléfonos del <span class="menu-page-description">estudio</span></h5>
-        <div class="content-row content-column-mobile">
-          <div class="profile__info-4 mar-right-27 mar-bott-13">
+        <h5 class="text-base text-white title">Teléfonos del <span class="text-gold">estudio</span></h5>
+        <div class="content-flex content-row content-column-mobile">
+          <div class="profile__info-4 margin-right-27px margin-right-0px-mobile mar-bott-13 content-relative">
             <input class="profile__info profile__info-sm" type="" placeholder="Teléfono fijo" name="">
-            <div class="profile__info-icons pencil">
-              <i class="profile_info-i fa fa-pencil"></i>
+            <div class="content-absolute top-17px-right-10px">
+              <div class="background-icon edit-text"></div>
             </div>
           </div>
-          <div class="profile__info-4">
+          <div class="profile__info-4 content-relative">
             <input class="profile__info profile__info-sm" type="" placeholder="Télefono Celular" name="">
-            <div class="profile__info-icons pencil">
-              <i class="profile_info-i fa fa-pencil"></i>
+            <div class="content-absolute top-17px-right-10px">
+              <div class="background-icon edit-text"></div>
             </div>
           </div>
         </div>
       </div>
       <!--SECCIÓN MIS HORARIOS-->
-      <div class="content-column hor-align">
-        <h5 class="profile__title-black">Mis horarios</h5>
+      <div class="content-flex content-column content-vertical-center">
+        <h5 class="text-base text-black title">Mis horarios</h5>
       </div>
-      <div class="content-justify">
+      <div class="content-flex content-horizontal">
         <hr class="special-hr separator">
       </div>
       <!--SECCIÓN IMÁGENES DEL ESTUDIO-->
-      <div class="content-column hor-align">
-        <h5 class="profile__title-black">Imágenes del <span class="menu-page-description">estudio</span></h5>
-        <div class="content-row">
+      <div class="content-flex content-column content-vertical-center">
+        <h5 class="text-base text-black title">Imágenes del <span class="text-gold">estudio</span></h5>
+        <div class="content-flex content-row">
           <study-image repeat.for="item of 3"></study-image>
         </div>
-        <div class="content-row hor-align mar-ver-60-64">
-          <button class="profile__btn mar-right-27">Ver todos</button>
-          <button class="profile__btn">
-            <img class="new-tattoo--mobile__icon" src="src/assets/images/icons/plus_circle.svg">
-            <p class="new-tattoo--mobile__txt">Agregar nuevo</p>
+        <div class="content-flex content-row content-vertical-center margin-top-60px">
+          <button class="button-base profile-button-mobile dust-button padding-horizontal-28px margin-right-27px margin-right-10px-mobile">Ver todos</button>
+          <button class="content-flex content-row content-vertical-center button-base dust-button padding-horizontal-28px profile-button-mobile">
+            <img class="button-icon-plus" src="src/assets/images/icons/plus_circle.svg">
+            Agregar nuevo
           </button>
         </div>
       </div>
-      <div class="content-justify">
+      <div class="content-flex content-horizontal">
         <hr class="special-hr separator hide-mobile">
       </div>
       <!--SALVAR CAMBIOS-->
