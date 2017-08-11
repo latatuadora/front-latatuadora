@@ -7,10 +7,10 @@
     <div class="site-footer__inner">
       <div class="site-footer__left">
         <nav class="site-footer__nav">
-          <a href="#" class="site-footer__nav-item">Cómo funciona</a>
-          <a href="#" class="site-footer__nav-item">Acerca de nosotros</a>
-          <a href="#" class="site-footer__nav-item">Contacto</a>
-          <a href="#" class="site-footer__nav-item">Preguntas frecuentes</a>
+          <a href="#/comofunciona" class="site-footer__nav-item">Cómo funciona</a>
+          <a href="#/nosotros" class="site-footer__nav-item">Acerca de nosotros</a>
+          <a href="#/contacto" class="site-footer__nav-item">Contacto</a>
+          <a href="#/preguntas/cotizaciones" class="site-footer__nav-item">Preguntas frecuentes</a>
         </nav>
         <form id="footer-newsletter" class="site-footer__newsletter" method="post" action=".">
           <span class="site-footer__newsletter-title">Inscríbete a nuestro Newsletter:</span>
@@ -37,7 +37,7 @@
         <terms-conditions-modal id="terms-conditions-content" simple-modal="show.two-way: showModal" css="${showModal ? 'display: block' : 'display: none'}" item.bind="currentItem"  go-next.call="nextItem()" go-prev.call="previousItem()" close.call="closeModal()"></terms-conditions-modal>
         <nav class="site-footer__terms-privacy">
           <a href="#" class="site-footer__terms-privacy-item" click.trigger="openModal()">Términos y condiciones</a>
-          <a href="#" class="site-footer__terms-privacy-item">Aviso de privacidad</a>
+          <a href="#/politicaprivacidad" class="site-footer__terms-privacy-item">Aviso de privacidad</a>
         </nav>
       </div>
       <div class="site-footer__right">
