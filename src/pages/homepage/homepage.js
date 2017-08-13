@@ -5,6 +5,7 @@ import {Session} from 'utils/session';
 
 @inject(MockAPI, Router, Session)
 export class Homepage {
+
   constructor(api, router, session) {
     this.api = api;
     this.router = router;
@@ -18,6 +19,28 @@ export class Homepage {
   created() {
     this.getFeaturedArtists();
     this.getTattoos();
+  }
+
+  attached() {
+
+    let carouselIndex = 0
+
+    const carousel = [
+      'home-carousel-1.jpg',
+      'home-carousel-2.jpg',
+      'home-carousel-3.jpg'
+    ]
+
+    this.carouselInterval = setInterval(() => {
+      carouselIndex = carousel.length - 1 > carouselIndex ? carouselIndex + 1 : 0
+      this.carouselImage = 'src/assets/images/backgrounds/' + carousel[carouselIndex]
+      document.getElementById('homepage::hero').style.backgroundImage = `url('${this.carouselImage}')`
+    }, 30000);
+
+  }
+
+  detached() {
+    clearInterval(this.carouselInterval);
   }
 
   getTattoos() {

@@ -264,7 +264,7 @@ export class App {
         roles: [0]
       },
       {
-        route: 'news/blog',
+        route: 'news',
         name: 'news-blog',
         moduleId: 'pages/news-blog/news-blog',
         title: 'News Blog',

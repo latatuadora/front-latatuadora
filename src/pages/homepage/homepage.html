@@ -6,21 +6,23 @@
       <a class="homepage-hero__small-item cover" route-href="route: inspirate">
         <div class="vertical-center">
           <div class="homepage-hero__small-item-content">
-            <span class="homepage-hero__visit">Visitar</span>
+            <span class="homepage-hero__visit">Galería </span>
+            <span class="homepage-hero__visit">de </span>
             <span class="homepage-hero__visit-tattoos">tatuajes</span>
           </div>
         </div>
       </a>
-      <a class="homepage-hero__small-item cover" route-href="route: flashes">
+      <a class="homepage-hero__small-item cover">
         <div class="vertical-center">
           <div class="homepage-hero__small-item-content">
-            <span class="homepage-hero__visit">Visitar</span>
-            <span class="homepage-hero__visit-flashes">flashes</span>
+            <span class="homepage-hero__visit">Venta de</span>
+            <span class="homepage-hero__visit-flashes">diseños únicos</span>
           </div>
         </div>
       </a>
     </div>
-    <div class="homepage-hero__middle cover">
+    <div class="homepage-hero__middle cover" id="homepage::hero">
+      <div class="homepage-hero__middle__layer"></div>
       <div class="homepage-hero__middle-content">
         <img class="homepage-hero__logo" src="src/assets/images/logos/logo-white.png" alt="La tatuadora" />
         <div class="homepage-hero__middle-text">
@@ -29,28 +31,34 @@
         </div>
         <a route-href="route: quotation" class="site-button">Cotizar</a>
       </div>
+
     </div>
     <div class="homepage-hero__right">
-      <a class="homepage-hero__small-item cover" href="#">
-        <div class="vertical-center">
-          <div class="homepage-hero__small-item-content">
-            <span class="homepage-hero__city-span-1">Los mejores</span>
-            <span class="homepage-hero__city-span-2">estudios</span>
-            <span class="homepage-hero__city-span-3">en tu ciudad</span>
-          </div>
-        </div>
-      </a>
       <a class="homepage-hero__small-item cover" route-href="route: inspirate">
         <div class="vertical-center">
           <div class="homepage-hero__small-item-content">
-            <span class="homepage-hero__discover-span-1">Inspírate</span>
+            <span class="homepage-hero__city-span-1">Directorio</span>
+            <span class="homepage-hero__city-span-1">de</span>
+            <span class="homepage-hero__city-span-2"></span>
+            <span class="homepage-hero__city-span-3">Tatuadores</span>
           </div>
         </div>
       </a>
-      <a class="homepage-hero__small-item cover" href="#">
+      <a class="homepage-hero__small-item cover" route-href="route: search_artist">
         <div class="vertical-center">
           <div class="homepage-hero__small-item-content">
-            <span class="homepage-hero__discover-span-1">Descubre el</span>
+            <span class="homepage-hero__city-span-1">Directorio</span>
+            <span class="homepage-hero__city-span-1">de</span>
+            <span class="homepage-hero__city-span-2"></span>
+            <span class="homepage-hero__city-span-3">Tatuadores</span>
+          </div>
+        </div>
+      </a>
+      <a class="homepage-hero__small-item cover" route-href="route: news">
+        <div class="vertical-center">
+          <div class="homepage-hero__small-item-content">
+            <span class="homepage-hero__discover-span-1">Adéntrate </span>
+            <span class="homepage-hero__discover-span-1">en el </span>
             <span class="homepage-hero__discover-span-2">mundo del tatuaje</span>
           </div>
         </div>
@@ -59,7 +67,7 @@
   </div>
   <section class="homepage-trending">
     <h2 class="homepage-subtitle">Lo <span class="golden-text">más</span> buscado</h2>
-    <form id="homepage-trending-form" class="homepage-trending__form" action="." method="post">
+    <!-- <form id="homepage-trending-form" class="homepage-trending__form" action="." method="post">
       <div class="homepage-trending__form-content">
         <div class="input-wrapper">
           <input id="homepage-trending-input" name="arg" class="homepage-trending__input" type="text" required placeholder="Escribe el tatuaje que deseas encontrar">
@@ -68,14 +76,19 @@
           <button class="site-button homepage-trending__button" type="submit" name="submit">Buscar</button>
         </div>
       </div>
-    </form>
-    <div class="homepage-trending__items">
-      <div repeat.for="tattoo of tattoos" class="homepage-trending__item cover" css="background-image: url(${tattoo.image})">
-        <a if.bind="$index == 0 || $index == 5 || $index == 6" route-href="route: inspirate; params.bind: {style: tattoo.style.id}" class="homepage-trengind__item-layer vertical-center">${tattoo.style.name}</a>
-        <a if.bind="$index == 1 || $index == 3" route-href="route: inspirate; params.bind: {element: tattoo.element.id}" class="homepage-trengind__item-layer vertical-center">${tattoo.element.name}</a>
-        <a if.bind="$index == 2 || $index == 4 || $index == 7" route-href="route: inspirate; params.bind: {part: tattoo.partbody.id}" class="homepage-trengind__item-layer vertical-center">${tattoo.partbody.name}</a>
-      </div>
+    </form> -->
+
+    <div class="trending__gallery">
+      <a route-href="route: inspirate"><div class="trending__item"><img src="src/assets/images/backgrounds/trending-1.png" alt="" class="trending__image"><div class="trending__layer"></div><div class="trending__description">flor muñeca</div></div></a>
+      <a route-href="route: inspirate"><div class="trending__item"><img src="src/assets/images/backgrounds/trending-2.png" alt="" class="trending__image"><div class="trending__layer"></div><div class="trending__description">Acuarela</div></div></a>
+      <a route-href="route: inspirate"><div class="trending__item"><img src="src/assets/images/backgrounds/trending-3.png" alt="" class="trending__image"><div class="trending__layer"></div><div class="trending__description">espalda mandala</div></div></a>
+      <a route-href="route: inspirate"><div class="trending__item"><img src="src/assets/images/backgrounds/trending-4.png" alt="" class="trending__image"><div class="trending__layer"></div><div class="trending__description">planta</div></div></a>
+      <a route-href="route: inspirate"><div class="trending__item"><img src="src/assets/images/backgrounds/trending-5.png" alt="" class="trending__image"><div class="trending__layer"></div><div class="trending__description">animal</div></div></a>
+      <a route-href="route: inspirate"><div class="trending__item"><img src="src/assets/images/backgrounds/trending-6.png" alt="" class="trending__image"><div class="trending__layer"></div><div class="trending__description">calavera</div></div></a>
+      <a route-href="route: inspirate"><div class="trending__item"><img src="src/assets/images/backgrounds/trending-7.png" alt="" class="trending__image"><div class="trending__layer"></div><div class="trending__description">cruz</div></div></a>
+      <a route-href="route: inspirate"><div class="trending__item"><img src="src/assets/images/backgrounds/trending-8.png" alt="" class="trending__image"><div class="trending__layer"></div><div class="trending__description">flecha</div></div></a>
     </div>
+
   </section>
   <hr class="special-hr homepage-divider">
   <section class="homepage-featured">
