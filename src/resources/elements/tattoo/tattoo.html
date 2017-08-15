@@ -1,0 +1,40 @@
+<template>
+  <require from='./tattoo.css'></require>
+  <div class="tattoo">
+
+    <!-- UPPER CONTAINER -->
+    <div class="tattoo__thumbnail">
+      <img class="tattoo__image" src="" alt="">
+      <div class="tattoo__share">
+
+      </div>
+    </div>
+
+    <!-- LOWER CONTAINER -->
+    <div class="tattoo__description">
+
+      <!-- STUDIO -->
+      <div class="studio">
+        <div class="studio__thumbnail">
+          <img class="studio__img" src="" alt="">
+        </div>
+        <div class="studio__description">
+
+        </div>
+      </div>
+
+      <!-- TAGS -->
+      <div class="tattoo__tags">
+        <a repeat.for="tag of tattoo.tags" class="tattoo__tag">${tag}</a>
+      </div>
+
+      <!-- ACTIONS -->
+      <div class="tattoo__actions">
+        <button class="button tattoo__button">cotizar tatuaje similar</button>
+        <button class="button tattoo__button">ver perfil</button>
+      </div>
+
+    </div>
+
+  </div>
+</template>
