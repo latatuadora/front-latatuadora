@@ -18,7 +18,7 @@ export class ModalCustomAttribute {
 
   attached() {
 
-    this.element.classList.add('modal-hider')
+    this.element.classList.add('modal-hide')
     this.element.insertAdjacentHTML('afterend',this.template)
     document.querySelectorAll(`[href^="#${this.element.id}"]`).forEach((element) => {
       element.dataset.modalOpen = true
