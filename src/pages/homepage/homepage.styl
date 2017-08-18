@@ -700,3 +700,33 @@ a.homepage-hero__small-item
     top 0
     position absolute
     background rgba(0,0,0,0.4)
+
+.homepage__featured
+  margin 6rem auto
+  width 320px
+  display grid
+  grid-template-columns repeat(auto-fill, 160px)
+
+  &__item
+    width 160px
+    height 160px
+
+  @media screen and (min-width 48rem)
+
+    &
+      width 500px
+      grid-template-columns repeat(2, 250px)
+
+    &__item
+      width 250px
+      height 250px
+
+  @media screen and (min-width 64rem)
+
+    &
+      width 1000px
+      grid-template-columns repeat(4, 250px)
+
+    &__item
+      width 250px
+      height 250px

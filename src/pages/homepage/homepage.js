@@ -14,6 +14,14 @@ export class Homepage {
     this.featuredOption = 1;
     this.featuredArtists = [];
     this.tattoos = [];
+    this.artist = {
+      likes: 16,
+      rating: 4.5,
+      name: 'DejaVu',
+      styles: ['Old School', 'Geometric', 'Japanese', 'Rebel', 'Retro'],
+      location: 'Ciudad de México',
+      titleImgUrl: 'src/assets/images/backgrounds/artist-background-1.png',
+    }
   }
 
   created() {

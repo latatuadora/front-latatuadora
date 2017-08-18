@@ -1,0 +1,24 @@
+<template>
+  <require from="./tattoo-artist.css"></require>
+  <div  class="artist">
+    <figure class="artist__card">
+      <div class="artist__card--front">
+        <img class="artist__card--background" src="${artist.titleImgUrl || artist.profileImgUrl}" alt="ARTIST-BACKGROUND">
+        <img if.bind="artist.logoUrl" class="artist__card--logo" src="${artist.logoUrl}" alt="">
+        <h1 if.bind="!artist.logoUrl" class="artist__card--name" >${artist.name}</h1>
+      </div>
+      <figcaption class="artist__card--back">
+        <i class="artist__like fa fa-heart"></i>
+        <h1 class="artist__name title">${artist.name}</h1>
+        <div class="artist__stars">
+          <i repeat.for="i of 5" class="artist__star fa ${artist.rating > i ? (artist.rating > i + 0.9 ? 'fa-star' : 'fa-star-half-o') : 'fa-star-o'}"></i>
+        </div>
+        <h2 class="artist__location text">${artist.location}</h2>
+        <span class="artist__likes caption"><i class="fa fa-heart"></i> ${artist.likes} Me gusta</span>
+        <div class="artist__styles">
+          <a class="artist__style" repeat.for="style of styles">${style}</a>
+        </div>
+      </figcaption>
+    </figure>
+  </div>
+</template>

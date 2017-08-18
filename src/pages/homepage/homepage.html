@@ -1,6 +1,6 @@
 <template>
   <require from="./homepage.css"></require>
-  <require from="../../resources/elements/artist-item/artist-item"></require>
+  <require from="../../resources/elements/tattoo-artist/tattoo-artist"></require>
   <div class="homepage-hero">
     <div class="homepage-hero__left">
       <a class="homepage-hero__small-item cover" route-href="route: inspirate">
@@ -93,13 +93,13 @@
   <hr class="special-hr homepage-divider">
   <section class="homepage-featured">
     <h2 class="homepage-subtitle">Tatuadores destacados y <span class="golden-text">nuevos</span>.</h2>
-    <div class="homepage-featured__buttons">
+    <!-- <div class="homepage-featured__buttons">
       <button type="button" click.delegate="getFeaturedArtists()" class="homepage-featured__button site-button ${featuredOption == 1 ? 'active' : ''}">Destacados</button>
       <button type="button" click.delegate="getFeaturedArtists('newest')" class="homepage-featured__button site-button ${featuredOption == 2 ? 'active' : ''}">Nuevos</button>
       <button type="button" click.delegate="getFeaturedArtists('closest')" class="homepage-featured__button site-button ${featuredOption == 3 ? 'active' : ''}">Cercanos</button>
-    </div>
-    <div class="homepage-featured__items" id="homepage-featured-items">
-      <artist-item repeat.for="artist of featuredArtists" artist.bind="artist"></artist-item>
+    </div> -->
+    <div class="homepage__featured" id="homepage-featured-items">
+      <tattoo-artist repeat.for="i of 8" artist.bind="artist" class="homepage__featured__item"></tattoo-artist>
     </div>
     <a route-href="route: search_artist; params.bind: {type: 'Estudio'}" class="site-button homepage-featured__main-button">Ver todos los estudios</a>
   </section>
