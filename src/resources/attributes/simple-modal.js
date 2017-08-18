@@ -1,4 +1,4 @@
-import {bindable, inject} from 'aurelia-framework';
+import { bindable, inject} from 'aurelia-framework';
 import VanillaModal from 'vanilla-modal';
 
 @inject(Element)
