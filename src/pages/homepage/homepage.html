@@ -26,15 +26,15 @@
       <div class="homepage-hero__middle-content">
         <img class="homepage-hero__logo" src="src/assets/images/logos/logo-white.png" alt="La tatuadora" />
         <div class="homepage-hero__middle-text">
-          <span class="homepage-hero__middle-text-1">Cotiza tu</span>
-          <span class="homepage-hero__middle-text-2">próximo tatuaje</span>
+          <span class="homepage-hero__middle-text-1">Cotiza</span>
+          <span class="homepage-hero__middle-text-2">tu próximo tatuaje</span>
         </div>
         <a route-href="route: quotation" class="site-button">Cotizar</a>
       </div>
 
     </div>
     <div class="homepage-hero__right">
-      <a class="homepage-hero__small-item cover" route-href="route: inspirate">
+      <a class="homepage-hero__small-item cover">
         <div class="vertical-center">
           <div class="homepage-hero__small-item-content">
             <span class="homepage-hero__city-span-1">Directorio</span>
@@ -67,41 +67,25 @@
   </div>
   <section class="homepage-trending">
     <h2 class="homepage-subtitle">Lo <span class="golden-text">más</span> buscado</h2>
-    <!-- <form id="homepage-trending-form" class="homepage-trending__form" action="." method="post">
-      <div class="homepage-trending__form-content">
-        <div class="input-wrapper">
-          <input id="homepage-trending-input" name="arg" class="homepage-trending__input" type="text" required placeholder="Escribe el tatuaje que deseas encontrar">
-        </div>
-        <div class="button-wrapper">
-          <button class="site-button homepage-trending__button" type="submit" name="submit">Buscar</button>
-        </div>
-      </div>
-    </form> -->
 
     <div class="trending__gallery">
-      <a route-href="route: inspirate"><div class="trending__item"><img src="src/assets/images/backgrounds/trending-1.png" alt="" class="trending__image"><div class="trending__layer"></div><div class="trending__description">flor muñeca</div></div></a>
+      <a route-href="route: inspirate"><div class="trending__item"><img src="src/assets/images/backgrounds/trending-1.png" alt="" class="trending__image"><div class="trending__layer"></div><div class="trending__description">flor</div></div></a>
       <a route-href="route: inspirate"><div class="trending__item"><img src="src/assets/images/backgrounds/trending-2.png" alt="" class="trending__image"><div class="trending__layer"></div><div class="trending__description">Acuarela</div></div></a>
-      <a route-href="route: inspirate"><div class="trending__item"><img src="src/assets/images/backgrounds/trending-3.png" alt="" class="trending__image"><div class="trending__layer"></div><div class="trending__description">espalda mandala</div></div></a>
+      <a route-href="route: inspirate"><div class="trending__item"><img src="src/assets/images/backgrounds/trending-3.png" alt="" class="trending__image"><div class="trending__layer"></div><div class="trending__description">mandala</div></div></a>
       <a route-href="route: inspirate"><div class="trending__item"><img src="src/assets/images/backgrounds/trending-4.png" alt="" class="trending__image"><div class="trending__layer"></div><div class="trending__description">planta</div></div></a>
       <a route-href="route: inspirate"><div class="trending__item"><img src="src/assets/images/backgrounds/trending-5.png" alt="" class="trending__image"><div class="trending__layer"></div><div class="trending__description">animal</div></div></a>
       <a route-href="route: inspirate"><div class="trending__item"><img src="src/assets/images/backgrounds/trending-6.png" alt="" class="trending__image"><div class="trending__layer"></div><div class="trending__description">calavera</div></div></a>
       <a route-href="route: inspirate"><div class="trending__item"><img src="src/assets/images/backgrounds/trending-7.png" alt="" class="trending__image"><div class="trending__layer"></div><div class="trending__description">cruz</div></div></a>
       <a route-href="route: inspirate"><div class="trending__item"><img src="src/assets/images/backgrounds/trending-8.png" alt="" class="trending__image"><div class="trending__layer"></div><div class="trending__description">flecha</div></div></a>
     </div>
-
+    <a route-href="route: inspirate" class="site-button homepage-featured__main-button">Ver todos los tatuajes</a>
   </section>
   <hr class="special-hr homepage-divider">
   <section class="homepage-featured">
     <h2 class="homepage-subtitle">Tatuadores destacados y <span class="golden-text">nuevos</span>.</h2>
-    <!-- <div class="homepage-featured__buttons">
-      <button type="button" click.delegate="getFeaturedArtists()" class="homepage-featured__button site-button ${featuredOption == 1 ? 'active' : ''}">Destacados</button>
-      <button type="button" click.delegate="getFeaturedArtists('newest')" class="homepage-featured__button site-button ${featuredOption == 2 ? 'active' : ''}">Nuevos</button>
-      <button type="button" click.delegate="getFeaturedArtists('closest')" class="homepage-featured__button site-button ${featuredOption == 3 ? 'active' : ''}">Cercanos</button>
-    </div> -->
     <div class="homepage__featured" id="homepage-featured-items">
-      <tattoo-artist repeat.for="i of 8" artist.bind="artist" class="homepage__featured__item"></tattoo-artist>
+      <tattoo-artist repeat.for="artist of artists" artist.bind="artist" class="homepage__featured__item"></tattoo-artist>
     </div>
-    <a route-href="route: search_artist; params.bind: {type: 'Estudio'}" class="site-button homepage-featured__main-button">Ver todos los estudios</a>
   </section>
   <hr class="special-hr homepage-divider" if.bind="!session.authService.authenticated">
   <section class="homepage-want-to" if.bind="!session.authService.authenticated">
@@ -120,7 +104,7 @@
       <div class="homepage-want-to__div ${iWantTo == 2 ? 'active' : ''}">
         <h2 class="homepage-want-to__title">Soy tatuador<span class="golden-text">.</span></h2>
         <p class="homepage-want-to__text"></p>
-        <a href="#" class="site-button"></a>
+        <a route-href="route: signup" class="site-button">Registrarme</a>
       </div>
       <img src="src/assets/images/logos/logo-home.png" alt="La tatuadora" class="homepage-want-to__img">
     </div>

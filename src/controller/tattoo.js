@@ -69,8 +69,9 @@ export class Tattoo extends Client{
         method: this.methods.get
       })
       .then(response => response.json())
-      .then(tattos => {
-        return tattos
+      .then(tattoos => {
+        console.log(tattoos)
+        return tattooss
       })
       .catch(error => {
         return error

@@ -1,32 +1,17 @@
 import {inject} from 'aurelia-framework';
 import {Router} from 'aurelia-router';
-import {MockAPI} from 'utils/mock-api';
+import {Static} from 'controller/static';
 import {Session} from 'utils/session';
 
-@inject(MockAPI, Router, Session)
+@inject(Router, Session)
 export class Homepage {
 
-  constructor(api, router, session) {
-    this.api = api;
+  constructor( router, session) {
     this.router = router;
     this.session = session;
     this.iWantTo = 1;
-    this.featuredOption = 1;
-    this.featuredArtists = [];
-    this.tattoos = [];
-    this.artist = {
-      likes: 16,
-      rating: 4.5,
-      name: 'DejaVu',
-      styles: ['Old School', 'Geometric', 'Japanese', 'Rebel', 'Retro'],
-      location: 'Ciudad de México',
-      titleImgUrl: 'src/assets/images/backgrounds/artist-background-1.png',
-    }
-  }
-
-  created() {
-    this.getFeaturedArtists();
-    this.getTattoos();
+    this.artists = new Static('HOMEPAGE::FEATURED')
+    console.log(this.artists)
   }
 
   attached() {
@@ -49,21 +34,6 @@ export class Homepage {
 
   detached() {
     clearInterval(this.carouselInterval);
-  }
-
-  getTattoos() {
-    this.api.getTattoos()
-      .then(tattoos => {
-        this.tattoos = tattoos;
-      })
-  }
-
-  getFeaturedArtists(type = 'featured') {
-    this.api.getFeaturedArtists(type)
-      .then(artists => {
-        this.featuredArtists = artists;
-        this.changeFeaturedOption(type);
-      });
   }
 
   changeFeaturedOption(type) {

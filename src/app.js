@@ -26,7 +26,7 @@ export class App {
         nav: true
       },
       {
-        route: 'news',
+        route: 'http://latatuadora.com/blog/',
         name: 'news',
         moduleId: 'pages/homepage/homepage',
         redirections: {
@@ -61,7 +61,7 @@ export class App {
         },
         title: 'Flashes',
         href: '/flashes',
-        nav: true
+        nav: false
       },
       {
         route: 'buscartatuador',
@@ -96,7 +96,7 @@ export class App {
           others: 'dashboard'
         },
         title: 'Iniciar Sesión',
-        nav: true
+        nav: false
       },
       {
         route: 'cotizar/:artist?',
