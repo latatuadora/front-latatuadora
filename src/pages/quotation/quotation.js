@@ -1,9 +1,9 @@
 import {inject} from 'aurelia-framework';
 import {Router} from 'aurelia-router';
 import {BaseMultiStep} from 'utils/base-multi-step';
-import {WebAPI} from 'utils/web-api';
+import {MockAPI} from 'utils/mock-api';
 
-@inject(Router, WebAPI)
+@inject(Router, MockAPI)
 export class Quotation extends BaseMultiStep {
   constructor(router, api) {
     super();
