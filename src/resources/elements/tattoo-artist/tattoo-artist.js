@@ -4,8 +4,11 @@ export class TattooArtist {
 
   @bindable artist;
 
-  attached() {
+  bind() {
+    this.artist.styles && this.__styles()
+  }
 
+  __styles() {
 
     const medium = matchMedia('(min-width: 512px)')
     const checkStyles = mediaquerie => {
@@ -15,9 +18,11 @@ export class TattooArtist {
                   : this.artist.styles.slice(0, 2)
 
     }
+
     medium.addListener(checkStyles)
     checkStyles(medium)
 
   }
+
 
 }
