@@ -11,7 +11,8 @@ export class Homepage {
     this.session = session;
     this.iWantTo = 1;
     this.artists = new Static('HOMEPAGE::FEATURED')
-    console.log(this.artists)
+    this.styles = new Static('HOMEPAGE::STYLES')
+    console.log(this.styles)
   }
 
   attached() {

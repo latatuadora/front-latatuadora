@@ -1,6 +1,7 @@
 <template>
   <require from="./homepage.css"></require>
   <require from="../../resources/elements/tattoo-artist/tattoo-artist"></require>
+  <require from="../../resources/elements/tattoo-style/tattoo-style"></require>
   <div class="homepage-hero">
     <div class="homepage-hero__left">
       <a class="homepage-hero__small-item cover" route-href="route: inspirate">
@@ -65,29 +66,26 @@
       </a>
     </div>
   </div>
+
   <section class="homepage-trending">
     <h2 class="homepage-subtitle">Lo <span class="golden-text">más</span> buscado</h2>
-
     <div class="trending__gallery">
-      <a route-href="route: inspirate"><div class="trending__item"><img src="src/assets/images/backgrounds/trending-1.png" alt="" class="trending__image"><div class="trending__layer"></div><div class="trending__description">flor</div></div></a>
-      <a route-href="route: inspirate"><div class="trending__item"><img src="src/assets/images/backgrounds/trending-2.png" alt="" class="trending__image"><div class="trending__layer"></div><div class="trending__description">Acuarela</div></div></a>
-      <a route-href="route: inspirate"><div class="trending__item"><img src="src/assets/images/backgrounds/trending-3.png" alt="" class="trending__image"><div class="trending__layer"></div><div class="trending__description">mandala</div></div></a>
-      <a route-href="route: inspirate"><div class="trending__item"><img src="src/assets/images/backgrounds/trending-4.png" alt="" class="trending__image"><div class="trending__layer"></div><div class="trending__description">planta</div></div></a>
-      <a route-href="route: inspirate"><div class="trending__item"><img src="src/assets/images/backgrounds/trending-5.png" alt="" class="trending__image"><div class="trending__layer"></div><div class="trending__description">animal</div></div></a>
-      <a route-href="route: inspirate"><div class="trending__item"><img src="src/assets/images/backgrounds/trending-6.png" alt="" class="trending__image"><div class="trending__layer"></div><div class="trending__description">calavera</div></div></a>
-      <a route-href="route: inspirate"><div class="trending__item"><img src="src/assets/images/backgrounds/trending-7.png" alt="" class="trending__image"><div class="trending__layer"></div><div class="trending__description">cruz</div></div></a>
-      <a route-href="route: inspirate"><div class="trending__item"><img src="src/assets/images/backgrounds/trending-8.png" alt="" class="trending__image"><div class="trending__layer"></div><div class="trending__description">flecha</div></div></a>
+      <tattoo-style repeat.for="style of styles" style.bind="style" class="trending__item"></tattoo-style>
     </div>
     <a route-href="route: inspirate" class="site-button homepage-featured__main-button">Ver todos los tatuajes</a>
   </section>
+
   <hr class="special-hr homepage-divider">
+
   <section class="homepage-featured">
     <h2 class="homepage-subtitle">Tatuadores destacados y <span class="golden-text">nuevos</span>.</h2>
     <div class="homepage__featured" id="homepage-featured-items">
       <tattoo-artist repeat.for="artist of artists" artist.bind="artist" class="homepage__featured__item"></tattoo-artist>
     </div>
   </section>
+
   <hr class="special-hr homepage-divider" if.bind="!session.authService.authenticated">
+
   <section class="homepage-want-to" if.bind="!session.authService.authenticated">
     <div class="homepage-want-to__inner">
       <div class="homepage-want-to__buttons">
