@@ -121,4 +121,21 @@ export class Tattoo extends Client{
       })
 
   }
+
+  styles(callback) {
+
+    return this.client
+      .fetch('style', {
+        method: this.methods.get
+      })
+      .then(response => response.json())
+      .then(styles => {
+        return styles
+      })
+      .catch(error => {
+        return error
+      })
+
+  }
+
 }

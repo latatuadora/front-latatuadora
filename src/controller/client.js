@@ -24,7 +24,7 @@ export class Client {
     // configure client with a endpoint and defaults
     this.client.configure(config => {
       config
-      .withBaseUrl('http://35.161.232.194:1337/')
+      .withBaseUrl('http://sandbox.latatuadora.getmore.mx:1337/')
       .withDefaults({
         credentials: 'same-origin',
         headers: {
