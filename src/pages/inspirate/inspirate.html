@@ -5,6 +5,7 @@
   <require from="../../resources/attributes/masonry-grid"></require>
   <require from="../../resources/attributes/infinite-scroll"></require>
   <require from="../../resources/elements/dropdown-modal/dropdown-modal"></require>
+  <require from="../../resources/elements/masonry/masonry"></require>
   <h1 if.one-time="!params.artist" class="gallery-title">Inspírate</h1>
   <h1 if.one-time="params.artist" class="gallery-title">Tatuajes hechos por <span class="golden-text underline">${artist.name}</span></h1>
   <span class="gallery-subtitle">Galería de <span class="golden-text">tatuajes</span></span>
@@ -38,4 +39,5 @@
     <div if.bind="showLoader" class="tattoos-grid-loader cp-spinner cp-eclipse"></div>
     <img class="tattoos-grid-icon" src="src/assets/images/icons/tattoos-gallery-icon.svg" alt="Inspírate">
   </section>
+  <masonry></masonry>
 </template>

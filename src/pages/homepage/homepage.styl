@@ -156,15 +156,16 @@ a.homepage-hero__small-item
   color #1d1d1d
   font-weight $regular
 
+  .golden-text
+    font-size inherit
+
 .homepage-divider
   max-width 903px
   width 85%
 
 .homepage-trending
-  margin-top: 57px;
-  margin-bottom: 87px;
+  margin-top: 6rem;
   text-align center
-  padding-top remify(94)
 
 .homepage-trending__form
   margin-top 17px
@@ -232,7 +233,6 @@ a.homepage-hero__small-item
 
 .homepage-featured__buttons
   width 366px
-  margin-top 49px
   center-block()
   display flex
   justify-content space-between
@@ -241,10 +241,11 @@ a.homepage-hero__small-item
 .homepage-featured__button
   background #e5e5e5
   color #383838
+    margin 3rem 0
   flex-basis 111px
   font-size 11px
   padding 1em 0.85em
-  margin-top 14px
+
 
   &:hover, &.active, &:active
     background #b5a274
@@ -259,7 +260,7 @@ a.homepage-hero__small-item
   width 1024px
 
 .homepage-featured__main-button
-  margin-top 88px
+  margin 3rem 0
   rfont-size 13px 767px 10px
   padding 1.15em 1.7em 1em 1.7em
   letter-spacing unit(0.5/13, 'em')
@@ -377,6 +378,7 @@ a.homepage-hero__small-item
 
 .homepage-bottom-cover__quote,
 .homepage-bottom-cover__quote-author
+  color: $dustColor
   display block
 
 .homepage-bottom-cover__quote
@@ -484,7 +486,8 @@ a.homepage-hero__small-item
     margin-top 33px
 
   .homepage-featured__main-button
-    margin-top 46px
+    margin: 3rem 0
+
     padding 15px 12.7px 13.2px 12.7px
 
   .homepage-want-to
