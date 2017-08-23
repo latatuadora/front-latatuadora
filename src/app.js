@@ -73,7 +73,7 @@ export class App {
           others: false
         },
         title: 'Busca un tatuador',
-        nav: true
+        nav: false
       },
       {
         route: 'tatuate',
@@ -109,7 +109,7 @@ export class App {
         },
         title: 'Cotiza',
         href: '/cotizar',
-        nav: false
+        nav: true
       },
       {
         route: 'cotizar/resultados',
@@ -117,7 +117,7 @@ export class App {
         moduleId: 'pages/quotation-results/quotation-results',
         redirections: {
           2: 'dashboard',
-          3: 'dashboard',
+          3: 'dashboard', 
           others: false
         },
         title: 'Resultados de tu cotización',
