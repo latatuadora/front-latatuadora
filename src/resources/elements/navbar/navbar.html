@@ -15,7 +15,7 @@
       <div class="site-navbar__menu">
         <a repeat.for="item of router.navigation | routesFilter" href.bind="item.href" class="site-navbar__menu-link ${item.isActive ? 'active' : ''}" if.bind="!(item.config.name == 'login' && session.authService.authenticated)">${item.title}</a>
       </div>
-      <a if.bind="!session.authService.authenticated" route-href="route: signup" class="site-button site-navbar__signup-button">Regístrate</a>
+      <a if.bind="!session.authService.authenticated" route-href="route: signup-user" class="site-button site-navbar__signup-button">Regístrate</a>
     </div>
   </nav>
 </template>
