@@ -42,22 +42,5 @@ export class Login extends BaseModal {
       .on(this.fields);
   }
 
-  login() {
-    this.showLoaders.form = true;
-    this.controller.validate()
-      .then(this.loginValidation);
-  }
 
-  loginValidation = (validation) => {
-    if (validation.valid) {
-      this.session.authService.login(this.fields)
-        .then(response => {
-          this.session.setRole(response.usertype);
-        })
-        .catch(() => {
-          this.badRequests.form = true;
-          this.showLoaders.form = false;
-        });
-    }
-  }
 }
