@@ -1,13 +1,18 @@
 import { Client } from './client'
+import {AuthService} from 'aurelia-authentication';
+import {inject} from 'aurelia-framework';
 
+@inject(AuthService)
 export class User extends Client{
 
   /**
   *@PUBLIC constructor
   *@DESCRIPTION define endpoint
   **/
-  constructor() {
+  constructor(authService) {
     super()
+    this.authService = authService
+    this.authenticated = false
   }
 
   /**
@@ -16,19 +21,9 @@ export class User extends Client{
   **/
   signIn(credentials) {
 
-    const url = 'login'
-
-    this.client
-      .fetch(`${url}`, {
-        method: this.methods.post,
-        body: json(credentials)
-      })
-      .then(response => response.json())
-      .then(auth => {
-        return this.user.auth = auth
-      })
-      .catch(error => {
-        return error
+    return this.authService.login(credentials)
+      .then(() => {
+        this.authenticated = this.authService.authenticated;
       })
 
   }
