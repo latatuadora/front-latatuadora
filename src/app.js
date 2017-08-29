@@ -117,7 +117,7 @@ export class App {
         moduleId: 'pages/quotation-results/quotation-results',
         redirections: {
           2: 'dashboard',
-          3: 'dashboard', 
+          3: 'dashboard',
           others: false
         },
         title: 'Resultados de tu cotización',
@@ -139,6 +139,14 @@ export class App {
         route: 'signup',
         name: 'signup',
         moduleId: 'pages/signup/signup',
+        title: 'Regístrate',
+        nav: false,
+        roles: [0]
+      },
+      {
+        route: 'signup/user',
+        name: 'signup-user',
+        moduleId: 'pages/signup/user/user',
         title: 'Regístrate',
         nav: false,
         roles: [0]
