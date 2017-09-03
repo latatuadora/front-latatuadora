@@ -62,11 +62,14 @@ export class Client {
       return endpoint + `/${params}`
     }
 
-    Object.keys(params).map((param, index) => {
 
-      endpoint += index === 0
-          ? `?${ param }=${ params[param] }`
-          : `&${ param }=${ params[param] }`
+    Object.keys(params).map((param, index) => {
+      console.log(params[param])
+      if (params[param] !== null) {
+        endpoint += index === 0
+            ? `?${ param }=${ params[param] }`
+            : `&${ param }=${ params[param] }`
+      }
 
     })
 
