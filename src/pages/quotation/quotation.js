@@ -1,12 +1,15 @@
 import {inject} from 'aurelia-framework';
 import {Router} from 'aurelia-router';
-import {BaseMultiStep} from 'utils/base-multi-step';
-import {MockAPI} from 'utils/mock-api';
+import {Controller} from 'controller/controller'
 
-@inject(Router, MockAPI)
+import {MockAPI} from 'utils/mock-api';
+import {BaseMultiStep} from 'utils/base-multi-step';
+
+@inject(Router, MockAPI, Controller)
 export class Quotation extends BaseMultiStep {
-  constructor(router, api) {
+  constructor(router, api, controller) {
     super();
+    this.controller = controller
     this.router = router;
     this.api = api;
     this.completeDestination = 'quotation_results';
@@ -54,7 +57,7 @@ export class Quotation extends BaseMultiStep {
   }
 
   getArtist(id) {
-    this.api.getArtist(id)
+    this.controller.artist.artist(id)
       .then(artist => {
         this.shared.artist = artist;
       });
@@ -101,7 +104,8 @@ export class Quotation extends BaseMultiStep {
       comments: this.shared.additionalComment,
       studioId: this.shared.artist ? this.shared.artist.id : null
     };
-    this.api.postQuotationRequest(request)
+    console.log(request)
+    this.controller.quotation.quotation(request)
       .then(results => {
         this.goToResults(results);
       });
