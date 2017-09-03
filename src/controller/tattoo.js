@@ -20,8 +20,8 @@ export class Tattoo extends Client{
     const url = approved
               ? this.URL(this.endpoint, {...params})
               : this.URL(this.endpoint, 'notApproved')
-
-    this.client
+              
+    return this.client
       .fetch(`${url}`, {
         method: this.methods.get
       })
@@ -64,14 +64,13 @@ export class Tattoo extends Client{
   bodyParts() {
     const url = this.URL(this.endpoint, 'bodyParts')
 
-    this.client
+    return this.client
       .fetch(`${url}`, {
         method: this.methods.get
       })
       .then(response => response.json())
       .then(tattoos => {
-        console.log(tattoos)
-        return tattooss
+        return tattoos
       })
       .catch(error => {
         return error
@@ -122,10 +121,10 @@ export class Tattoo extends Client{
 
   }
 
-  styles(callback) {
+  styles() {
 
     return this.client
-      .fetch('styles', {
+      .fetch('style', {
         method: this.methods.get
       })
       .then(response => response.json())
