@@ -1,6 +1,7 @@
 import {inject} from 'aurelia-framework';
 import {MockAPI} from 'utils/mock-api';
 import {BaseModal} from 'utils/base-modal';
+import {Controller} from 'controller/controller'
 
 class CarouselOptions extends BaseModal {
   constructor(includeArrows) {
@@ -19,10 +20,11 @@ class CarouselOptions extends BaseModal {
   }
 };
 
-@inject(MockAPI)
+@inject(MockAPI, Controller)
 export class Studio {
-  constructor(api) {
+  constructor(api, controller) {
     this.api = api;
+    this.controller = controller
     this.tattoosCarousel = {
       init: false,
       options: new CarouselOptions(true)
@@ -87,30 +89,23 @@ export class Studio {
   }
 
   getTattoos() {
-    this.api.getTattoos()
+    this.controller.tattoo.get(true,{artist: this.studio.id})
       .then(tattoos => {
+        console.log(tattoos)
         this.tattoos = tattoos;
         this.tattoosCarousel.init = true;
       });
   }
 
-  getFlashes() {
-    this.api.getTattoos()
-      .then(flashes => {
-        this.flashes = flashes;
-        this.flashesCarousel.init = true;
-      });
-  }
-
   getStudio(id) {
-    this.api.getStudio(id)
+    this.controller.studio.get(id)
       .then(studio => {
         this.studio = studio;
         this.photosCarousel.init = true;
         this.evaluationsCarousel.init = true;
         this.artistsCarousel.init = true;
         this.getTattoos();
-        this.getFlashes();
+        // this.getFlashes();
       });
   }
 

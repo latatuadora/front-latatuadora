@@ -9,7 +9,8 @@
   <require from="resources/elements/modals/rate-study-modal/rate-study-modal"></require>
 
   <section class="studio__hero cover">
-    <img src="${studio.logo}" alt="Estudio" class="studio__logo">
+    <img src="/image/${studio.logo}" if.bind="studio.logo" alt="Estudio" class="studio__logo">
+    <h1 if.bind="!studio.logo" class="studio__hero-subtitle">${studio.name}</h1>
     <h1 class="studio__title">Estudio de <span class="golden-text">tatuaje</span></h1>
     <div class="studio__hero-inner">
       <div class="studio__hero-left">
@@ -18,7 +19,7 @@
       </div>
       <div class="studio__hero-right">
         <h2 class="studio__hero-subtitle">Agenda tu <span class="studio__hero-subtext">próxima cita</span></h2>
-        <a route-href="route: scheduling; params.bind: {id: studio.id}" class="site-button">Agenda aquí</a>
+        <a route-href="route: scheduling; params.bind: { id: studio.id }" class="site-button">Agenda aquí</a>
       </div>
     </div>
   </section>
@@ -33,8 +34,8 @@
     <img class="swiper-button-prev" src="/src/assets/images/icons/arrow-golden-left.svg">
     <img class="swiper-button-next" src="/src/assets/images/icons/arrow-golden-right.svg">
   </div>
-  <a route-href="route: inspirate; params.bind: {artist: studio.id}" class="site-button studio__gallery-button">Ver galería</a>
-  <section class="studio__flashes cover">
+  <a route-href="route: inspirate; params.bind: { artist: studio.id }" class="site-button studio__gallery-button">Ver galería</a>
+  <!-- <section class="studio__flashes cover">
     <h2 class="studio__subtitle">Flashes</h2>
     <span class="gallery-subtitle">Diseños <span class="golden-text">únicos y exclusivos</span></span>
     <div class="studio__flashes-carousel studio__carousel" swiper-carousel="init.bind: flashesCarousel.init; options.one-time: flashesCarousel.options">
@@ -44,7 +45,7 @@
       <div class="swiper-pagination"></div>
     </div>
     <a class="site-button" route-href="route: flashes; params.bind: {artist: studio.id}">Ver catálogo</a>
-  </section>
+  </section> -->
   <hr class="special-hr studio__evaluations-hr">
   <section class="studio__evaluations-artists">
     <div class="studio__evaluations">
@@ -75,7 +76,7 @@
       <div class="studio__artists-carousel studio__carousel" swiper-carousel="init.bind: artistsCarousel.init; options.one-time: artistsCarousel.options">
         <div class="swiper-wrapper">
           <div class="studio__artist-item swiper-slide" repeat.for="item of studio.artists">
-            <a route-href="route: studio; params.bind: {id: item.id}">
+            <a >
               <h3 class="studio__artist-name">${item.name}</h3>
               <img class="studio__artist-image" src="${item.imageURL}" alt="${item.name}">
             </a>
