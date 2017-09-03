@@ -25,6 +25,7 @@ client.configure(x => {
 
 export class WebAPI extends MockAPI {
   postQuotationRequest(request) {
+    console.log(request)
     return client.fetch('quotation', {
       method: 'post',
       body: json(request)

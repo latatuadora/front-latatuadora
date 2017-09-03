@@ -5,8 +5,9 @@ import { bindable, inject } from 'aurelia-framework'
 export class TattooStyle {
 
   @bindable style
-  constructor(router) {
+  constructor(style, router) {
     this.router = router
+    this.style = style
   }
 
 }

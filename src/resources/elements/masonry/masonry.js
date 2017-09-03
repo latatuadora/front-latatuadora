@@ -1,19 +1,21 @@
-import { observable } from 'aurelia-framework';
+import { observable,  child, bindable } from 'aurelia-framework';
 
 export class Masonry {
 
+  @bindable element
   @observable({ changeHandler: 'itemsChanged' }) items;
 
-  constructor(items, selector, element) {
-    this.element = element
-    this.items = items
-    this.selector = selector
+  constructor() {
+    console.warn(this.element)
+  }
+
+  attached() {
+    console.warn(this.template)
   }
 
   bind() {
-
+    console.warn(this.template)
   }
-
 
 
 }

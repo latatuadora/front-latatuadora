@@ -1,5 +1,8 @@
-export class BaseGallery {
+import {Controller} from 'controller/controller'
+
+export class BaseGallery extends Controller{
   constructor(api) {
+    super()
     this.api = api;
     this.apiMethod = 'getItems';
     this.params = {
@@ -63,14 +66,15 @@ export class BaseGallery {
   }
 
   getArtist(id) {
-    this.api.getArtist(id)
+    this.controller.artist.artist(id)
       .then(artist => {
         this.artist = artist;
+        console.log(artist)
       });
   }
 
   getStyles() {
-    this.api.getStyles()
+    this.controller.tattoo.styles()
       .then(styles => {
         styles.forEach(style => {
           if (this.params.style == style.id) {
@@ -140,7 +144,7 @@ export class BaseGallery {
   loadMore() {
     if (!this.showLoader && this.params.page != null) {
       this.showLoader = true;
-      this.api[this.apiMethod](this.params)
+      this.controller.tattoo.get(true, this.params)
         .then(items => {
           items.forEach(item => {
             this.addItem(item);

@@ -1,4 +1,5 @@
 <template>
+  <!-- route-href="route: studio; params.bind: {id: artist.id}"  -->
   <require from="./artist-item.css"></require>
   <div class="artist-item ${fullCard ? 'flip-card' : ''}" ref="artistCard">
     <div class="artist-item__inner ${fullCard ? 'flip-card__inner' : ''}">
@@ -6,7 +7,7 @@
       <div class="artist-item__back ${fullCard ? 'flip-card__back' : ''}">
         <div class="artist-item__back-content">
           <button class="fa fa-heart like-button artist-item__top-like-button"></button>
-          <a route-href="route: studio; params.bind: {id: artist.id}" class="artist-item__title">${artist.name}</a>
+          <a class="artist-item__title">${artist.name}</a>
           <div class="artist-item__stars">
             <i repeat.for="i of 5" class="fa ${artist.rating > i ? (artist.rating > i + 0.9 ? 'fa-star' : 'fa-star-half-o') : 'fa-star-o'}"></i>
           </div>
