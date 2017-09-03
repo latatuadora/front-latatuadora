@@ -1,6 +1,7 @@
 import { Client } from './client'
 import {AuthService} from 'aurelia-authentication';
-import {inject} from 'aurelia-framework';
+import {inject, computedFrom} from 'aurelia-framework';
+import {json} from 'aurelia-fetch-client';
 
 @inject(AuthService)
 export class User extends Client{
@@ -9,23 +10,24 @@ export class User extends Client{
   *@PUBLIC constructor
   *@DESCRIPTION define endpoint
   **/
-  constructor(authService) {
+  constructor(AuthService) {
     super()
-    this.authService = authService
-    this.authenticated = false
+    this.authService = AuthService
+  }
+
+  // make a getter to get the authentication status.
+  // use computedFrom to avoid dirty checking
+  @computedFrom('authService.authenticated')
+  get authenticated() {
+    return this.authService.authenticated;
   }
 
   /**
   *@PUBLIC signIn
   *@DESCRIPTION open session
   **/
-  signIn(credentials) {
-
-    return this.authService.login(credentials)
-      .then(() => {
-        this.authenticated = this.authService.authenticated;
-      })
-
+  signIn(email, password) {
+    return this.authService.login({email: email, password},{},'#/dashboard');
   }
 
   /**
@@ -36,7 +38,7 @@ export class User extends Client{
 
     const url = 'logup'
 
-    this.client
+    return this.client
       .fetch(`${url}`, {
         method: this.methods.post,
         body: json(data)
@@ -56,7 +58,7 @@ export class User extends Client{
   *@DESCRIPTION close session
   **/
   signOff() {
-    return this.user = undefined
+    return this.authService.logout();
   }
 
 }
