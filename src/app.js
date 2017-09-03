@@ -124,7 +124,7 @@ export class App {
         nav: false
       },
       {
-        route: 'agendar/:id',
+        route: 'agendar/:id?',
         name: 'scheduling',
         moduleId: 'pages/scheduling/scheduling',
         redirections: {
