@@ -1,11 +1,14 @@
 import {inject} from 'aurelia-framework';
 import {WebAPI} from 'utils/web-api';
+import {Controller} from 'controller/controller'
 import {BaseGallery} from 'utils/base-gallery';
+import {TattooStyle} from 'resources/elements/tattoo-style/tattoo-style'
 
-@inject(WebAPI)
+@inject(WebAPI, Controller)
 export class Inspirate extends BaseGallery {
-  constructor(api) {
+  constructor(api, controller) {
     super(api);
+    this.controller = controller
     this.apiMethod = 'getTattoos';
     this.params['part'] = null;
     this.activeElements['part'] = null;
@@ -26,15 +29,16 @@ export class Inspirate extends BaseGallery {
   }
 
   getBodyParts() {
-    this.api.getBodyParts()
+    this.controller.tattoo.bodyParts()
       .then(parts => {
+
         parts.forEach(part => {
           if (this.params.part == part.id) {
             this.activeElements.part = part;
           }
         });
         this.lists.parts = parts;
-      });
+      })
   }
 
   setBodyPart = part => {
@@ -48,7 +52,7 @@ export class Inspirate extends BaseGallery {
 
   resetParams() {
     super.resetParams();
-    this.params['part'] = null;
-    this.activeElements['part'] = null;
+    this.params['part'] = '';
+    this.activeElements['part'] = '';
   }
 }
