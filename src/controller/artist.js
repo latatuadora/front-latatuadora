@@ -12,7 +12,7 @@ export class Artist extends Client {
 
     const url = this.URL(this.endpoint, `${id}`)
 
-    this.client
+    return this.client
       .fetch(`${url}`, {
         method: this.methods.get
       })
