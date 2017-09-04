@@ -164,7 +164,7 @@ export class BaseGallery extends Controller{
       item.sellImageUrl = '/src/assets/images/mock/tattoo3.png';
     }
     if (!item.image || !item.image.includes('http')) {
-      item.image = '/src/assets/images/mock/tattoo3.png';
+      item.image = 'http://sandbox.latatuadora.getmore.mx:1337/images/' + item.image
     }
     if (!item.artist_picture) {
       item.artist_picture = '/src/assets/images/mock/artist3.png';
