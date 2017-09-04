@@ -7,7 +7,7 @@
 
     <h1 class="login__title">Iniciar sesión</h1>
 
-    <div if.bind="!showLoaders.social" class="login__social">
+    <!-- <div if.bind="!showLoaders.social" class="login__social">
       <button class="login__social-button--facebook">
         <img class="login__social-icon--facebook" src="/src/assets/images/icons/facebook-icon.svg" alt="Facebook" />
         Iniciar sesión con Facebook
@@ -17,7 +17,7 @@
         Iniciar sesión con Google
       </button>
       <div if.bind="badRequests.social" class="login__request-error">Ocurrió un error</div>
-    </div>
+    </div> -->
     <div if.bind="showLoaders.social" class="tattoos-grid-loader cp-spinner cp-eclipse"></div>
 
     <hr class="divider-hr login__divider">
