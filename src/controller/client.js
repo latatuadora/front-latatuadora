@@ -62,9 +62,9 @@ export class Client {
       return endpoint + `/${params}`
     }
 
-
+    Object.keys(params).forEach((key) => (params[key] === null) && delete params[key]);
     Object.keys(params).map((param, index) => {
-      console.log(params[param])
+
       if (params[param] !== null) {
         endpoint += index === 0
             ? `?${ param }=${ params[param] }`
