@@ -26,4 +26,22 @@ export class Artist extends Client {
 
   }
 
+  find(params) {
+
+    const url = this.URL(this.endpoint, params)
+
+    return this.client
+      .fetch(`${url}`, {
+        method: this.methods.get
+      })
+      .then(response => response.json())
+      .then(artist => {
+        return artist
+      })
+      .catch(error => {
+        return error
+      })
+
+  }
+
 }

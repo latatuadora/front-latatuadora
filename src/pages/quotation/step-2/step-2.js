@@ -1,7 +1,7 @@
 import {inject} from 'aurelia-framework';
-import { Tattoo } from 'controller/tattoo'
+import { Static } from 'controller/static'
 
-export class Step2 extends Tattoo {
+export class Step2 extends Static {
   constructor() {
     super()
     this.items = [];
@@ -19,24 +19,17 @@ export class Step2 extends Tattoo {
   }
 
   getStyles() {
-    this.styles()
-      .then(styles => {
+    this.styles = this.__preStyles()
+    this.styles.map((style, index) => {
 
-        styles.map((style, index) => {
+      if( this.model.style === style.id ) {
+        this.activeIndex = index
+      }
+      
+      this.items.push(style)
 
-          if( this.model.style === style.id ) {
-            this.activeIndex = index
-          }
-          style.imgUrl = 'src/assets/images/backgrounds/featured-1.png'
-          this.items.push(style)
+    })
 
-        })
-
-
-      })
-      .catch(error => {
-        console.warn(error)
-      })
   }
 
 

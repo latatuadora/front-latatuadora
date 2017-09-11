@@ -129,5 +129,23 @@ export class Static {
     ]
   }
 
+  __preStyles() {
+    return [
+      {name:'Old School', imgUrl:'/src/assets/images/mock/style14.jpg' },
+      {name:'New School', imgUrl:'/src/assets/images/mock/style15.jpg' },
+      {name:'Puntillismo', imgUrl:'/src/assets/images/mock/style10.png' },
+      {name:'Geometrico', imgUrl:'/src/assets/images/mock/style9.png' },
+      {name:'Trash Polka', imgUrl:'/src/assets/images/mock/style7.png' },
+      {name:'Black work', imgUrl:'/src/assets/images/mock/style1.png' },
+      {name:'Acuarela', imgUrl:'/src/assets/images/mock/style13.png' },
+      {name:'Japones', imgUrl:'/src/assets/images/mock/style13.png' },
+      {name:'Tribal', imgUrl:'/src/assets/images/mock/style16.jpg' },
+      {name:'Caligrafia', imgUrl:'/src/assets/images/mock/style11.png' },
+      {name:'Ilustracion', imgUrl:'/src/assets/images/mock/style12.png' },
+      {name:'Surreal', imgUrl:'/src/assets/images/mock/style6.png' },
+      {name:'Biomecanico', imgUrl:'/src/assets/images/mock/style8.png' }
+    ]
+  }
+
 
 }

@@ -1,10 +1,11 @@
-import {inject} from 'aurelia-framework';
 import {Artist} from './artist'
-import {Quotation} from './quotation'
 import {Tattoo} from './tattoo'
 import {Studio} from './studio'
+import {Quotation} from './quotation'
+import {Address} from './address'
+import {inject} from 'aurelia-framework';
 
-@inject(Artist, Quotation, Tattoo, Studio)
+@inject(Artist, Quotation, Tattoo, Studio, Address)
 export class Controller {
 
   constructor(){

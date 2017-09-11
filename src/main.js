@@ -14,8 +14,10 @@ export function configure(aurelia) {
       baseConfig.configure({
         endpoint: 'api',
         loginUrl: 'login',
+        loginRoute: '#/login',
+        logoutRedirect: '#/login',
         loginRedirect: '#/dashboard',
-        loginRoute: '#/login'
+        logoutUrl: '#/logout'
       });
     })
     .plugin('aurelia-files');

@@ -89,12 +89,15 @@ export class Studio {
   }
 
   getTattoos() {
-    this.controller.tattoo.get(true,{artist: this.studio.id})
-      .then(tattoos => {
-        console.log(tattoos)
-        this.tattoos = tattoos;
-        this.tattoosCarousel.init = true;
-      });
+
+    this.controller.artist.find({studio: this.studio.id})
+      .then(artist => {
+        console.log(artist)
+        this.tattoos = [].concat(...artist.map(a => a.tattoos.splice(0,5)))
+        this.tattoos.map(t => t.image = 'http://sandbox.latatuadora.getmore.mx:1337/images/' + t.image)
+        this.tattoosCarousel.init = true
+
+      })
   }
 
   getStudio(id) {

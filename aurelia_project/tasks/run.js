@@ -22,8 +22,8 @@ let serve = gulp.series(
   build,
   done => {
     browserSync({
-      online: false,
-      open: false,
+      online: true,
+      open: true,
       port: 9000,
       logLevel: 'silent',
       server: {
@@ -36,6 +36,7 @@ let serve = gulp.series(
     }, function(err, bs) {
       if (err) return done(err);
       let urls = bs.options.get('urls').toJS();
+      log(`BS Available at ${urls.external}`)
       log(`Application Available At: ${urls.local}`);
       log(`BrowserSync Available At: ${urls.ui}`);
       done();
