@@ -10,16 +10,6 @@
       <h1 class="heading margin-bottom-53px">Registro</h1>
     </header>
 
-    <div class="membership__kind margin-vertical-0px width-118">
-      <div class="input__group--row">
-        <input class="input--radio"type="radio" name="kind" id="">
-        <label class="input--label-checkbox" for="">Quiero tatuarme</label>
-      </div>
-      <div class="input__group--row">
-        <input class="input--radio"type="radio" name="kind" id="">
-        <label class="input--label-checkbox" for="">Soy tatuador</label>
-      </div>
-    </div>
 
     <div class="divider--silver"></div>
 
@@ -135,15 +125,6 @@
           <input type="text" class="input">
         </div>
 
-        <div class="input__block">
-
-          <div class="input__group">
-            <input class="input--file" type="file" name="" id="input:file">
-            <label class="input--file-label" for="input:file">Agregar zona</label>
-          </div>
-
-        </div>
-
       </div>
     </section>
 
@@ -155,11 +136,11 @@
 
         <div class="membership__cofepris">
           <div class="input__group--row">
-            <input class="input--radio"type="radio" name="" id="">
+            <input class="input--radio"type="radio" name="home" id="">
             <label class="input--label-checkbox" for="">Si</label>
           </div>
           <div class="input__group--row">
-            <input class="input--radio"type="radio" name="" id="">
+            <input class="input--radio"type="radio" name="home" id="">
             <label class="input--label-checkbox" for="">No</label>
           </div>
         </div>
@@ -175,11 +156,11 @@
 
         <div class="membership__cofepris">
           <div class="input__group--row">
-            <input class="input--radio"type="radio" name="" id="">
+            <input class="input--radio"type="radio" name="cofepris" id="">
             <label class="input--label-checkbox" for="">Si</label>
           </div>
           <div class="input__group--row">
-            <input class="input--radio"type="radio" name="" id="">
+            <input class="input--radio"type="radio" name="cofepris" id="">
             <label class="input--label-checkbox" for="">No</label>
           </div>
         </div>
@@ -194,7 +175,7 @@
       <div class="input__block">
 
         <div class="input__group-row"  >
-            <input type="checkbox" data-tag="${tag}" name="${tag}" id="${tag}" class="input--checkbox-tag" repeat.for="tag of tags">
+            <input type="checkbox" data-tag="${tag.name}" name="${tag.name}" id="${tag.name}" class="input--checkbox-tag" repeat.for="tag of tags">
         </div>
 
       </div>
