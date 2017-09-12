@@ -3,6 +3,7 @@
   <require from="./signup.css"></require>
   <require from="resources/attributes/simple-modal"></require>
   <require from="resources/elements/modals/terms-signup-modal/terms-signup-modal"></require>
+  <require from="resources/elements/switch/switch"></require>
 
   <div class="membership">
 
@@ -20,11 +21,11 @@
 
         <div class="membership__kind">
           <div class="input__group--row">
-            <input class="input--radio"type="radio" name="kind" id="">
+            <input class="input--radio" type="radio" name="kind" id="">
             <label class="input--label-checkbox" for="">Estudio</label>
           </div>
           <div class="input__group--row">
-            <input class="input--radio"type="radio" name="kind" id="">
+            <input class="input--radio" type="radio" name="kind" id="">
             <label class="input--label-checkbox" for="">Freelance</label>
           </div>
         </div>
@@ -136,11 +137,11 @@
 
         <div class="membership__cofepris">
           <div class="input__group--row">
-            <input class="input--radio"type="radio" name="home" id="">
+            <input class="input--radio" type="radio" name="home" id="">
             <label class="input--label-checkbox" for="">Si</label>
           </div>
           <div class="input__group--row">
-            <input class="input--radio"type="radio" name="home" id="">
+            <input class="input--radio" type="radio" name="home" id="">
             <label class="input--label-checkbox" for="">No</label>
           </div>
         </div>
@@ -156,11 +157,11 @@
 
         <div class="membership__cofepris">
           <div class="input__group--row">
-            <input class="input--radio"type="radio" name="cofepris" id="">
+            <input class="input--radio" type="radio" name="cofepris" id="">
             <label class="input--label-checkbox" for="">Si</label>
           </div>
           <div class="input__group--row">
-            <input class="input--radio"type="radio" name="cofepris" id="">
+            <input class="input--radio" type="radio" name="cofepris" id="">
             <label class="input--label-checkbox" for="">No</label>
           </div>
         </div>
@@ -174,8 +175,8 @@
       <h2 class="subheading">¿Qué <span class="mark">estilos</span> manejas?</h2>
       <div class="input__block">
 
-        <div class="input__group-row"  >
-            <input type="checkbox" data-tag="${tag.name}" name="${tag.name}" id="${tag.name}" class="input--checkbox-tag" repeat.for="tag of tags">
+        <div class="input__group-row">
+          <input type="checkbox" data-tag="${tag.name}" name="${tag.name}" id="${tag.name}" class="input--checkbox-tag" repeat.for="tag of tags">
         </div>
 
       </div>
@@ -196,6 +197,51 @@
 
     <section class="schedule membership__item">
       <h2 class="subheading">Horario de <span class="mark">trabajo</span></h2>
+      <div class="schedule__item  titles input__group-row">
+        <span class="schedule__title" >Dia</span> <span class="schedule__title" >Apertura</span> <span style="text-align: left;" class="schedule__title" >Cierre</span>
+      </div>
+      <div class="schedule__item input__group-row">
+        <switch able="Lunes" disable="Lunes" switch.two-way="monday"></switch>
+        <div show.bind="monday" class="input__group-row">
+          <input class="input--hour" type="text"><input class="input--hour" type="text">
+        </div>
+      </div>
+      <div class="schedule__item input__group-row">
+        <switch able="Martes" disable="Martes" switch.two-way="tuesday"></switch>
+        <div show.bind="tuesday" class="input__group-row">
+          <input class="input--hour" type="text"><input class="input--hour" type="text">
+        </div>
+      </div>
+      <div class="schedule__item input__group-row">
+        <switch able="Miercoles" disable="Miercoles" switch.two-way="wednesday"></switch>
+        <div show.bind="wednesday" class="input__group-row">
+          <input class="input--hour" type="text"><input class="input--hour" type="text">
+        </div>
+      </div>
+      <div class="schedule__item input__group-row">
+        <switch able="Jueves" disable="Jueves" switch.two-way="thursday"></switch>
+        <div show.bind="thursday" class="input__group-row">
+          <input class="input--hour" type="text"><input class="input--hour" type="text">
+        </div>
+      </div>
+      <div class="schedule__item input__group-row">
+        <switch able="Viernes" disable="Viernes" switch.two-way="friday"></switch>
+        <div show.bind="friday" class="input__group-row">
+          <input class="input--hour" type="text"><input class="input--hour" type="text">
+        </div>
+      </div>
+      <div class="schedule__item input__group-row">
+        <switch able="Sabado" disable="Sabado" switch.two-way="saturday"></switch>
+        <div show.bind="saturday" class="input__group-row">
+          <input class="input--hour" type="text"><input class="input--hour" type="text">
+        </div>
+      </div>
+      <div class="schedule__item input__group-row">
+        <switch able="Domingo" disable="Domingo" switch.two-way="sunday"></switch>
+        <div show.bind="sunday" class="input__group-row">
+          <input class="input--hour" type="text"><input class="input--hour" type="text">
+        </div>
+      </div>
 
     </section>
 
@@ -219,8 +265,9 @@
       <div class="input__block">
 
         <div class="input__group--row">
-          <input class="input--radio"type="radio" name="" id="">
-          <terms-signup-modal id="terms-signup-content" simple-modal="show.two-way: showModal" css="${showModal ? 'display: block' : 'display: none'}" item.bind="currentItem"  go-next.call="nextItem()" go-prev.call="previousItem()" close.call="closeModal()"></terms-signup-modal>
+          <input class="input--radio" type="radio" name="" id="">
+          <terms-signup-modal id="terms-signup-content" simple-modal="show.two-way: showModal" css="${showModal ? 'display: block' : 'display: none'}"
+            item.bind="currentItem" go-next.call="nextItem()" go-prev.call="previousItem()" close.call="closeModal()"></terms-signup-modal>
           <label class="input--label-checkbox" for="">Acepto <span class="mark--silver" click.trigger="openModal()">términos y condiciones</span> y <span class="mark--silver">políticas de privacidad</span></label>
         </div>
 

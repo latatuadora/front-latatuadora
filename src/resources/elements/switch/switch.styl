@@ -1,0 +1,71 @@
+.switch
+  display inline-block
+  position relative
+
+  height 2rem
+  width 5rem
+
+
+  .toggle
+    display none
+
+    &:checked + .label
+      background-color #b09c6c
+    
+    &:focus + .label 
+      box-shadow: 0 0 1px #2196F3;
+
+    &:checked + .label:before
+      transform translateX(3rem)
+
+    &:checked + .label .able
+      display block
+      left 0.7rem
+
+    &:checked + .label .disable
+      display none
+
+  .label
+    background-color #9b9b9b
+    border-radius 2rem
+    cursor pointer
+
+    position absolute
+    top 0
+    left 0
+    right 0
+    bottom 0 
+
+    transition: 0.4s
+
+    &:before 
+      position absolute;
+      content ''
+
+      height 1.5rem
+      width 1.5rem
+
+      left 0.25rem
+      bottom 0.25rem
+
+      background-color white
+      border-radius: 50%;
+
+      -webkit-transition 0.4s
+      transition 0.4s
+
+    .disable
+      display block
+      right 0.75rem
+      
+    .able 
+      display none
+    
+    .able, .disable
+      color white
+      font-size 10px
+
+      position absolute
+      
+      top 50%
+      transform translateY(-50%)

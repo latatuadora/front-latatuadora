@@ -2,6 +2,8 @@
 
 export default class Signup {
 
+  monday = true;
+
   constructor() {
     this.tags = [
       {id: 1,  name: 'Old School', imgUrl:'/src/assets/images/mock/style14.jpg' },
