@@ -1,3 +1,7 @@
+@media screen and (min-width: 32rem)
+  #filter 
+    display: none
+
 .gallery-title
   rfont-size 35px 767px 29px
   line-height 1.28
@@ -24,16 +28,17 @@
     display none
 
 .gallery-filters-toggle
-  display none
+  width: 144px
+  margin: 35px auto
+  display none 
   font-size 15px
   letter-spacing -0.2px
   border-radius 100px
   text-transform none
   center-block()
   padding 7px 26px 9px 26px
-  margin-top 35px
-  margin-bottom 34px
   line-height 1
+
 
   img, span
     display inline-block
@@ -192,3 +197,7 @@
 @media screen and (max-width: 500px)
   .tattoos-grid-icon
     margin-top 15px
+
+@media screen and (min-width: 512px)
+  .gallery-filters-toggle.site-button
+    display: none
