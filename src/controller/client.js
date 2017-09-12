@@ -16,7 +16,7 @@ export class Client {
       put: 'PUT',
       patch: 'PATCH',
       delete: 'DELETE'
-    }
+    };
 
     // Create a new http client to handle and fire request and response
     this.client = new HttpClient();
@@ -30,19 +30,8 @@ export class Client {
         headers: {
           'Accept': 'application/json'
         }
-      })
-      .withInterceptor({
-        request(request) {
-          console.log(`Requesting ${request.method} ${request.url}`);
-          return request;
-        },
-        response(response) {
-          console.log(`Received ${response.status} ${response.url}`);
-          return response;
-        }
-      })
-    })
-
+      });
+    });
   }
 
   /**
