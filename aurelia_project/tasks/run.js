@@ -36,7 +36,7 @@ let serve = gulp.series(
     }, function(err, bs) {
       if (err) return done(err);
       let urls = bs.options.get('urls').toJS();
-      log(`BS Available at ${urls.external}`)
+      log(`BS Available at ${urls.external}`);
       log(`Application Available At: ${urls.local}`);
       log(`BrowserSync Available At: ${urls.ui}`);
       done();
