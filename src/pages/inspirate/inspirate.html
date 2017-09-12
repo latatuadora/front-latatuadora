@@ -1,5 +1,5 @@
 <template>
-  <requite from="./Inspirate.css"></requite>
+  <requite from="./inspirate.css"></requite>
   <require from="../../resources/elements/gallery-item/gallery-item"></require>
   <require from="../../resources/elements/gallery-modal/gallery-modal"></require>
   <require from="../../resources/attributes/simple-modal"></require>
@@ -12,7 +12,7 @@
   <h1 if.one-time="!params.artist" class="gallery-title">Inspírate</h1>
   <h1 if.one-time="params.artist" class="gallery-title">Tatuajes hechos por <span class="golden-text underline">${artist.name}</span></h1>
   <span class="gallery-subtitle">Galería de <span class="golden-text">tatuajes</span></span>
-  <button type="button" click.delegate="toggleFilters()" class="gallery-filters-toggle site-button">
+  <button id="filter" type="button" click.delegate="toggleFilters()" class="gallery-filters-toggle site-button">
     <span>${showFilters ? 'Ocultar filtros' : 'Filtrar'}</span>
     <img src="src/assets/images/icons/filter.svg" alt="Filtrar">
   </button>
