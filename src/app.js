@@ -152,7 +152,7 @@ export class App {
         roles: [0]
       },
       {
-        route: 'estudio/:id',
+        route: 'estudio/:id?',
         name: 'studio',
         moduleId: 'pages/artist/studio',
         title: 'Perfil de estudio',
