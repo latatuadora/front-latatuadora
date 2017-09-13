@@ -93,6 +93,7 @@ export class Studio {
     this.controller.artist.find({studio: this.studio.id})
       .then(artist => {
         this.tattoos = [].concat(...artist.map(a => a.tattoos.splice(0, 12)));
+        console.log(this.tattos)
         this.tattoos.map(t => t.image = 'http://sandbox.latatuadora.getmore.mx:1337/images/' + t.image);
         this.tattoosCarousel.init = true;
       });

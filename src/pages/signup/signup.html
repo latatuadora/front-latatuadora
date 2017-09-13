@@ -4,6 +4,7 @@
   <require from="resources/attributes/simple-modal"></require>
   <require from="resources/elements/modals/terms-signup-modal/terms-signup-modal"></require>
   <require from="resources/elements/switch/switch"></require>
+  <require from="resources/attributes/hour"></require>
 
   <div class="membership">
 
@@ -198,48 +199,55 @@
     <section class="schedule membership__item">
       <h2 class="subheading">Horario de <span class="mark">trabajo</span></h2>
       <div class="schedule__item  titles input__group-row">
-        <span class="schedule__title" >Dia</span> <span class="schedule__title" >Apertura</span> <span style="text-align: left;" class="schedule__title" >Cierre</span>
+        <span class="schedule__title" >Dia</span>
+        <div class="input__group-row">
+          <span class="schedule__title" >Apertura</span> <span class="schedule__title" >Cierre</span>
+        </div>
+        
       </div>
       <div class="schedule__item input__group-row">
         <switch able="Lunes" disable="Lunes" switch.two-way="monday"></switch>
         <div show.bind="monday" class="input__group-row">
-          <input class="input--hour" type="text"><input class="input--hour" type="text">
+          <input class="input--hour" hour  type="text"><input class="input--hour" hour type="text">
         </div>
       </div>
       <div class="schedule__item input__group-row">
         <switch able="Martes" disable="Martes" switch.two-way="tuesday"></switch>
         <div show.bind="tuesday" class="input__group-row">
-          <input class="input--hour" type="text"><input class="input--hour" type="text">
+          <input class="input--hour" hour type="text"><input class="input--hour" hour type="text">
         </div>
       </div>
       <div class="schedule__item input__group-row">
         <switch able="Miercoles" disable="Miercoles" switch.two-way="wednesday"></switch>
         <div show.bind="wednesday" class="input__group-row">
-          <input class="input--hour" type="text"><input class="input--hour" type="text">
+          <input class="input--hour" hour type="text"><input class="input--hour" hour type="text">
         </div>
       </div>
       <div class="schedule__item input__group-row">
         <switch able="Jueves" disable="Jueves" switch.two-way="thursday"></switch>
         <div show.bind="thursday" class="input__group-row">
-          <input class="input--hour" type="text"><input class="input--hour" type="text">
+          <input class="input--hour" hour type="text"><input class="input--hour" hour type="text">
         </div>
       </div>
       <div class="schedule__item input__group-row">
         <switch able="Viernes" disable="Viernes" switch.two-way="friday"></switch>
         <div show.bind="friday" class="input__group-row">
-          <input class="input--hour" type="text"><input class="input--hour" type="text">
+          <input class="input--hour" hour type="text">
+          <input class="input--hour" hour type="text">
         </div>
       </div>
       <div class="schedule__item input__group-row">
         <switch able="Sabado" disable="Sabado" switch.two-way="saturday"></switch>
         <div show.bind="saturday" class="input__group-row">
-          <input class="input--hour" type="text"><input class="input--hour" type="text">
+          <input class="input--hour" hour type="text">
+          <input class="input--hour" hour type="text">
         </div>
       </div>
       <div class="schedule__item input__group-row">
         <switch able="Domingo" disable="Domingo" switch.two-way="sunday"></switch>
         <div show.bind="sunday" class="input__group-row">
-          <input class="input--hour" type="text"><input class="input--hour" type="text">
+          <input class="input--hour" hour type="text">
+          <input class="input--hour" hour type="text">
         </div>
       </div>
 
