@@ -41,11 +41,6 @@ export class App {
         route: 'inspirate/:artist?',
         name: 'inspirate',
         moduleId: 'pages/inspirate/inspirate',
-        redirections: {
-          2: 'dashboard',
-          3: 'dashboard',
-          others: true
-        },
         title: 'Inspírate',
         href: '/inspirate',
         nav: true
