@@ -44,7 +44,7 @@ export class App {
         redirections: {
           2: 'dashboard',
           3: 'dashboard',
-          others: false
+          others: true
         },
         title: 'Inspírate',
         href: '/inspirate',
