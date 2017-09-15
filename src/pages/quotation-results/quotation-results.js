@@ -1,6 +1,7 @@
 import {inject} from 'aurelia-framework';
 import {Router} from 'aurelia-router';
 import {MockAPI} from 'utils/mock-api';
+import {Tattoo} from 'controller/tattoo'
 
 @inject(Router, MockAPI)
 export class QuotationResults {
@@ -22,6 +23,7 @@ export class QuotationResults {
         items: []
       }
     };
+    this.tattoo = new Tattoo();
     this.getItems('tattoos');
     this.getItems('flashes');
   }
@@ -53,13 +55,20 @@ export class QuotationResults {
   }
 
   getItems(type) {
-    let capitalized = type.charAt(0).toUpperCase() + type.slice(1);
-    let method = 'get' + capitalized;
-    this.api.getTattoos({artist: this.results.artist})
-      .then(items => {
-        this.groups[type].items = items;
-        this.groups[type].initCarousel = true;
-      });
+    if ( this.results.artist ) {
+      this.tattoo.get(true, {artist: this.results.artist})
+        .then(items => {
+          console.log(items)
+          this.groups.tattoos.items = items;
+          this.groups.tattoos.initCarousel = true;
+        });
+    } else {
+      this.tattoo.get(true)
+        .then(items => {
+          this.groups.tattoos.items = items;
+          this.groups.tattoos.initCarousel = true;
+        });
+    }
   }
 
   openModal(group, index) {
