@@ -15,7 +15,7 @@
     </div>
     <div class="tattoos-grid__element-info-wrapper">
       <div class="tattoos-grid__element-info-top">
-        <a ><img class="tattoos-grid__element-author-pic circle" src="${item.artist_picture}" alt="${item.artist_name}"></a>
+        <a ><img class="tattoos-grid__element-author-pic circle" src="${artistItem.studio.profileImgUrl.avatarUrl || 'src/assets/images/mock/profile-post.png'}" alt="${item.artist_name}"></a>
         <div class="tattoos-grid__element-info">
           <a  class="tattoos-grid__element-author">${artistItem.studio.name}</a> <!-- bind id -->
           <span class="tattoos-grid__element-location">${addressItem.stateId.name}</span>

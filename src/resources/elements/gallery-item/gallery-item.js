@@ -9,16 +9,15 @@ export class GalleryItem extends Controller{
   @bindable open;
   @bindable originalSize = true;
 
-  bind() {
 
+
+  bind() {
+    this.item.image = `http://sandbox.latatuadora.getmore.mx:1337/images/${this.item.image}`
     this.artist.artist(this.item.artist || this.item.freelancer)
       .then(artist => {
         this.artistItem = artist
         this.getAddress()
       });
-
-  
-
   }
 
   getAddress() {
@@ -31,8 +30,6 @@ export class GalleryItem extends Controller{
       .then(address => {
         this.addressItem = address;
       })
-
-
 
   }
 
