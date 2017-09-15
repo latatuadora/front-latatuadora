@@ -1,3 +1,5 @@
+// @flow
+
 import { Client } from './client'
 import {AuthService} from 'aurelia-authentication';
 import {inject, computedFrom} from 'aurelia-framework';
