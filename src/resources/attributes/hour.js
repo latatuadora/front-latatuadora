@@ -71,7 +71,7 @@ export class HourCustomAttribute {
     };
 
     this.three = function() {
-      this.validate(new RegExp(/[0-6]/g));
+      this.validate(new RegExp(/[0-5]/g));
     };
 
     this.four = function() {
