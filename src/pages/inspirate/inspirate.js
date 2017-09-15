@@ -21,6 +21,10 @@ export class Inspirate extends BaseGallery {
     if (params.part) {
       this.params.part = parseInt(params.part);
     }
+
+    if (params.style) {
+      this.params.style = parseInt(params.style);
+    }
   }
 
   getLists() {
