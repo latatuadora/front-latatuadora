@@ -16,8 +16,6 @@ export class UserSignup {
     this.controller.validateTrigger = validateTrigger.changeOrBlur
     this.validator = validator
 
-    console.log(api)
-
     this.user = {
       form: 'user',
       name: '',
@@ -56,7 +54,7 @@ export class UserSignup {
         if(result.valid) {
           this.api.signOn(this.user)
             .then(response => {
-          
+
               response.name.toUpperCase() === 'ERROR'
                             ? this.error = response.message
                             : this.api.signIn(this.user.email, this.user.password);
