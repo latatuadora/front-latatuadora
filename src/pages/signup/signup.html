@@ -1,12 +1,14 @@
 <template id="membership">
 
   <require from="./signup.css"></require>
-  <require from="resources/attributes/simple-modal"></require>
+  <require from="resources/attributes/modal"></require>
+  <require from="resources/elements/modals/terms-conditions-modal/terms-conditions-modal"></require>
   <require from="resources/elements/modals/terms-signup-modal/terms-signup-modal"></require>
   <require from="resources/elements/switch/switch"></require>
   <require from="resources/attributes/hour"></require>
+  <require from="./user/user.css"></require>
 
-  <div class="membership">
+  <div class="membership main">
 
     <header class="membership__header">
       <h1 class="heading margin-bottom-53px">Registro</h1>
@@ -15,45 +17,60 @@
 
     <div class="divider--silver"></div>
 
-    <section class="membership__item user">
+      <section class="membership__item user">
       <h2 class="subheading">Selecciona tu tipo de <span class="mark">membresia</span></h2>
 
       <div class="input__block">
 
         <div class="membership__kind">
           <div class="input__group--row">
-            <input class="input--radio" type="radio" name="kind" id="">
+            <input class="input--radio" model.bind="false" checked.bind="type" type="radio" name="kind" id="" checked="true">
             <label class="input--label-checkbox" for="">Estudio</label>
           </div>
           <div class="input__group--row">
-            <input class="input--radio" type="radio" name="kind" id="">
+            <input class="input--radio" model.bind="true" checked.bind="type" type="radio" name="kind" id="">
             <label class="input--label-checkbox" for="">Freelance</label>
           </div>
         </div>
 
-        <div class="input__group">
-          <label class="input--label" for="">Nombre del Estudio</label>
-          <input type="text" class="input">
+        <div class="form-group" validation-errors.bind="nameErrors">
+          <label for="name" class="paragraph">Nombre del Estudio</label>
+          <div class="input--group">
+            <input type="text" value.bind='user.name & validate' name="name" class="input">
+            <span class="validation-error" repeat.for="error of nameErrors">${error.error.message}</span>
+          </div>
         </div>
 
-        <div class="input__group">
-          <label class="input--label" for="">Correo electronico</label>
-          <input type="text" class="input">
+        <div class="form-group" validation-errors.bind="emailErrors">
+          <label for="email" class="paragraph">Correo electronico</label>
+          <div class="input--group">
+            <input type="email" value.bind='user.email & validate' name="email" class="input">
+            <span class="validation-error" repeat.for="error of emailErrors">${error.error.message}</span>
+          </div>
         </div>
 
-        <div class="input__group">
-          <label class="input--label" for="">Telefono</label>
-          <input type="text" class="input">
+        <div class="form-group" validation-errors.bind="phoneErrors">
+          <label for="phone" class="paragraph">Telefono</label>
+          <div class="input--group">
+            <input type="number" value.bind='user.phone & validate' name="phone" class="input">
+            <span class="validation-error" repeat.for="error of phoneErrors">${error.error.message}</span>
+          </div>
         </div>
 
-        <div class="input__group">
-          <label class="input--label" for="">Contraseña</label>
-          <input type="text" class="input">
+        <div class="form-group" validation-errors.bind="passwordErrors">
+          <label for="password" class="paragraph">Contraseña</label>
+          <div class="input--group">
+            <input type="password" value.bind='user.password & validate' name="password" class="input">
+            <span class="validation-error" repeat.for="error of passwordErrors">${error.error.message}</span>
+          </div>
         </div>
 
-        <div class="input__group">
-          <label class="input--label" for="">Confirmar Contraseña</label>
-          <input type="text" class="input">
+        <div class="form-group" validation-errors.bind="passwordConfirmErrors">
+          <label for="passwordConfirm" class="paragraph">Confirmar Contraseña</label>
+          <div class="input--group">
+            <input type="password" value.bind='user.passwordConfirm & validate' name="passwordConfirm" class="input">
+            <span class="validation-error" repeat.for="error of passwordConfirmErrors">${error.error.message}</span>
+          </div>
         </div>
 
       </div>
@@ -65,40 +82,52 @@
       <h2 class="subheading margin-bottom-37px">Ingresa tu <span class="mark">domicilio</span></h2>
       <div class="input__block">
 
-        <div class="input__group">
-          <label class="input--label" for="">Calle</label>
-          <input type="text" class="input">
+        <div class="form-group" validation-errors.bind="streetErrors">
+          <label for="street" class="paragraph">Calle</label>
+          <div class="input--group">
+            <input type="text" value.bind='user.street & validate' name="street" class="input">
+            <span class="validation-error" repeat.for="error of streetErrors">${error.error.message}</span>
+          </div>
         </div>
 
-        <div class="input__group">
-          <label class="input--label" for="">Número Ext</label>
-          <input type="text" class="input">
+        <div class="form-group" validation-errors.bind="externalErrors">
+          <label for="external" class="paragraph">Numero</label>
+          <div class="input--group">
+            <input type="number" value.bind='user.external & validate' name="external" class="input">
+            <span class="validation-error" repeat.for="error of externalErrors">${error.error.message}</span>
+          </div>
         </div>
 
-        <div class="input__group">
-          <label class="input--label" for="">Int</label>
-          <input type="text" class="input">
+        <div class="form-group" validation-errors.bind="internalErrors">
+          <label for="internal" class="paragraph">Int</label>
+          <div class="input--group">
+            <input type="number" value.bind='user.internal & validate' name="internal" class="input">
+            <span class="validation-error" repeat.for="error of internalErrors">${error.error.message}</span>
+          </div>
         </div>
 
-        <div class="input__group">
-          <label class="input--label" for="">Estado</label>
-          <select class="input" name="">
-            <option value="">Estado</option>
-          </select>
+        <div class="form-group" validation-errors.bind="stateErrors">
+          <label for="state" class="paragraph">Estado</label>
+          <div class="input--group">
+            <input type="text" value.bind='user.state & validate' name="state" class="input">
+            <span class="validation-error" repeat.for="error of stateErrors">${error.error.message}</span>
+          </div>
         </div>
 
-        <div class="input__group">
-          <label class="input--label" for="">Delegacion / Municipio</label>
-          <select class="input" name="">
-            <option value="">Delegacion / Municipio</option>
-          </select>
+        <div class="form-group" validation-errors.bind="suburbErrors">
+          <label for="suburb" class="paragraph">Delegacion / Municipio</label>
+          <div class="input--group">
+            <input type="text" value.bind='user.suburb & validate' name="suburb" class="input">
+            <span class="validation-error" repeat.for="error of suburbErrors">${error.error.message}</span>
+          </div>
         </div>
 
-        <div class="input__group">
-          <label class="input--label" for="">Colonia</label>
-          <select class="input" name="">
-            <option value="">Colonia</option>
-          </select>
+        <div class="form-group" validation-errors.bind="townErrors">
+          <label for="town" class="paragraph">Colonia</label>
+          <div class="input--group">
+            <input type="text" value.bind='user.town & validate' name="town" class="input">
+            <span class="validation-error" repeat.for="error of townErrors">${error.error.message}</span>
+          </div>
         </div>
 
       </div>
@@ -106,51 +135,60 @@
 
     <div class="divider--gold"></div>
 
-    <section class="membership__item user">
+    <section if.bind="type" class="membership__item user">
       <h2 class="subheading margin-bottom-16px">Cuál es tu zona <span class="mark">de operación</span></h2>
       <h3 class="text-base text-black-two bullets margin-bottom-63px">Ingresa las zonas en las que operas</h3>
 
       <div class="input__block">
 
-        <div class="input__group">
-          <label class="input--label" for="">Zona 1</label>
-          <input type="text" class="input">
+        <div class="form-group" validation-errors.bind="zoneOneErrors">
+          <label for="zoneOne" class="paragraph">Zona 1</label>
+          <div class="input--group">
+            <input type="text" value.bind='user.zone[0] & validate' name="zoneOne" class="input">
+            <span class="validation-error" repeat.for="error of zoneOneErrors">${error.error.message}</span>
+          </div>
         </div>
 
-        <div class="input__group">
-          <label class="input--label" for="">Zona 2</label>
-          <input type="text" class="input">
+        <div class="form-group" validation-errors.bind="zoneTwoErrors">
+          <label for="zoneTwo" class="paragraph">Zona 2</label>
+          <div class="input--group">
+            <input type="text" value.bind='user.zone[1] & validate' name="zoneTwo" class="input">
+            <span class="validation-error" repeat.for="error of zoneTwoErrors">${error.error.message}</span>
+          </div>
         </div>
 
-        <div class="input__group">
-          <label class="input--label" for="">Zona 3</label>
-          <input type="text" class="input">
+        <div class="form-group" validation-errors.bind="zoneThreeErrors">
+          <label for="zoneThree" class="paragraph">Zona 3</label>
+          <div class="input--group">
+            <input type="text" value.bind='user.zone[2] & validate' name="zoneThree" class="input">
+            <span class="validation-error" repeat.for="error of zoneThreeErrors">${error.error.message}</span>
+          </div>
         </div>
 
       </div>
     </section>
 
-    <div class="divider--silver"></div>
+    <div if.bind="type" class="divider--silver"></div>
 
-    <section class="membership__item cofepris">
+    <section if.bind="type" class="membership__item cofepris">
       <p>¿Tatúas a <span class="mark">domicilio</span>?</p>
       <div class="input__block">
 
         <div class="membership__cofepris">
           <div class="input__group--row">
-            <input class="input--radio" type="radio" name="home" id="">
-            <label class="input--label-checkbox" for="">Si</label>
+            <input class="input--radio" model.bind="true" checked.bind="cofepris" type="radio" name="cofepris" id="cofepris-1">
+            <label class="input--label-checkbox" for="cofepris">Si</label>
           </div>
           <div class="input__group--row">
-            <input class="input--radio" type="radio" name="home" id="">
-            <label class="input--label-checkbox" for="">No</label>
+            <input class="input--radio" model.bind="false" checked.bind="cofepris" type="radio" name="cofepris" id="cofepris-2">
+            <label class="input--label-checkbox" for="cofepris">No</label>
           </div>
         </div>
 
       </div>
     </section>
 
-    <div class="divider--silver"></div>
+    <div if.bind="type" class="divider--silver"></div>
 
     <section class="membership__item cofepris">
       <p>¿Cuentas con certificado <span class="mark">COFEPRIS</span>?</p>
@@ -158,7 +196,7 @@
 
         <div class="membership__cofepris">
           <div class="input__group--row">
-            <input class="input--radio" type="radio" name="cofepris" id="">
+            <input class="input--radio" type="radio" name="cofepris" id="" checked="true">
             <label class="input--label-checkbox" for="">Si</label>
           </div>
           <div class="input__group--row">
@@ -177,7 +215,9 @@
       <div class="input__block">
 
         <div class="input__group-row">
-          <input type="checkbox" data-tag="${tag.name}" name="${tag.name}" id="${tag.name}" class="input--checkbox-tag" repeat.for="tag of tags">
+          <span repeat.for="tag of tags" repeat.for="tag of tags" >
+            <input change.delegate="submit()" type="checkbox" data-tag="${tag.name}" name="${tag.name}" id="${tag.name}" value.bind="tag.id" checked.bind="styles" class="input--checkbox-tag" >
+          </span>
         </div>
 
       </div>
@@ -203,7 +243,7 @@
         <div class="input__group-row">
           <span class="schedule__title" >Apertura</span> <span class="schedule__title" >Cierre</span>
         </div>
-        
+
       </div>
       <div class="schedule__item input__group-row">
         <switch able="Lunes" disable="Lunes" switch.two-way="monday"></switch>
@@ -261,7 +301,7 @@
 
         <div class="input__group">
           <input class="input--file" type="file" name="" id="input:file">
-          <label class="input--file-label" for="input:file">Agregar foto</label>
+          <label class="input--file-label" for="input:file">${ file || 'Agregar foto' }</label>
         </div>
 
       </div>
@@ -273,22 +313,19 @@
       <div class="input__block">
 
         <div class="input__group--row">
-          <input class="input--radio" type="radio" name="" id="">
-          <terms-signup-modal id="terms-signup-content" simple-modal="show.two-way: showModal" css="${showModal ? 'display: block' : 'display: none'}"
-            item.bind="currentItem" go-next.call="nextItem()" go-prev.call="previousItem()" close.call="closeModal()"></terms-signup-modal>
-          <label class="input--label-checkbox" for="">Acepto <span class="mark--silver" click.trigger="openModal()">términos y condiciones</span> y <span class="mark--silver">políticas de privacidad</span></label>
+          <input class="input--radio" type="checkbox" name="" id="" required>
+          <terms-conditions-modal id="terms-conditions-content" modal></terms-conditions-modal>
+          <label class="input--label-checkbox" for="">Acepto <a href="#terms-conditions-content" class="mark--silver">Términos y condiciones</a> y <span class="mark--silver">políticas de privacidad</span></label>
         </div>
 
         <div class="input__group">
-          <a href="#/registro/pago">
-            <button class="input--submit" type="submit">suscribirme</button>
-          </a>
+          <!-- <a href="#/registro/pago"> -->
+            <button class="input--submit" click.delegate="submit()" type="button">suscribirme</button>
+          <!-- </a> -->
         </div>
 
       </div>
     </section>
-
-
 
   </div>
 </template>
