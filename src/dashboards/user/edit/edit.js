@@ -1,9 +1,11 @@
-import {inject, NewInstance} from 'aurelia-framework';
+import {inject} from 'aurelia-framework';
+import {Session} from 'utils/session';
 import {Validator, ValidationRules, ValidationControllerFactory, validateTrigger} from 'aurelia-validation';
 
-@inject(ValidationControllerFactory, Validator)
+@inject(ValidationControllerFactory, Validator, Session)
 export class Edit {
-  constructor(controllerFactory, validator) {
+  constructor(controllerFactory, validator, session) {
+    this.session = session;
     this.dataController = controllerFactory.create();
     this.passwordsController = controllerFactory.create();
     this.dataController.validateTrigger = validateTrigger.changeOrBlur;
@@ -28,7 +30,6 @@ export class Edit {
       new: '',
       confirm: ''
     };
-    this.userData.file = null;
     this.showModal = false;
     this.addRules();
   }
@@ -68,7 +69,7 @@ export class Edit {
         .satisfiesRule('matchesTo', 'new')
       .on(this.passwords);
   }
-
+  
   onLoaded = (file, data) => {
     this.userData.file = {
       file: file,
@@ -79,7 +80,7 @@ export class Edit {
   }
 
   onError = (file, error) => {
-    if (error == 'File type does not match filter') {
+    if (error === 'File type does not match filter') {
       this.fileErrors.type = true;
     } else {
       this.fileErrors.size = true;
@@ -104,5 +105,15 @@ export class Edit {
           this.showModal = true;
         }
       });
+  }
+  
+  attached() {
+    var user = this.session.getCurrentUser();
+    this.userData.username = user.email;
+    this.userData.name = user.name + ' ' + user.lastName;
+    this.userData.email = user.email;
+    this.userData.phone = user.phone;
+    this.userData.tattooed = user.tattooed;
+    
   }
 }
