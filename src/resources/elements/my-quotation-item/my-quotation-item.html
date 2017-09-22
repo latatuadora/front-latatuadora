@@ -10,9 +10,9 @@
         </div>
         <div class="my-quotation__space-block">
           <div class="my-quotation-flex-row">
-            <h4 class="my-quotation__title">Arturo Martínez</h4>
+            <h4 class="my-quotation__title">${ quotation.userId.name }</h4>
           </div>
-          <h5 class="my-quotation__date">10. 08. 2017</h5>
+          <h5 class="my-quotation__date">${ quotation.createdAt }</h5>
         </div>
       </div>
     </div>
@@ -20,16 +20,16 @@
     <div class="my-quotation__block-info">
       <div class="my-quotation-flex-row my-quotation__vertical-center">
         <i class="my-quotation__icons fa fa-arrows-alt"></i>
-        <h5 class="my-quotation__measure">12 cm x 12 cm</h5>
+        <h5 class="my-quotation__measure">${ quotation.dimensionsX } cm x ${ quotation.dimensionsY } cm</h5>
       </div>
       <div class="my-quotation-flex-row">
         <div class="my-quotation-flex-row my-quotation__vertical-center">
           <img class="my-quotation__icon-img" src="src/assets/images/icons/torso.png">
-          <h5 class="my-quotation__measure">Torso</h5>
+          <h5 class="my-quotation__measure">${ quotation.bodypartId.name }</h5>
         </div>
         <div class="my-quotation-flex-row my-quotation__vertical-center">
           <img class="my-quotation__icon-img--space" src="src/assets/images/icons/shape-m.png">
-          <h5 class="my-quotation__measure">Shurado</h5>
+          <h5 class="my-quotation__measure">${ quotation.styleId.name }</h5>
         </div>
       </div>
       <div class="my-quotation-flex-row my-quotation__vertical-center">
