@@ -40,6 +40,14 @@ export class Session {
   login(fields) {
     this.authService.login(fields);
   }
+  
+  setUser(user) {
+    localStorage.setItem('latatuadora_currentUser', JSON.stringify(user));
+  }
+  
+  getCurrentUser() {
+    return JSON.parse(localStorage.getItem('latatuadora_currentUser'));
+  }
 
   setRole(role, setInStorage = true) {
     this.role = role;
