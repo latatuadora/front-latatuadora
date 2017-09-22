@@ -16,6 +16,15 @@
         <a repeat.for="item of router.navigation | routesFilter" href.bind="item.href" class="site-navbar__menu-link ${item.isActive ? 'active' : ''}" if.bind="!(item.config.name == 'login' && session.authService.authenticated)">${item.title}</a>
       </div>
       <a if.bind="!session.authService.authenticated" route-href="route: signup-user" class="site-button site-navbar__signup-button">Regístrate</a>
+      <div if.bind="session.role === 1" class="user-logged-container">
+        <div class="user-name-content">
+          <div class="user-photo" style="background:URL('${currentUser.avatar}')">
+          </div>
+          <span>${currentUser.name}</span>
+        </div>
+        <div class="arrow-content"></div>
+        <!--TODO generate dropdown-menu-element-->
+      </div>
     </div>
   </nav>
 </template>
