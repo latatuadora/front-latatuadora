@@ -1,7 +1,6 @@
 import {BaseModal} from 'utils/base-modal';
 import {Session} from 'utils/session';
 import {inject} from 'aurelia-framework';
-
 @inject(Session)
 export class EditProfile extends BaseModal {
   constructor(session) {

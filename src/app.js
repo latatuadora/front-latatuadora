@@ -2,7 +2,6 @@ import {inject} from 'aurelia-framework';
 import {Redirect} from 'aurelia-router';
 import {AuthenticateStep} from 'aurelia-authentication';
 import {Session} from 'utils/session';
-
 export class App {
   constructor(session) {
     this.errorRoute = {
@@ -425,7 +424,6 @@ export class App {
   
   configureRouter(config, router) {
     this.router = router;
-    
     config.addPostRenderStep(PostRenderStep);
     config.addPipelineStep('authorize', AuthenticateStep);
     config.addPipelineStep('authorize', RoleStep);
@@ -435,7 +433,6 @@ export class App {
     config.mapUnknownRoutes(this.errorRoute);
   }
 }
-
 @inject(Session)
 class RoleStep {
   constructor(session) {
@@ -453,7 +450,6 @@ class RoleStep {
     return next();
   }
 }
-
 @inject(Session)
 class PolymorphicStep {
   constructor(session) {
@@ -482,7 +478,6 @@ class PolymorphicStep {
     return next();
   }
 }
-
 class PostRenderStep {
   run(instruction, next) {
     window.scrollTo(0, 0);

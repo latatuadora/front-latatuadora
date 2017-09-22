@@ -3,10 +3,8 @@ import {AuthService} from 'aurelia-authentication';
 import {inject, computedFrom} from 'aurelia-framework';
 import {json} from 'aurelia-fetch-client';
 import {Session} from 'utils/session';
-
 @inject(AuthService, Session)
 export class User extends Client {
-  
   /**
    *@PUBLIC constructor
    *@DESCRIPTION define endpoint
@@ -54,7 +52,6 @@ export class User extends Client {
    **/
   signOn(data) {
     const url = 'logup';
-    
     return this.client
       .fetch(`${url}`, {
         method: this.methods.post,
@@ -67,7 +64,6 @@ export class User extends Client {
       .catch(error => {
         return error
       })
-    
   }
   
   /**
@@ -77,5 +73,4 @@ export class User extends Client {
   signOff() {
     return this.authService.logout();
   }
-  
 }

@@ -1,7 +1,6 @@
 import {inject} from 'aurelia-framework';
 import {AuthService} from 'aurelia-authentication';
-import { EventAggregator } from 'aurelia-event-aggregator';
-
+import {EventAggregator} from 'aurelia-event-aggregator';
 @inject(AuthService, EventAggregator)
 export class Session {
   constructor(authService, eventAgreggator) {
@@ -10,7 +9,7 @@ export class Session {
     this.initRole();
     this.setListener();
   }
-
+  
   initRole() {
     if (this.authService.isAuthenticated()) {
       let role = localStorage.getItem('latatuadora_com_role');
@@ -23,7 +22,7 @@ export class Session {
       this.setRole(0);
     }
   }
-
+  
   setListener() {
     this.eventAgreggator.subscribe('authentication-change', authenticated => {
       if (!authenticated) {
@@ -31,12 +30,12 @@ export class Session {
       }
     });
   }
-
+  
   logout() {
     this.setRole(0);
     this.authService.logout('#/login');
   }
-
+  
   login(fields) {
     this.authService.login(fields);
   }
@@ -48,14 +47,14 @@ export class Session {
   getCurrentUser() {
     return JSON.parse(localStorage.getItem('latatuadora_currentUser'));
   }
-
+  
   setRole(role, setInStorage = true) {
     this.role = role;
     if (setInStorage) {
       localStorage.setItem('latatuadora_com_role', role);
     }
   }
-
+  
   isAllowed(allowedRoles, currentRole = this.role) {
     return allowedRoles.indexOf(currentRole) != -1
   }

@@ -1,8 +1,5 @@
 import {HttpClient, json} from 'aurelia-fetch-client'
-
 export class Client {
-  
-  
   /**
    *@PUBLIC constructor
    *@DESCRIPTION init client
@@ -16,10 +13,8 @@ export class Client {
       patch: 'PATCH',
       delete: 'DELETE'
     };
-    
     // Create a new http client to handle and fire request and response
     this.client = new HttpClient();
-    
     // configure client with a endpoint and defaults
     this.client.configure(config => {
       config
@@ -41,27 +36,20 @@ export class Client {
    *@RETURN {String} - 'tattoo?style=1&bodyPart=3'
    **/
   URL(endpoint, params) {
-    
     if (Object.keys(params) === 0) {
       return endpoint
     }
-    
     if (typeof params === 'string') {
       return endpoint + `/${params}`
     }
-    
     Object.keys(params).forEach((key) => (params[key] === null) && delete params[key]);
     Object.keys(params).map((param, index) => {
-      
       if (params[param] !== null) {
         endpoint += index === 0
           ? `?${ param }=${ params[param] }`
           : `&${ param }=${ params[param] }`
       }
-      
     })
-    
     return endpoint
   }
-  
 }
