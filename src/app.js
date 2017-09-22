@@ -2,7 +2,6 @@ import {inject} from 'aurelia-framework';
 import {Redirect} from 'aurelia-router';
 import {AuthenticateStep} from 'aurelia-authentication';
 import {Session} from 'utils/session';
-
 export class App {
   constructor(session) {
     this.errorRoute = {
@@ -380,6 +379,7 @@ export class App {
         auth: true,
         moduleId: 'pages/homepage/homepage',
         redirections: {
+          1: 'dashboard/perfil/editar',
           3: 'dashboard/perfil/editar'
         }
       },
@@ -417,14 +417,13 @@ export class App {
         nav: true,
         level: 1,
         auth: true,
-        roles: [1,2,3,4]
+        roles: [1, 2, 3, 4]
       }
     ];
   }
-
-  configureRouter (config, router) {
+  
+  configureRouter(config, router) {
     this.router = router;
-
     config.addPostRenderStep(PostRenderStep);
     config.addPipelineStep('authorize', AuthenticateStep);
     config.addPipelineStep('authorize', RoleStep);
@@ -434,13 +433,12 @@ export class App {
     config.mapUnknownRoutes(this.errorRoute);
   }
 }
-
 @inject(Session)
 class RoleStep {
   constructor(session) {
     this.session = session;
   }
-
+  
   run(instruction, next) {
     if (instruction.config.roles) {
       let role = this.session.role.toString();
@@ -452,13 +450,12 @@ class RoleStep {
     return next();
   }
 }
-
 @inject(Session)
 class PolymorphicStep {
   constructor(session) {
     this.session = session;
   }
-
+  
   run(instruction, next) {
     let role = this.session.role.toString();
     if (instruction.config.redirections) {
@@ -481,7 +478,6 @@ class PolymorphicStep {
     return next();
   }
 }
-
 class PostRenderStep {
   run(instruction, next) {
     window.scrollTo(0, 0);
