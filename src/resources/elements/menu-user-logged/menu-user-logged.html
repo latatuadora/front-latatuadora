@@ -1,0 +1,22 @@
+<template>
+  <require from="./menu-user-logged.css"></require>
+
+  <div class="menu-user-logged">
+    <ul>
+      <li class="" repeat.for="item of menu">
+        <a if.bind="item.routePage !== false" class="content-flex menu-question-anchor" href="#/${item.routePage}">
+          <div class="menu-icon" style="background:URL('${item.icon}')"></div>
+          <span>
+            ${item.text}
+          </span>
+        </a>
+        <a if.bind="!item.routePage" class="content-flex menu-question-anchor" click.trigger="closeSession()">
+          <div class="menu-icon" style="background:URL('${item.icon}')"></div>
+          <span>
+            ${item.text}
+          </span>
+        </a>
+      </li>
+    </ul>
+  </div>
+</template>
