@@ -46,12 +46,11 @@ export class MenuUserLogged {
     } else {
       let that = this;
       let baseElement = document.querySelector('#' + this.baseElement);
-      let curentElement = document.querySelector('menu-user-logged');
-      this.currentElement = curentElement;
+      let currentElement = document.querySelector('menu-user-logged');
       let positionInViewportBaseElement = baseElement.getBoundingClientRect();
-      curentElement.style.top = positionInViewportBaseElement.top + positionInViewportBaseElement.height + size + 'px';
+      this.currentElement = currentElement;
+      currentElement.style.top = positionInViewportBaseElement.top + positionInViewportBaseElement.height + size + 'px';
       baseElement.addEventListener('click', this.handleClick);
-      console.log(window.getComputedStyle(baseElement, null).width);
       window.addEventListener('click', function (e) {
         if (that.currentElement.classList.contains('display-inline') && !e.target.dataset.hasOwnProperty('preventclose')) {
           that.currentElement.classList.remove('display-inline');
