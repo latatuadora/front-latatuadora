@@ -1,6 +1,7 @@
 <template>
   <require from="./navbar.css"></require>
   <require from="../../value-converters/routes-filter"></require>
+  <require from="../menu-user-logged/menu-user-logged"></require>
   <nav class="site-navbar">
     <div class="site-navbar__desktop-logo-container">
       <a route-href="route: home"><img src="src/assets/images/logos/logo-text-golden.png" alt="La Tatuadora"></a>
@@ -16,15 +17,15 @@
         <a repeat.for="item of router.navigation | routesFilter" href.bind="item.href" class="site-navbar__menu-link ${item.isActive ? 'active' : ''}" if.bind="!(item.config.name == 'login' && session.authService.authenticated)">${item.title}</a>
       </div>
       <a if.bind="!session.authService.authenticated" route-href="route: signup-user" class="site-button site-navbar__signup-button">Regístrate</a>
-      <div if.bind="session.role === 1" class="user-logged-container">
-        <div class="user-name-content">
-          <div class="user-photo" style="background:URL('${currentUser.avatar}')">
+      <div if.bind="session.role === 1" class="user-logged-container" id="menudropdown-user-logged" data-preventclose="">
+        <div class="user-name-content" data-preventclose="">
+          <div class="user-photo" style="background:URL('${currentUser.avatar}')" data-preventclose="">
           </div>
-          <span>${currentUser.name}</span>
+          <span data-preventclose="">${currentUser.name}</span>
         </div>
-        <div class="arrow-content"></div>
-        <!--TODO generate dropdown-menu-element-->
+        <div class="arrow-content" data-preventclose=""></div>
       </div>
+      <menu-user-logged base-element="menudropdown-user-logged"></menu-user-logged>
     </div>
   </nav>
 </template>
