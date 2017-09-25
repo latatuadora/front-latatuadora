@@ -10,12 +10,13 @@ export class Quotation extends Client {
     console.log(this.client)
   }
 
-  quotation(body) {
+  //quotation(body) {
+  quotation() {
     const endpoint = 'quotation'
     return this.client
       .fetch(`${endpoint}`,{
-        method: this.methods.post,
-        body: json(body)
+        method: this.methods.get,
+        //body: json(body)
       })
       .then(response => response.json())
       .then(quotation => {
