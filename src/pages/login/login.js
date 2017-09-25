@@ -9,7 +9,7 @@ import {AuthService} from 'aurelia-authentication';
 export class Login extends BaseModal {
   constructor(controller, validator, session, api) {
     super();
-    this.api = api
+    this.api = api;
     this.controller = controller;
     this.controller.validateTrigger = validateTrigger.changeOrBlur;
     this.validator = validator;
