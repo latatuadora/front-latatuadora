@@ -17,7 +17,7 @@
         <a repeat.for="item of router.navigation | routesFilter" href.bind="item.href" class="site-navbar__menu-link ${item.isActive ? 'active' : ''}" if.bind="!(item.config.name == 'login' && session.authService.authenticated)">${item.title}</a>
       </div>
       <a if.bind="!session.authService.authenticated" route-href="route: signup-user" class="site-button site-navbar__signup-button">Regístrate</a>
-      <div if.bind="session.role === 1" class="user-logged-container" id="menudropdown-user-logged" data-preventclose="">
+      <div if.bind="session.role === 1 || session.role === 2 || session.role === 3" class="user-logged-container" id="menudropdown-user-logged" data-preventclose="">
         <div class="user-name-content" data-preventclose="">
           <div class="user-photo" style="background:URL('${currentUser.avatar}')" data-preventclose="">
           </div>
