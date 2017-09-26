@@ -34,6 +34,12 @@ export class User extends Client {
         case 2:
           that.session.setRole(1, true);
           break;
+        case 4:
+          that.session.setRole(2, true);
+          break;
+        case 3:
+          that.session.setRole(3, true);
+          break;
         default:
           break;
       }
