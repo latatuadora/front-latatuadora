@@ -18,30 +18,22 @@ export class HourCustomAttribute {
 
   validate(event) {
     const validationHandler = new this.ValidateSchema(this.element);
-
-
     switch (this.element.value.replace(':', '').length) {
-
-    case 1:
-      validationHandler.one(event);
-      break;
-
-    case 2:
-      validationHandler.two(event);
-      break;
-
-    case 3:
-      validationHandler.three();
-      break;
-
-    case 4:
-      validationHandler.four();
-      break;
-
-    default:
-      validationHandler.default();
-      break;
-
+      case 1:
+        validationHandler.one(event);
+        break;
+      case 2:
+        validationHandler.two(event);
+        break;
+      case 3:
+        validationHandler.three();
+        break;
+      case 4:
+        validationHandler.four();
+        break;
+      default:
+        validationHandler.default();
+        break;
     }
   }
 
