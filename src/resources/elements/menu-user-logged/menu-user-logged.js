@@ -1,7 +1,6 @@
 import {inject} from 'aurelia-framework';
 import {bindable} from 'aurelia-framework';
 import {Session} from 'utils/session';
-
 @inject(Session)
 export class MenuUserLogged {
   @bindable baseElement;
@@ -41,11 +40,11 @@ export class MenuUserLogged {
   
   attached() {
     const size = 20;
+    let baseElement = document.querySelector('#' + this.baseElement);
     if (!this.baseElement) {
       throw new Error('There is no base Element defined for this menu-user-logged');
-    } else {
+    } else if (baseElement !== null) {
       let that = this;
-      let baseElement = document.querySelector('#' + this.baseElement);
       let currentElement = document.querySelector('menu-user-logged');
       let positionInViewportBaseElement = baseElement.getBoundingClientRect();
       this.currentElement = currentElement;
