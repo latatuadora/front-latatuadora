@@ -12,7 +12,9 @@ export class Navbar {
   attached() {
     let menu = new Menu(975);
     let currentUser = this.session.getCurrentUser();
-    currentUser.avatar = '/src/assets/images/icons/avatar.svg';
-    this.currentUser = currentUser;
+    if (currentUser) {
+      currentUser.avatar = '/src/assets/images/icons/avatar.svg';
+      this.currentUser = currentUser;
+    }
   }
 }
