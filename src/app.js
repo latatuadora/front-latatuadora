@@ -159,7 +159,7 @@ export class App {
         moduleId: 'pages/menu-page-artist/my-tattoos/my-tattoos',
         title: 'Mis tatuajes',
         nav: false,
-        roles: [0]
+        roles: [3]
       },
       {
         route: 'misflashes',
@@ -167,7 +167,7 @@ export class App {
         moduleId: 'pages/menu-page-artist/my-flashes/my-flashes',
         title: 'Mis Flashes',
         nav: false,
-        roles: [0]
+        roles: [3]
       },
       {
         route: 'miscotizaciones',
@@ -175,7 +175,7 @@ export class App {
         moduleId: 'pages/menu-page-artist/my-quotations/my-quotations',
         title: 'Mis cotizaciones',
         nav: false,
-        roles: [0]
+        roles: [3]
       },
       {
         route: 'posiblesclientes',
@@ -183,7 +183,7 @@ export class App {
         moduleId: 'pages/menu-page-artist/possible-client/possible-client/possible-client',
         title: 'Posibles Clientes',
         nav: false,
-        roles: [0]
+        roles: [3]
       },
       {
         route: 'posiblesclientes/paquetes',
@@ -191,7 +191,7 @@ export class App {
         moduleId: 'pages/menu-page-artist/possible-client/leads-packages/leads-packages',
         title: 'Paquetes',
         nav: false,
-        roles: [0]
+        roles: [3]
       },
       {
         route: 'posiblesclientes/pagos',
@@ -199,7 +199,7 @@ export class App {
         moduleId: 'pages/menu-page-artist/possible-client/leads-payment/leads-payment',
         title: 'Pago',
         nav: false,
-        roles: [0]
+        roles: [3]
       },
       {
         route: 'posiblesclientes/conekta',
@@ -207,7 +207,7 @@ export class App {
         moduleId: 'pages/menu-page-artist/possible-client/payment-conekta/payment-conekta',
         title: 'Pago - Conekta',
         nav: false,
-        roles: [0]
+        roles: [3]
       },
       {
         route: 'mistatuadores',
@@ -215,7 +215,7 @@ export class App {
         moduleId: 'pages/menu-page-artist/my-tattoo-artist/my-tattoo-artist',
         title: 'Mis tatuadores',
         nav: false,
-        roles: [0]
+        roles: [3]
       },
       {
         route: 'promocionarme',
@@ -223,7 +223,7 @@ export class App {
         moduleId: 'pages/menu-page-artist/promote-me/promote-me/promote-me',
         title: 'Promocionarme',
         nav: false,
-        roles: [0]
+        roles: [3]
       },
       {
         route: 'promocionarme/blogspot',
@@ -231,7 +231,7 @@ export class App {
         moduleId: 'pages/menu-page-artist/promote-me/blogspot/blogspot',
         title: 'Promocionarme',
         nav: false,
-        roles: [0]
+        roles: [3]
       },
       {
         route: 'evaluaciones',
@@ -239,7 +239,7 @@ export class App {
         moduleId: 'pages/menu-page-artist/evaluations/evaluations',
         title: 'Evaluaciones',
         nav: false,
-        roles: [0]
+        roles: [3]
       },
       {
         route: 'agendacion/solicitud',
@@ -380,7 +380,8 @@ export class App {
         moduleId: 'pages/homepage/homepage',
         redirections: {
           1: 'dashboard/perfil/editar',
-          3: 'dashboard/perfil/editar'
+          2: 'dashboard/perfil/editar',
+          3: 'miscotizaciones'
         }
       },
       {
