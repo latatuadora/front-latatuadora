@@ -33,12 +33,27 @@ export class UserSignup {
       property => ({property})
     );
     ValidationRules
-      .ensure((m: user) => m.name).required().withMessage('*Debes introducir tu nombre')
-      .ensure((m: user) => m.lastName).required().withMessage('*Debes introducir tus apellidos')
-      .ensure((m: user) => m.email).required().withMessage('*Debes introducir tu dirección de correo electronico').email().withMessage('*Debes introducir una dirección de correo válida')
-      .ensure((m: user) => m.password).required().withMessage('*Debes de introducir una contraseña').minLength(6).withMessage('*La contraseña debe de tener al menos 6 caracteres')
-      .ensure((m: user) => m.confirm).required().withMessage('*Debes confirmar tu contraseña').satisfiesRule('equals', 'password')
-      .on(this.user)
+      .ensure((m: user) => m.name)
+        .required()
+        .withMessage('*Debes introducir tu nombre')
+      .ensure((m: user) => m.lastName)
+        .required()
+        .withMessage('*Debes introducir tus apellidos')
+      .ensure((m: user) => m.email)
+        .required()
+        .withMessage('*Debes introducir tu dirección de correo electronico')
+        .email()
+        .withMessage('*Debes introducir una dirección de correo válida')
+      .ensure((m: user) => m.password)
+        .required()
+        .withMessage('*Debes de introducir una contraseña')
+        .minLength(6)
+        .withMessage('*La contraseña debe de tener al menos 6 caracteres')
+      .ensure((m: user) => m.confirm)
+        .required()
+        .withMessage('*Debes confirmar tu contraseña')
+        .satisfiesRule('equals', 'password')
+      .on(this.user);
   }
   
   submit() {
