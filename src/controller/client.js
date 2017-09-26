@@ -49,7 +49,26 @@ export class Client {
           ? `?${ param }=${ params[param] }`
           : `&${ param }=${ params[param] }`
       }
-    })
+    });
     return endpoint
+  }
+  
+  /**
+   * @PUBLIC URL
+   * @DESCRIPTION generate a simple petition
+
+   */
+  simplePetition(url, method, data, cb) {
+    var opts = {
+      method: method
+    };
+    if (arguments.length === 3) {
+      cb = data;
+    } else {
+      opts.body = json(data);
+    }
+    this.client
+      .fetch(url, opts)
+      .then(response => cb(response.json(), null)).catch(error => cb(null, error));
   }
 }
