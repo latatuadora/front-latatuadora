@@ -2,7 +2,7 @@ import {Controller} from 'controller/controller'
 
 export class BaseGallery extends Controller{
   constructor(api) {
-    super()
+    super();
     this.api = api;
     this.apiMethod = 'getItems';
     this.params = {
