@@ -7,8 +7,6 @@ export default class Signup extends Client {
   user;
   type = false;
   styles = [];
-  validator;
-  controller;
   error;
   studioFreelance;
   
@@ -21,21 +19,37 @@ export default class Signup extends Client {
     this.controller.validateTrigger = validateTrigger.changeOrBlur;
     this.validator = validator;
     this.stylesFromAPI = [];
+    this.days = {
+      monday: false,
+      tuesday: false,
+      wednesday: false,
+      thursday: false,
+      friday: false,
+      saturday: false,
+      sunday: false
+    };
     this.studioFreelance = {
       schedule: [],
       styles: [],
-      form: '',//Type of selection checkbox
+      form: '',
       name: '',
       email: '',
       password: '',
-      confirm: '',
+      passwordConfirm: '',
       state: '',
       suburb: '',
       town: '',
       telephone: '',
+      about: '',
+      street: '',
+      external: '',
+      internal: '',
+      days: this.days,
+      canGoHome: '',
       certCofepris: '',
-      about: ''
+      zones: []
     };
+    this.setRules();
   }
   
   attached() {
@@ -81,75 +95,119 @@ export default class Signup extends Client {
     }
     return result;
   }
-  
+
+  setRules() {
+    ValidationRules.customRule('iterator', (value, obj) =>
+      value === null
+    || value === undefined
+    || value === ''
+    || Symbol.iterator in Object(value) && value.length > 0
+    || typeof value[Symbol.iterator] === 'function' && value.length > 0,
+      '*Debes de escoger al menos una opción'
+  );
+
+    ValidationRules.customRule('equals', (value, obj, property) =>
+      value === null
+      || value === undefined
+      || value === ''
+      || obj[property] === null
+      || obj[property] === undefined
+      || obj[property] === ''
+      || value === obj[property],
+      '*Las contraseñas deben de ser iguales',
+      property => ({ property })
+    );
+
+    ValidationRules.customRule('truthy', (value, obj) =>
+      value === null
+      || value === undefined
+      || value === ''
+      || Object.values(value).reduce((items, item) => items || item ),
+      '*Debes de asignar al menos un dia de trabajo'
+    );
+
+    ValidationRules
+      .ensure('name').required().withMessage('*Debes introducir tu nombre')
+      .ensure('email').required().withMessage('*Debes introducir tu dirección de correo electronico').email().withMessage('*Debes introducir una dirección de correo válida')
+      .ensure('telephone').required().withMessage('*Debes introducir tu telefono').minLength(6).withMessage('*Debes de intruducir un telefono valido')
+      .ensure('password').required().withMessage('*Debes de introducir una contraseña').minLength(6).withMessage('*La contraseña debe de tener al menos 6 caracteres')
+      .ensure('passwordConfirm').required().withMessage('*Debes confirmar tu contraseña').satisfiesRule('equals', 'password')
+      .ensure('street').required().withMessage('*Debes introducir tu calle')
+      .ensure('external').required().withMessage('*Debes introducir tu numero exterior')
+      .ensure('internal').required().withMessage('*Debes introducir tu numero interior')
+      .ensure('state').required().withMessage('*Debes introducir tu estado')
+      .ensure('suburb').required().withMessage('*Debes introducir tu delegacion / municipio')
+      .ensure('town').required().withMessage('*Debes introducir tu colonia')
+      .ensure('about').required().withMessage('*Debes de intruducir al menos 144 caracteres').minLength(144).withMessage('*Debes de intruducir al menos 144 caracteres')
+      .ensure('styles').satisfiesRule('iterator')
+      .ensure('days').satisfiesRule('truthy')
+      .ensure('zones').satisfiesRule('iterator')
+      .ensure('certCofepris').required().withMessage('*Debes elegir una opción')
+      .ensure('canGoHome').required().withMessage('*Debes elegir una opción')
+      .on(this.studioFreelance);
+  }
+
   submit() {
     let that = this;
-    this.studioFreelance.certCofepris = this.certCofepris;
     this.studioFreelance.form = this.registerFor ? 'freelancer' : 'studio';
-    this.studioFreelance.zones = [];
-    this.zones.forEach(function (zone) {
-      that.studioFreelance.zones.push({name: zone});
-    });
-    if (this.registerFor) {
-      this.studioFreelance.canGoHome = this.canGoHome;
-    }
-    //Days
-    if (this.monday) {
+    if (this.studioFreelance.days.monday) {
       this.studioFreelance.schedule.push({
         day: 1,
         start: that.mondayStartHour,
         end: that.mondayEndHour
       });
     }
-    if (this.tuesday) {
+    if (this.studioFreelance.days.tuesday) {
       this.studioFreelance.schedule.push({
         day: 2,
         start: that.tuesdayStartHour,
         end: that.tuesdayEndHour
       });
     }
-    if (this.wednesday) {
+    if (this.studioFreelance.days.wednesday) {
       this.studioFreelance.schedule.push({
         day: 3,
         start: that.wednesdayStartHour,
         end: that.wednesdayEndHour
       });
     }
-    if (this.thursday) {
+    if (this.studioFreelance.days.thursday) {
       this.studioFreelance.schedule.push({
         day: 4,
         start: that.thursdayStartHour,
         end: that.thursdayEndHour
       });
     }
-    if (this.friday) {
+    if (this.studioFreelance.days.friday) {
       this.studioFreelance.schedule.push({
         day: 5,
         start: that.fridayStartHour,
         end: that.fridayEndHour
       });
     }
-    if (this.saturday) {
+    if (this.studioFreelance.days.saturday) {
       this.studioFreelance.schedule.push({
         day: 6,
         start: that.saturdayStartHour,
         end: that.saturdayEndHour
       });
     }
-    if (this.sunday) {
+    if (this.studioFreelance.days.sunday) {
       this.studioFreelance.schedule.push({
         day: 7,
         start: that.sundayStartHour,
         end: that.sundayEndHour
       });
     }
-    //TODO add validations
-    // this.controller.validate()
-    //   .then(result => {
-    //     if (result.valid) {
+
+
+    //Days
+    this.controller.validate()
+      .then(result => {
+        if (result.valid) {
+          delete this.studioFreelance.days;
           this.api.signOn(this.studioFreelance)
             .then(response => {
-              console.log(response, 'aaaaaaaaaaaaaaaaaaaaaaa')
               if (response.hasOwnProperty('name')) {
                 this.error = response.message
               } else {
@@ -159,8 +217,8 @@ export default class Signup extends Client {
             })
             .catch(response => {
               this.error = response
-            })
-      //   }
-      // });
+            });
+        }
+      });
   }
 }
