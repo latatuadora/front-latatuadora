@@ -12,10 +12,7 @@
       <h1 class="menu-page-title">${title[0]} <span class="menu-page-description">${title[1]}</span></h1>
       <div class="menu-page-tattoo">
         <div class="new-tattoo" click.trigger="openModal()">
-          <new-tattoo-modal id="new-tattoo-content" simple-modal="show.two-way: showModal"
-                            css="${showModal ? 'display: block' : 'display: none'}" item.bind="currentItem"
-                            go-next.call="nextItem()" go-prev.call="previousItem()" close.call="closeModal()">
-          </new-tattoo-modal>
+          <new-tattoo-modal id="new-tattoo-content" simple-modal="show.two-way: showModal" css="${showModal ? 'display: block' : 'display: none'}" item.bind="currentItem" go-next.call="nextItem()" go-prev.call="previousItem()" close.call="closeModal()"></new-tattoo-modal>
           <img src="src/assets/images/etc/group-7.png">
         </div>
         <button class="new-tattoo--mobile" click.trigger="openModal()">
