@@ -16,7 +16,9 @@
         <h3 class="flash-opt flash-opt__normal">Todos</h3>
       </div>
       <div class="menu-page-tattoo">
-        <new-flash-modal id="new-flash-content" simple-modal="show.two-way: showModal" css="${showModal ? 'display: block' : 'display: none'}" item.bind="currentItem"  go-next.call="nextItem()" go-prev.call="previousItem()" close.call="closeModal()"></new-flash-modal>
+        <new-flash-modal id="new-flash-content" simple-modal="show.two-way: showModal" css="${showModal ? 'display: block' : 'display: none'}"
+                         item.bind="currentItem"  go-next.call="nextItem()" go-prev.call="previousItem()" close.call="closeModal()">
+        </new-flash-modal>
         <div class="new-flash" click.trigger="openModal()">
           <img src="src/assets/images/etc/group-7.png">
         </div>
@@ -24,7 +26,7 @@
           <i class="new-tattoo--mobile__icon fa fa-plus-circle"></i>
           <p class="new-tattoo--mobile__txt">Agregar nuevo flash</p>
         </button>
-        <flash-item repeat.for="item of 5"></flash-item>
+        <flash-item repeat.for="item of 5" currentindex.bind="$index"></flash-item>
       </div>
     </div>
   </div>
