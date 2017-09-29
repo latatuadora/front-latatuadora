@@ -16,9 +16,7 @@
         <h3 class="flash-opt flash-opt__normal">Todos</h3>
       </div>
       <div class="menu-page-tattoo">
-        <new-flash-modal id="new-flash-content" simple-modal="show.two-way: showModal" css="${showModal ? 'display: block' : 'display: none'}"
-                         item.bind="currentItem"  go-next.call="nextItem()" go-prev.call="previousItem()" close.call="closeModal()">
-        </new-flash-modal>
+        <new-flash-modal id="new-flash-content" simple-modal="show.two-way: showModal" css="${showModal ? 'display: block' : 'display: none'}" item.bind="currentItem"  go-next.call="nextItem()" go-prev.call="previousItem()" close.call="closeModal()"></new-flash-modal>
         <div class="new-flash" click.trigger="openModal()">
           <img src="src/assets/images/etc/group-7.png">
         </div>
