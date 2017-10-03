@@ -1,15 +1,17 @@
 import {inject} from 'aurelia-framework';
 import {Session} from 'utils/session';
 import {Validator, ValidationRules, ValidationControllerFactory, validateTrigger} from 'aurelia-validation';
-@inject(ValidationControllerFactory, Validator, Session)
+import {Studio} from 'controller/studio';
+@inject(ValidationControllerFactory, Validator, Session, Studio)
 export class Edit {
-  constructor(controllerFactory, validator, session) {
+  constructor(controllerFactory, validator, session, api) {
     this.session = session;
     this.dataController = controllerFactory.create();
     this.passwordsController = controllerFactory.create();
     this.dataController.validateTrigger = validateTrigger.changeOrBlur;
     this.passwordsController.validateTrigger = validateTrigger.changeOrBlur;
     this.validator = validator;
+    this.api = api;
     this.maxFileSize = 5 * 1024 * 1024;
     this.fileErrors = {
       type: false,
@@ -104,11 +106,17 @@ export class Edit {
   }
   
   attached() {
-    var user = this.session.getCurrentUser();
-    this.userData.username = user.email;
-    this.userData.name = user.name + ' ' + user.lastName;
-    this.userData.email = user.email;
-    this.userData.phone = user.phone;
-    this.userData.tattooed = user.tattooed;
+    let email = localStorage.getItem('email');
+    let that = this;
+    async function getUser() {
+      let user = await that.api.getDataUser({ email: email });
+      localStorage.setItem('latatuadora_currentUser', JSON.stringify(user));
+      that.userData.username = user.name;
+      that.userData.name = user.name + ' ' + (user.lastname ? user.lastname !== null : '');
+      that.userData.email = user.email;
+      that.userData.phone = user.telephone;
+      that.userData.tattooed = user.tattooed;
+    };
+    getUser();
   }
 }
