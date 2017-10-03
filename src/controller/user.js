@@ -1,4 +1,4 @@
-import {Client} from './client'
+import {Client} from './client';
 import {AuthService} from 'aurelia-authentication';
 import {inject, computedFrom} from 'aurelia-framework';
 import {json} from 'aurelia-fetch-client';
@@ -28,8 +28,10 @@ export class User extends Client {
    **/
   signIn(email, password) {
     var that = this;
+    localStorage.setItem('email', email);
     //return this.authService.login({email: email, password:password}, {}, '#/dashboard');
-    return this.authService.login(email, password, {}, '#/dashboard').then(function (role) {
+    return this.authService.login(email, password, {}, '#/dashboard').then(function(role) {
+      that.session.setUser(email);
       switch (role.usertype) {
         case 2:
           that.session.setRole(1, true);
@@ -49,7 +51,7 @@ export class User extends Client {
   userLogged(user) {
     delete user.password;
     delete user.confirm;
-    this.session.setUser(user);
+    this.session.setUser(user.email);
   }
   
   /**

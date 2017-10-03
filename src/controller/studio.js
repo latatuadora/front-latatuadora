@@ -12,22 +12,36 @@ export class Studio extends Client {
   constructor() {
     super()
   }
-
-  get(id) {
-
-    const url = this.URL(this.endpoint, `${id}`)
-
+  
+  getDataUser(params) {
+    const endpoint = 'user/get';
+    let url = this.URL(endpoint, params);
     return this.client
-      .fetch(url, {
-        method: this.methods.get
+      .fetch(`${url}`, {
+        method: this.methods.get,
       })
       .then(response => response.json())
-      .then(studio => {
-        return studio
+      .then(data => {
+        return data.result;
       })
       .catch(error => {
-        return error
+        return error;
+      });
+  }
+
+  edit(data) {
+    const endpoint = 'edit'
+    return this.client
+      .fetch(`${endpoint}`,{
+        method: this.methods.put,
+        body: json(data)
       })
+      .then(response => {
+        return response;
+      })
+      .catch(error => {
+        return error;
+      });
   }
 
 }
