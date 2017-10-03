@@ -13,8 +13,10 @@ export class Navbar {
     let menu = new Menu(975);
     let currentUser = this.session.getCurrentUser();
     if (currentUser) {
-      currentUser.avatar = '/src/assets/images/icons/avatar.svg';
-      this.currentUser = currentUser;
+      if (currentUser !== 'No existe tal usuario') {
+        currentUser.avatar = '/src/assets/images/icons/avatar.svg';
+        this.currentUser = currentUser;
+      }
     }
   }
 }
