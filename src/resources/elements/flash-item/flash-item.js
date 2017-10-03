@@ -1,11 +1,13 @@
 import {BaseModal} from 'utils/base-modal';
+import {bindable} from 'aurelia-framework';
 
 export class FlashItem extends BaseModal {
-  constructor () {
+  @bindable currentindex;
+  
+  constructor() {
   	super();
-    console.log("Se muestra el item flash");
     this.flash = {
     	precio: '3000'
-    }
+    };
   }
 }

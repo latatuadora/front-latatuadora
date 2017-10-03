@@ -1,5 +1,5 @@
 import {User} from 'controller/user';
-import {Client} from '../../controller/client'
+import {Client} from '../../controller/client';
 import {inject, NewInstance} from 'aurelia-framework';
 import {ValidationRules, ValidationController, validateTrigger, Validator} from 'aurelia-validation';
 @inject(NewInstance.of(ValidationController), Validator, User)

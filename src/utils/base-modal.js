@@ -22,6 +22,7 @@ export class BaseModal {
     this.showLoader = false;
     this.showFilters = false;
     this.showModal = false;
+    this.superid = '';
     this.currentItem = {};
     this.allEmpty = true;
   }
@@ -154,8 +155,10 @@ export class BaseModal {
     this.items.push(item);
   }
 
-  openModal(index) {
-    console.log('aaaaaaaaaaaaaaaaaaaaaa');
+  openModal(index, idElement) {
+    if (idElement !== undefined) {
+      this.superid = idElement + '-' + index;
+    }
     this.showModal = true;
   }
 
