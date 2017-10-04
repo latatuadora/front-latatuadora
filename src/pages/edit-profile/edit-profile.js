@@ -58,9 +58,6 @@ export class EditProfile extends BaseModal {
     this.currentUser.form = this.registerFor ? 'freelancer' : 'studio';
     this.currentUser.user = this.dataUser.id;
     this.currentUser.studio = this.dataStudioFree.id;
-    this.currentUser.state = this.dataUser.addressId.stateId.name;
-    this.currentUser.suburb = this.dataUser.addressId.suburbId.name;
-    this.currentUser.town = this.dataUser.addressId.townId.name;
     if (this.monday) {
       this.currentUser.schedule.push({
         day: 1,
@@ -127,6 +124,12 @@ export class EditProfile extends BaseModal {
     this.currentUser.fbUrl = this.dataStudioFree.fbUrl;
     this.currentUser.twUrl = this.dataStudioFree.twUrl;
     this.currentUser.insUrl = this.dataStudioFree.insUrl;
+    this.currentUser.state = this.dataUser.addressId.stateId.name;
+    this.currentUser.suburb = this.dataUser.addressId.suburbId.name;
+    this.currentUser.town = this.dataUser.addressId.townId.name;
+    this.currentUser.street = this.dataUser.addressId.street;
+    this.currentUser.numInt = this.dataUser.addressId.numInt;
+    this.currentUser.numExt = this.dataUser.addressId.numExt;
     this.dataStudioFree.schedule.forEach(function(schedule) {
       that.currentUser.schedule.push({
         day: schedule.dayId,
