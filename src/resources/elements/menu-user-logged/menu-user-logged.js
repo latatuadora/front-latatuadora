@@ -7,28 +7,50 @@ export class MenuUserLogged {
   
   constructor(session) {
     this.session = session;
-    this.menu = [
-      {
-        text: "Cotizaciones",
-        routePage: 'preguntas/cotizaciones',
-        icon: '/src/assets/images/icons/avatar.svg'
-      },
-      {
-        text: "Me gusta",
-        routePage: 'preguntas/cotizaciones',
-        icon: '/src/assets/images/icons/avatar.svg'
-      },
-      {
-        text: "Editar perfil",
-        routePage: 'dashboard/perfil/editar',
-        icon: '/src/assets/images/icons/avatar.svg'
-      },
-      {
-        text: "Cerrar sesión",
-        routePage: false,
-        icon: '/src/assets/images/icons/avatar.svg'
-      }
-    ];
+    let role = this.session.getRole();
+    if (role != 3) {
+      this.menu = [
+        {
+          text: "Cotizaciones",
+          routePage: 'preguntas/cotizaciones',
+          icon: '/src/assets/images/icons/avatar.svg'
+        },
+        {
+          text: "Me gusta",
+          routePage: 'preguntas/cotizaciones',
+          icon: '/src/assets/images/icons/avatar.svg'
+        },
+        {
+          text: "Editar perfil",
+          routePage: 'dashboard/perfil/editar',
+          icon: '/src/assets/images/icons/avatar.svg'
+        },
+        {
+          text: "Cerrar sesión",
+          routePage: false,
+          icon: '/src/assets/images/icons/avatar.svg'
+        }
+      ];
+    } else {
+      this.menu = [
+        {
+          text: "Editar perfil",
+          routePage: 'editarperfil',
+          icon: '/src/assets/images/icons/avatar.svg'
+        },
+        {
+          text: "Contraseña",
+          routePage: 'editarperfil',
+          icon: '/src/assets/images/icons/avatar.svg'
+        },
+        {
+          text: "Cerrar sesión",
+          routePage: false,
+          icon: '/src/assets/images/icons/avatar.svg'
+        }
+      ];
+    }
+    
     this.handleClick = e => {
       this.currentElement.classList.toggle('display-inline');
     };
