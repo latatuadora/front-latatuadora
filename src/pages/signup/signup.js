@@ -58,16 +58,10 @@ export default class Signup extends Client {
     file.addEventListener('change', () => {
       this.file = file.files[0].name;
     });
-    this.simplePetition('style', 'GET', function (success, error) {
-      if (error !== null) {
-        error.then(function (error) {
-          throw new Error('Error when get styles says: ' + error);
-        });
-      } else {
-        success.then(function (styles) {
-          that.stylesFromAPI = styles;
-        });
-      }
+    this.simplePetition('style', 'GET', null).then(styles => {
+        that.stylesFromAPI = styles;
+    }).catch(error => {
+      throw new Error('Error when get styles says: ' + error);
     });
   }
   
@@ -152,49 +146,49 @@ export default class Signup extends Client {
     this.studioFreelance.form = this.registerFor ? 'freelancer' : 'studio';
     if (this.studioFreelance.days.monday) {
       this.studioFreelance.schedule.push({
-        day: 1,
+        dayId: 1,
         start: that.mondayStartHour,
         end: that.mondayEndHour
       });
     }
     if (this.studioFreelance.days.tuesday) {
       this.studioFreelance.schedule.push({
-        day: 2,
+        dayId: 2,
         start: that.tuesdayStartHour,
         end: that.tuesdayEndHour
       });
     }
     if (this.studioFreelance.days.wednesday) {
       this.studioFreelance.schedule.push({
-        day: 3,
+        dayId: 3,
         start: that.wednesdayStartHour,
         end: that.wednesdayEndHour
       });
     }
     if (this.studioFreelance.days.thursday) {
       this.studioFreelance.schedule.push({
-        day: 4,
+        dayId: 4,
         start: that.thursdayStartHour,
         end: that.thursdayEndHour
       });
     }
     if (this.studioFreelance.days.friday) {
       this.studioFreelance.schedule.push({
-        day: 5,
+        dayId: 5,
         start: that.fridayStartHour,
         end: that.fridayEndHour
       });
     }
     if (this.studioFreelance.days.saturday) {
       this.studioFreelance.schedule.push({
-        day: 6,
+        dayId: 6,
         start: that.saturdayStartHour,
         end: that.saturdayEndHour
       });
     }
     if (this.studioFreelance.days.sunday) {
       this.studioFreelance.schedule.push({
-        day: 7,
+        dayId: 7,
         start: that.sundayStartHour,
         end: that.sundayEndHour
       });
@@ -205,8 +199,9 @@ export default class Signup extends Client {
     this.controller.validate()
       .then(result => {
         if (result.valid) {
-          delete this.studioFreelance.days;
-          this.api.signOn(this.studioFreelance)
+          let sendData = this.studioFreelance;
+          delete sendData.days;
+          this.api.signOn(sendData)
             .then(response => {
               if (response.hasOwnProperty('name')) {
                 this.error = response.message
