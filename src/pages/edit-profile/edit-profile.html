@@ -155,19 +155,30 @@
           </div>
         </div>
         <h5 class="text-base text-white title">Dirección del <span class="text-gold">estudio</span></h5>
-        <div class="profile__info-2 mar-bott-27 content-relative">
-          <textarea class="profile__info profile__info-lg height-78"
-                    value.bind="address">
-          </textarea>
-          <div class="content-absolute top-17px-right-10px top-auto-bottom-10px">
-            <div class="content-flex content-row content">
-              <div class="background-icon edit-text margin-right-5px"></div>
-              <div class="background-icon delete-text"></div>
-            </div>
+        <div class="profile__info-3 info-address">
+          <input class="profile__info profile__info-lg" type="text" placeholder="Calle" name="" value.bind="currentUser.street">
+        </div>
+        <div class="profile__info-3 info-address-flex">
+          <input class="profile__info profile__info-lg info-address-num" type="number" placeholder="Número" name="" value.bind="currentUser.numExt">
+          <input class="profile__info profile__info-lg" type="number" placeholder="Int" name="" value.bind="currentUser.numInt">
+        </div>
+        <div class="profile__info-3 info-address">
+          <input class="profile__info profile__info-lg" type="text" placeholder="Estado" name="" value.bind="currentUser.state">
+        </div>
+        <div class="profile__info-3 info-address">
+          <input class="profile__info profile__info-lg" type="text" placeholder="Delegación/Municipio" name="" value.bind="currentUser.suburb">
+        </div>
+        <div class="profile__info-3 info-address">
+          <input class="profile__info profile__info-lg" type="text" placeholder="Colonia" name="" value.bind="currentUser.town">
+        </div>
+        <div class="content-absolute top-17px-right-10px top-auto-bottom-10px">
+          <div class="content-flex content-row content">
+            <div class="background-icon edit-text margin-right-5px"></div>
+            <div class="background-icon delete-text"></div>
           </div>
         </div>
         <div class="profile__info-3">
-          <input class="profile__info profile__info-lg" type="" placeholder="Link de Google Maps aquí" name="">
+          <input class="profile__info profile__info-lg" type="text" placeholder="Link de Google Maps aquí" name="">
         </div>
         <h5 class="text-base text-white title">Teléfonos del <span class="text-gold">estudio</span></h5>
         <div class="content-flex content-row content-column-mobile">
