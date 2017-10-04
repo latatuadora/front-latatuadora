@@ -14,10 +14,10 @@ export class Catalogs extends Client {
       let that = this;
       this.simplePetition('style', 'GET')
         .then(data => {
-          console.log(data);
+          return data;
         })
         .catch(error => {
-          console.log(error);
+          this.error = error;
         });
     }
   }
@@ -30,10 +30,10 @@ export class Catalogs extends Client {
       let that = this;
       this.simplePetition('tattoo/bodyParts', 'GET')
         .then(data => {
-          console.log(data);
+          return data;
         })
         .catch(error => {
-          console.log(error);
+          this.error = error;
         });
     }
   }
