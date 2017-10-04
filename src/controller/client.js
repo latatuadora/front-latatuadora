@@ -19,8 +19,8 @@ export class Client {
     this.client.configure(config => {
       config
         .withBaseUrl('http://sandbox.latatuadora.getmore.mx:1337/')
+        //.withBaseUrl('http://192.168.15.32:1337/')
         .withDefaults({
-          credentials: 'same-origin',
           headers: {
             'Accept': 'application/json'
           }
@@ -58,17 +58,21 @@ export class Client {
    * @DESCRIPTION generate a simple petition
 
    */
-  simplePetition(url, method, data, cb) {
-    var opts = {
+  simplePetition(url, method, data) {
+    var opts,that;
+  
+    that = this;
+    opts = {
       method: method
     };
-    if (arguments.length === 3) {
-      cb = data;
-    } else {
+    
+    if (data) {
       opts.body = json(data);
     }
-    this.client
-      .fetch(url, opts)
-      .then(response => cb(response.json(), null)).catch(error => cb(null, error));
+    return new Promise(function(accept, reject) {
+      return that.client
+        .fetch(url, opts)
+        .then(response => accept(response.json())).catch(error => reject(error));
+    });
   }
 }
