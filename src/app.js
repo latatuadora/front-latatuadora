@@ -255,7 +255,7 @@ export class App {
         moduleId: 'pages/edit-profile/edit-profile',
         title: 'Editar perfil',
         nav: false,
-        roles: [0]
+        roles: [3]
       },
       {
         route: 'galeriaimagen',
