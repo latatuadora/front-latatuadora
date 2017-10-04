@@ -96,7 +96,7 @@
         <div class="form-group" validation-errors.bind="externalErrors">
           <label for="external" class="paragraph">Numero</label>
           <div class="input--group">
-            <input type="number" value.bind='studioFreelance.external & validate' name="external" class="input">
+            <input type="number" value.bind='studioFreelance.numExt & validate' name="numExt" class="input">
             <span class="validation-error" repeat.for="error of externalErrors">${error.error.message}</span>
           </div>
         </div>
@@ -104,7 +104,7 @@
         <div class="form-group" validation-errors.bind="internalErrors">
           <label for="internal" class="paragraph">Int</label>
           <div class="input--group">
-            <input type="number" value.bind='studioFreelance.internal & validate' name="internal" class="input">
+            <input type="number" value.bind='studioFreelance.numInt & validate' name="numInt" class="input">
             <span class="validation-error" repeat.for="error of internalErrors">${error.error.message}</span>
           </div>
         </div>
