@@ -23,5 +23,14 @@ export class Flash extends Client {
         .catch(error => reject(error));
     });
   }
+  
+  add(flash) {
+    let that = this;
+    return new Promise (function(accept, reject) {
+      return that.simplePetition('flash', 'POST', flash)
+        .then(data => accept(data))
+        .catch(error => reject(error));
+    });
+  }
 
 }
