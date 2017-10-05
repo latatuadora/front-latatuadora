@@ -13,7 +13,7 @@
         </a>
       </div>
       <div>
-        <delete-tattoo-modal id="delete-tattoo-content-${currentindex}" simple-modal="show.two-way: showModal; ssuperid.two-way: superid" css="${showModal ? 'display: block' : 'display: none'}" item.bind="currentItem"  go-next.call="nextItem()" go-prev.call="previousItem()" close.call="closeModal()"></delete-tattoo-modal>
+        <delete-tattoo-modal id="delete-tattoo-content-${currentindex}" simple-modal="show.two-way: showModal; superid.two-way: superid" css="${showModal ? 'display: block' : 'display: none'}" item.bind="currentItem"  go-next.call="nextItem()" go-prev.call="previousItem()" close.call="closeModal()"></delete-tattoo-modal>
         <a click.trigger="openModal(currentindex, 'delete-tattoo-content')">
           <img class="my-flash__options-icon" src="src/assets/images/icons/trashflash.png">
         </a>
