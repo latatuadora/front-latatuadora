@@ -25,7 +25,7 @@
             <p class="text-base paragraph new-tattoo-artist-txt">Agregar <span class="text-gold">tatuador</span> nuevo</p>
           </div>
         </div>
-        <artist-tattoo-item repeat.for="item of 5"></artist-tattoo-item>
+        <artist-tattoo-item repeat.for="artist of user.artist" artist.bind="artist"></artist-tattoo-item>
       </div>
     </div>
   </div>
