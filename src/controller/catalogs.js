@@ -14,7 +14,8 @@ export class Catalogs extends Client {
       let that = this;
       this.simplePetition('style', 'GET')
         .then(data => {
-          return data;
+          localStorage.setItem('styles', JSON.stringify(data));
+          return JSON.parse(data);
         })
         .catch(error => {
           this.error = error;
@@ -30,7 +31,8 @@ export class Catalogs extends Client {
       let that = this;
       this.simplePetition('tattoo/bodyParts', 'GET')
         .then(data => {
-          return data;
+          localStorage.setItem('bodyParts', JSON.stringify(data));
+          return JSON.parse(data);
         })
         .catch(error => {
           this.error = error;
