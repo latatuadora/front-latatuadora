@@ -7,6 +7,9 @@
   <require from="resources/elements/study-image/study-image"></require>
   <require from="resources/attributes/simple-modal"></require>
   <require from="resources/elements/modals/successful-change-modal/successful-change-modal"></require>
+  <require from="resources/elements/switch/switch"></require>
+  <require from="resources/elements/modals/new-tattoo-modal/new-tattoo-modal"></require>
+  <require from="resources/elements/modals/new-flash-modal/new-flash-modal"></require>
 
   <div class="content-flex content-row content-column-mobile">
     <menu-artist></menu-artist>
@@ -25,11 +28,12 @@
       <div class="content-flex content-column content-vertical-center">
         <h5 class="text-base text-black title">Mis tatuajes</h5>
         <div class="content-flex content-row horizontal-center content-column-mobile width-100">
-          <tattoo-item repeat.for="item of 3"></tattoo-item>
+          <tattoo-item repeat.for="item of tattoos"></tattoo-item>
         </div>
         <div class="content-flex content-row content-vertical-center margin-top-60px">
-          <button class="button-base profile-button-mobile dust-button padding-horizontal-28px margin-right-27px margin-right-10px-mobile">Ver todos</button>
-          <button class="content-flex content-row content-vertical-center button-base dust-button padding-horizontal-28px profile-button-mobile">
+          <a if.bind="tattoos.length > 0" route-href="route: my_tattoos" class="button-base profile-button-mobile dust-button padding-horizontal-28px margin-right-27px margin-right-10px-mobile">Ver todos</a>
+          <button class="content-flex content-row content-vertical-center button-base dust-button padding-horizontal-28px profile-button-mobile" click.trigger="openModal(1, 'new-tattoo-content')">
+            <new-tattoo-modal id="new-tattoo-content-1" simple-modal="show.two-way: showModal; superid.two-way: superid" css="${showModal ? 'display: block' : 'display: none'}" item.bind="currentItem" go-next.call="nextItem()" go-prev.call="previousItem()" close.call="closeModal()"></new-tattoo-modal>
             <img class="button-icon-plus" src="src/assets/images/icons/plus_circle.svg">
             Agregar nuevo
           </button>
@@ -39,11 +43,12 @@
       <div class="background-section">
         <h5 class="text-base text-white title">Mis flashes</h5>
         <div class="content-flex content-row horizontal-center content-column-mobile width-100">
-          <flash-item repeat.for="item of 3"></flash-item>
+          <flash-item repeat.for="item of flashes"></flash-item>
         </div>
         <div class="content-flex content-row content-vertical-center margin-top-60px">
-          <button class="button-base profile-button-mobile dust-button padding-horizontal-28px margin-right-27px margin-right-10px-mobile">Ver todos</button>
-          <button class="content-flex content-row content-vertical-center button-base dust-button padding-horizontal-28px profile-button-mobile">
+          <a if.bind="flashes.length > 0" route-href="route: my_flashes" class="button-base profile-button-mobile dust-button padding-horizontal-28px margin-right-27px margin-right-10px-mobile">Ver todos</a>
+          <button class="content-flex content-row content-vertical-center button-base dust-button padding-horizontal-28px profile-button-mobile" click.trigger="openModal(2, 'new-flash-modal')">
+            <new-flash-modal id="new-flash-content-2" simple-modal="show.two-way: showModal; superid.two-way: superid" css="${showModal ? 'display: block' : 'display: none'}" item.bind="currentItem"  go-next.call="nextItem()" go-prev.call="previousItem()" close.call="closeModal()"></new-flash-modal>
             <img class="button-icon-plus" src="src/assets/images/icons/plus_circle.svg">
             Agregar nuevo
           </button>
@@ -57,7 +62,7 @@
             <div class="width-26px">
               <img class="profile_img-11" src="src/assets/images/icons/face.png">
             </div>
-            <input class="profile__input" type="text" name="">
+            <input class="profile__input" type="text" name="fbUrl" value.bind="currentUser.fbUrl">
             <div class="tooltip">
               <img src="src/assets/images/icons/info.png">
               <span class="tooltiptext">Ingresa aquí el enlace a tu página</span>
@@ -67,7 +72,7 @@
             <div class="width-26px">
               <img class="profile_img-26" src="src/assets/images/icons/insta.png">
             </div>
-            <input class="profile__input mar-hor-18" type="text" name="">
+            <input class="profile__input mar-hor-18" type="text" name="twUrl" value.bind="currentUser.twUrl">
             <div class="tooltip">
               <img src="src/assets/images/icons/info.png">
               <span class="tooltiptext">Ingresa aquí el enlace a tu página</span>
@@ -77,7 +82,7 @@
             <div class="width-26px">
               <img class="profile_img-26" src="src/assets/images/icons/periscope.png">
             </div>
-            <input class="profile__input" type="text" name="">
+            <input class="profile__input" type="text" name="insUrl" value.bind="currentUser.insUrl">
             <div class="tooltip">
               <img src="src/assets/images/icons/info.png">
               <span class="tooltiptext">Ingresa aquí el enlace a tu página</span>
@@ -89,8 +94,12 @@
       <div class="content-flex content-column content-vertical-center bgc-262626 pdd-bott-68">
         <h5 class="text-base text-white title margin-0px">Mis estilos</h5>
         <p class="text-base text-white bullets show-desktop hide-mobile">Selecciona los estilos que <span class="text-gold margin-vertical-30px-55px">manejan</span> en el estudio</p>
-        <div class="content-flex horizontal-center content-wrap wdt-53 width-100-mobile">
-          <input type="checkbox" data-tag="${tag.name}" name="${tag}" id="${tag.name}" class="profile__tag" repeat.for="tag of tags">
+        <div class="content-flex horizontal-center content-wrap wdt-53 width-100-mobile" checked.bind="currentUser.styles">
+          <span repeat.for="style of stylesFromAPI">
+            <input type="checkbox" data-tag="${style.name}" name="${style.name}" id="${style.name}" value.bind="style.id"
+                   class="profile__tag" class.bind="style.active ? 'active' : ''"
+                   click.delegate="toggleStyle(style)">
+          </span>
         </div>
       </div>
       <!--SECCIÓN MIS TATUADORES-->
@@ -111,7 +120,7 @@
         <hr class="special-hr separator">
       </div>
       <!--SECCIÓN MI MURO-->
-      <div class="content-flex content-column content-vertical-center pdd-bott-68">
+      <!--div class="content-flex content-column content-vertical-center pdd-bott-68">
         <h5 class="text-base text-black title">Mi muro</h5>
         <div class="profile__wall">
           <textarea class="profile__txtarea" placeholder="Escribir nueva entrada"></textarea>
@@ -132,12 +141,12 @@
           </div>
           <p class="profile__post-txt">Quédate informado de todas las noticias del mundo del tatuaje. El blog de tatuajes CultureTattoo.com está clasificado por temas para que puedas filtrar las categorías de noticias que más ye interesen. Nuestros temas principales tratan desde la actualidad en general, consejos sonbre los tatuajes, noticias sobre celebridades tatuadas, sobre locuras que te dejarán sin voz, temas divertidos para los hombres y mujeres que se quieren alegrar el día.</p>
         </div>
-      </div>
+      </div-->
       <!--SECCIÓN DATOS DEL ESTUDIO-->
       <div class="background-section pdd-bott-68 padding-horizontal-24px-mobile">
         <h5 class="text-base text-white title">Descripción del <span class="text-gold">estudio</span></h5>
         <div class="profile__info-1 content-relative">
-          <textarea class="profile__info profile__info-lg height-112" value="${description}"></textarea>
+          <textarea class="profile__info profile__info-lg height-112" value.bind="currentUser.about"></textarea>
           <div class="content-absolute top-17px-right-10px top-auto-bottom-10px">
             <div class="content-flex content-row content">
               <div class="background-icon edit-text margin-right-5px"></div>
@@ -146,22 +155,35 @@
           </div>
         </div>
         <h5 class="text-base text-white title">Dirección del <span class="text-gold">estudio</span></h5>
-        <div class="profile__info-2 mar-bott-27 content-relative">
-          <textarea class="profile__info profile__info-lg height-78" value="${address}"></textarea>
-          <div class="content-absolute top-17px-right-10px top-auto-bottom-10px">
-            <div class="content-flex content-row content">
-              <div class="background-icon edit-text margin-right-5px"></div>
-              <div class="background-icon delete-text"></div>
-            </div>
+        <div class="profile__info-3 info-address">
+          <input class="profile__info profile__info-lg" type="text" placeholder="Calle" name="" value.bind="currentUser.street">
+        </div>
+        <div class="profile__info-3 info-address-flex">
+          <input class="profile__info profile__info-lg info-address-num" type="number" placeholder="Número" name="" value.bind="currentUser.numExt">
+          <input class="profile__info profile__info-lg" type="number" placeholder="Int" name="" value.bind="currentUser.numInt">
+        </div>
+        <div class="profile__info-3 info-address">
+          <input class="profile__info profile__info-lg" type="text" placeholder="Estado" name="" value.bind="currentUser.state">
+        </div>
+        <div class="profile__info-3 info-address">
+          <input class="profile__info profile__info-lg" type="text" placeholder="Delegación/Municipio" name="" value.bind="currentUser.suburb">
+        </div>
+        <div class="profile__info-3 info-address">
+          <input class="profile__info profile__info-lg" type="text" placeholder="Colonia" name="" value.bind="currentUser.town">
+        </div>
+        <div class="content-absolute top-17px-right-10px top-auto-bottom-10px">
+          <div class="content-flex content-row content">
+            <div class="background-icon edit-text margin-right-5px"></div>
+            <div class="background-icon delete-text"></div>
           </div>
         </div>
         <div class="profile__info-3">
-          <input class="profile__info profile__info-lg" type="" placeholder="Link de Google Maps aquí" name="">
+          <input class="profile__info profile__info-lg" type="text" placeholder="Link de Google Maps aquí" name="">
         </div>
         <h5 class="text-base text-white title">Teléfonos del <span class="text-gold">estudio</span></h5>
         <div class="content-flex content-row content-column-mobile">
           <div class="profile__info-4 margin-right-27px margin-right-0px-mobile mar-bott-13 content-relative">
-            <input class="profile__info profile__info-sm" type="" placeholder="Teléfono fijo" name="">
+            <input class="profile__info profile__info-sm" type="" placeholder="Teléfono fijo" name="" value.bind="currentUser.telephone">
             <div class="content-absolute top-17px-right-10px">
               <div class="background-icon edit-text"></div>
             </div>
@@ -176,10 +198,77 @@
       </div>
       <!--SECCIÓN MIS HORARIOS-->
       <div class="content-flex content-column content-vertical-center">
-        <h5 class="text-base text-black title">Mis horarios</h5>
+        <h5 class="text-base text-black title">Mis horarios ${monday}</h5>
       </div>
       <div class="content-flex content-horizontal">
         <hr class="special-hr separator">
+      </div>
+      <div class="content-schedule">
+        <div class="column-schedule">
+          <div class="schedule__item  titles input__group-row">
+            <span class="schedule__title">Dia</span>
+            <div class="input__group-row second-titles">
+              <span class="schedule__title">Apertura</span> <span class="schedule__title">Cierre</span>
+            </div>
+          </div>
+          <div class="schedule__item input__group-row">
+            <switch able="Lunes" disable="Lunes" switch.two-way="monday"></switch>
+            <div show.bind="monday" class="input__group-row">
+              <input value.bind="mondayStartHour" hour class="input--hour" type="text">
+              <input value.bind="mondayEndHour" hour class="input--hour" type="text">
+            </div>
+          </div>
+          <div class="schedule__item input__group-row">
+            <switch able="Martes" disable="Martes" switch.two-way="tuesday"></switch>
+            <div show.bind="tuesday" class="input__group-row">
+              <input value.bind="tuesdayStartHour" hour class="input--hour" type="text">
+              <input value.bind="tuesdayEndHour" hour class="input--hour" type="text">
+            </div>
+          </div>
+          <div class="schedule__item input__group-row">
+            <switch able="Miercoles" disable="Miercoles" switch.two-way="wednesday"></switch>
+            <div show.bind="wednesday" class="input__group-row">
+              <input value.bind="wednesdayStartHour" hour class="input--hour" type="text">
+              <input value.bind="wednesdayEndHour" hour class="input--hour" type="text">
+            </div>
+          </div>
+          <div class="schedule__item input__group-row">
+          <switch able="Jueves" disable="Jueves" switch.two-way="thursday"></switch>
+          <div show.bind="thursday" class="input__group-row">
+            <input value.bind="thursdayStartHour" hour class="input--hour" type="text">
+            <input value.bind="thursdayEndHour" hour class="input--hour" type="text">
+          </div>
+        </div>
+        </div>
+        <div class="column-schedule">
+          <div class="schedule__item  titles input__group-row">
+            <span class="schedule__title">Dia</span>
+            <div class="input__group-row second-titles">
+              <span class="schedule__title">Apertura</span> <span class="schedule__title">Cierre</span>
+            </div>
+          </div>
+          <div class="schedule__item input__group-row">
+            <switch able="Viernes" disable="Viernes" switch.two-way="friday"></switch>
+            <div show.bind="friday" class="input__group-row">
+              <input value.bind="fridayStartHour" hour class="input--hour" type="text">
+              <input value.bind="fridayEndHour" hour class="input--hour" type="text">
+            </div>
+          </div>
+          <div class="schedule__item input__group-row">
+            <switch able="Sabado" disable="Sabado" switch.two-way="saturday"></switch>
+            <div show.bind="saturday" class="input__group-row">
+              <input value.bind="saturdayStartHour" hour class="input--hour" type="text">
+              <input value.bind="saturdayEndHour" hour class="input--hour" type="text">
+            </div>
+          </div>
+          <div class="schedule__item input__group-row">
+            <switch able="Domingo" disable="Domingo" switch.two-way="sunday"></switch>
+            <div show.bind="sunday" class="input__group-row">
+              <input value.bind="sundayStartHour" hour class="input--hour" type="text">
+              <input value.bind="sundayEndHour" hour class="input--hour" type="text">
+            </div>
+          </div>
+        </div>
       </div>
       <!--SECCIÓN IMÁGENES DEL ESTUDIO-->
       <div class="content-flex content-column content-vertical-center">
@@ -199,9 +288,9 @@
         <hr class="special-hr separator hide-mobile">
       </div>
       <!--SALVAR CAMBIOS-->
-      <successful-change-modal id="successful-change-content" simple-modal="show.two-way: showModal" css="${showModal ? 'display: block' : 'display: none'}" item.bind="currentItem"  go-next.call="nextItem()" go-prev.call="previousItem()" close.call="closeModal()"></successful-change-modal>
+      <successful-change-modal id="successful-change-content-${currentindex}" simple-modal="show.two-way: showModal; superid.two-way: superid" css="${showModal ? 'display: block' : 'display: none'}" item.bind="currentItem"  go-next.call="nextItem()" go-prev.call="previousItem()" close.call="closeModal()"></successful-change-modal>
       <div class="profile__content-save">
-        <button class="profile__btn profile__save" click.trigger="openModal()">Guardar cambios</button>
+        <button class="profile__btn profile__save" click.trigger="submit()">Guardar cambios</button>
       </div>
     </div>
   </div>

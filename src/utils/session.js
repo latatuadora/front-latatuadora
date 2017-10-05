@@ -70,11 +70,24 @@ export class Session {
     }
   }
   
+  getStudioFreelancer() {
+    let user = this.getCurrentUser();
+    if ( user.freelancer !== null) {
+      return user.freelancer;
+    } else {
+      return user.studio;
+    }
+  }
+  
   setRole(role, setInStorage = true) {
     this.role = role;
     if (setInStorage) {
       localStorage.setItem('latatuadora_com_role', role);
     }
+  }
+  
+  getRole() {
+    return localStorage.getItem('latatuadora_com_role');
   }
   
   isAllowed(allowedRoles, currentRole = this.role) {

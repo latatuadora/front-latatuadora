@@ -1,38 +1,28 @@
-import { Client } from './client'
+import { Client } from './client';
 
-export class Tattoo extends Client{
+export class Tattoo extends Client {
 
   /**
   *@PUBLIC constructor
   *@DESCRIPTION define endpoint
   **/
   constructor() {
-    super()
-    this.endpoint = 'tattoo'
+    super();
+    this.endpoint = 'tattoo';
   }
 
   /**
   *@PUBLIC get
   *@DESCRIPTION get tattoo(s) not/approved tattos, approved can be filter
   **/
-  get(approved, params) {
-
-    const url = approved
-              ? this.URL(this.endpoint, {...params})
-              : this.URL(this.endpoint, 'notApproved')
-              
-    return this.client
-      .fetch(`${url}`, {
-        method: this.methods.get
-      })
-      .then(response => response.json())
-      .then(tattos => {
-        return tattos
-      })
-      .catch(error => {
-        return error
-      })
-
+  get(id) {
+    let that = this;
+    return new Promise (function(accept, reject) {
+      let url = 'tattoo/studio/' + id;
+      return that.simplePetition(url, 'GET', null)
+        .then(data => accept(data))
+        .catch(error => reject(error));
+    });
   }
 
   /**
@@ -40,21 +30,12 @@ export class Tattoo extends Client{
   *@DESCRIPTION add a tattoo
   **/
   add(tattoo) {
-    const url = this.URL(this.endpoint)
-
-    this.client
-      .fetch(`${url}`, {
-        method: this.methods.post,
-        body: json(tattoo)
-      })
-      .then(response => response.json())
-      .then(tattoo => {
-        return tattoo
-      })
-      .catch(error => {
-        return error
-      })
-
+    let that = this;
+    return new Promise (function(accept, reject) {
+      return that.simplePetition('tattoo', 'POST', tattoo)
+        .then(data => accept(data))
+        .catch(error => reject(error));
+    });
   }
 
   /**
