@@ -1,8 +1,10 @@
 import {BaseModal} from 'utils/base-modal';
+import {bindable} from 'aurelia-framework';
 
 export class ArtistTattooItem extends BaseModal {
-   constructor () {
+  @bindable artist;
+  
+  constructor() {
     super();
-    console.log("Se muestra el item del tatuador");
-   }
+  }
 }
