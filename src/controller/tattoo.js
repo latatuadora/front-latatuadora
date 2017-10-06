@@ -32,8 +32,10 @@ export class Tattoo extends Client {
   add(tattoo) {
     let that = this;
     return new Promise (function(accept, reject) {
-      return that.simplePetition('tattoo', 'POST', tattoo)
-        .then(data => accept(data))
+      return that.simpleNativePetition('tattoo', 'POST', tattoo, function(data) {
+        return data;
+      })
+        .then(data => accept(this.data))
         .catch(error => reject(error));
     });
   }
