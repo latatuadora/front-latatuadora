@@ -40,13 +40,13 @@ export class MenuArtist {
       //   route: '../../../pages/menu-page-artist/scheduling-request/scheduling-request',
       //   routePage: 'agendacion/solicitud'
       // },
-      // {
-      //   img: 'src/assets/images/icons/avatar.png',
-      //   text: "Mis tatuadores",
-      //   title: ["Mis", "tatuadores"],
-      //   route: '../../../menu-page-artist/my-tattoo-artist/my-tattoo-artist',
-      //   routePage: 'mistatuadores'
-      // },
+      {
+        img: 'src/assets/images/icons/avatar.png',
+        text: "Mis tatuadores",
+        title: ["Mis", "tatuadores"],
+        route: '../../../menu-page-artist/my-tattoo-artist/my-tattoo-artist',
+        routePage: 'mistatuadores'
+      },
       // {
       //   img: 'src/assets/images/icons/np-price.png',
       //   text: "Promocionarme",
