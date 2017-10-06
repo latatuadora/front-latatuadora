@@ -27,7 +27,9 @@ export class Flash extends Client {
   add(flash) {
     let that = this;
     return new Promise (function(accept, reject) {
-      return that.simplePetition('flash', 'POST', flash)
+      return that.simpleNativePetition('flash', 'POST', flash, function(data) {
+        return data;
+      })
         .then(data => accept(data))
         .catch(error => reject(error));
     });
