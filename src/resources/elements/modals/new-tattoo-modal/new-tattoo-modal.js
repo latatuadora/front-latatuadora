@@ -82,13 +82,16 @@ export class newTattooModal extends BaseModal {
   
   submit() {
     //TODO Change artist and for endpoint - Pending Back
-    this.currentTatto.artist = 1;
-    this.currentTatto.styles = this.styleList;
-    this.currentTatto.elements = this.elementList;
-    var formData = new FormData();
-    formData.append('image', document.querySelector('#photo-preview'));
-    this.currentTatto.image = formData;
-    this.api.add(this.currentTatto)
+    let data = new FormData();
+    data.append("artist", "3");
+    data.append("styles", JSON.stringify(this.styleList));
+    data.append("elements", JSON.stringify(this.elementList));
+    data.append("name", this.currentTatto.name);
+    data.append("partbody", this.currentTatto.partbody);
+    data.append("dimensionsX", this.currentTatto.dimensionsX);
+    data.append("dimensionsY", this.currentTatto.dimensionsY);
+    data.append("image", document.querySelector('#photo-preview').files[0]);
+    this.api.add(data)
       .then(response => {
         window.reload();
       })
