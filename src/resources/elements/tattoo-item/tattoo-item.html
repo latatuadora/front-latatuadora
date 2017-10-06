@@ -19,11 +19,13 @@
         </a>
       </div>
     </div>
-    <div class="my-tattoo__img"></div>
+    <div>
+      <img src="${tattoo.image}">
+    </div>
     <div class="my-tattoo__block">
       <div class="my-tattoo-flex-row my-tatto__block-info">
         <div>
-          <img class="my-tattoo__block-img" src="${tattoo.image}">
+          <img class="my-tattoo__block-img" src="src/assets/images/mock/group-11.png">
         </div>
         <div class="my-tattoo__space-block">
           <div class="my-tattoo-flex-row">
@@ -40,7 +42,7 @@
         </div>
       </div>
       <ul class="my-tattoo-flex-row my-tattoo__tags">
-        <li repeat.for="style of flash.styleId" class="my-tattoo__tag-style">
+        <li repeat.for="style of tattoo.styles" class="my-tattoo__tag-style">
           <a class="my-tattoo__tag-txt">${style.name}</a>
         </li>
       </ul>
