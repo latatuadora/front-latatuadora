@@ -13,6 +13,13 @@ export class Client {
       patch: 'PATCH',
       delete: 'DELETE'
     };
+    this.basurl = 'http://sandbox.latatuadora.getmore.mx:1337/';
+    let getToken = JSON.parse(localStorage.getItem('aurelia_authentication'));
+    if (getToken !== null) {
+      this.token = getToken.token;
+    } else {
+      this.token = '';
+    }
     // Create a new http client to handle and fire request and response
     this.client = new HttpClient();
     // configure client with a endpoint and defaults
@@ -22,7 +29,8 @@ export class Client {
         //.withBaseUrl('http://192.168.15.32:1337/')
         .withDefaults({
           headers: {
-            'Accept': 'application/json'
+            'Content-Type': 'multipart/form-data',
+            'x-authorization': this.token
           }
         });
     });
@@ -58,6 +66,29 @@ export class Client {
    * @DESCRIPTION generate a simple petition
 
    */
+  simpleNativePetition(url, method, data, cb) {
+    var xmlhttp = new XMLHttpRequest(),
+      token = JSON.parse(localStorage.getItem('aurelia_authentication'));
+    xmlhttp.onreadystatechange = function() {
+      if (xmlhttp.readyState == XMLHttpRequest.DONE) {
+        if (xmlhttp.status == 200) {
+          cb(xmlhttp.responseText, null);
+        }
+        else if (xmlhttp.status == 400) {
+          cb(null, xmlhttp.status);
+        }
+        else {
+          cb(null, xmlhttp.status);
+        }
+      }
+    };
+    xmlhttp.open(method, this.basurl.concat(url), true);
+    if (token) {
+      xmlhttp.setRequestHeader('x-authorization', token.token);
+    }
+    xmlhttp.send(data);
+  }
+  
   simplePetition(url, method, data) {
     var opts,that;
   
