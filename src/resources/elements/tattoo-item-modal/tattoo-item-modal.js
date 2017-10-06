@@ -1,5 +1,9 @@
+import {bindable} from 'aurelia-framework';
+
 export class TattooItemModal {
-  constructor () {
-    console.log("[(+)]");
+  @bindable tattoo;
+  
+  constructor() {
+    this.tattoos = [];
   }
 }
