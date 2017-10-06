@@ -3,11 +3,15 @@ import {bindable} from 'aurelia-framework';
 
 export class FlashItem extends BaseModal {
   @bindable currentindex;
+  @bindable flash;
   
   constructor() {
   	super();
+  	//TODO replace with the back send complete data
     this.flash = {
-    	precio: '3000'
+      width: '12',
+      height: '12',
+      likes: '13'
     };
   }
 }

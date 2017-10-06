@@ -86,7 +86,7 @@ export class newTattooModal extends BaseModal {
     this.currentTatto.styles = this.styleList;
     this.currentTatto.elements = this.elementList;
     var formData = new FormData();
-    formData.append('image', document.querySelector('#image'));
+    formData.append('image', document.querySelector('#photo-preview'));
     this.currentTatto.image = formData;
     this.api.add(this.currentTatto)
       .then(response => {

@@ -19,7 +19,7 @@
           <i class="new-tattoo--mobile__icon fa fa-plus-circle"></i>
           <p class="new-tattoo--mobile__txt">${newtattoo}</p>
         </button>
-        <tattoo-item repeat.for="item of tattoos" currentindex.bind="$index"></tattoo-item>
+        <tattoo-item repeat.for="tattoo of tattoos" currentindex.bind="$index" tatto.bind="tattoo"></tattoo-item>
       </div>
     </div>
   </div>
