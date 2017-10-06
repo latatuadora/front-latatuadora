@@ -93,16 +93,20 @@ export class newFlashModal extends BaseModal {
   }
   
   submit() {
-    //TODO Change artist for selection - Front add 'Agregar tatuador al estudio'
-    this.currentFlash.artist = 1;
-    this.currentFlash.styles = this.styleList;
-    this.currentFlash.elements = this.elementList;
-    this.currentFlash.sizeId = 2;
-    var formData = new FormData();
-    formData.append('image', document.querySelector('#photo-preview'));
-    this.currentFlash.sellImage = formData;
-    formData.append('image', document.querySelector('#photo-complete'));
-    this.currentFlash.realImage = formData;
+    //TODO add 'ancho y alto' - Pending Back
+    //TODO change name 'amountif', 'amountRecommended'
+    let data = new FormData();
+    data.append("sizeId", "2");
+    data.append("styles", this.styleList);
+    data.append("elements", this.elementList);
+    data.append("artist", this.currentFlash.artist);
+    data.append("amount", this.currentFlash.amount);
+    data.append("amountif", this.currentFlash.amountif);
+    data.append("copyright", this.currentFlash.copyright);
+    data.append("significant", this.currentFlash.significant);
+    data.append("amountRecommended", this.currentFlash.amountRecommended);
+    data.append("sellImage", document.querySelector('#photo-preview').files[0]);
+    data.append("realImage", document.querySelector('#photo-complete').files[0]);
     this.api.add(this.currentFlash)
       .then(response => {
         window.reload();
