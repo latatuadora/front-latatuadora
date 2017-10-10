@@ -1,5 +1,8 @@
+import {bindable} from 'aurelia-framework';
+
 export class ArtistTattooItemModal {
+  @bindable artist;
+  
    constructor () {
-    console.log("Se muestra el item para el modal");
    }
 }

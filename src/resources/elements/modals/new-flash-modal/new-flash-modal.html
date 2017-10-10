@@ -71,7 +71,7 @@
                   <div class="content-flex content-column content-vertical-center width-100">
                     <div class="content-flex content-row content-vertical-center">
                       <h3 class="text-base text-white bullets margin-right-10px">Ancho</h3>
-                      <img src="src/assets/images/icons/info.png"  title="Mueve el botón hacia la derecha o izquierda para seleccionar la medida de tu tatuaje" tooltip-message>
+                      <img src="src/assets/images/icons/info.png" title="Mueve el botón hacia la derecha o izquierda para seleccionar la medida de tu tatuaje" tooltip-message>
                     </div>
                     <div class="range-slider" range-slider="update.bind: shared.changeWidth; min.bind: 1; max.bind: 25; start.bind: 5; unit: cm"></div>
                   </div>
@@ -87,7 +87,12 @@
                 <h1 if.bind="user.artist.length > 0" class="text-base text-white title text-center">Selecciona el tatuador que<br>diseñó el Flash</h1>
                 <h1 if.bind="user.artist.length == 0" class="text-base text-white title text-center">Debes agregar tatuadores<br>a tu estudio</h1>
                 <div class="content-flex content-row content-wrap item-translate-14">
-                  <artist-tattoo-item-modal repeat.for="item of user.artist"></artist-tattoo-item-modal>
+                  <div class="artist-radio-button" repeat.for="artist of user.artist">
+                    <input class="hide-input" type="radio" value.bind="artist.id" id="selection-artist-${artist.id}" checked.bind="currentFlash.artist">
+                    <label for="selection-artist-${artist.id}">
+                      <artist-tattoo-item-modal artist.bind="artist"></artist-tattoo-item-modal>
+                    </label>
+                  </div>
                 </div>
               </div>
               <div class="gray-line margin-vertical-30px width-100"></div>
@@ -97,7 +102,7 @@
                 <div class="content-flex content-row content-column-mobile content-vertical-center horizontal-center width-100">
                   <div class="content-flex content-column content-vertical-center width-100">
                     <p class="text-base text-white subtitle text-center height-60px margin-0px">Precio recomendado</p>
-                    <input class="input-price text-base text-white text-center subtitle" type="text">
+                    <input class="input-price text-base text-white text-center subtitle" type="text" value.bind="currentFlash.amountRecommended">
                   </div>
                   <div class="show-desktop hide-mobile">
                     <div class="vertical-hr-gold margin-horizontal-28px"></div>
@@ -117,7 +122,7 @@
                   </div>
                   <div class="content-flex content-column content-vertical-center width-100">
                     <p class="text-base text-white subtitle text-center height-60px margin-0px">Precio si te tatúas con José</p>
-                    <input class="input-price text-base text-white text-center subtitle"  type="text">
+                    <input class="input-price text-base text-white text-center subtitle" type="text" value.bind="currentFlash.amountif">
                   </div>
                 </div>
               </div>

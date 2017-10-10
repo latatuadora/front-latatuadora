@@ -5,11 +5,11 @@
   <require from="resources/elements/modals/delete-tattoo-artist-modal/delete-tattoo-artist-modal"></require>
 
   <div class="artist-tattoo">
-    <img class="artist-tattoo__img" src="src/assets/images/mock/group-11.png">
+    <img if.bind="artist.avatar" class="artist-tattoo__img" src="${artist.avatar}">
     <div class="artist-tattoo__background"></div>
-    <h5 class="artist-tattoo__name">Raúl <span class="artist-tattoo__last-name">Ontiveros Landera</span></h5>
+    <h5 class="artist-tattoo__name"><span class="artist-tattoo__last-name">${artist.name}</span></h5>
     <hr class="artist-tattoo__separator">
-    <p class="artist-tattoo__description">Artista plástico egresado de la ENPEG.<br>Tatuador en potencia. Comprometido, bailador y amante del Jazz</p>
+    <p class="artist-tattoo__description">${artist.bio}</p>
     <div class="artist-tattoo__opts">
       <edit-tattoo-artist-modal id="edit-tattoo-artist-content" simple-modal="show.two-way: showModal" css="${showModal ? 'display: block' : 'display: none'}" item.bind="currentItem"  go-next.call="nextItem()" go-prev.call="previousItem()" close.call="closeModal()"></edit-tattoo-artist-modal>
       <a click.trigger="openModal()">

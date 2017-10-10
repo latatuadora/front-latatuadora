@@ -25,44 +25,56 @@
 						</div>
 						<div class="content-flex content-column">
 							<h2 class="text-base text-white subtitle margin-bottom-18px">Nombre completo</h2>
-							<input class="text-base text-white paragraph tattoo-artist-input-base width-100-mobile" type="text">
+							<input class="text-base text-white paragraph tattoo-artist-input-base width-100-mobile" type="text" value.bind="currentArtist.name">
 						</div>
 						<div class="special-hr vertical-hr-gold margin-vertical-35px"></div>
 						<div class="content-flex content-column">
 							<h2 class="text-base text-white subtitle margin-bottom-18px">Descripción</h2>
-							<textarea class="text-base text-white paragraph tattoo-artist-input-base textarea-height-146px width-100-mobile" placeholder="Escribe una breve descripción"></textarea>
+							<textarea class="text-base text-white paragraph tattoo-artist-input-base textarea-height-146px width-100-mobile" placeholder="Escribe una breve descripción" value.bind="currentArtist.bio"></textarea>
 						</div>
-						<div class="content-flex content-column margin-vertical-35px">
+						<div class="content-flex content-column margin-vertical-35px awards-and-styles">
 							<h2 class="text-base text-white subtitle margin-bottom-18px">Premios y reconocimientos</h2>
-							<div class="content-relative margin-bottom-14px">
-								<img class="content-absolute star-prize" src="src/assets/images/icons/lead-star.png" alt="">
-								<input class="text-base text-white paragraph tattoo-artist-input-base width-100-mobile" placeholder="Escribe aquí..." type="text">
-							</div>
-							<div class="content-relative margin-bottom-14px">
-								<img class=" content-absolute star-prize" src="src/assets/images/icons/lead-star.png"  src="" alt="">
-								<input class="text-base text-white paragraph tattoo-artist-input-base width-100-mobile" placeholder="Escribe aquí..." type="text">
+							<div class="content-relative margin-bottom-14px" id="adwards">
+								<div>
+									<img class="content-absolute star-prize" src="src/assets/images/icons/lead-star.png" alt="">
+									<input class="text-base adwardsInput text-white paragraph tattoo-artist-input-base width-100-mobile" placeholder="Escribe aquí..." type="text">
+								</div>	
 							</div>
 							<div class="content-flex horizontal-center margin-vertical-20px-50px">
-								<button class="content-flex content-row content-vertical-center horizontal-center button-base padding-horizontal-15px" click.trigger="openModal()">
+								<button class="content-flex content-row content-vertical-center horizontal-center button-base padding-horizontal-15px" click.trigger="addAward()">
 									<img class="margin-right-10px" src="src/assets/images/icons/plus_circle.svg">
 									Agregar premio
 								</button>
 							</div>
-							<select name="" id="">
-								<option value="">Estilos</option>
-							</select>
+              <div class="content-flex content-column content-vertical-center-mobile">
+                <select class="margin-bottom-20px" name="" id="" value.bind="changedValue" change.delegate="saveRemoveStyles(changedValue, 'style')">
+                  <option repeat.for="style of styles" model.bind="style">${ style.name }</option>
+                </select>
+                <div class="content-gray-tag">
+	                <div repeat.for="style of stylesToShow" class="content-flex content-row content-vertical-center horizontal-center gray-tag">
+	                  <p class="text-base text-white bullets margin-0px">${ style.name }</p>
+	                  <img class="close-tag-img" src="src/assets/images/icons/close.png" alt="" click.delegate="saveRemoveStyles(style, 'style')">
+	                </div>
+	            </div>    
+              </div>
 						</div>
 						<div class="special-hr vertical-hr-gold margin-vertical-35px"></div>
 						<div class="content-flex content-column content-vertical-center">
-							<h1 class="text-base text-white text-center title margin-0px">Agregar tatuajes al nuevo <span class="text-gold">tatuador</span></h1>
-							<h3 class="text-base text-white text-center bullets margin-vertical-24px-69px width-437px width-auto-mobile">A continuación selecciona de tu galería de tatuajes, los que haya hecho este tatuador</h3>
+							<h1 if.bind="tattoos.length > 0" class="text-base text-white text-center title margin-0px">Agregar tatuajes al nuevo <span class="text-gold">tatuador</span></h1>
+							<h3 if.bind="tattoos.length > 0" class="text-base text-white text-center bullets margin-vertical-24px-69px width-437px width-auto-mobile">A continuación selecciona de tu galería de tatuajes, los que haya hecho este tatuador</h3>
+              <h3 if.bind="tattoos.length == 0" class="text-base text-white text-center bullets margin-vertical-24px-69px width-437px width-auto-mobile">Debes agregar tatuajes a tu estudio</h3>
 							<div class="content-flex content-row content-column-mobile content-wrap">
-								<tattoo-item-modal repeat.for="tattoo of 5"></tattoo-item-modal>
+                <div class="tattoo-selection" repeat.for="tattoo of tattoos">
+                  <input class="hide-input" type="checkbox" value.bind="tattoo.id" id="selection-tattoo-${tattoo.id}" checked.bind="checkedTattoos">
+								  <label for="selection-tattoo-${tattoo.id}">
+                    <tattoo-item-modal tattoo.bind="tattoo"></tattoo-item-modal>
+                  </label>
+                </div>
 							</div>
 						</div>
 						<success-new-artist-modal id="success-new-artist-content" simple-modal="show.two-way: showModal" css="${showModal ? 'display: block' : 'display: none'}" item.bind="currentItem"  go-next.call="nextItem()" go-prev.call="previousItem()" close.call="closeModal()"></success-new-artist-modal>
 						<div class="content-flex align-self-end align-self-center-mobile margin-top-45px">
-							<input class="button-base" type="submit" value="Guardar cambios" click.trigger="openModal()">
+              <button class="button-base" click.trigger="submit()">Guardar cambios</button>
 						</div>
 					</div>
 				</form>

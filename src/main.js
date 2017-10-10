@@ -1,5 +1,6 @@
 import fetch from 'whatwg-fetch';
 import environment from './environment';
+require('node_modules/babel-polyfill/dist/polyfill.js')
 
 export function configure(aurelia) {
   aurelia.use
