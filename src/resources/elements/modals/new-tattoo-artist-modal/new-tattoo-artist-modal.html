@@ -32,11 +32,13 @@
 							<h2 class="text-base text-white subtitle margin-bottom-18px">Descripción</h2>
 							<textarea class="text-base text-white paragraph tattoo-artist-input-base textarea-height-146px width-100-mobile" placeholder="Escribe una breve descripción" value.bind="currentArtist.bio"></textarea>
 						</div>
-						<div class="content-flex content-column margin-vertical-35px">
+						<div class="content-flex content-column margin-vertical-35px awards-and-styles">
 							<h2 class="text-base text-white subtitle margin-bottom-18px">Premios y reconocimientos</h2>
 							<div class="content-relative margin-bottom-14px" id="adwards">
-								<img class="content-absolute star-prize" src="src/assets/images/icons/lead-star.png" alt="">
-								<input class="text-base text-white paragraph tattoo-artist-input-base width-100-mobile" placeholder="Escribe aquí..." type="text">
+								<div>
+									<img class="content-absolute star-prize" src="src/assets/images/icons/lead-star.png" alt="">
+									<input class="text-base adwardsInput text-white paragraph tattoo-artist-input-base width-100-mobile" placeholder="Escribe aquí..." type="text">
+								</div>	
 							</div>
 							<div class="content-flex horizontal-center margin-vertical-20px-50px">
 								<button class="content-flex content-row content-vertical-center horizontal-center button-base padding-horizontal-15px" click.trigger="addAward()">
@@ -48,10 +50,12 @@
                 <select class="margin-bottom-20px" name="" id="" value.bind="changedValue" change.delegate="saveRemoveStyles(changedValue, 'style')">
                   <option repeat.for="style of styles" model.bind="style">${ style.name }</option>
                 </select>
-                <div repeat.for="style of stylesToShow" class="content-flex content-row content-vertical-center horizontal-center gray-tag">
-                  <p class="text-base text-white bullets margin-0px">${ style.name }</p>
-                  <img class="close-tag-img" src="src/assets/images/icons/close.png" alt="" click.delegate="saveRemoveStyles(style, 'style')">
-                </div>
+                <div class="content-gray-tag">
+	                <div repeat.for="style of stylesToShow" class="content-flex content-row content-vertical-center horizontal-center gray-tag">
+	                  <p class="text-base text-white bullets margin-0px">${ style.name }</p>
+	                  <img class="close-tag-img" src="src/assets/images/icons/close.png" alt="" click.delegate="saveRemoveStyles(style, 'style')">
+	                </div>
+	            </div>    
               </div>
 						</div>
 						<div class="special-hr vertical-hr-gold margin-vertical-35px"></div>
