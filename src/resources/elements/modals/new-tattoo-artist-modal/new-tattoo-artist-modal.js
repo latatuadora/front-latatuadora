@@ -26,6 +26,7 @@ export class NewTattooArtistModal extends BaseModal {
     this.styleList = [];
     this.stylesToShow = [];
     this.checkedTattoos = [];
+    this.listAwards = [];
     this.dataUser = this.session.getStudioFreelancer();
   }
 
@@ -52,6 +53,10 @@ export class NewTattooArtistModal extends BaseModal {
     }
     return result;
   }
+
+  addAward() {
+    document.getElementById('adwards').innerHTML += "<div><img class='content-absolute star-prize' src='src/assets/images/icons/lead-star.png' alt=''><input class='text-base adwardsInput text-white paragraph tattoo-artist-input-base width-100-mobile' placeholder='Escribe aquí...' type='text'></div>";
+  }
   
   attached() {
     this.styles = this.catalogs.getStyles();
@@ -64,18 +69,28 @@ export class NewTattooArtistModal extends BaseModal {
         this.error = response;
       });
   }
+
+  getAwards() {
+    let listAdwardsInput = [];
+    let adwardsInput = document.getElementsByClassName('adwardsInput');
+    for(var i = 0; i <= adwardsInput.length - 1; i++) {
+      listAdwardsInput.push({award: adwardsInput[i].value});
+    }
+    return listAdwardsInput;
+  }
   
   submit() {
     let tattoos = [];
-    let data = new FormData();
+    let listAdwards = this.getAwards();
     this.checkedTattoos.forEach(function(element) {
       tattoos.push({tattooId: element});
     });
+    let data = new FormData();
     data.append("studio", this.dataUser.id);
     data.append("bio", this.currentArtist.bio);
     data.append("name", this.currentArtist.name);
     //TODO uncomment when back receive this data
-    /*data.append("awards", JSON.stringify(this.awards));
+    /*data.append("awards", JSON.stringify(listAdwards));
     data.append("styles", JSON.stringify(this.styleList));
     data.append("tattoos", JSON.stringify(tattoos));
     data.append("image", document.querySelector('#upload-image').files[0]);*/
