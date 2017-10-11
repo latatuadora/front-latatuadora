@@ -28,7 +28,7 @@
       <div class="content-flex content-column content-vertical-center">
         <h5 class="text-base text-black title">Mis tatuajes</h5>
         <div class="content-flex content-row horizontal-center content-column-mobile width-100">
-          <tattoo-item repeat.for="item of tattoos"></tattoo-item>
+          <tattoo-item repeat.for="tattoo of tattoos" currentindex.bind="$index" tattoo.bind="tattoo"></tattoo-item>
         </div>
         <div class="content-flex content-row content-vertical-center margin-top-60px">
           <a if.bind="tattoos.length > 0" route-href="route: my_tattoos" class="button-base profile-button-mobile dust-button padding-horizontal-28px margin-right-27px margin-right-10px-mobile">Ver todos</a>
@@ -106,7 +106,7 @@
       <div class="content-flex content-column content-vertical-center">
         <h5 class="text-base text-black title">Mis tatuadores</h5>
         <div class="content-flex content-row horizontal-center content-wrap content-wrap--mobile">
-          <artist-tattoo-item repeat.for="item of 6"></artist-tattoo-item>
+          <artist-tattoo-item repeat.for="artist of dataStudioFree.artist" artist.bind="artist"></artist-tattoo-item>
         </div>
         <div class="content-flex content-row content-vertical-center margin-top-60px">
           <button class="button-base profile-button-mobile dust-button padding-horizontal-28px margin-right-27px margin-right-10px-mobile">Ver todos</button>
@@ -274,7 +274,7 @@
       <div class="content-flex content-column content-vertical-center">
         <h5 class="text-base text-black title">Imágenes del <span class="text-gold">estudio</span></h5>
         <div class="content-flex content-row">
-          <study-image repeat.for="item of 3"></study-image>
+          <study-image repeat.for="image of images" image.bind="image"></study-image>
         </div>
         <div class="content-flex content-row content-vertical-center margin-top-60px">
           <button class="button-base profile-button-mobile dust-button padding-horizontal-28px margin-right-27px margin-right-10px-mobile">Ver todos</button>
