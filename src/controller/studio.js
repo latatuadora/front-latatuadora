@@ -43,5 +43,14 @@ export class Studio extends Client {
         return error;
       });
   }
-
+  
+  getImages(id) {
+    let that = this;
+    return new Promise (function(accept, reject) {
+      let url = 'carrousel/' + id;
+      return that.simplePetition(url, 'GET', null)
+        .then(data => accept(data))
+        .catch(error => reject(error));
+    });
+  }
 }
