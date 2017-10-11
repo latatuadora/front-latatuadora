@@ -80,27 +80,22 @@ export class NewTattooArtistModal extends BaseModal {
   }
   
   submit() {
-    let tattoos = [];
-    let listAdwards = this.getAwards();
-    this.checkedTattoos.forEach(function(element) {
-      tattoos.push({tattooId: element});
-    });
     let data = new FormData();
+    let listAdwards = this.getAwards();
     data.append("studio", this.dataUser.id);
     data.append("bio", this.currentArtist.bio);
     data.append("name", this.currentArtist.name);
-    //TODO uncomment when back receive this data
-    /*data.append("awards", JSON.stringify(listAdwards));
+    data.append("tattoos", this.checkedTattoos);
+    data.append("awards", JSON.stringify(listAdwards));
     data.append("styles", JSON.stringify(this.styleList));
-    data.append("tattoos", JSON.stringify(tattoos));
-    data.append("image", document.querySelector('#upload-image').files[0]);*/
-    this.api.add(this.currentArtist)
+    data.append("image", document.querySelector('#upload-image').files[0]);
+    this.api.add(data)
       .then(response => {
-        window.reload();
+        this.session.setUser(this.dataUser.email);
+        window.location.reload(true);
       })
       .catch(response => {
         this.error = response;
       });
   }
-  
 }
