@@ -100,19 +100,12 @@
                 <h1 class="text-base text-white title text-center margin-bottom-42px">Breve explicación del <span class="text-gold">diseño</span></h1>
                 <textarea class="new-input margin-bottom-59px" placeholder="Escribir nueva entrada" value.bind="currentFlash.significant"></textarea>
                 <div class="content-flex content-row content-column-mobile content-vertical-center horizontal-center width-100">
-                  <div class="content-flex content-column content-vertical-center width-100">
-                    <p class="text-base text-white subtitle text-center height-60px margin-0px">Precio recomendado</p>
-                    <input class="input-price text-base text-white text-center subtitle" type="text" value.bind="currentFlash.amountRecommended">
-                  </div>
-                  <div class="show-desktop hide-mobile">
-                    <div class="vertical-hr-gold margin-horizontal-28px"></div>
-                  </div>
                   <div class="hide-desktop show-mobile width-100-mobile">
                     <div class="horizontal-hr-gold margin-vertical-33px-mobile"></div>
                   </div>
                   <div class="content-flex content-column content-vertical-center width-100">
                     <p class="text-base text-white subtitle text-center height-60px margin-0px">Precio final</p>
-                    <input class="input-price text-base text-white text-center subtitle" type="text" value.bind="currentFlash.amount">
+                    <input class="input-price text-base text-white text-center subtitle" type="text" value.bind="currentFlash.final_price">
                   </div>
                   <div class="show-desktop hide-mobile">
                     <div class="vertical-hr-gold margin-horizontal-28px"></div>
@@ -121,8 +114,8 @@
                     <div class="horizontal-hr-gold margin-vertical-33px-mobile"></div>
                   </div>
                   <div class="content-flex content-column content-vertical-center width-100">
-                    <p class="text-base text-white subtitle text-center height-60px margin-0px">Precio si te tatúas con José</p>
-                    <input class="input-price text-base text-white text-center subtitle" type="text" value.bind="currentFlash.amountif">
+                    <p class="text-base text-white subtitle text-center height-60px margin-0px">Precio si te tatúas en nuestro estudio</p>
+                    <input class="input-price text-base text-white text-center subtitle" type="text" value.bind="currentFlash.price_with_jobber">
                   </div>
                 </div>
               </div>

@@ -17,23 +17,15 @@ export class newTattooModal extends BaseModal {
 
   constructor(catalogs, session, api) {
     super();
-    this.catalogs = catalogs;
-    this.session = session;
     this.api = api;
-    this.user = this.session.getCurrentUser();
-    this.currentTatto = {};
     this.styleList = [];
-    this.stylesToShow = [];
     this.elementList = [];
+    this.stylesToShow = [];
+    this.currentTatto = {};
+    this.session = session;
+    this.catalogs = catalogs;
     this.elementsToShow = [];
-    // TODO Change for de endpoint elements - Pending Back
-    this.elements = [
-      { id: 1, name: 'Element 1'},
-      { id: 2, name: 'Element 2'},
-      { id: 3, name: 'Element 3'},
-      { id: 4, name: 'Element 4'},
-      { id: 5, name: 'Element 5'}
-    ];
+    this.user = this.session.getCurrentUser();
   }
   
   saveRemoveStyles(element, name) {
@@ -77,27 +69,28 @@ export class newTattooModal extends BaseModal {
   
   attached() {
     this.styles = this.catalogs.getStyles();
+    this.elements = this.catalogs.getElements();
     this.bodyParts = this.catalogs.getBodyPart();
+    this.artists = this.session.getStudioFreelancer().artist;
   }
   
   submit() {
     //TODO Change artist and for endpoint - Pending Back
     let data = new FormData();
-    data.append("artist", "3");
+    data.append("name", this.currentTatto.name);
+    data.append("artist", this.currentTatto.artist);
+    data.append("partbody", this.currentTatto.partbody);
     data.append("styles", JSON.stringify(this.styleList));
     data.append("elements", JSON.stringify(this.elementList));
-    data.append("name", this.currentTatto.name);
-    data.append("partbody", this.currentTatto.partbody);
     data.append("dimensionsX", this.currentTatto.dimensionsX);
     data.append("dimensionsY", this.currentTatto.dimensionsY);
     data.append("image", document.querySelector('#photo-preview').files[0]);
     this.api.add(data)
       .then(response => {
-        window.reload();
+        window.location.reload(true);
       })
       .catch(response => {
         this.error = response;
       });
   }
-
 }

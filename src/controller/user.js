@@ -3,16 +3,18 @@ import {AuthService} from 'aurelia-authentication';
 import {inject, computedFrom} from 'aurelia-framework';
 import {json} from 'aurelia-fetch-client';
 import {Session} from 'utils/session';
-@inject(AuthService, Session)
+import {Catalogs} from 'controller/catalogs';
+@inject(AuthService, Session, Catalogs)
 export class User extends Client {
   /**
    *@PUBLIC constructor
    *@DESCRIPTION define endpoint
    **/
-  constructor(AuthService, Session) {
+  constructor(AuthService, Session, Catalogs) {
     super();
     this.authService = AuthService;
     this.session = Session;
+    this.catalogs = Catalogs;
   }
   
   // make a getter to get the authentication status.
@@ -32,6 +34,7 @@ export class User extends Client {
     //return this.authService.login({email: email, password:password}, {}, '#/dashboard');
     return this.authService.login(email, password, {}, '#/dashboard').then(function(role) {
       that.session.setUser(email);
+      that.catalogs.getInitialData();
       switch (role.usertype) {
         case 2:
           that.session.setRole(1, true);

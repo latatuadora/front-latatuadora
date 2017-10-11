@@ -39,4 +39,27 @@ export class Catalogs extends Client {
         });
     }
   }
+  
+  getElements() {
+    let localBodyPart = localStorage.getItem('elements');
+    if (localBodyPart) {
+      return JSON.parse(localBodyPart);
+    } else {
+      let that = this;
+      this.simplePetition('elements', 'GET')
+        .then(data => {
+          localStorage.setItem('elements', JSON.stringify(data.elements));
+          return JSON.parse(data.elements);
+        })
+        .catch(error => {
+          this.error = error;
+        });
+    }
+  }
+  
+  getInitialData() {
+    this.getBodyPart();
+    this.getStyles();
+    this.getElements();
+  }
 }
