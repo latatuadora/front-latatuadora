@@ -34,18 +34,10 @@ export class newFlashModal extends BaseModal {
       changeHeight: (height) => {this.shared.height = height;},
       changeWidth: (width) => {this.shared.width = width;}
     };
-    //TODO Change for de endpoint elements - Pending Back
-    this.elements = [
-      { id: 1, name: 'Element 1'},
-      { id: 2, name: 'Element 2'},
-      { id: 3, name: 'Element 3'},
-      { id: 4, name: 'Element 4'},
-      { id: 5, name: 'Element 5'}
-    ];
   }
   
   toggleAll() {
-    this.currentFlash.copyright = true;
+    this.currentFlash.copyrigth = true;
   }
   
   //TODO try to create element for this select
@@ -90,30 +82,28 @@ export class newFlashModal extends BaseModal {
   
   attached() {
     this.styles = this.catalogs.getStyles();
+    this.elements = this.catalogs.getElements();
   }
   
   submit() {
-    //TODO add 'ancho y alto' - Pending Back
-    //TODO change name 'amountif', 'amountRecommended'
     let data = new FormData();
-    data.append("sizeId", "2");
     data.append("styles", this.styleList);
     data.append("elements", this.elementList);
+    data.append("dimensionsX", this.shared.width);
+    data.append("dimensionsY", this.shared.height);
     data.append("artist", this.currentFlash.artist);
-    data.append("amount", this.currentFlash.amount);
-    data.append("amountif", this.currentFlash.amountif);
-    data.append("copyright", this.currentFlash.copyright);
+    data.append("final_price", parseFloat(this.currentFlash.final_price));
+    data.append("copyrigth", this.currentFlash.copyrigth);
     data.append("significant", this.currentFlash.significant);
-    data.append("amountRecommended", this.currentFlash.amountRecommended);
+    data.append("price_with_jobber", parseFloat(this.currentFlash.price_with_jobber));
     data.append("sellImage", document.querySelector('#photo-preview').files[0]);
     data.append("realImage", document.querySelector('#photo-complete').files[0]);
-    this.api.add(this.currentFlash)
+    this.api.add(data)
       .then(response => {
-        window.reload();
+        window.location.reload(true);
       })
       .catch(response => {
         this.error = response;
       });
   }
-  
 }
