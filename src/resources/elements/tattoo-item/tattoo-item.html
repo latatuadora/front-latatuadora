@@ -7,8 +7,8 @@
   <div class="my-tattoo">
     <div class="my-tattoo__options">
       <div>
-        <successful-edit-tattoo-modal id="successful-edit-tattoo-content-${currentindex}" simple-modal="show.two-way: showModal; superid.two-way: superid" css="${showModal ? 'display: block' : 'display: none'}" item.bind="currentItem"  go-next.call="nextItem()" go-prev.call="previousItem()" close.call="closeModal()"></successful-edit-tattoo-modal>
-        <a click.trigger="openModal(currentindex, 'successful-edit-tattoo-content')">
+        <edit-tattoo-modal id="edit-tattoo-content-${currentindex}" simple-modal="show.two-way: showModal; superid.two-way: superid" css="${showModal ? 'display: block' : 'display: none'}" item.bind="currentItem"  go-next.call="nextItem()" go-prev.call="previousItem()" close.call="closeModal()"></edit-tattoo-modal>
+        <a click.trigger="openModal(currentindex, 'edit-tattoo-content')">
           <img class="my-flash__options-icon my-flash-mar-rgt" src="src/assets/images/icons/pencilin.png">
         </a>
       </div>
