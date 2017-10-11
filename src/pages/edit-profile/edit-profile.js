@@ -107,10 +107,10 @@ export class EditProfile extends BaseModal {
         end: that.sundayEndHour
       });
     }
-    
     this.api.edit(this.currentUser)
       .then(response => {
-        window.reload();
+        this.session.setUser(this.dataUser.email);
+        //window.location.reload(true);
       })
       .catch(response => {
         this.error = response;
@@ -119,17 +119,17 @@ export class EditProfile extends BaseModal {
 
   dataAssignment() {
     let that = this;
-    this.currentUser.telephone = this.dataUser.telephone;
     this.currentUser.about = this.dataStudioFree.about;
-    this.currentUser.fbUrl = this.dataStudioFree.fbUrl;
     this.currentUser.twUrl = this.dataStudioFree.twUrl;
+    this.currentUser.fbUrl = this.dataStudioFree.fbUrl;
     this.currentUser.insUrl = this.dataStudioFree.insUrl;
+    this.currentUser.telephone = this.dataUser.telephone;
+    this.currentUser.street = this.dataUser.addressId.street;
+    this.currentUser.numExt = this.dataUser.addressId.numExt;
+    this.currentUser.numInt = this.dataUser.addressId.numInt;
+    this.currentUser.town = this.dataUser.addressId.townId.name;
     this.currentUser.state = this.dataUser.addressId.stateId.name;
     this.currentUser.suburb = this.dataUser.addressId.suburbId.name;
-    this.currentUser.town = this.dataUser.addressId.townId.name;
-    this.currentUser.street = this.dataUser.addressId.street;
-    this.currentUser.numInt = this.dataUser.addressId.numInt;
-    this.currentUser.numExt = this.dataUser.addressId.numExt;
     this.dataStudioFree.schedule.forEach(function(schedule) {
       that.currentUser.schedule.push({
         day: schedule.dayId,
@@ -160,18 +160,23 @@ export class EditProfile extends BaseModal {
       .catch(error => {
         this.error = response;
       });
-    
     this.tattoo.get(this.dataStudioFree.id)
       .then(response => {
-        that.tattoos = response;
+        that.tattoos = response.slice(-3);
       })
       .catch(error => {
         this.error = response;
       });
-  
     this.flash.get(this.dataStudioFree.id)
       .then(response => {
         that.flashes = response;
+      })
+      .catch(error => {
+        this.error = response;
+      });
+    this.api.getImages(this.dataUser.id)
+      .then(response => {
+        that.images = response;
       })
       .catch(error => {
         this.error = response;
