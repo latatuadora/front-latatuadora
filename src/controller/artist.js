@@ -40,8 +40,10 @@ export class Artist extends Client {
   add(artist) {
     let that = this;
     return new Promise (function(accept, reject) {
-      return that.simplePetition('artist', 'POST', artist)
-        .then(data => accept(data))
+      return that.simpleNativePetition('artist', 'POST', artist, function(data) {
+        return data;
+      })
+        .then(data => accept(this.data))
         .catch(error => reject(error));
     });
   }
