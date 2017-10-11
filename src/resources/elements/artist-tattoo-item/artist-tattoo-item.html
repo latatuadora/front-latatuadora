@@ -11,13 +11,13 @@
     <hr class="artist-tattoo__separator">
     <p class="artist-tattoo__description">${artist.bio}</p>
     <div class="artist-tattoo__opts">
-      <edit-tattoo-artist-modal id="edit-tattoo-artist-content" simple-modal="show.two-way: showModal" css="${showModal ? 'display: block' : 'display: none'}" item.bind="currentItem"  go-next.call="nextItem()" go-prev.call="previousItem()" close.call="closeModal()"></edit-tattoo-artist-modal>
-      <a click.trigger="openModal()">
+      <edit-tattoo-artist-modal id="edit-tattoo-artist-content-${currentindex}" simple-modal="show.two-way: showModal; superid.two-way: superid" css="${showModal ? 'display: block' : 'display: none'}" item.bind="currentItem"  go-next.call="nextItem()" go-prev.call="previousItem()" close.call="closeModal()"></edit-tattoo-artist-modal>
+      <a click.trigger="openModal(currentindex, 'edit-tattoo-artist-content')">
         <div class="artist-tattoo__icon edit-artist"></div>
       </a>
-      <delete-tattoo-artist-modal id="delete-tattoo-artist-content" simple-modal="show.two-way: showModal" css="${showModal ? 'display: block' : 'display: none'}" item.bind="currentItem"  go-next.call="nextItem()" go-prev.call="previousItem()" close.call="closeModal()"></delete-tattoo-artist-modal>
-      <a click.trigger="openModal()">
-        <div class="artist-tattoo__icon delete-artist" click.trigger="openModal()"></div>
+      <delete-tattoo-artist-modal id="delete-tattoo-artist-content-${currentindex}" simple-modal="show.two-way: showModal; superid.two-way: superid" css="${showModal ? 'display: block' : 'display: none'}" item.bind="artist"  go-next.call="nextItem()" go-prev.call="previousItem()" close.call="closeModal()"></delete-tattoo-artist-modal>
+      <a click.trigger="openModal(currentindex, 'delete-tattoo-artist-content')">
+        <div class="artist-tattoo__icon delete-artist"></div>
       </a>
     </div>
   </div>
