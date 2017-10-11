@@ -49,6 +49,12 @@
 							</select>
 						</div>
             <div class="gray-line margin-vertical-30px width-100"></div>
+            <div class="content-flex content-column content-vertical-center-mobile">
+              <select class="margin-bottom-20px" name="" id="" value.bind="currentTatto.artist">
+                <option repeat.for="artist of artists" value="${ artist.id }">${ artist.name }</option>
+              </select>
+            </div>
+            <div class="gray-line margin-vertical-30px width-100"></div>
             <label>Ancho</label>
             <input type="number" value.bind="currentTatto.dimensionsX">
             <label>Largo</label>
