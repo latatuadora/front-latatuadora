@@ -26,7 +26,7 @@ export class NewTattooArtistModal extends BaseModal {
     this.styleList = [];
     this.stylesToShow = [];
     this.checkedTattoos = [];
-    this.listAwards = [];
+    this.user = this.session.getCurrentUser();
     this.dataUser = this.session.getStudioFreelancer();
   }
 
@@ -73,8 +73,10 @@ export class NewTattooArtistModal extends BaseModal {
   getAwards() {
     let listAdwardsInput = [];
     let adwardsInput = document.getElementsByClassName('adwardsInput');
-    for(var i = 0; i <= adwardsInput.length - 1; i++) {
-      listAdwardsInput.push({award: adwardsInput[i].value});
+    for (var i = 0; i <= adwardsInput.length - 1; i++) {
+      if (adwardsInput[i].value !== '') {
+        listAdwardsInput.push({award: adwardsInput[i].value});
+      }
     }
     return listAdwardsInput;
   }
@@ -91,7 +93,7 @@ export class NewTattooArtistModal extends BaseModal {
     data.append("image", document.querySelector('#upload-image').files[0]);
     this.api.add(data)
       .then(response => {
-        this.session.setUser(this.dataUser.email);
+        this.session.setUser(this.user.email);
         window.location.reload();
       })
       .catch(response => {
