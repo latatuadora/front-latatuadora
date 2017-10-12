@@ -3,7 +3,7 @@ import { Client } from './client';
 export class Artist extends Client {
 
   constructor() {
-    super()
+    super();
     this.endpoint = 'artist';
   }
 
@@ -20,6 +20,19 @@ export class Artist extends Client {
       .catch(error => {
         return error;
       });
+  }
+  
+  get(artistId) {
+    let that = this;
+    return new Promise(function (accept, reject) {
+      return that.simpleNativePetition('artist/' + artistId, 'GET', null, function (success, error) {
+        if (success) {
+          accept(JSON.parse(success)[0]);
+        } else {
+          reject(error);
+        }
+      });
+    });
   }
 
   find(params) {
@@ -41,6 +54,19 @@ export class Artist extends Client {
     let that = this;
     return new Promise (function(accept, reject) {
       return that.simpleNativePetition('artist', 'POST', artist, function(success, error) {
+        if (success) {
+          accept(success);
+        } else {
+          reject(error);
+        }
+      });
+    });
+  }
+  
+  edit(artist) {
+    let that = this;
+    return new Promise (function(accept, reject) {
+      return that.simpleNativePetition('artist', 'PUT', artist, function(success, error) {
         if (success) {
           accept(success);
         } else {
