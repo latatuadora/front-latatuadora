@@ -87,20 +87,20 @@ export class newFlashModal extends BaseModal {
   
   submit() {
     let data = new FormData();
-    data.append("styles", this.styleList);
-    data.append("elements", this.elementList);
     data.append("dimensionsX", this.shared.width);
     data.append("dimensionsY", this.shared.height);
     data.append("artist", this.currentFlash.artist);
-    data.append("final_price", parseFloat(this.currentFlash.final_price));
+    data.append("styles", JSON.stringify(this.styleList));
     data.append("copyrigth", this.currentFlash.copyrigth);
+    data.append("elements", JSON.stringify(this.elementList));
     data.append("significant", this.currentFlash.significant);
-    data.append("price_with_jobber", parseFloat(this.currentFlash.price_with_jobber));
+    data.append("final_price", parseFloat(this.currentFlash.final_price));
     data.append("sellImage", document.querySelector('#photo-preview').files[0]);
     data.append("realImage", document.querySelector('#photo-complete').files[0]);
+    data.append("price_with_jobber", parseFloat(this.currentFlash.price_with_jobber));
     this.api.add(data)
       .then(response => {
-        window.location.reload(true);
+        window.location.reload();
       })
       .catch(response => {
         this.error = response;
