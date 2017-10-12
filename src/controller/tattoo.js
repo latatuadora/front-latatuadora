@@ -32,11 +32,13 @@ export class Tattoo extends Client {
   add(tattoo) {
     let that = this;
     return new Promise (function(accept, reject) {
-      return that.simpleNativePetition('tattoo', 'POST', tattoo, function(data) {
-        return data;
-      })
-        .then(data => accept(this.data))
-        .catch(error => reject(error));
+      return that.simpleNativePetition('tattoo', 'POST', tattoo, function (success, error) {
+        if (success) {
+          accept(success);
+        } else {
+          reject(error);
+        }
+      });
     });
   }
 
@@ -45,20 +47,18 @@ export class Tattoo extends Client {
   *@DESCRIPTION get tattoos bodyParts
   **/
   bodyParts() {
-    const url = this.URL(this.endpoint, 'bodyParts')
-
+    const url = this.URL(this.endpoint, 'bodyParts');
     return this.client
       .fetch(`${url}`, {
         method: this.methods.get
       })
       .then(response => response.json())
       .then(tattoos => {
-        return tattoos
+        return tattoos;
       })
       .catch(error => {
-        return error
-      })
-
+        return error;
+      });
   }
 
   /**
@@ -68,27 +68,24 @@ export class Tattoo extends Client {
   *@DEV action = { id: 1, action: 'ADD' } | { id: 2, action: 'DELETE' } | EMPTY
   **/
   fav(action) {
-
-    const url = this.URL(this.endpoint, 'tattoofav')
+    const url = this.URL(this.endpoint, 'tattoofav');
     let method, payload;
 
     switch (action.type) {
-      case 'ADD': method = this.methods.post; break
-      case 'DELETE': method = this.methods.delete; break
+      case 'ADD': method = this.methods.post; break;
+      case 'DELETE': method = this.methods.delete; break;
       default: method = this.methods.get
     }
 
     switch (method) {
-
       case 'GET': payload = Object.assign({}, {
         method: method
-      }); break
-
+      }); break;
       case 'POST':
       case 'DELETE': payload = Object.assign({}, {
         method: method,
         tattooId: action.id
-      }); break
+      }); break;
 
     }
 
@@ -96,28 +93,26 @@ export class Tattoo extends Client {
       .fetch(`${url}`, payload)
       .then(response => response.json())
       .then(tattos => {
-        return tattos
+        return tattos;
       })
       .catch(error => {
-        return error
-      })
+        return error;
+      });
 
   }
 
   styles() {
-
     return this.client
       .fetch('style', {
         method: this.methods.get
       })
       .then(response => response.json())
       .then(styles => {
-        return styles
+        return styles;
       })
       .catch(error => {
-        return error
-      })
-
+        return error;
+      });
   }
 
 }
