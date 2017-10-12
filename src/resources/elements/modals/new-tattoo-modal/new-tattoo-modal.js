@@ -75,7 +75,6 @@ export class newTattooModal extends BaseModal {
   }
   
   submit() {
-    //TODO Change artist and for endpoint - Pending Back
     let data = new FormData();
     data.append("name", this.currentTatto.name);
     data.append("artist", this.currentTatto.artist);
@@ -87,7 +86,7 @@ export class newTattooModal extends BaseModal {
     data.append("image", document.querySelector('#photo-preview').files[0]);
     this.api.add(data)
       .then(response => {
-        window.location.reload(true);
+        window.location.reload();
       })
       .catch(response => {
         this.error = response;
