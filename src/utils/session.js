@@ -72,10 +72,10 @@ export class Session {
   
   getStudioFreelancer() {
     let user = this.getCurrentUser();
-    if ( user.freelancer !== null) {
-      return user.freelancer;
-    } else {
+    if ( user.userType.id === 3 ) {
       return user.studio;
+    } else if ( user.userType.id === 4 ) {
+      return user.freelancer;
     }
   }
   
