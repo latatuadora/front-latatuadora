@@ -27,11 +27,13 @@ export class Flash extends Client {
   add(flash) {
     let that = this;
     return new Promise (function(accept, reject) {
-      return that.simpleNativePetition('flash', 'POST', flash, function(data) {
-        return data;
-      })
-        .then(data => accept(data))
-        .catch(error => reject(error));
+      return that.simpleNativePetition('flash', 'POST', flash, function(success, error) {
+        if (success) {
+          accept(success);
+        } else {
+          reject(error);
+        }
+      });
     });
   }
 

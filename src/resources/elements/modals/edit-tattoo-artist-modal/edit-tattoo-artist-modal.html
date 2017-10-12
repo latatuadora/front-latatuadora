@@ -1,107 +1,89 @@
 <template>
-	<require from="./edit-tattoo-artist-modal.css"></require>
-	<require from="resources/elements/tattoo-item-modal/tattoo-item-modal"></require>
-	<require from="resources/attributes/simple-modal"></require>
-  <require from="resources/elements/modals/success-change-artist-modal/success-change-artist-modal"></require>
+  <require from="./edit-tattoo-artist-modal.css"></require>
+  <require from="resources/elements/tattoo-item-modal/tattoo-item-modal"></require>
+  <require from="resources/attributes/simple-modal"></require>
+  <require from="resources/elements/modals/success-new-artist-modal/success-new-artist-modal"></require>
 
   <div class="tattoo-modal">
-	<div class="tattoo-modal__header">
-	  <img class="tattoo-modal__close" src="src/assets/images/icons/close.png" click.delegate="close()">
-	</div>
-	<div class="tattoos-grid__element tattoo-modal__element">
-	  <div class="tattoos-grid__element-info-wrapper margin-horizontal-12px-mobile padding-vertical-64px-100px padding-horizontal-30px-mobile">
-			<div class="content-flex content-column content-vertical-center width-100">
-				<h1 class="text-base text-white text-center title margin-bottom-41px">Editar información del <span class="text-gold">tatuador</span></h1>
-				<form action="">
-					<div class="content-flex content-column content-vertical-center">
-						<div class="content-flex content-column margin-bottom-63px">
-							<div class="margin-bottom-22px">
-								<img class="image-profile" src="src/assets/images/mock/avatar-transparent.png" alt="">
-							</div>
-							<div class="content-flex horizontal-center">
-								<input class="hide-desktop hide-mobile" id="upload-image" type="file">
-								<label class="text-base text-white paragraph text-upload-underline" for="upload-image">Editar foto</label>
-							</div>
-						</div>
-						<div class="content-flex content-column width-100-mobile">
-							<h2 class="text-base text-white subtitle margin-bottom-18px">Nombre completo</h2>
-							<div class="content-relative">
-								<input class="text-base text-white paragraph tattoo-artist-input-base padding-right-55px width-100-mobile" type="text">
-								<div class="content-absolute top-17px-right-10px">
-									<div class="content-flex content-row">
-										<div class="background-icon edit-text margin-right-5px"></div>
-										<div class="background-icon delete-text"></div>
-									</div>
-								</div>
-							</div>
-						</div>
-						<div class="special-hr edit-artist-hr-gold margin-vertical-35px show-desktop hide-mobile"></div>
-						<div class="edit-artist-hr-gold margin-vertical-35px hide-desktop show-mobile"></div>
-						<div class="content-flex content-column width-100-mobile">
-							<h2 class="text-base text-white subtitle margin-bottom-18px">Descripción</h2>
-							<div class="content-relative">
-								<textarea class="text-base text-white paragraph tattoo-artist-input-base textarea-height-146px width-100-mobile" placeholder="Escribe una breve descripción"></textarea>
-								<div class="content-absolute top-17px-right-10px top-auto-bottom-10px">
-									<div class="content-flex content-row">
-										<div class="background-icon edit-text margin-right-5px"></div>
-										<div class="background-icon delete-text"></div>
-									</div>
-								</div>
-							</div>
-						</div>
-						<div class="content-flex content-column margin-vertical-35px width-100-mobile">
-							<h2 class="text-base text-white subtitle margin-bottom-18px">Premios y reconocimientos</h2>
-							<div class="content-relative margin-bottom-14px">
-								<img class="content-absolute star-prize" src="src/assets/images/icons/lead-star.png" alt="">
-								<div class="content-relative">
-									<input class="text-base text-white paragraph tattoo-artist-input-base padding-right-55px width-100-mobile" type="text" placeholder="Escribe aquí...">
-									<div class="content-absolute top-17px-right-10px">
-										<div class="content-flex content-row">
-											<div class="background-icon edit-text margin-right-5px"></div>
-											<div class="background-icon delete-text"></div>
-										</div>
-									</div>
-								</div>
-							</div>
-							<div class="content-relative margin-bottom-14px">
-								<img class=" content-absolute star-prize" src="src/assets/images/icons/lead-star.png"  src="" alt="">
-								<div class="content-relative">
-									<input class="text-base text-white paragraph tattoo-artist-input-base padding-right-55px width-100-mobile" type="text" placeholder="Escribe aquí...">
-									<div class="content-absolute top-17px-right-10px">
-										<div class="content-flex content-row">
-											<div class="background-icon edit-text margin-right-5px"></div>
-											<div class="background-icon delete-text"></div>
-										</div>
-									</div>
-								</div>
-							</div>
-							<div class="content-flex horizontal-center margin-vertical-20px-50px">
-								<button class="content-flex content-row content-vertical-center horizontal-center button-base padding-horizontal-15px" click.trigger="openModal()">
-									<img class="margin-right-10px" src="src/assets/images/icons/plus_circle.svg">
-									Agregar premio
-								</button>
-							</div>
-							<select name="" id="">
-								<option value="">Estilos</option>
-							</select>
-						</div>
-						<div class="special-hr edit-artist-hr-gold margin-vertical-35px show-desktop hide-mobile"></div>
-						<div class="edit-artist-hr-gold margin-vertical-35px hide-desktop show-mobile"></div>
-						<div class="content-flex content-column content-vertical-center">
-							<h1 class="text-base text-white text-center title margin-0px">Agregar tatuajes al nuevo <span class="text-gold">tatuador</span></h1>
-							<h3 class="text-base text-white text-center bullets margin-vertical-24px-69px width-437px width-auto-mobile">A continuación selecciona de tu galería de tatuajes, los que haya hecho este tatuador</h3>
-							<div class="content-flex content-row content-column-mobile content-wrap">
-								<tattoo-item-modal repeat.for="tattoo of 5"></tattoo-item-modal>
-							</div>
-						</div>
-						<success-change-artist-modal id="success-change-artist-content" simple-modal="show.two-way: showModal" css="${showModal ? 'display: block' : 'display: none'}" item.bind="currentItem"  go-next.call="nextItem()" go-prev.call="previousItem()" close.call="closeModal()"></success-change-artist-modal>
-						<div class="content-flex align-self-end align-self-center-mobile margin-top-45px">
-							<input class="button-base" type="submit" value="Guardar cambios" click.trigger="openModal()">
-						</div>
-					</div>
-				</form>
-			</div>
-	  </div>
-	</div>
+    <div class="tattoo-modal__header">
+      <img class="tattoo-modal__close" src="src/assets/images/icons/close.png" click.delegate="close()">
+    </div>
+    <div class="tattoos-grid__element tattoo-modal__element">
+      <div class="tattoos-grid__element-info-wrapper margin-horizontal-12px-mobile padding-vertical-64px-100px">
+        <div class="content-flex content-column content-vertical-center width-100">
+          <h1 class="text-base text-white title margin-bottom-41px">Editar <span class="text-gold">tatuador</span></h1>
+          <form action="">
+            <div class="content-flex content-column content-vertical-center">
+              <div class="content-flex content-column margin-bottom-63px">
+                <div class="margin-bottom-22px">
+                  <img class="image-profile" src="src/assets/images/mock/avatar-transparent.png" alt="">
+                </div>
+                <div class="content-flex horizontal-center">
+                  <input class="hide-desktop hide-mobile" id="upload-image" type="file">
+                  <label class="text-base text-white paragraph text-upload-underline" for="upload-image">Subir imagen</label>
+                </div>
+              </div>
+              <div class="content-flex content-column">
+                <h2 class="text-base text-white subtitle margin-bottom-18px">Nombre completo</h2>
+                <input class="text-base text-white paragraph tattoo-artist-input-base width-100-mobile" type="text" value.bind="currentArtist.name">
+              </div>
+              <div class="special-hr vertical-hr-gold margin-vertical-35px"></div>
+              <div class="content-flex content-column">
+                <h2 class="text-base text-white subtitle margin-bottom-18px">Descripción</h2>
+                <textarea class="text-base text-white paragraph tattoo-artist-input-base textarea-height-146px width-100-mobile" placeholder="Escribe una breve descripción" value.bind="currentArtist.bio"></textarea>
+              </div>
+              <div class="content-flex content-column margin-vertical-35px awards-and-styles">
+                <h2 class="text-base text-white subtitle margin-bottom-18px">Premios y reconocimientos</h2>
+                <div class="content-relative margin-bottom-14px" id="adwardsEdit-${artist.id}">
+                  <div if.bind="awardsList.length > 0" repeat.for="award of awardsList" id="divAward">
+                    <img class="content-absolute star-prize" src="src/assets/images/icons/lead-star.png" alt="">
+                    <input class="text-base text-white paragraph tattoo-artist-input-base width-100-mobile" value="${award.award}" placeholder="Escribe aquí..." type="text">
+                  </div>
+                  <div if.bind="awardsList.length === 0" id="divAward">
+                    <img class="content-absolute star-prize" src="src/assets/images/icons/lead-star.png" alt="">
+                    <input class="text-base text-white paragraph tattoo-artist-input-base width-100-mobile" placeholder="Escribe aquí..." type="text">
+                  </div>
+                </div>
+                <div class="content-flex horizontal-center margin-vertical-20px-50px">
+                  <button class="content-flex content-row content-vertical-center horizontal-center button-base padding-horizontal-15px" click.trigger="addAward()">
+                    <img class="margin-right-10px" src="src/assets/images/icons/plus_circle.svg">
+                    Agregar premio
+                  </button>
+                </div>
+                <div class="content-flex content-column content-vertical-center-mobile">
+                  <select class="margin-bottom-20px" name="" id="" value.bind="changedValue" change.delegate="saveRemoveStyles(changedValue, 'style')">
+                    <option repeat.for="style of styles" model.bind="style">${ style.name }</option>
+                  </select>
+                  <div class="content-gray-tag">
+                    <div repeat.for="style of stylesToShow" class="content-flex content-row content-vertical-center horizontal-center gray-tag">
+                      <p class="text-base text-white bullets margin-0px">${ style.name }</p>
+                      <img class="close-tag-img" src="src/assets/images/icons/close.png" alt="" click.delegate="saveRemoveStyles(style, 'style')">
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="special-hr vertical-hr-gold margin-vertical-35px"></div>
+              <div class="content-flex content-column content-vertical-center">
+                <h1 if.bind="tattoos.length > 0" class="text-base text-white text-center title margin-0px">Agregar tatuajes al nuevo <span class="text-gold">tatuador</span></h1>
+                <h3 if.bind="tattoos.length > 0" class="text-base text-white text-center bullets margin-vertical-24px-69px width-437px width-auto-mobile">A continuación selecciona de tu galería de tatuajes, los que haya hecho este tatuador</h3>
+                <h3 if.bind="tattoos.length == 0" class="text-base text-white text-center bullets margin-vertical-24px-69px width-437px width-auto-mobile">Debes agregar tatuajes a tu estudio</h3>
+                <div class="content-flex content-row content-column-mobile content-wrap">
+                  <div class="tattoo-selection" repeat.for="tattoo of tattoos">
+                    <input class="hide-input" type="checkbox" value.bind="tattoo.id" id="selection-tattoo-${tattoo.id}" checked.bind="checkedTattoos">
+                    <label for="selection-tattoo-${tattoo.id}">
+                      <tattoo-item-modal tattoo.bind="tattoo"></tattoo-item-modal>
+                    </label>
+                  </div>
+                </div>
+              </div>
+              <success-new-artist-modal id="success-new-artist-content" simple-modal="show.two-way: showModal" css="${showModal ? 'display: block' : 'display: none'}" item.bind="currentItem"  go-next.call="nextItem()" go-prev.call="previousItem()" close.call="closeModal()"></success-new-artist-modal>
+              <div class="content-flex align-self-end align-self-center-mobile margin-top-45px">
+                <button class="button-base" click.trigger="submit()">Guardar cambios</button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
   </div>
 </template>
