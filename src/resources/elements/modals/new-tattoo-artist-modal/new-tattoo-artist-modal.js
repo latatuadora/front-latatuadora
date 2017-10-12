@@ -92,7 +92,7 @@ export class NewTattooArtistModal extends BaseModal {
     this.api.add(data)
       .then(response => {
         this.session.setUser(this.dataUser.email);
-        window.location.reload(true);
+        window.location.reload();
       })
       .catch(response => {
         this.error = response;
