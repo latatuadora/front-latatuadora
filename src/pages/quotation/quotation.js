@@ -104,7 +104,6 @@ export class Quotation extends BaseMultiStep {
       comments: this.shared.additionalComment,
       studioId: this.shared.artist ? this.shared.artist.id : null
     };
-    console.log(request)
     this.controller.quotation.quotation(request)
       .then(results => {
         this.goToResults(results);
