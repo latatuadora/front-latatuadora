@@ -24,6 +24,19 @@ export class Tattoo extends Client {
         .catch(error => reject(error));
     });
   }
+  
+  getTattoo(tattooId) {
+    let that = this;
+    return new Promise(function(accept, reject) {
+      return that.simpleNativePetition('tattoo/get?tattoo=' + tattooId, 'GET', null, function(success, error) {
+        if (success) {
+          accept(JSON.parse(success).tattoo);
+        } else {
+          reject(error);
+        }
+      });
+    });
+  }
 
   /**
   *@PUBLIC add
@@ -32,7 +45,20 @@ export class Tattoo extends Client {
   add(tattoo) {
     let that = this;
     return new Promise (function(accept, reject) {
-      return that.simpleNativePetition('tattoo', 'POST', tattoo, function (success, error) {
+      return that.simpleNativePetition('tattoo', 'POST', tattoo, function(success, error) {
+        if (success) {
+          accept(success);
+        } else {
+          reject(error);
+        }
+      });
+    });
+  }
+  
+  edit(tattoo, tattooId) {
+    let that = this;
+    return new Promise (function(accept, reject) {
+      return that.simpleNativePetition('tattoo/' + tattooId, 'PUT', tattoo, function(success, error) {
         if (success) {
           accept(success);
         } else {
