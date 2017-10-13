@@ -406,7 +406,7 @@ export class App {
       },
       {
         route: 'dashboard/perfil/editar',
-        name: 'edit_profile',
+        name: 'edit_profile_user',
         moduleId: 'dashboards/user/edit/edit',
         modules: {
           1: '...',
