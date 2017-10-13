@@ -25,7 +25,6 @@ export class NewTattooArtistModal extends BaseModal {
     this.currentArtist = {};
     this.styleList = [];
     this.stylesToShow = [];
-    this.checkedTattoos = [];
     this.user = this.session.getCurrentUser();
     this.dataUser = this.session.getStudioFreelancer();
   }
@@ -87,7 +86,6 @@ export class NewTattooArtistModal extends BaseModal {
     data.append("studio", this.dataUser.id);
     data.append("bio", this.currentArtist.bio);
     data.append("name", this.currentArtist.name);
-    data.append("tattoos", this.checkedTattoos);
     data.append("awards", JSON.stringify(listAdwards));
     data.append("styles", JSON.stringify(this.styleList));
     data.append("image", document.querySelector('#upload-image').files[0]);
