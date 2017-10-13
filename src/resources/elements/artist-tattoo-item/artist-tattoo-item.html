@@ -11,7 +11,7 @@
     <hr class="artist-tattoo__separator">
     <p class="artist-tattoo__description">${artist.bio}</p>
     <div class="artist-tattoo__opts">
-      <edit-tattoo-artist-modal id="edit-tattoo-artist-content-${currentindex}" simple-modal="show.two-way: showModal; superid.two-way: superid" css="${showModal ? 'display: block' : 'display: none'}" item.bind="currentItem"  go-next.call="nextItem()" go-prev.call="previousItem()" close.call="closeModal()"></edit-tattoo-artist-modal>
+      <edit-tattoo-artist-modal id="edit-tattoo-artist-content-${currentindex}" simple-modal="show.two-way: showModal; superid.two-way: superid" css="${showModal ? 'display: block' : 'display: none'}" artist.bind="artist"  go-next.call="nextItem()" go-prev.call="previousItem()" close.call="closeModal()"></edit-tattoo-artist-modal>
       <a click.trigger="openModal(currentindex, 'edit-tattoo-artist-content')">
         <div class="artist-tattoo__icon edit-artist"></div>
       </a>
