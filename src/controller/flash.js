@@ -24,7 +24,7 @@ export class Flash extends Client {
     });
   }
   
-  getFlah(flashId) {
+  getFlash(flashId) {
     let that = this;
     return new Promise(function (accept, reject) {
       return that.simpleNativePetition('flash/get?flash=' + flashId, 'GET', null, function(success, error) {
