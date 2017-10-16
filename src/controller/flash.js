@@ -24,10 +24,36 @@ export class Flash extends Client {
     });
   }
   
+  getFlash(flashId) {
+    let that = this;
+    return new Promise(function (accept, reject) {
+      return that.simpleNativePetition('flash/get?flash=' + flashId, 'GET', null, function(success, error) {
+        if (success) {
+          accept(JSON.parse(success).flash);
+        } else {
+          reject(error);
+        }
+      });
+    });
+  }
+  
   add(flash) {
     let that = this;
     return new Promise (function(accept, reject) {
       return that.simpleNativePetition('flash', 'POST', flash, function(success, error) {
+        if (success) {
+          accept(success);
+        } else {
+          reject(error);
+        }
+      });
+    });
+  }
+  
+  edit(flash) {
+    let that = this;
+    return new Promise (function(accept, reject) {
+      return that.simpleNativePetition('flash', 'PUT', flash, function(success, error) {
         if (success) {
           accept(success);
         } else {

@@ -88,7 +88,7 @@
                 <h1 if.bind="user.artist.length == 0" class="text-base text-white title text-center">Debes agregar tatuadores<br>a tu estudio</h1>
                 <div class="content-flex content-row content-wrap item-translate-14">
                   <div class="artist-radio-button" repeat.for="artist of user.artist">
-                    <input class="hide-input" type="radio" value.bind="artist.id" id="selection-artist-${artist.id}" checked.bind="currentFlash.artist">
+                    <input class="hide-input" type="radio" value.bind="artist.id" id="selection-artist-${artist.id}" name="new-flash-artist" checked.bind="currentFlash.artist">
                     <label for="selection-artist-${artist.id}">
                       <artist-tattoo-item-modal artist.bind="artist"></artist-tattoo-item-modal>
                     </label>

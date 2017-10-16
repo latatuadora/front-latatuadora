@@ -3,12 +3,12 @@ import {BaseModal} from 'utils/base-modal';
 import {inject} from 'aurelia-framework';
 import {Catalogs} from 'controller/catalogs';
 import {Session} from 'utils/session';
-import {Flash} from 'controller/flash';
+import {Tattoo} from 'controller/tattoo';
 
-@inject(Catalogs, Session, Flash)
-export class EditFlashModal extends BaseModal {
-  @bindable flash;
-  @bindable type = 'flash';
+@inject(Catalogs, Session, Tattoo)
+export class EditTattooModal extends BaseModal {
+  @bindable tattoo;
+  @bindable type = 'tattoo';
   @bindable vote;
   @bindable comment;
   @bindable goPrev;
@@ -21,24 +21,14 @@ export class EditFlashModal extends BaseModal {
     this.styleList = [];
     this.elementList = [];
     this.stylesToShow = [];
+    this.currentTatto = {};
     this.session = session;
-    this.elementsToShow = [];
     this.catalogs = catalogs;
-    this.currentFlash = { copyright: false };
-    this.shared = {
-      height: 10,
-      width: 10,
-      changeHeight: (height) => {this.shared.height = height;},
-      changeWidth: (width) => {this.shared.width = width;}
-    };
-    this.user = this.session.getStudioFreelancer();
+    this.elementsToShow = [];
+    this.user = this.session.getCurrentUser();
+    this.productMatcher = (a, b) => a.id === b.id;
   }
   
-  toggleAll() {
-    this.currentFlash.copyrigth = true;
-  }
-  
-  //TODO try to create element for this select
   saveRemoveStyles(element, name) {
     if (!this.searchIndexInObject({styleId: element.id}, this.styleList, this.stylesToShow, name)) {
       this.styleList.push({ styleId: element.id });
@@ -82,36 +72,30 @@ export class EditFlashModal extends BaseModal {
     let that = this;
     this.styles = await this.catalogs.getStyles();
     this.elements = await this.catalogs.getElements();
-    this.currentFlash = await this.api.getFlah(this.flash.id);
-    this.currentFlash.styles.forEach(function(style) {
-      if (style !== null) {
-        that.stylesToShow.push({name: style.name, id: style.id});
-        that.styleList.push({styleId: style.id});
-      }
+    this.bodyParts = await this.catalogs.getBodyPart();
+    this.artists = this.session.getStudioFreelancer().artist;
+    this.currentTatto = await this.api.getTattoo(this.tattoo.id);
+    this.currentTatto.styles.forEach(function(style) {
+      that.stylesToShow.push({name: style.name, id: style.id});
+      that.styleList.push({ styleId: style.id });
     });
-    this.currentFlash.elements.forEach(function(element) {
-      if (element !== null) {
-        that.elementsToShow.push({name: element.name, id: element.id});
-        that.elementList.push({elementId: element.id});
-      }
+    this.currentTatto.elements.forEach(function(element) {
+      that.elementsToShow.push({name: element.name, id: element.id});
+      that.elementList.push({ elementId: element.id });
     });
   }
   
   submit() {
     let data = new FormData();
-    data.append("id", this.currentFlash.id);
-    data.append("dimensionsX", this.shared.width);
-    data.append("dimensionsY", this.shared.height);
-    data.append("artist", this.currentFlash.artist.id);
+    data.append("name", this.currentTatto.name);
+    data.append("artist", this.currentTatto.artist.id);
+    data.append("partbody", this.currentTatto.partbody.id);
     data.append("styles", JSON.stringify(this.styleList));
-    data.append("copyrigth", this.currentFlash.copyrigth);
     data.append("elements", JSON.stringify(this.elementList));
-    data.append("significant", this.currentFlash.significant);
-    data.append("final_price", parseFloat(this.currentFlash.final_price));
-    data.append("price_with_jobber", parseFloat(this.currentFlash.price_with_jobber));
-    data.append("sellImage", document.querySelector('#photo-preview').files[0]);
-    data.append("realImage", document.querySelector('#photo-complete').files[0]);
-    this.api.edit(data)
+    data.append("dimensionsX", this.currentTatto.dimensionsX);
+    data.append("dimensionsY", this.currentTatto.dimensionsY);
+    data.append("image", document.querySelector('#photo-preview').files[0]);
+    this.api.edit(data, this.currentTatto.id)
       .then(response => {
         window.location.reload();
       })

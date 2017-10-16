@@ -2,14 +2,15 @@
   <require from="./tattoo-item.css"></require>
   <require from="resources/attributes/simple-modal"></require>
   <require from="resources/elements/modals/delete-tattoo-modal/delete-tattoo-modal"></require>
+  <require from="resources/elements/modals/edit-tattoo-modal/edit-tattoo-modal"></require>
   <require from="resources/elements/modals/successful-edit-tattoo-modal/successful-edit-tattoo-modal"></require>
 
   <div class="my-tattoo">
     <div class="my-tattoo__options">
       <div>
-        <edit-tattoo-modal id="edit-tattoo-content-${currentindex}" simple-modal="show.two-way: showModal; superid.two-way: superid" css="${showModal ? 'display: block' : 'display: none'}" item.bind="currentItem"  go-next.call="nextItem()" go-prev.call="previousItem()" close.call="closeModal()"></edit-tattoo-modal>
+        <edit-tattoo-modal id="edit-tattoo-content-${currentindex}" simple-modal="show.two-way: showModal; superid.two-way: superid" css="${showModal ? 'display: block' : 'display: none'}" tattoo.bind="tattoo"  go-next.call="nextItem()" go-prev.call="previousItem()" close.call="closeModal()"></edit-tattoo-modal>
         <a click.trigger="openModal(currentindex, 'edit-tattoo-content')">
-          <img class="my-flash__options-icon my-flash-mar-rgt" src="src/assets/images/icons/pencilin.png">
+          <img class="my-tattoo__options-icon my-tattoo-mar-rgt" src="src/assets/images/icons/pencilin.png">
         </a>
       </div>
       <div>
@@ -41,11 +42,13 @@
           </div>
         </div>
       </div>
-      <ul class="my-tattoo-flex-row my-tattoo__tags">
-        <li repeat.for="style of tattoo.styles" class="my-tattoo__tag-style">
-          <a class="my-tattoo__tag-txt">${style.name}</a>
-        </li>
-      </ul>
+      <div>
+        <ul class="my-tattoo-flex-row my-tattoo__tags">
+          <li repeat.for="style of tattoo.styles" class="my-tattoo__tag-style">
+            <a class="my-tattoo__tag-txt">${style.name}</a>
+          </li>
+        </ul>
+      </div>
     </div>
   </div>
 </template>
