@@ -47,18 +47,16 @@
 							</div>
 						</div>
 						<div class="gray-line margin-vertical-30px width-100"></div>
-						<div class="content-flex content-column content-vertical-center-mobile" validation-errors.bind="partbodyErrors">
+						<div class="content-flex content-column content-vertical-center-mobile">
 							<select class="margin-bottom-20px" name="partbody" value.bind="currentTatto.partbody & validate">
 								<option repeat.for="bodyPart of bodyParts" value="${ bodyPart.id }">${ bodyPart.name }</option>
 							</select>
-              <span class="validation-error" repeat.for="error of partbodyErrors">${error.error.message}</span>
 						</div>
             <div class="gray-line margin-vertical-30px width-100"></div>
-            <div class="content-flex content-column content-vertical-center-mobile" validation-errors.bind="artistErrors">
+            <div class="content-flex content-column content-vertical-center-mobile">
               <select class="margin-bottom-20px" name="artist" value.bind="currentTatto.artist & validate">
                 <option repeat.for="artist of artists" value="${ artist.id }">${ artist.name }</option>
               </select>
-              <span class="validation-error" repeat.for="error of artistErrors">${error.error.message}</span>
             </div>
             <div class="gray-line margin-vertical-30px width-100"></div>
             <div validation-errors.bind="dimensionsXErrors">
