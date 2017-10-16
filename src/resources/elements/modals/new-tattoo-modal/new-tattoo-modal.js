@@ -19,9 +19,9 @@ export class newTattooModal extends BaseModal {
   constructor(catalogs, session, api, controller, validator) {
     super();
     this.api = api;
-    this.stylesToShow = [];
     this.stylesList = [];
     this.elementsList = [];
+    this.stylesToShow = [];
     this.currentTatto = {
       styles: [],
       elements: []
