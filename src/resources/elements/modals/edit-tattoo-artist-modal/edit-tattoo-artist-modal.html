@@ -62,20 +62,6 @@
                   </div>
                 </div>
               </div>
-              <div class="special-hr vertical-hr-gold margin-vertical-35px"></div>
-              <div class="content-flex content-column content-vertical-center">
-                <h1 if.bind="tattoos.length > 0" class="text-base text-white text-center title margin-0px">Agregar tatuajes al nuevo <span class="text-gold">tatuador</span></h1>
-                <h3 if.bind="tattoos.length > 0" class="text-base text-white text-center bullets margin-vertical-24px-69px width-437px width-auto-mobile">A continuación selecciona de tu galería de tatuajes, los que haya hecho este tatuador</h3>
-                <h3 if.bind="tattoos.length == 0" class="text-base text-white text-center bullets margin-vertical-24px-69px width-437px width-auto-mobile">Debes agregar tatuajes a tu estudio</h3>
-                <div class="content-flex content-row content-column-mobile content-wrap">
-                  <div class="tattoo-selection" repeat.for="tattoo of tattoos">
-                    <input class="hide-input" type="checkbox" value.bind="tattoo.id" id="selection-tattoo-${tattoo.id}" checked.bind="checkedTattoos">
-                    <label for="selection-tattoo-${tattoo.id}">
-                      <tattoo-item-modal tattoo.bind="tattoo"></tattoo-item-modal>
-                    </label>
-                  </div>
-                </div>
-              </div>
               <success-new-artist-modal id="success-new-artist-content" simple-modal="show.two-way: showModal" css="${showModal ? 'display: block' : 'display: none'}" item.bind="currentItem"  go-next.call="nextItem()" go-prev.call="previousItem()" close.call="closeModal()"></success-new-artist-modal>
               <div class="content-flex align-self-end align-self-center-mobile margin-top-45px">
                 <button class="button-base" click.trigger="submit()">Guardar cambios</button>
