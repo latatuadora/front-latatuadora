@@ -1,11 +1,12 @@
 import {bindable} from 'aurelia-framework';
 import {BaseModal} from 'utils/base-modal';
-import {inject} from 'aurelia-framework';
+import {inject, NewInstance} from 'aurelia-framework';
 import {Catalogs} from 'controller/catalogs';
 import {Session} from 'utils/session';
 import {Tattoo} from 'controller/tattoo';
+import {ValidationRules, ValidationController, validateTrigger, Validator} from 'aurelia-validation';
 
-@inject(Catalogs, Session, Tattoo)
+@inject(Catalogs, Session, Tattoo, NewInstance.of(ValidationController), Validator)
 export class newTattooModal extends BaseModal {
   @bindable flash;
   @bindable type = 'tattoo';
@@ -15,29 +16,36 @@ export class newTattooModal extends BaseModal {
   @bindable goNext;
   @bindable close;
 
-  constructor(catalogs, session, api) {
+  constructor(catalogs, session, api, controller, validator) {
     super();
     this.api = api;
-    this.styleList = [];
-    this.elementList = [];
     this.stylesToShow = [];
-    this.currentTatto = {};
+    this.stylesList = [];
+    this.elementsList = [];
+    this.currentTatto = {
+      styles: [],
+      elements: []
+    };
     this.session = session;
-    this.catalogs = catalogs;
     this.elementsToShow = [];
+    this.catalogs = catalogs;
+    this.validator = validator;
+    this.controller = controller;
     this.user = this.session.getCurrentUser();
+    this.setRules();
+    this.controller.validateTrigger = validateTrigger.changeOrBlur;
   }
   
   saveRemoveStyles(element, name) {
-    if (!this.searchIndexInObject({styleId: element.id}, this.styleList, this.stylesToShow, name)) {
-      this.styleList.push({ styleId: element.id });
+    if (!this.searchIndexInObject({styleId: element.id}, this.stylesList, this.stylesToShow, name)) {
+      this.stylesList.push({ styleId: element.id });
       this.stylesToShow.push({ name: element.name, id: element.id });
     }
   }
   
   saveRemoveElements(element, name) {
-    if (!this.searchIndexInObject({elementId: element.id}, this.elementList, this.elementsToShow, name)) {
-      this.elementList.push({ elementId: element.id });
+    if (!this.searchIndexInObject({elementId: element.id}, this.elementsList, this.elementsToShow, name)) {
+      this.elementsList.push({ elementId: element.id });
       this.elementsToShow.push({ name: element.name, id: element.id });
     }
   }
@@ -74,22 +82,46 @@ export class newTattooModal extends BaseModal {
     this.artists = this.session.getStudioFreelancer().artist;
   }
   
+  setRules() {
+    ValidationRules.customRule('iterator', (value, obj) =>
+      value === null
+      || value === undefined
+      || value === ''
+      || value.length > 0,
+      '*Debes de escoger al menos una opción'
+    );
+    ValidationRules
+      .ensure('styles').satisfiesRule('iterator')
+      .ensure('elements').satisfiesRule('iterator')
+      .ensure('name').required().withMessage('*Debes introducir un nombre')
+      .ensure('dimensionsY').required().withMessage('*Debes introducir un alto')
+      .ensure('dimensionsX').required().withMessage('*Debes introducir un ancho')
+      .on(this.currentTatto);
+  }
+  
   submit() {
     let data = new FormData();
+    this.currentTatto.styles = this.stylesList;
+    this.currentTatto.elements = this.elementsList;
     data.append("name", this.currentTatto.name);
     data.append("artist", this.currentTatto.artist);
     data.append("partbody", this.currentTatto.partbody);
-    data.append("styles", JSON.stringify(this.styleList));
-    data.append("elements", JSON.stringify(this.elementList));
-    data.append("dimensionsX", this.currentTatto.dimensionsX);
-    data.append("dimensionsY", this.currentTatto.dimensionsY);
+    data.append("styles", JSON.stringify(this.currentTatto.styles));
+    data.append("elements", JSON.stringify(this.currentTatto.elements));
+    data.append("dimensionsX", parseFloat(this.currentTatto.dimensionsX));
+    data.append("dimensionsY", parseFloat(this.currentTatto.dimensionsY));
     data.append("image", document.querySelector('#photo-preview').files[0]);
-    this.api.add(data)
-      .then(response => {
-        window.location.reload();
-      })
-      .catch(response => {
-        this.error = response;
+    this.controller.validate()
+      .then(result => {
+        if (result.valid) {
+          this.api.add(data)
+            .then(response => {
+              window.location.reload();
+            })
+            .catch(response => {
+              this.error = response;
+            });
+        }
       });
   }
 }
