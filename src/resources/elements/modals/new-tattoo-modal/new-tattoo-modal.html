@@ -23,47 +23,62 @@
 						</div>
 					</form>
 					<div class="align-self-start padding-43px-98px padding-29-25px-mobile width-100">
-						<div class="content-flex content-column content-vertical-center-mobile">
-							<select class="margin-bottom-20px" name="" id="" value.bind="changedValue" change.delegate="saveRemoveStyles(changedValue, 'style')">
+						<div class="content-flex content-column content-vertical-center-mobile" validation-errors.bind="stylesErrors">
+							<select class="margin-bottom-20px" value.bind="currentTatto.styles & validate" change.delegate="saveRemoveStyles(currentTatto.styles, 'style')">
+                <option selected value>Selecciona un estilo</option>
                 <option repeat.for="style of styles" model.bind="style">${ style.name }</option>
 							</select>
+              <span class="validation-error" repeat.for="error of stylesErrors">${error.error.message}</span>
 							<div repeat.for="style of stylesToShow" class="content-flex content-row content-vertical-center horizontal-center gray-tag">
 								<p class="text-base text-white bullets margin-0px">${ style.name }</p>
 								<img class="close-tag-img" src="src/assets/images/icons/close.png" alt="" click.delegate="saveRemoveStyles(style, 'style')">
 							</div>
 						</div>
 						<div class="gray-line margin-vertical-30px width-100"></div>
-						<div class="content-flex content-column content-vertical-center-mobile">
-							<select class="margin-bottom-20px" name="" id="" value.bind="changedValue2" change.delegate="saveRemoveElements(changedValue2, 'element')">
+						<div class="content-flex content-column content-vertical-center-mobile" validation-errors.bind="elementsErrors">
+							<select class="margin-bottom-20px" name="changedValue2" id="" value.bind="currentTatto.elements & validate" change.delegate="saveRemoveElements(currentTatto.elements, 'element')">
+                <option selected value>Selecciona un elemento</option>
                 <option repeat.for="element of elements" model.bind="element">${ element.name }</option>
 							</select>
+              <span class="validation-error" repeat.for="error of elementsErrors">${error.error.message}</span>
 							<div repeat.for="element of elementsToShow" class="content-flex content-row content-vertical-center horizontal-center gray-tag">
 								<p class="text-base text-white bullets margin-0px">${ element.name }</p>
 								<img class="close-tag-img" src="src/assets/images/icons/close.png" alt="" click.delegate="saveRemoveElements(element, 'element')">
 							</div>
 						</div>
 						<div class="gray-line margin-vertical-30px width-100"></div>
-						<div class="content-flex content-column content-vertical-center-mobile">
-							<select class="margin-bottom-20px" name="" id="" value.bind="currentTatto.partbody">
+						<div class="content-flex content-column content-vertical-center-mobile" validation-errors.bind="partbodyErrors">
+							<select class="margin-bottom-20px" name="partbody" value.bind="currentTatto.partbody & validate">
 								<option repeat.for="bodyPart of bodyParts" value="${ bodyPart.id }">${ bodyPart.name }</option>
 							</select>
+              <span class="validation-error" repeat.for="error of partbodyErrors">${error.error.message}</span>
 						</div>
             <div class="gray-line margin-vertical-30px width-100"></div>
-            <div class="content-flex content-column content-vertical-center-mobile">
-              <select class="margin-bottom-20px" name="" id="" value.bind="currentTatto.artist">
+            <div class="content-flex content-column content-vertical-center-mobile" validation-errors.bind="artistErrors">
+              <select class="margin-bottom-20px" name="artist" value.bind="currentTatto.artist & validate">
                 <option repeat.for="artist of artists" value="${ artist.id }">${ artist.name }</option>
               </select>
+              <span class="validation-error" repeat.for="error of artistErrors">${error.error.message}</span>
             </div>
             <div class="gray-line margin-vertical-30px width-100"></div>
-            <label>Ancho</label>
-            <input type="number" value.bind="currentTatto.dimensionsX">
-            <label>Largo</label>
-            <input type="number" value.bind="currentTatto.dimensionsY">
-            <label>Nombre</label>
-            <input type="text" value.bind="currentTatto.name">
+            <div validation-errors.bind="dimensionsXErrors">
+              <label>Ancho</label>
+              <input type="number" name="dimensionsX" value.bind="currentTatto.dimensionsX & validate">
+              <span class="validation-error" repeat.for="error of dimensionsXErrors">${error.error.message}</span>
+            </div>
+            <div validation-errors.bind="dimensionsYErrors">
+              <label>Alto</label>
+              <input type="number" name="dimensionsY" value.bind="currentTatto.dimensionsY & validate">
+              <span class="validation-error" repeat.for="error of dimensionsYErrors">${error.error.message}</span>
+            </div>
+            <div validation-errors.bind="nameErrors">
+              <label>Nombre</label>
+              <input type="text" name="name" value.bind="currentTatto.name & validate">
+              <span class="validation-error" repeat.for="error of nameErrors">${error.error.message}</span>
+            </div>
 						<success-tattoo-modal id="success-new-tattoo-content" simple-modal="show.two-way: showModal" css="${showModal ? 'display: block' : 'display: none'}" item.bind="currentItem"  go-next.call="nextItem()" go-prev.call="previousItem()" close.call="closeModal()"></success-tattoo-modal>
 						<div class="content-flex horizontal-end horizontal-center-mobile margin-top-30px">
-              <button class="button-base" click.trigger="submit()">Guardar cambios</button>
+              <button class="button-base" click.delegate="submit()" type="submit">Crear</button>
 						</div>
 					</div>
 				</div>
