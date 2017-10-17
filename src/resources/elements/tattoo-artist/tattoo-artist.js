@@ -8,6 +8,7 @@ export class TattooArtist {
 
   constructor (router) {
     this.router = router;
+    this.artist = {styles: []};
   }
 
   bind() {
@@ -31,7 +32,9 @@ export class TattooArtist {
   }
 
   studio () {
-    if(this.artist.id) this.router.navigateToRoute('studio',{ id: this.artist.id })
+    if(this.artist.id) {
+      this.router.navigateToRoute('studio',{ id: this.artist.id })
+    }
     else this.router.navigateToRoute('inspirate')
   }
 

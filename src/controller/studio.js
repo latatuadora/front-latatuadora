@@ -14,7 +14,7 @@ export class Studio extends Client {
   }
   
   getDataUser(params) {
-    const endpoint = 'user/get';
+    const endpoint = 'user/getById';
     let url = this.URL(endpoint, params);
     return this.client
       .fetch(`${url}`, {

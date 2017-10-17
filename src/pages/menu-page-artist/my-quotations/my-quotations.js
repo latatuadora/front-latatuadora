@@ -12,7 +12,7 @@ export class MyQuotations {
   }
 
   getQuotationsUser() {
-    this.api.quotation()
+    this.api.getQuotation()
       .then(response => {
         this.userQuotations = response;
       })

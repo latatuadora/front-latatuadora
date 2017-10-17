@@ -460,8 +460,8 @@ class PolymorphicStep {
   run(instruction, next) {
     let role = this.session.role.toString();
     if (instruction.config.redirections) {
-      if (instruction.config.redirections[role] == undefined) {
-        if (instruction.config.redirections.others == undefined) {
+      if (instruction.config.redirections[role] === undefined) {
+        if (instruction.config.redirections.others === undefined) {
           throw new Error('There is no redirection defined for this role.');
         } else if (instruction.config.redirections.others) {
           return next.cancel(new Redirect(instruction.config.redirections.others));
@@ -470,7 +470,7 @@ class PolymorphicStep {
         return next.cancel(new Redirect(instruction.config.redirections[role]));
       }
     } else if (instruction.config.modules) {
-      if (instruction.config.modules[role] == undefined) {
+      if (instruction.config.modules[role] === undefined) {
         throw new Error('There is no module defined for this role.');
       } else {
         instruction.config.moduleId = instruction.config.modules[role];
