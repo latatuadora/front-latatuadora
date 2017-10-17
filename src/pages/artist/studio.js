@@ -98,7 +98,7 @@ export class Studio {
   }
 
   getStudio(id) {
-    this.controller.studio.get(id)
+    this.controller.studio.getDataUser({user: id})
       .then(studio => {
         this.studio = studio;
         this.photosCarousel.init = true;
