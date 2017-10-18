@@ -59,8 +59,6 @@ export class Studio {
   getTattoos() {
     this.controller.tattoo.get(this.studio.id)
       .then(artist => {
-        console.log(artist);
-        //this.tattoos = artist;
         this.tattoos = artist.splice(0, 12);
         this.tattoosCarousel.init = true;
       });
