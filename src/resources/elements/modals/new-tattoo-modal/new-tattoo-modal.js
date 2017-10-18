@@ -4,9 +4,10 @@ import {inject, NewInstance} from 'aurelia-framework';
 import {Catalogs} from 'controller/catalogs';
 import {Session} from 'utils/session';
 import {Tattoo} from 'controller/tattoo';
+import {Artist} from 'controller/artist';
 import {ValidationRules, ValidationController, validateTrigger, Validator} from 'aurelia-validation';
 
-@inject(Catalogs, Session, Tattoo, NewInstance.of(ValidationController), Validator)
+@inject(Catalogs, Session, Tattoo, NewInstance.of(ValidationController), Validator, Artist)
 export class newTattooModal extends BaseModal {
   @bindable flash;
   @bindable type = 'tattoo';
@@ -16,9 +17,10 @@ export class newTattooModal extends BaseModal {
   @bindable goNext;
   @bindable close;
 
-  constructor(catalogs, session, api, controller, validator) {
+  constructor(catalogs, session, api, controller, validator, artist) {
     super();
     this.api = api;
+    this.artist = artist;
     this.stylesList = [];
     this.elementsList = [];
     this.stylesToShow = [];
@@ -31,7 +33,6 @@ export class newTattooModal extends BaseModal {
     this.catalogs = catalogs;
     this.validator = validator;
     this.controller = controller;
-    this.user = this.session.getCurrentUser();
     this.setRules();
     this.controller.validateTrigger = validateTrigger.changeOrBlur;
   }
@@ -75,11 +76,12 @@ export class newTattooModal extends BaseModal {
     return result;
   }
   
-  attached() {
-    this.styles = this.catalogs.getCatalogStyles();
-    this.elements = this.catalogs.getCatalogElements();
-    this.bodyParts = this.catalogs.getCatalogBodyPart();
-    this.artists = this.session.getStudioFreelancer().artist;
+  async attached() {
+    this.styles = await this.catalogs.getCatalogStyles();
+    this.elements = await this.catalogs.getCatalogElements();
+    this.bodyParts = await this.catalogs.getCatalogBodyPart();
+    let dataUser = this.session.getStudioFreelancer();
+    this.artists = await this.artist.getArtists(dataUser.id);
   }
   
   setRules() {
