@@ -2,8 +2,8 @@
   <require from="./tattoo-artist.css"></require>
     <div  class="artist" click.trigger="studio()">
       <figure class="artist__card">
-        <div class="artist__card--front" class.bind="artist.titleImgUrl ? '' : 'not-image'">
-          <img class="artist__card--background" src="${artist.titleImgUrl}" if.bind="artist.titleImgUrl">
+        <div class="artist__card--front" class.bind="artist.img ? '' : 'not-image'">
+          <img class="artist__card--background" src="${artist.img}" if.bind="artist.img">
           <img if.bind="artist.logoUrl" class="artist__card--logo" src="${artist.logoUrl}" alt="">
           <h1 if.bind="!artist.logoUrl" class="artist__card--name" >${artist.name}</h1>
         </div>
@@ -15,9 +15,6 @@
           </div>
           <h2 class="artist__location text">${artist.location}</h2>
           <span if.bind="artist.likes" class="artist__likes caption"><i class="fa fa-heart"></i> ${artist.likes} Me gusta</span>
-          <div class="artist__styles" if.bind="artist.styles">
-            <a class="artist__style"  repeat.for="style of artist.styles">${style.id}</a>
-          </div>
         </figcaption>
       </figure>
     </div>

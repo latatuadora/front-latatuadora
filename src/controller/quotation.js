@@ -1,13 +1,10 @@
-import { Client } from './client'
-import {AuthService} from 'aurelia-authentication';
-import {inject, computedFrom} from 'aurelia-framework';
+import { Client } from './client';
 import {json} from 'aurelia-fetch-client';
 
 export class Quotation extends Client {
 
   constructor() {
-    super()
-    console.log(this.client)
+    super();
   }
 
   quotation(body) {
@@ -19,26 +16,26 @@ export class Quotation extends Client {
       })
       .then(response => response.json())
       .then(quotation => {
-        return quotation
+        return quotation;
       })
       .catch(error => {
-        return error
-      })
+        return error;
+      });
   }
   
   getQuotation() {
-    const endpoint = 'quotation';
+    const endpoint = 'quotation/studio';
     return this.client
       .fetch(`${endpoint}`,{
         method: this.methods.get
       })
       .then(response => response.json())
       .then(quotation => {
-        return quotation
+        return quotation;
       })
       .catch(error => {
-        return error
-      })
+        return error;
+      });
   }
 
 }

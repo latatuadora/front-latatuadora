@@ -13,9 +13,11 @@
       <div class="site-navbar__mobile-logo-container">
         <a route-href="route: home"><img src="src/assets/images/logos/logo-golden.png" alt="La Tatuadora"></a>
       </div>
-      <div class="site-navbar__menu">
+      <div if.bind="session.role !== 3" class="site-navbar__menu">
         <a repeat.for="item of router.navigation | routesFilter" href.bind="item.href" class="site-navbar__menu-link ${item.isActive ? 'active' : ''}" if.bind="!(item.config.name == 'login' && session.authService.authenticated)">${item.title}</a>
-        <a route-href="route: search_artist" class="site-navbar__menu-link ${item.isActive ? 'active' : ''}">Busca un tatuador</a>
+      </div>
+      <div if.bind="session.role === 3" class="site-navbar__menu">
+        <a if.bind="session.authService.authenticated" route-href="route: home" class="site-navbar__menu-link ${item.isActive ? 'active' : ''}">Inicio</a>
       </div>
       <a if.bind="!session.authService.authenticated" route-href="route: login" class="site-navbar__menu-link ${item.isActive ? 'active' : ''}">Iniciar sesión</a>
       <a if.bind="!session.authService.authenticated" route-href="route: signup-user" class="site-button site-navbar__signup-button">Regístrate</a>
