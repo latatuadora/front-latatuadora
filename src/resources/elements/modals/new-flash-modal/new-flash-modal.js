@@ -81,8 +81,8 @@ export class newFlashModal extends BaseModal {
   }
   
   attached() {
-    this.styles = this.catalogs.getStyles();
-    this.elements = this.catalogs.getElements();
+    this.styles = this.catalogs.getCatalogStyles();
+    this.elements = this.catalogs.getCatalogElements();
   }
   
   submit() {

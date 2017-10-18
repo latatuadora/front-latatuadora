@@ -24,8 +24,9 @@ export class Homepage extends Client {
     this.artistIntervalId = setInterval(function() {
       if(that.artists.length === 0) {
         that.loadArtists();
+        clearInterval(that.artistIntervalId);
       } else {
-        clearInterval(that.artistIntervalId)
+        clearInterval(that.artistIntervalId);
       }
     });
     

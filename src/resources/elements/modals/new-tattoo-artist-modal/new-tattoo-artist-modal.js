@@ -58,7 +58,7 @@ export class NewTattooArtistModal extends BaseModal {
   }
   
   attached() {
-    this.styles = this.catalogs.getStyles();
+    this.styles = this.catalogs.getCatalogStyles();
     let that = this;
     this.tattoo.get(this.dataUser.id)
       .then(response => {

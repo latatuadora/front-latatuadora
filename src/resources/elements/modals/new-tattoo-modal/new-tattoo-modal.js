@@ -76,9 +76,9 @@ export class newTattooModal extends BaseModal {
   }
   
   attached() {
-    this.styles = this.catalogs.getStyles();
-    this.elements = this.catalogs.getElements();
-    this.bodyParts = this.catalogs.getBodyPart();
+    this.styles = this.catalogs.getCatalogStyles();
+    this.elements = this.catalogs.getCatalogElements();
+    this.bodyParts = this.catalogs.getCatalogBodyPart();
     this.artists = this.session.getStudioFreelancer().artist;
   }
   

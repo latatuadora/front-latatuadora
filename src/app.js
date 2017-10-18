@@ -61,12 +61,13 @@ export class App {
         route: 'buscartatuador',
         name: 'search_artist',
         moduleId: 'pages/search-artist/search-artist',
-        redirections: {
+        /*redirections: {
           2: 'dashboard',
           3: 'dashboard',
           others: false
-        },
+        },*/
         title: 'Busca un tatuador',
+        roles: [0],
         nav: false
       },
       {

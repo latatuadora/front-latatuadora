@@ -14,7 +14,7 @@ function getQuery(params) {
 }
 
 client.configure(x => {
-  x.withBaseUrl('http://35.161.232.194:1337/')
+  x.withBaseUrl('http://sandbox.latatuadora.getmore.mx:1337/')
     .withDefaults({
       credentials: 'same-origin',
       headers: {
@@ -44,7 +44,7 @@ export class WebAPI extends MockAPI {
       return response.json();
     });
   }
-
+  
   getFlashes(params) {
     let query = getQuery(params);
     return client.fetch('flash' + query, {method: 'get'})

@@ -57,7 +57,7 @@ export class Quotation extends BaseMultiStep {
   }
 
   getArtist(id) {
-    this.controller.artist.artist(id)
+    this.controller.studio.getDataUser({user: id})
       .then(artist => {
         this.shared.artist = artist;
       });

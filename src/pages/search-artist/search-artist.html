@@ -3,6 +3,7 @@
   <require from="../../resources/elements/artist-item/artist-item"></require>
   <require from="../../resources/elements/dropdown-modal/dropdown-modal"></require>
   <require from="../../resources/attributes/infinite-scroll"></require>
+  <require from="../../resources/elements/tattoo-artist/tattoo-artist"></require>
   <h1 class="gallery-title">Busca <span class="golden-text">tu</span> tatuador</h1>
   <div class="gallery-filters artists-filters">
     <div class="gallery-filter-wrapper ${params.style ? 'active' : ''}">
@@ -22,8 +23,8 @@
     </div>
   </div>
   <section class="tattoos-grid-container">
-    <div class="artists-grid" infinite-scroll="callback.call: loadMore()">
-      <artist-item repeat.for="item of items" artist.bind="item" animate="true"></artist-item>
+    <div class="artists-grid" infinite-scroll="callback.call: loadMore(); scroll-buffer: 250">
+      <tattoo-artist repeat.for="artist of artists" artist.bind="artist" animate="true"></tattoo-artist>
     </div>
     <div if.bind="showLoader" class="tattoos-grid-loader cp-spinner cp-eclipse"></div>
     <img class="tattoos-grid-icon" src="src/assets/images/icons/tattoos-gallery-icon.svg" alt="Inspírate">
