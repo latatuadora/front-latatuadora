@@ -5,7 +5,7 @@
   <require from="resources/elements/modals/delete-tattoo-artist-modal/delete-tattoo-artist-modal"></require>
 
   <div class="artist-tattoo">
-    <img if.bind="artist.avatar" class="artist-tattoo__img" src="${artist.avatar}">
+    <img if.bind="image" class="artist-tattoo__img" src="/_assets/Artist/images/${image[image.length-1]}">
     <div class="artist-tattoo__background"></div>
     <h5 class="artist-tattoo__name"><span class="artist-tattoo__last-name">${artist.name}</span></h5>
     <hr class="artist-tattoo__separator">
