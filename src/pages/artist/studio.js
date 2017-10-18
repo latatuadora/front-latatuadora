@@ -73,12 +73,8 @@ export class Studio {
         } else {
           this.studio = this.joinObjects(result, result.studio);
         }
-        console.log(this.studio);
         this.photosCarousel.init = true;
-        //this.evaluationsCarousel.init = true;
-        //this.artistsCarousel.init = true;
         this.getTattoos();
-        // this.getFlashes();
       });
   }
   
