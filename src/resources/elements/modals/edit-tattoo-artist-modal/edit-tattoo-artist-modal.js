@@ -65,7 +65,7 @@ export class EditTattooArtistModal extends BaseModal {
   
   async attached() {
     let that = this;
-    this.styles = await this.catalogs.getStyles();
+    this.styles = await this.catalogs.getCatalogStyles();
     this.tattoos = await this.tattoo.get(this.dataUser.id);
     this.currentArtist = await this.api.get(this.artist.id);
     this.awardsList = this.currentArtist.awards;

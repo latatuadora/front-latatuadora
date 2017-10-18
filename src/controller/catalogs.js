@@ -6,7 +6,7 @@ export class Catalogs extends Client {
     super();
   }
   
-  getStyles() {
+  getCatalogStyles() {
     let localStyles = localStorage.getItem('styles');
     if (localStyles) {
       return JSON.parse(localStyles);
@@ -23,7 +23,7 @@ export class Catalogs extends Client {
     }
   }
   
-  getBodyPart() {
+  getCatalogBodyPart() {
     let localBodyPart = localStorage.getItem('bodyParts');
     if (localBodyPart) {
       return JSON.parse(localBodyPart);
@@ -40,7 +40,7 @@ export class Catalogs extends Client {
     }
   }
   
-  getElements() {
+  getCatalogElements() {
     let localBodyPart = localStorage.getItem('elements');
     if (localBodyPart) {
       return JSON.parse(localBodyPart);
@@ -58,8 +58,8 @@ export class Catalogs extends Client {
   }
   
   getInitialData() {
-    this.getBodyPart();
-    this.getStyles();
-    this.getElements();
+    this.getCatalogBodyPart();
+    this.getCatalogStyles();
+    this.getCatalogElements();
   }
 }

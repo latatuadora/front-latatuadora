@@ -58,7 +58,7 @@ export class Session {
     let that = this;
     let email = localStorage.getItem('email');
     let currentUser = localStorage.getItem('latatuadora_currentUser');
-    if(currentUser) {
+    if(currentUser !== "No existe tal usuario" ) {
       return JSON.parse(currentUser);
     } else {
       async function getUser() {

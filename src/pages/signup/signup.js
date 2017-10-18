@@ -204,14 +204,14 @@ export default class Signup extends Client {
           this.api.signOn(sendData)
             .then(response => {
               if (response.hasOwnProperty('name')) {
-                this.error = response.message
+                this.error = response.message;
               } else {
                 this.api.signIn(this.studioFreelance.email, this.studioFreelance.password);
                 this.api.userLogged(this.studioFreelance);
               }
             })
             .catch(response => {
-              this.error = response
+              this.error = response;
             });
         }
       });

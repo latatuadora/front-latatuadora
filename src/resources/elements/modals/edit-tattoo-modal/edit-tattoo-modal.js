@@ -1,11 +1,12 @@
 import {bindable} from 'aurelia-framework';
 import {BaseModal} from 'utils/base-modal';
-import {inject} from 'aurelia-framework';
+import {inject, NewInstance} from 'aurelia-framework';
 import {Catalogs} from 'controller/catalogs';
 import {Session} from 'utils/session';
 import {Tattoo} from 'controller/tattoo';
+import {ValidationRules, ValidationController, validateTrigger, Validator} from 'aurelia-validation';
 
-@inject(Catalogs, Session, Tattoo)
+@inject(Catalogs, Session, Tattoo, NewInstance.of(ValidationController), Validator)
 export class EditTattooModal extends BaseModal {
   @bindable tattoo;
   @bindable type = 'tattoo';
@@ -15,17 +16,24 @@ export class EditTattooModal extends BaseModal {
   @bindable goNext;
   @bindable close;
   
-  constructor(catalogs, session, api) {
+  constructor(catalogs, session, api, controller, validator) {
     super();
     this.api = api;
     this.styleList = [];
     this.elementList = [];
     this.stylesToShow = [];
-    this.currentTatto = {};
+    this.currentTatto = {
+      styles: [],
+      elements: []
+    };
     this.session = session;
     this.catalogs = catalogs;
     this.elementsToShow = [];
+    this.validator = validator;
+    this.controller = controller;
     this.user = this.session.getCurrentUser();
+    this.setRules();
+    this.controller.validateTrigger = validateTrigger.changeOrBlur;
     this.productMatcher = (a, b) => a.id === b.id;
   }
   
@@ -70,9 +78,9 @@ export class EditTattooModal extends BaseModal {
   
   async attached() {
     let that = this;
-    this.styles = await this.catalogs.getStyles();
-    this.elements = await this.catalogs.getElements();
-    this.bodyParts = await this.catalogs.getBodyPart();
+    this.styles = await this.catalogs.getCatalogStyles();
+    this.elements = await this.catalogs.getCatalogElements();
+    this.bodyParts = await this.catalogs.getCatalogBodyPart();
     this.artists = this.session.getStudioFreelancer().artist;
     this.currentTatto = await this.api.getTattoo(this.tattoo.id);
     this.currentTatto.styles.forEach(function(style) {
@@ -85,22 +93,48 @@ export class EditTattooModal extends BaseModal {
     });
   }
   
+  setRules() {
+    console.log('kakak');
+    ValidationRules.customRule('iterator', (value, obj) =>
+      value === null
+      || value === undefined
+      || value === ''
+      || value.length > 0,
+      '*Debes de escoger al menos una opción'
+    );
+    ValidationRules
+      .ensure('styles').satisfiesRule('iterator')
+      .ensure('elements').satisfiesRule('iterator')
+      .ensure('name').required().withMessage('*Debes introducir un nombre')
+      .ensure('dimensionsY').required().withMessage('*Debes introducir un alto')
+      .ensure('dimensionsX').required().withMessage('*Debes introducir un ancho')
+      .on(this.currentTatto);
+  }
+  
   submit() {
     let data = new FormData();
+    this.currentTatto.styles = this.stylesList;
+    this.currentTatto.elements = this.elementsList;
     data.append("name", this.currentTatto.name);
     data.append("artist", this.currentTatto.artist.id);
     data.append("partbody", this.currentTatto.partbody.id);
-    data.append("styles", JSON.stringify(this.styleList));
-    data.append("elements", JSON.stringify(this.elementList));
-    data.append("dimensionsX", this.currentTatto.dimensionsX);
-    data.append("dimensionsY", this.currentTatto.dimensionsY);
+    data.append("styles", JSON.stringify(this.currentTatto.styles));
+    data.append("elements", JSON.stringify(this.currentTatto.elements));
+    data.append("dimensionsX", parseFloat(this.currentTatto.dimensionsX));
+    data.append("dimensionsY", parseFloat(this.currentTatto.dimensionsY));
     data.append("image", document.querySelector('#photo-preview').files[0]);
-    this.api.edit(data, this.currentTatto.id)
-      .then(response => {
-        window.location.reload();
-      })
-      .catch(response => {
-        this.error = response;
+    this.controller.validate()
+      .then(result => {
+        console.log(result);
+        if (result.valid) {
+          this.api.edit(data, this.currentTatto.id)
+            .then(response => {
+              //window.location.reload();
+            })
+            .catch(response => {
+              this.error = response;
+            });
+        }
       });
   }
 }

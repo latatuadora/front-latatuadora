@@ -1,8 +1,10 @@
-import {Controller} from 'controller/controller'
+import {inject} from 'aurelia-framework';
+import {Controller} from  'controller/controller';
 
-export class BaseGallery extends Controller{
+@inject(Controller)
+
+export class BaseGallery {
   constructor(api) {
-    super();
     this.api = api;
     this.apiMethod = 'getItems';
     this.params = {
@@ -74,7 +76,7 @@ export class BaseGallery extends Controller{
   }
 
   getStyles() {
-    this.controller.tattoo.styles()
+    this.api.getStyles()
       .then(styles => {
         styles.forEach(style => {
           if (this.params.style == style.id) {
@@ -144,7 +146,7 @@ export class BaseGallery extends Controller{
   loadMore() {
     if (!this.showLoader && this.params.page != null) {
       this.showLoader = true;
-      this.controller.tattoo.get(true, this.params)
+      this.api.getTattoos(true, this.params)
         .then(items => {
           items.forEach(item => {
             this.addItem(item);

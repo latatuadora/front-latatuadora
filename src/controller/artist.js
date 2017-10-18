@@ -25,7 +25,7 @@ export class Artist extends Client {
   get(artistId) {
     let that = this;
     return new Promise(function (accept, reject) {
-      return that.simpleNativePetition('artist/' + artistId, 'GET', null, function (success, error) {
+      return that.simpleNativePetition('artist/' + artistId, 'GET', null, function(success, error) {
         if (success) {
           accept(JSON.parse(success)[0]);
         } else {

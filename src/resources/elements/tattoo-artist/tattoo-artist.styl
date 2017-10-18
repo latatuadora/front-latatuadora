@@ -6,6 +6,7 @@ artist {
 .artist {
 	height: 100%;
 	width: 100%;
+  margin-bottom: 10px;
 }
 
 .artist .title,
@@ -102,12 +103,17 @@ artist {
 }
 
 .artist__styles {
+  overflow: scroll;
 	margin: 0.5rem 0;
 	display: -webkit-box;
 	display: -ms-flexbox;
 	display: flex;
 	-ms-flex-wrap: wrap;
 	    flex-wrap: wrap;
+}
+
+.not-image {
+  background-color: #9e9e9e;
 }
 
 .artist__style {
