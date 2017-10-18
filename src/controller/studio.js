@@ -27,6 +27,22 @@ export class Studio extends Client {
       });
   }
   
+  getDataCurrentUser(params) {
+    const endpoint = 'user/get';
+    let url = this.URL(endpoint, params);
+    return this.client
+      .fetch(`${url}`, {
+        method: this.methods.get,
+      })
+      .then(response => response.json())
+      .then(data => {
+        return data.result;
+      })
+      .catch(error => {
+        return error;
+      });
+  }
+  
   get(id) {
     const url = this.URL(this.endpoint, `${id}`);
     return this.client

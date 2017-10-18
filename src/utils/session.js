@@ -48,7 +48,7 @@ export class Session {
   setUser(email) {
     let that = this;
     async function getUser() {
-      let currentUser = await that.api.getDataUser({ email: email });
+      let currentUser = await that.api.getDataCurrentUser({ email: email });
       localStorage.setItem('latatuadora_currentUser', JSON.stringify(currentUser));
     }
     getUser();
@@ -62,7 +62,7 @@ export class Session {
       return JSON.parse(currentUser);
     } else {
       async function getUser() {
-        let currentUser = await that.api.getDataUser({ email: email });
+        let currentUser = await that.api.getDataCurrentUser({ email: email });
         localStorage.setItem('latatuadora_currentUser', JSON.stringify(currentUser));
         return JSON.parse(currentUser);
       }
