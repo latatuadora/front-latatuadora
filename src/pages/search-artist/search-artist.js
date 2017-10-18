@@ -30,7 +30,7 @@ export class SearchArtist extends BaseGallery {
   }
   
   async attached() {
-    this.artists = await this.studio.getStudios();
+    this.artists = await this.studio.getUserAll(null, 6);
   }
   
   checkParams(params) {
@@ -77,14 +77,14 @@ export class SearchArtist extends BaseGallery {
   
   async filterTypes(type) {
     if (type.id === 0) {
-      this.artists = await this.studio.getStudios();
+      this.artists = await this.studio.getUserAll(null, 3);
     } else {
-      this.artists = await this.studio.getFrelancer();
+      this.artists = await this.studio.getUserAll(null, 4);
     }
   }
   
   async filterStyles(style) {
-    this.artists = await this.studio.getStudios();
+    this.artists = await this.studio.getUserAll(style.id, null);
   }
   
   setStyle = style => {
@@ -103,15 +103,12 @@ export class SearchArtist extends BaseGallery {
     }
   };
   
-  resetParams() {
+  async resetFilters() {
     this.params = {
       style: null,
       type: null,
       page: 1
     };
-    this.activeElements = {
-      style: null,
-      type: null
-    };
+    this.artists = await this.studio.getUserAll(null, 6);
   }
 }
