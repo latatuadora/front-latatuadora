@@ -4,39 +4,32 @@ import { Router } from 'aurelia-router';
 @inject(Router)
 export class TattooArtist {
 
-  @bindable artist
+  @bindable artist;
 
-  constructor (router) {
+  constructor(router) {
     this.router = router;
-    this.artist = {styles: []};
   }
-
-  bind() {
-    this.artist.styles && this.styles()
+  
+  isFreelancer(result) {
+    return result.userType === 4;
   }
-
-  styles() {
-
-    const medium = matchMedia('(min-width: 512px)')
-    const checkStyles = mediaquerie => {
-
-      this.styles = mediaquerie.matches
-        ? this.artist.styles.slice(0, 4)
-        : this.artist.styles.slice(0, 2)
-
+  
+  attached() {
+    try {
+      if (this.isFreelancer(this.artist)) {
+        this.artist.img = this.artist.freelancer.profileImgUrl;
+      } else {
+        this.artist.img = this.artist.studio.titleImgUrl;
+      }
+    } catch (error) {
+      this.artist.img = null;
     }
-
-    medium.addListener(checkStyles)
-    checkStyles(medium)
-
   }
 
-  studio () {
+  studio() {
     if(this.artist.id) {
-      this.router.navigateToRoute('studio',{ id: this.artist.id })
+      this.router.navigateToRoute('studio',{ id: this.artist.id });
     }
-    else this.router.navigateToRoute('inspirate')
+    else this.router.navigateToRoute('inspirate');
   }
-
-
 }
