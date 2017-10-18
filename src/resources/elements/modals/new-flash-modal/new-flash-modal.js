@@ -4,8 +4,9 @@ import {inject} from 'aurelia-framework';
 import {Catalogs} from 'controller/catalogs';
 import {Session} from 'utils/session';
 import {Flash} from 'controller/flash';
+import {Artist} from 'controller/artist';
 
-@inject(Catalogs, Session, Flash)
+@inject(Catalogs, Session, Flash, Artist)
 export class newFlashModal extends BaseModal {
   @bindable flash;
   @bindable type = 'flash';
@@ -15,18 +16,18 @@ export class newFlashModal extends BaseModal {
   @bindable goNext;
   @bindable close;
   
-  constructor(catalogs, session, api) {
+  constructor(catalogs, session, api, artist) {
     super();
-    this.catalogs = catalogs;
-    this.session = session;
     this.api = api;
-    this.user = this.session.getStudioFreelancer();
+    this.artist = artist;
+    this.session = session;
+    this.catalogs = catalogs;
     this.currentFlash = {
       copyright: false
     };
     this.styleList = [];
-    this.stylesToShow = [];
     this.elementList = [];
+    this.stylesToShow = [];
     this.elementsToShow = [];
     this.shared = {
       height: 10,
@@ -80,9 +81,11 @@ export class newFlashModal extends BaseModal {
     return result;
   }
   
-  attached() {
-    this.styles = this.catalogs.getCatalogStyles();
-    this.elements = this.catalogs.getCatalogElements();
+  async attached() {
+    this.styles = await this.catalogs.getCatalogStyles();
+    this.elements = await this.catalogs.getCatalogElements();
+    let dataUser = this.session.getStudioFreelancer();
+    this.artists = await this.artist.getArtists(dataUser.id);
   }
   
   submit() {
