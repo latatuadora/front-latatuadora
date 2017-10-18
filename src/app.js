@@ -68,7 +68,7 @@ export class App {
         },*/
         title: 'Busca un tatuador',
         roles: [0],
-        nav: false
+        nav: true
       },
       {
         route: 'tatuate',
