@@ -34,6 +34,19 @@ export class Artist extends Client {
       });
     });
   }
+  
+  getArtists(artistId) {
+    let that = this;
+    return new Promise(function (accept, reject) {
+      return that.simpleNativePetition('studio/getArtists/' + artistId, 'GET', null, function(success, error) {
+        if (success) {
+          accept(JSON.parse(success).artists);
+        } else {
+          reject(error);
+        }
+      });
+    });
+  }
 
   find(params) {
     const url = this.URL(this.endpoint, params);
