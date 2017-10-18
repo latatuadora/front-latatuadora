@@ -9,7 +9,7 @@ import {BaseMultiStep} from 'utils/base-multi-step';
 export class Quotation extends BaseMultiStep {
   constructor(router, api, controller) {
     super();
-    this.controller = controller
+    this.controller = controller;
     this.router = router;
     this.api = api;
     this.completeDestination = 'quotation_results';
@@ -62,7 +62,6 @@ export class Quotation extends BaseMultiStep {
         this.shared.artist = artist;
       });
   }
-
   next() {
     this.isValidView()
       .then(valid => {
@@ -101,9 +100,13 @@ export class Quotation extends BaseMultiStep {
       email: this.shared.userData.email,
       city: this.shared.userData.city,
       reference: this.shared.referenceFile.file,
-      comments: this.shared.additionalComment,
-      studioId: this.shared.artist ? this.shared.artist.id : null
+      comments: this.shared.additionalComment
     };
+    if (this.shared.artist.userType.id === 4) {
+      request["freelancer"] = this.shared.artist.freelancer.id;
+    } else {
+      request["studio"] = this.shared.artist.studio.id;
+    }
     this.controller.quotation.quotation(request)
       .then(results => {
         this.goToResults(results);
