@@ -109,7 +109,7 @@ export class Edit {
     let email = localStorage.getItem('email');
     let that = this;
     async function getUser() {
-      let user = await that.api.getDataUser({ email: email });
+      let user = await that.api.getDataCurrentUser({ email: email });
       localStorage.setItem('latatuadora_currentUser', JSON.stringify(user));
       that.userData.username = user.name;
       that.userData.name = user.name + ' ' + (user.lastname ? user.lastname !== null : '');
