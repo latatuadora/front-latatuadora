@@ -83,22 +83,19 @@ export class Studio extends Client {
     });
   }
   
-  getStudios() {
+  getUserAll(style, type) {
     let that = this;
+    if (type && style) {
+      this.url = 'user/all?style=' +  style + 'userType=' + type;
+    } else if (type) {
+      console.log(style, type);
+      this.url = 'user/all?userType=' + type;
+    } else if(style) {
+      this.url = 'user/all?style=' + style;
+    }
     return new Promise (function(accept, reject) {
-      let url = 'studio';
-      return that.simplePetition(url, 'GET', null)
-        .then(data => accept(data.studios))
-        .catch(error => reject(error));
-    });
-  }
-  
-  getFrelancer() {
-    let that = this;
-    return new Promise (function(accept, reject) {
-      let url = 'freelancer';
-      return that.simplePetition(url, 'GET', null)
-        .then(data => accept(data.freelancers))
+      return that.simplePetition(that.url, 'GET', null)
+        .then(data => accept(data.result))
         .catch(error => reject(error));
     });
   }

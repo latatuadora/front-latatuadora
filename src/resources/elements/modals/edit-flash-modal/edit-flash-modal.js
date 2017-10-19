@@ -82,7 +82,7 @@ export class EditFlashModal extends BaseModal {
     let that = this;
     this.styles = await this.catalogs.getCatalogStyles();
     this.elements = await this.catalogs.getCatalogElements();
-    this.currentFlash = await this.api.getFlah(this.flash.id);
+    this.currentFlash = await this.api.getFlash(this.flash.id);
     this.currentFlash.styles.forEach(function(style) {
       if (style !== null) {
         that.stylesToShow.push({name: style.name, id: style.id});

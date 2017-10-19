@@ -23,15 +23,17 @@
 								<label class="text-base text-white paragraph text-upload-underline" for="upload-image">Subir imagen</label>
 							</div>
 						</div>
-						<div class="content-flex content-column">
+						<div class="content-flex content-column" validation-errors.bind="nameErrors">
 							<h2 class="text-base text-white subtitle margin-bottom-18px">Nombre completo</h2>
-							<input class="text-base text-white paragraph tattoo-artist-input-base width-100-mobile" type="text" value.bind="currentArtist.name">
+							<input class="text-base text-white paragraph tattoo-artist-input-base width-100-mobile" type="text" value.bind="currentArtist.name & validate">
 						</div>
+            <span class="validation-error" repeat.for="error of nameErrors">${error.error.message}</span>
 						<div class="special-hr vertical-hr-gold margin-vertical-35px"></div>
-						<div class="content-flex content-column">
+						<div class="content-flex content-column" validation-errors.bind="bioErrors">
 							<h2 class="text-base text-white subtitle margin-bottom-18px">Descripción</h2>
-							<textarea class="text-base text-white paragraph tattoo-artist-input-base textarea-height-146px width-100-mobile" placeholder="Escribe una breve descripción" value.bind="currentArtist.bio"></textarea>
+							<textarea class="text-base text-white paragraph tattoo-artist-input-base textarea-height-146px width-100-mobile" placeholder="Escribe una breve descripción" value.bind="currentArtist.bio & validate"></textarea>
 						</div>
+            <span class="validation-error" repeat.for="error of bioErrors">${error.error.message}</span>
 						<div class="content-flex content-column margin-vertical-35px awards-and-styles">
 							<h2 class="text-base text-white subtitle margin-bottom-18px">Premios y reconocimientos</h2>
 							<div class="content-relative margin-bottom-14px" id="adwards">
@@ -46,16 +48,18 @@
 									Agregar premio
 								</button>
 							</div>
-              <div class="content-flex content-column content-vertical-center-mobile">
-                <select class="margin-bottom-20px" name="" id="" value.bind="changedValue" change.delegate="saveRemoveStyles(changedValue, 'style')">
+              <div class="content-flex content-column content-vertical-center-mobile" validation-errors.bind="stylesErrors">
+                <select class="margin-bottom-20px" value.bind="currentArtist.styles & validate" change.delegate="saveRemoveStyles(currentArtist.styles, 'style')">
+                  <option selected value>Selecciona un estilo</option>
                   <option repeat.for="style of styles" model.bind="style">${ style.name }</option>
                 </select>
+                <span class="validation-error" repeat.for="error of stylesErrors">${error.error.message}</span>
                 <div class="content-gray-tag">
-	                <div repeat.for="style of stylesToShow" class="content-flex content-row content-vertical-center horizontal-center gray-tag">
-	                  <p class="text-base text-white bullets margin-0px">${ style.name }</p>
-	                  <img class="close-tag-img" src="src/assets/images/icons/close.png" alt="" click.delegate="saveRemoveStyles(style, 'style')">
-	                </div>
-	            </div>    
+                  <div repeat.for="style of stylesToShow" class="content-flex content-row content-vertical-center horizontal-center gray-tag">
+                    <p class="text-base text-white bullets margin-0px">${ style.name }</p>
+                    <img class="close-tag-img" src="src/assets/images/icons/close.png" alt="" click.delegate="saveRemoveStyles(style, 'style')">
+                  </div>
+                </div>
               </div>
 						</div>
 						<success-new-artist-modal id="success-new-artist-content" simple-modal="show.two-way: showModal" css="${showModal ? 'display: block' : 'display: none'}" item.bind="currentItem"  go-next.call="nextItem()" go-prev.call="previousItem()" close.call="closeModal()"></success-new-artist-modal>

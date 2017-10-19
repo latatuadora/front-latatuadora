@@ -1,12 +1,13 @@
-import {bindable} from 'aurelia-framework';
-import {BaseModal} from 'utils/base-modal';
-import {inject} from 'aurelia-framework';
-import {Catalogs} from 'controller/catalogs';
 import {Session} from 'utils/session';
+import {inject, NewInstance} from 'aurelia-framework';
 import {Artist} from 'controller/artist';
 import {Tattoo} from 'controller/tattoo';
+import {bindable} from 'aurelia-framework';
+import {BaseModal} from 'utils/base-modal';
+import {Catalogs} from 'controller/catalogs';
+import {ValidationRules, ValidationController, validateTrigger, Validator} from 'aurelia-validation';
 
-@inject(Catalogs, Session, Artist, Tattoo)
+@inject(Catalogs, Session, Artist, Tattoo, NewInstance.of(ValidationController), Validator)
 export class NewTattooArtistModal extends BaseModal {
   @bindable flash;
   @bindable type = 'artist';
@@ -16,17 +17,23 @@ export class NewTattooArtistModal extends BaseModal {
   @bindable goNext;
   @bindable close;
   
-  constructor(catalogs, session, api, tattoo) {
+  constructor(catalogs, session, api, tattoo, controller, validator) {
     super();
     this.api = api;
+    this.styleList = [];
     this.tattoo = tattoo;
     this.session = session;
-    this.catalogs = catalogs;
-    this.currentArtist = {};
-    this.styleList = [];
     this.stylesToShow = [];
-    this.user = this.session.getCurrentUser();
+    this.catalogs = catalogs;
+    this.currentArtist = {
+      styles: [],
+      awards: []
+    };
+    this.validator = validator;
+    this.controller = controller;
     this.dataUser = this.session.getStudioFreelancer();
+    this.setRules();
+    this.controller.validateTrigger = validateTrigger.changeOrBlur;
   }
 
   saveRemoveStyles(element, name) {
@@ -59,14 +66,6 @@ export class NewTattooArtistModal extends BaseModal {
   
   attached() {
     this.styles = this.catalogs.getCatalogStyles();
-    let that = this;
-    this.tattoo.get(this.dataUser.id)
-      .then(response => {
-        that.tattoos = response;
-      })
-      .catch(error => {
-        this.error = response;
-      });
   }
 
   getAwards() {
@@ -80,22 +79,43 @@ export class NewTattooArtistModal extends BaseModal {
     return listAdwardsInput;
   }
   
+  setRules() {
+    ValidationRules.customRule('iterator', (value, obj) =>
+      value === null
+      || value === undefined
+      || value === ''
+      || value.length > 0,
+      '*Debes de escoger al menos una opción'
+    );
+    ValidationRules
+      .ensure('styles').satisfiesRule('iterator')
+      .ensure('name').required().withMessage('*Debes introducir un nombre')
+      .ensure('bio').required().withMessage('*Debes introducir una descripción')
+      .on(this.currentArtist);
+  }
+  
   submit() {
     let data = new FormData();
     let listAdwards = this.getAwards();
+    this.currentArtist.awards = listAdwards;
+    this.currentArtist.styles = this.styleList;
     data.append("studio", this.dataUser.id);
     data.append("bio", this.currentArtist.bio);
     data.append("name", this.currentArtist.name);
-    data.append("awards", JSON.stringify(listAdwards));
-    data.append("styles", JSON.stringify(this.styleList));
+    data.append("awards", JSON.stringify(this.currentArtist.awards));
+    data.append("styles", JSON.stringify(this.currentArtist.styles));
     data.append("image", document.querySelector('#upload-image').files[0]);
-    this.api.add(data)
-      .then(response => {
-        this.session.setUser(this.user.email);
-        window.location.reload();
-      })
-      .catch(response => {
-        this.error = response;
+    this.controller.validate()
+      .then(result => {
+        if (result.valid) {
+          this.api.add(data)
+            .then(response => {
+              window.location.reload();
+            })
+            .catch(response => {
+              this.error = response;
+            });
+        }
       });
   }
 }
