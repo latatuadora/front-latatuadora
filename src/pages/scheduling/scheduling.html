@@ -33,7 +33,7 @@
   <section class="scheduling__data">
     <h2 class="site-title scheduling__subtitle">Cuéntanos sobre tu <span class="golden-text">tatuaje</span></h2>
     <textarea class="site-input scheduling__textarea" value.bind="fields.comment" maxlength="265" placeholder="Escribe tus ideas"></textarea>
-    <h2 class="site-title scheduling__subtitle scheduling__subtitle--reference">Sube tu referencia</h2>
+    <!--<h2 class="site-title scheduling__subtitle scheduling__subtitle--reference">Sube tu referencia</h2>
     <div class="scheduling__file-wrapper cover" css="background-image: ${fields.file ? 'url(' + fields.file.data + ')' : ''}">
       <div class="scheduling__file-layer">
         <input type="file" accept="image/*" class="scheduling__file" files="on-loaded.bind: onLoaded; file-filter.bind: 'image.*'; on-error.bind: onError; max-file-size.bind: maxFileSize; allow-drop: true">
@@ -43,7 +43,7 @@
         <span class="scheduling__message-error" if.bind="fileErrors.type">El archivo seleccionado debe de ser una imagen</span>
         <span class="scheduling__message-error" if.bind="fileErrors.size">El archivo seleccionado debe pesar menos de 5MB</span>
       </div>
-    </div>
+    </div-->
   </section>
   <confirm-scheduling-modal id="confirm-scheduling-content" simple-modal="show.two-way: showModal" css="${showModal ? 'display: block' : 'display: none'}" item.bind="currentItem"  go-next.call="nextItem()" go-prev.call="previousItem()" close.call="closeModal()"></confirm-scheduling-modal>
   <div class="content-button">
