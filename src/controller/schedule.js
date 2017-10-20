@@ -19,4 +19,14 @@ export class Schedule extends Client {
       });
     });
   }
+  
+  get() {
+    let that = this;
+    return new Promise (function(accept, reject) {
+      let url = 'itinerary/getAllAsStudio';
+      return that.simplePetition(url, 'GET', null)
+        .then(data => accept(data))
+        .catch(error => reject(error));
+    });
+  }
 }
