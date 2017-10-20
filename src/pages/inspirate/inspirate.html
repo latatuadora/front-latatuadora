@@ -37,7 +37,7 @@
   </div>
   <section class="tattoos-grid-container">
     <div class="tattoos-grid" masonry-grid infinite-scroll="callback.call: loadMore()">
-      <gallery-item repeat.for="item of items" item.bind="item"></gallery-item></a>
+      <gallery-item repeat.for="tattoo of tattoos" item.bind="tattoo"></gallery-item></a>
     </div>
     <div if.bind="showLoader" class="tattoos-grid-loader cp-spinner cp-eclipse"></div>
     <img class="tattoos-grid-icon" src="src/assets/images/icons/tattoos-gallery-icon.svg" alt="Inspírate">

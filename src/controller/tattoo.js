@@ -37,6 +37,19 @@ export class Tattoo extends Client {
       });
     });
   }
+  
+  getAllTattoos() {
+    let that = this;
+    return new Promise(function(accept, reject) {
+      return that.simpleNativePetition('tattoo/all', 'GET', null, function(success, error) {
+        if (success) {
+          accept(JSON.parse(success).tattoos);
+        } else {
+          reject(error);
+        }
+      });
+    });
+  }
 
   /**
   *@PUBLIC add

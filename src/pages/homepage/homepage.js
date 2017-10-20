@@ -68,7 +68,7 @@ export class Homepage extends Client {
     let that = this;
     this.simplePetition('studio', 'GET')
       .then(data => {
-        that.artists = that._parseStudiosArray(that._shuffleArray(data.studios).slice(0, 16));
+        that.artists = that._parseStudiosArray(that._shuffleArray(data.studios).slice(0, 8));
       })
       .catch(error => {
         this.error = error;
