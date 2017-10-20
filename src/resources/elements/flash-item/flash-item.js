@@ -10,8 +10,6 @@ export class FlashItem extends BaseModal {
   	//TODO replace with the back send complete data
     let that = this;
     this.flash = {
-      width: '12',
-      height: '12',
       likes: '13'
     };
     this.waitFor(function() {
@@ -20,7 +18,9 @@ export class FlashItem extends BaseModal {
   }
   
   getInfo() {
-    this.image = this.flash.realImageUrl.split('/');
+    if (this.flash.realImageUrl) {
+      this.image = this.flash.realImageUrl.split('/');
+    }
   }
   
   waitFor(cb) {
