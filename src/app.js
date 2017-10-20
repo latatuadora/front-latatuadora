@@ -112,7 +112,7 @@ export class App {
         name: 'scheduling',
         moduleId: 'pages/scheduling/scheduling',
         redirections: {
-          0: 'home',
+          0: 'login',
           3: 'dashboard',
           others: false
         },
