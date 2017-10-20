@@ -11,8 +11,9 @@ export class SearchArtist extends BaseGallery {
     this.studio = studio;
     this.catalogs = catalogs;
     this.params = {
-      style: null,
-      type: null,
+      style: undefined,
+      type: undefined,
+      neighborhood: undefined,
       page: 1
     };
     this.lists = {
@@ -30,7 +31,7 @@ export class SearchArtist extends BaseGallery {
   }
   
   async attached() {
-    this.artists = await this.studio.getUserAll(null, 6);
+    this.artists = await this.studio.getUserAll(this.params);
   }
   
   checkParams(params) {
@@ -75,23 +76,23 @@ export class SearchArtist extends BaseGallery {
     }
   }
   
-  async filterTypes(type) {
-    if (type.id === 0) {
-      this.artists = await this.studio.getUserAll(null, 3);
+  async filter(params) {
+    if (params.type === 1) {
+      params.type = 4;
+      this.artists = await this.studio.getUserAll(params);
+    } else if (params.type === 0) {
+      params.type = 3;
+      this.artists = await this.studio.getUserAll(params);
     } else {
-      this.artists = await this.studio.getUserAll(null, 4);
+      this.artists = await this.studio.getUserAll(params);
     }
-  }
-  
-  async filterStyles(style) {
-    this.artists = await this.studio.getUserAll(style.id, null);
   }
   
   setStyle = style => {
     if (style.id !== this.params.style) {
       this.params.style = style.id;
       this.activeElements.style = style;
-      this.filterStyles(style);
+      this.filter(this.params);
     }
   };
   
@@ -99,16 +100,22 @@ export class SearchArtist extends BaseGallery {
     if (type.id !== this.params.type) {
       this.params.type = type.id;
       this.activeElements.type = type;
-      this.filterTypes(type);
+      this.filter(this.params);
     }
   };
   
+  setNeighborhood(neighborhood) {
+    this.params.neighborhood = neighborhood;
+    this.filter(this.params);
+  }
+  
   async resetFilters() {
     this.params = {
-      style: null,
-      type: null,
+      style: undefined,
+      type: undefined,
+      neighborhood: undefined,
       page: 1
     };
-    this.artists = await this.studio.getUserAll(null, 6);
+    this.artists = await this.studio.getUserAll(this.params);
   }
 }
