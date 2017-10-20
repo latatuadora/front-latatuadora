@@ -61,24 +61,13 @@ export class App {
         route: 'buscartatuador',
         name: 'search_artist',
         moduleId: 'pages/search-artist/search-artist',
-        /*redirections: {
-          2: 'dashboard',
-          3: 'dashboard',
-          others: false
-        },*/
         title: 'Busca un tatuador',
-        roles: [0],
         nav: true
       },
       {
         route: 'tatuate',
         name: 'tatuate',
         moduleId: 'pages/tatuate/tatuate',
-        redirections: {
-          2: 'dashboard',
-          3: 'dashboard',
-          others: false
-        },
         title: 'Tatúate',
         nav: true
       },
@@ -119,11 +108,11 @@ export class App {
         nav: false
       },
       {
-        route: 'agendar/:id?',
+        route: 'agendar/:artist?',
         name: 'scheduling',
         moduleId: 'pages/scheduling/scheduling',
         redirections: {
-          2: 'dashboard',
+          0: 'home',
           3: 'dashboard',
           others: false
         },
@@ -152,7 +141,6 @@ export class App {
         moduleId: 'pages/artist/studio',
         title: 'Perfil de estudio',
         nav: false,
-        roles: [0]
       },
       {
         route: 'mistatuajes',
