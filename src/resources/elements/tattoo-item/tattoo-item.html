@@ -1,0 +1,54 @@
+<template>
+  <require from="./tattoo-item.css"></require>
+  <require from="resources/attributes/simple-modal"></require>
+  <require from="resources/elements/modals/delete-tattoo-modal/delete-tattoo-modal"></require>
+  <require from="resources/elements/modals/edit-tattoo-modal/edit-tattoo-modal"></require>
+  <require from="resources/elements/modals/successful-edit-tattoo-modal/successful-edit-tattoo-modal"></require>
+
+  <div class="my-tattoo">
+    <div class="my-tattoo__options">
+      <div>
+        <edit-tattoo-modal id="edit-tattoo-content-${currentindex}" simple-modal="show.two-way: showModal; superid.two-way: superid" css="${showModal ? 'display: block' : 'display: none'}" tattoo.bind="tattoo"  go-next.call="nextItem()" go-prev.call="previousItem()" close.call="closeModal()"></edit-tattoo-modal>
+        <a click.trigger="openModal(currentindex, 'edit-tattoo-content')">
+          <img class="my-tattoo__options-icon my-tattoo-mar-rgt" src="src/assets/images/icons/pencilin.png">
+        </a>
+      </div>
+      <div>
+        <delete-tattoo-modal id="delete-tattoo-content-${currentindex}" simple-modal="show.two-way: showModal; superid.two-way: superid" css="${showModal ? 'display: block' : 'display: none'}" item.bind="currentItem"  go-next.call="nextItem()" go-prev.call="previousItem()" close.call="closeModal()"></delete-tattoo-modal>
+        <a click.trigger="openModal(currentindex, 'delete-tattoo-content')">
+          <img class="my-flash__options-icon" src="src/assets/images/icons/trashflash.png">
+        </a>
+      </div>
+    </div>
+    <div class="image-tattoo-item">
+      <img src="/_assets/Tattoo/images/${image[image.length-1]}">
+    </div>
+    <div class="my-tattoo__block">
+      <div class="my-tattoo-flex-row my-tatto__block-info">
+        <div>
+          <img class="my-tattoo__block-img" src="src/assets/images/mock/group-11.png">
+        </div>
+        <div class="my-tattoo__space-block">
+          <div class="my-tattoo-flex-row">
+            <h4 class="my-tattoo__title">${tattoo.name}</h4>
+            <button class="my-tattoo__icon-heart fa fa-heart"> <span class="my-tattoo__likes">13 Likes</span></button>
+          </div>
+          <div>
+            <i class="my-tattoo__star fa fa-star"></i>
+            <i class="my-tattoo__star fa fa-star"></i>
+            <i class="my-tattoo__star fa fa-star"></i>
+            <i class="my-tattoo__star fa fa-star-o"></i>
+            <i class="my-tattoo__star fa fa-star-o"></i>
+          </div>
+        </div>
+      </div>
+      <div>
+        <ul class="my-tattoo-flex-row my-tattoo__tags">
+          <li repeat.for="style of tattoo.styles" class="my-tattoo__tag-style">
+            <a class="my-tattoo__tag-txt">${style.name}</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</template>

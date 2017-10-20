@@ -1,0 +1,336 @@
+<template id="membership">
+
+  <require from="./signup.css"></require>
+  <require from="resources/attributes/modal"></require>
+  <require from="resources/elements/modals/terms-conditions-modal/terms-conditions-modal"></require>
+  <require from="resources/elements/modals/terms-signup-modal/terms-signup-modal"></require>
+  <require from="resources/elements/switch/switch"></require>
+  <require from="resources/attributes/hour"></require>
+  <require from="./user/user.css"></require>
+
+  <div class="membership main">
+
+    <header class="membership__header">
+      <h1 class="heading margin-bottom-53px">Registro</h1>
+    </header>
+
+
+    <div class="divider--silver"></div>
+
+    <section class="membership__item user">
+      <h2 class="subheading">Selecciona tu tipo de <span class="mark">membresia</span></h2>
+
+      <div class="input__block">
+
+        <div class="membership__kind">
+          <div class="input__group--row">
+            <input class="input--radio" model.bind="false" checked.bind="registerFor" type="radio" name="kind" id=""
+                   checked="true">
+            <label class="input--label-checkbox" for="">Estudio</label>
+          </div>
+          <div class="input__group--row">
+            <input class="input--radio" model.bind="true" checked.bind="registerFor" type="radio" name="kind" id="">
+            <label class="input--label-checkbox" for="">Freelance</label>
+          </div>
+        </div>
+
+        <div class="form-group" validation-errors.bind="nameErrors">
+          <label for="name" class="paragraph">Nombre
+            <span if.bind="!registerFor">del Estudio</span>
+          </label>
+          <div class="input--group">
+            <input type="text" value.bind='studioFreelance.name & validate' name="name" class="input">
+            <span class="validation-error" repeat.for="error of nameErrors">${error.error.message}</span>
+          </div>
+        </div>
+
+        <div class="form-group" validation-errors.bind="emailErrors">
+          <label for="email" class="paragraph">Correo electronico</label>
+          <div class="input--group">
+            <input type="email" value.bind='studioFreelance.email & validate' name="email" class="input">
+            <span class="validation-error" repeat.for="error of emailErrors">${error.error.message}</span>
+          </div>
+        </div>
+
+        <div class="form-group" validation-errors.bind="telephoneErrors">
+          <label for="telephone" class="paragraph">Telefono</label>
+          <div class="input--group">
+            <input type="number" value.bind='studioFreelance.telephone & validate' name="telephone" class="input">
+            <span class="validation-error" repeat.for="error of telephoneErrors">${error.error.message}</span>
+          </div>
+        </div>
+
+        <div class="form-group" validation-errors.bind="passwordErrors">
+          <label for="password" class="paragraph">Contraseña</label>
+          <div class="input--group">
+            <input type="password" value.bind='studioFreelance.password & validate' name="password" class="input">
+            <span class="validation-error" repeat.for="error of passwordErrors">${error.error.message}</span>
+          </div>
+        </div>
+
+        <div class="form-group" validation-errors.bind="passwordConfirmErrors">
+          <label for="passwordConfirm" class="paragraph">Confirmar Contraseña</label>
+          <div class="input--group">
+            <input type="password" value.bind='studioFreelance.passwordConfirm & validate' name="passwordConfirm" class="input">
+            <span class="validation-error" repeat.for="error of passwordConfirmErrors">${error.error.message}</span>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <div class="divider--gold"></div>
+
+    <section class="membership__item address">
+      <h2 class="subheading margin-bottom-37px">Ingresa tu <span class="mark">domicilio</span></h2>
+      <div class="input__block">
+
+        <div class="form-group" validation-errors.bind="streetErrors">
+          <label for="street" class="paragraph">Calle</label>
+          <div class="input--group">
+            <input type="text" value.bind='studioFreelance.street & validate' name="street" class="input">
+            <span class="validation-error" repeat.for="error of streetErrors">${error.error.message}</span>
+          </div>
+        </div>
+
+        <div class="form-group" validation-errors.bind="externalErrors">
+          <label for="external" class="paragraph">Numero</label>
+          <div class="input--group">
+            <input type="number" value.bind='studioFreelance.numExt & validate' name="numExt" class="input">
+            <span class="validation-error" repeat.for="error of externalErrors">${error.error.message}</span>
+          </div>
+        </div>
+
+        <div class="form-group" validation-errors.bind="internalErrors">
+          <label for="internal" class="paragraph">Int</label>
+          <div class="input--group">
+            <input type="number" value.bind='studioFreelance.numInt & validate' name="numInt" class="input">
+            <span class="validation-error" repeat.for="error of internalErrors">${error.error.message}</span>
+          </div>
+        </div>
+
+        <div class="form-group" validation-errors.bind="stateErrors">
+          <label for="state" class="paragraph">Estado</label>
+          <div class="input--group">
+            <input type="text" value.bind='studioFreelance.state & validate' name="state" class="input">
+            <span class="validation-error" repeat.for="error of stateErrors">${error.error.message}</span>
+          </div>
+        </div>
+
+        <div class="form-group" validation-errors.bind="suburbErrors">
+          <label for="suburb" class="paragraph">Delegacion / Municipio</label>
+          <div class="input--group">
+            <input type="text" value.bind='studioFreelance.suburb & validate' name="suburb" class="input">
+            <span class="validation-error" repeat.for="error of suburbErrors">${error.error.message}</span>
+          </div>
+        </div>
+
+        <div class="form-group" validation-errors.bind="townErrors">
+          <label for="town" class="paragraph">Colonia</label>
+          <div class="input--group">
+            <input type="text" value.bind='studioFreelance.town & validate' name="town" class="input">
+            <span class="validation-error" repeat.for="error of townErrors">${error.error.message}</span>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <div class="divider--gold"></div>
+
+    <section if.bind="registerFor" class="membership__item user">
+      <h2 class="subheading margin-bottom-16px">Cuál es tu zona <span class="mark">de operación</span></h2>
+      <h3 class="text-base text-black-two bullets margin-bottom-63px">Ingresa las zonas en las que operas</h3>
+
+      <div class="input__block" validation-errors.bind="zonesErrors" checked.bind="studioFreelance.zones & validate">
+
+        <div class="form-group">
+          <label for="zoneOne" class="paragraph">Zona 1</label>
+          <div class="input--group">
+            <input type="text" value.bind='studioFreelance.zones[0].name' name="zoneOne" class="input">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="zoneTwo" class="paragraph">Zona 2</label>
+          <div class="input--group">
+            <input type="text" value.bind='studioFreelance.zones[1].name' name="zoneTwo" class="input">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="zoneThree" class="paragraph">Zona 3</label>
+          <div class="input--group">
+            <input type="text" value.bind='studioFreelance.zones[2].name' name="zoneThree" class="input">
+          </div>
+        </div>
+        <span class="validation-error" repeat.for="error of zonesErrors">${error.error.message}</span>
+      </div>
+    </section>
+
+    <div if.bind="registerFor" class="divider--silver"></div>
+
+    <section if.bind="registerFor" class="membership__item cofepris">
+      <p>¿Tatúas a <span class="mark">domicilio</span>?</p>
+      <div class="input__block" validation-errors.bind="canGoHomeErrors">
+
+        <div class="membership__cofepris" checked.bind="studioFreelance.canGoHome & validate">
+          <div class="input__group--row">
+            <input class="input--radio" model.bind="true" checked.bind="studioFreelance.canGoHome" type="radio" name="canGoHome" id="cofepris-1">
+            <label class="input--label-checkbox" for="canGoHome">Si</label>
+          </div>
+          <div class="input__group--row">
+            <input class="input--radio" model.bind="false" checked.bind="studioFreelance.canGoHome" type="radio" name="canGoHome" id="cofepris-2">
+            <label class="input--label-checkbox" for="canGoHome">No</label>
+          </div>
+        </div>
+        <span  class="tags validation-error" repeat.for="error of canGoHomeErrors">${error.error.message}</span>
+      </div>
+    </section>
+
+    <div if.bind="registerFor" class="divider--silver"></div>
+
+    <section class="membership__item cofepris">
+      <p>¿Cuentas con certificado <span class="mark">COFEPRIS</span>?</p>
+      <div class="input__block" validation-errors.bind="certCofeprisErrors">
+
+        <div class="membership__cofepris" checked.bind="studioFreelance.certCofepris & validate">
+          <div class="input__group--row">
+            <input class="input--radio" type="radio" name="certCofepris" checked.bind="studioFreelance.certCofepris" model.bind="true">
+            <label class="input--label-checkbox" for="">Si</label>
+          </div>
+          <div class="input__group--row">
+            <input class="input--radio" type="radio" name="certCofepris" checked="checked" checked.bind="studioFreelance.certCofepris" model.bind="false">
+            <label class="input--label-checkbox" for="">No</label>
+          </div>
+        </div>
+        <span  class="tags validation-error" repeat.for="error of certCofeprisErrors">${error.error.message}</span>
+      </div>
+    </section>
+
+    <div class="divider--gold"></div>
+
+    <section class="membership__item styles">
+      <h2 class="subheading">¿Qué <span class="mark">estilos</span> manejas?</h2>
+      <div class="input__block" validation-errors.bind="stylesErrors">
+        <div class="input__group-row" checked.bind="studioFreelance.styles & validate" >
+          <span repeat.for="style of stylesFromAPI">
+            <input type="checkbox" data-tag="${style.name}" name="${style.name}" id="${style.name}" value.bind="style.id"
+                   class="input--checkbox-tag" class.bind="style.active ? 'active' : ''"
+                   click.delegate="toggleStyle(style)">
+          </span>
+        </div>
+      </div>
+      <span  class="tags validation-error" repeat.for="error of stylesErrors">${error.error.message}</span>
+    </section>
+
+    <section class="about membership__item">
+      <h2 class="subheading">Acerca de <span class="mark">ti</span></h2>
+      <div class="input__block">
+        <div class="input__group" validation-errors.bind="aboutErrors">
+          <textarea name="name" class="input--area" value.bind='studioFreelance.about & validate' placeholder="Máximo 265 caracteres"></textarea>
+        </div>
+      </div>
+      <span class="validation-error" repeat.for="error of aboutErrors">${error.error.message}</span>
+    </section>
+
+    <div class="divider--silver"></div>
+
+    <section class="schedule membership__item" validation-errors.bind="daysErrors">
+      <h2 class="subheading">Horario de <span class="mark">trabajo</span></h2>
+      <div class="schedule__item  titles input__group-row">
+        <span class="schedule__title">Dia</span>
+        <div class="input__group-row">
+          <span class="schedule__title">Apertura</span> <span class="schedule__title">Cierre</span>
+        </div>
+      </div>
+      <div class="schedule__item input__group-row">
+        <switch able="Lunes" disable="Lunes" switch.two-way="studioFreelance.days.monday & validate"></switch>
+        <div show.bind="studioFreelance.days.monday" class="input__group-row">
+          <input value.bind="mondayStartHour" hour class="input--hour" type="text">
+          <input value.bind="mondayEndHour" hour class="input--hour" type="text">
+        </div>
+      </div>
+      <div class="schedule__item input__group-row">
+        <switch able="Martes" disable="Martes" switch.two-way="studioFreelance.days.tuesday & validate"></switch>
+        <div show.bind="studioFreelance.days.tuesday" class="input__group-row">
+          <input value.bind="tuesdayStartHour" hour class="input--hour" type="text">
+          <input value.bind="tuesdayEndHour" hour class="input--hour" type="text">
+        </div>
+      </div>
+      <div class="schedule__item input__group-row">
+        <switch able="Miercoles" disable="Miercoles" switch.two-way="studioFreelance.days.wednesday & validate"></switch>
+        <div show.bind="studioFreelance.days.wednesday" class="input__group-row">
+          <input value.bind="wednesdayStartHour" hour class="input--hour" type="text">
+          <input value.bind="wednesdayEndHour" hour class="input--hour" type="text">
+        </div>
+      </div>
+      <div class="schedule__item input__group-row">
+        <switch able="Jueves" disable="Jueves" switch.two-way="studioFreelance.days.thursday & validate"></switch>
+        <div show.bind="studioFreelance.days.thursday" class="input__group-row">
+          <input value.bind="thursdayStartHour" hour class="input--hour" type="text">
+          <input value.bind="thursdayEndHour" hour class="input--hour" type="text">
+        </div>
+      </div>
+      <div class="schedule__item input__group-row">
+        <switch able="Viernes" disable="Viernes" switch.two-way="studioFreelance.days.friday & validate"></switch>
+        <div show.bind="studioFreelance.days.friday" class="input__group-row">
+          <input value.bind="fridayStartHour" hour class="input--hour" type="text">
+          <input value.bind="fridayEndHour" hour class="input--hour" type="text">
+        </div>
+      </div>
+      <div class="schedule__item input__group-row">
+        <switch able="Sabado" disable="Sabado" switch.two-way="studioFreelance.days.saturday & validate"></switch>
+        <div show.bind="studioFreelance.days.saturday" class="input__group-row">
+          <input value.bind="saturdayStartHour" hour class="input--hour" type="text">
+          <input value.bind="saturdayEndHour" hour class="input--hour" type="text">
+        </div>
+      </div>
+      <div class="schedule__item input__group-row">
+        <switch able="Domingo" disable="Domingo" switch.two-way="studioFreelance.days.sunday & validate"></switch>
+        <div show.bind="studioFreelance.days.sunday" class="input__group-row">
+          <input value.bind="sundayStartHour" hour class="input--hour" type="text">
+          <input value.bind="sundayEndHour" hour class="input--hour" type="text">
+        </div>
+      </div>
+      <input value.bind="studioFreelance.days & validate" hidden="true">
+      <span class="validation-error" repeat.for="error of daysErrors">${error.error.message}</span>
+    </section>
+
+    <div class="divider--gold"></div>
+
+    <section class="photo membership__item">
+      <h2 class="subheading">Elige una foto de perfil</h2>
+      <div class="input__block">
+
+        <div class="input__group">
+          <input class="input--file" type="file" name="" id="input:file">
+          <label class="input--file-label" for="input:file">${ file || 'Agregar foto' }</label>
+        </div>
+
+      </div>
+    </section>
+
+    <div class="divider--silver"></div>
+
+    <section class="terms membership__item">
+      <div class="input__block">
+
+        <div class="input__group--row">
+          <input class="input--radio" type="checkbox" name="" id="" required>
+          <terms-conditions-modal id="terms-conditions-content" modal></terms-conditions-modal>
+          <label class="input--label-checkbox" for="">Acepto <a href="#terms-conditions-content" class="mark--silver">Términos
+            y condiciones</a> y <span class="mark--silver">políticas de privacidad</span></label>
+        </div>
+
+        <div class="input__group">
+          <!-- <a href="#/registro/pago"> -->
+          <button class="input--submit" click.delegate="submit()" type="submit">suscribirme</button>
+          <!-- </a> -->
+        </div>
+
+      </div>
+    </section>
+
+  </div>
+</template>

@@ -1,0 +1,52 @@
+<template>
+  <require from="./scheduling.css"></require>
+  <require from="../../resources/attributes/calendar"></require>
+  <require from="../../resources/elements/artist-item/artist-item"></require>
+  <require from="resources/attributes/simple-modal"></require>
+  <require from="resources/elements/modals/confirm-scheduling-modal/confirm-scheduling-modal"></require>
+
+  <section class="scheduling__main">
+    <h1 class="site-title scheduling__title">Agendar</h1>
+    <div class="site-title scheduling__subtitle scheduling__subtitle--first">Estás solicitando una cita con <span class="golden-text">${artist.name}</span></div>
+    <artist-item artist.bind="artist" full-card.one-time="false"></artist-item>
+  </section>
+  <hr class="special-hr scheduling__hr scheduling__hr--day">
+  <section class="scheduling__day">
+    <h2 class="site-title scheduling__subtitle">Elige un <span class="golden-text">día</span></h2>
+    <div class="scheduling__calendar">
+      <div calendar="value.two-way: fields.date; schedulesuser.two-way: user.schedule; schedules.two-way: returnSchedules"></div>
+      <div class="scheduling__time">
+        Selecciona un horario
+        <div class="scheduling__time-inner">
+          <img class="scheduling__time-icon" src="/src/assets/images/icons/clock-white.svg" alt="Horario">
+          <div class="scheduling__schedules">
+            <span class="scheduling__schedule ${item == fields.time ? 'active' : ''}" repeat.for="item of returnSchedules" click.delegate="setTime(item)">${item}:00</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <div class="error-message">
+    <span class="validation-error" if.bind="fields.timeErrors">*Debes elegir un horario</span>
+  </div>
+  <hr class="special-hr scheduling__hr scheduling__hr--data">
+  <section class="scheduling__data">
+    <h2 class="site-title scheduling__subtitle">Cuéntanos sobre tu <span class="golden-text">tatuaje</span></h2>
+    <textarea class="site-input scheduling__textarea" value.bind="fields.comment" maxlength="265" placeholder="Escribe tus ideas"></textarea>
+    <!--<h2 class="site-title scheduling__subtitle scheduling__subtitle--reference">Sube tu referencia</h2>
+    <div class="scheduling__file-wrapper cover" css="background-image: ${fields.file ? 'url(' + fields.file.data + ')' : ''}">
+      <div class="scheduling__file-layer">
+        <input type="file" accept="image/*" class="scheduling__file" files="on-loaded.bind: onLoaded; file-filter.bind: 'image.*'; on-error.bind: onError; max-file-size.bind: maxFileSize; allow-drop: true">
+        <img src="/src/assets/images/icons/file2.svg" alt="Archivo" class="scheduling__file-icon">
+        <label class="golden-text scheduling__file-legend" for="photo-preview">Selecciona tu foto</label>
+        <input class="hide-input" id="photo-preview" type="file">
+        <span class="scheduling__message-error" if.bind="fileErrors.type">El archivo seleccionado debe de ser una imagen</span>
+        <span class="scheduling__message-error" if.bind="fileErrors.size">El archivo seleccionado debe pesar menos de 5MB</span>
+      </div>
+    </div-->
+  </section>
+  <confirm-scheduling-modal id="confirm-scheduling-content" simple-modal="show.two-way: showModal" css="${showModal ? 'display: block' : 'display: none'}" item.bind="currentItem"  go-next.call="nextItem()" go-prev.call="previousItem()" close.call="closeModal()"></confirm-scheduling-modal>
+  <div class="content-button">
+    <button class="site-button scheduling__submit" type="submit" click.trigger="submit()">Solicitar cita</button>
+  </div>
+</template>

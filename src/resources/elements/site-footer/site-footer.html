@@ -1,0 +1,42 @@
+<template>
+  <require from="./site-footer.css"></require>
+  <require from="../../../assets/styles/vanilla-modal.css"></require>
+
+  <require from="resources/attributes/modal"></require>
+  <require from="resources/elements/modals/terms-conditions-modal/terms-conditions-modal"></require>
+
+  <footer class="site-footer">
+    <div class="site-footer__inner">
+      <div class="site-footer__left">
+        <nav class="site-footer__nav">
+          <a href="#/comofunciona" class="site-footer__nav-item">Cómo funciona</a>
+          <a href="#/nosotros" class="site-footer__nav-item">Acerca de nosotros</a>
+          <a href="#/contacto" class="site-footer__nav-item">Contacto</a>
+          <a href="#/preguntas/cotizaciones" class="site-footer__nav-item">Preguntas frecuentes</a>
+        </nav>
+      </div>
+      <div class="site-footer__middle">
+        <a href="/" class="site-footer__logo"><img src="src/assets/images/logos/logo-golden.png" alt="La tatuadora"></a>
+        <terms-conditions-modal id="terms-conditions-content" modal></terms-conditions-modal>
+        <nav class="site-footer__terms-privacy">
+          <a href="#terms-conditions-content" class="site-footer__terms-privacy-item">Términos y condiciones</a>
+          <a href="#/politicaprivacidad" class="site-footer__terms-privacy-item">Aviso de privacidad</a>
+        </nav>
+      </div>
+      <div class="site-footer__right">
+        <div if.bind="!session.authService.authenticated" class="site-footer__signup">
+          <span class="site-footer__signup-title">¿Eres estudio o artista tatuador?</span>
+          <a route-href="route: signup" class="site-button">Regístrate</a>
+        </div>
+        <div class="site-footer__social">
+          <span class="site-footer__social-title">Síguenos en:</span>
+          <div class="site-footer__social-items">
+            <a href="https://www.facebook.com/LaTatuadoraMexico/?fref=ts" class="site-footer__social-item"><i class="fa fa-facebook"></i></a>
+            <a href="https://twitter.com/La_tatuadora" class="site-footer__social-item"><i class="fa fa-twitter"></i></a>
+            <a href="https://www.instagram.com/la_tatuadora/" class="site-footer__social-item"><i class="fa fa-instagram"></i></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+</template>

@@ -1,0 +1,38 @@
+<template>
+  <require from="./flashes.css"></require>
+  <require from="../../resources/elements/gallery-item/gallery-item"></require>
+  <require from="../../resources/elements/gallery-modal/gallery-modal"></require>
+  <require from="../../resources/attributes/simple-modal"></require>
+  <require from="../../resources/attributes/masonry-grid"></require>
+  <require from="../../resources/attributes/infinite-scroll"></require>
+  <require from="../../resources/elements/dropdown-modal/dropdown-modal"></require>
+  <h1 class="gallery-title">Flashes<span if.one-time="params.artist" class="hide-mobile"> hechos por ${artist.name}</span></h1>
+  <span class="gallery-subtitle ${params.artist ? 'hide-mobile' : ''}">Galería de <span class="golden-text">Flashes</span></span>
+  <span if.one-time="params.artist" class="gallery-subtitle hide-desktop">Flashes hechos por <span class="golden-text">${artist.name}</span></span>
+  <button type="button" click.delegate="toggleFilters()" class="gallery-filters-toggle site-button">
+    <span>${showFilters ? 'Ocultar filtros' : 'Filtrar'}</span>
+    <img src="src/assets/images/icons/filter.svg" alt="Filtrar">
+  </button>
+  <div class="gallery-filters flashes-filters ${showFilters ? 'show' : 'hide'}">
+    <div class="gallery-filter-wrapper styles-filter ${params.style || allEmpty ? 'active' : ''}">
+      <div click.delegate="toggleDropdown('styles')" ref="styleFilter" class="gallery-filter">${params.style ? activeElements.style.name : 'Estilo'}</div>
+      <dropdown-modal type="list" active-id.bind="params.style" list.bind="lists.styles" item-name="name" on-click.bind="setStyle" ref-element.bind="styleFilter" visible.bind="showDropdowns.styles" close.call="toggleDropdown('styles')" top-reference=".site-navbar" center-at="633"></dropdown-modal>
+    </div>
+    <div class="gallery-filter-wrapper elements-filter ${params.element || allEmpty ? 'active' : ''}">
+      <div click.delegate="toggleDropdown('elements')" ref="elementFilter" class="gallery-filter">${params.element ? activeElements.element.name : 'Elemento'}</div>
+      <dropdown-modal type="list" active-id.bind="params.element" list.bind="lists.elements" item-name="name" on-click.bind="setElement" ref-element.bind="elementFilter" visible.bind="showDropdowns.elements" close.call="toggleDropdown('elements')" top-reference=".site-navbar" center-at="633"></dropdown-modal>
+    </div>
+    <div class="gallery-filter-wrapper all-filter no-arrow ${allEmpty ? 'active' : ''}">
+      <div class="gallery-filter" click.delegate="resetFilters()">Todos</div>
+    </div>
+  </div>
+  <gallery-modal id="flashes-content" simple-modal="show.two-way: showModal" css="${showModal ? 'display: block' : 'display: none'}" item.bind="currentItem" go-next.call="nextItem()" go-prev.call="previousItem()" type="flash" close.call="closeModal()"></gallery-modal>
+  <section class="tattoos-grid-container flashes__grid-container">
+    <div class="tattoos-grid flashes-grid" masonry-grid infinite-scroll="callback.call: loadMore()">
+      <gallery-item repeat.for="item of items" open.call="openModal($index)" item.bind="item" type="flash">
+      </gallery-item>
+    </div>
+    <div if.bind="showLoader" class="tattoos-grid-loader cp-spinner cp-eclipse"></div>
+    <img class="tattoos-grid-icon" src="src/assets/images/icons/tattoos-gallery-icon.svg" alt="Flashes">
+  </section>
+</template>

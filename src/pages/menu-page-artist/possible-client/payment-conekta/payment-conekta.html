@@ -1,0 +1,67 @@
+<template>
+  <require from="./payment-conekta.css"></require>
+
+  <require from="resources/elements/menu-artist/menu-artist.css"></require>
+  <require from="resources/elements/menu-artist/menu-artist"></require>
+  <require from="resources/attributes/simple-modal"></require>
+  <require from="resources/elements/modals/thanks-purchase-modal/thanks-purchase-modal"></require>
+
+  <div class="content-flex content-row content-column-mobile">
+    <menu-artist></menu-artist>
+    <div class="content-flex content-vertical-center content-column width-100">
+      <h1 class="text-base text-black title margin-vertical-68px-6px margin-vertical-35px-0px-mobile">${conekta}</h1>
+      <h5 class="text-base text-black subtitle text-gray-subtitle margin-0px">Conekta</h5>
+      <hr class="special-hr separator">
+      <div class="content-flex content-vertical-center horizontal-center content-column width-100">
+        <div class="content-flex content-row content-vertical-center content-column-mobile">
+          <h5 class="text-base text-black payment-leads-quantity margin-0px">Estás comprando 50 Leads</h5>
+          <div class="vertical-hr hide-mobile"></div>
+          <h6 class="text-base text-black payment-leads-quantity margin-0px">Un total de: <span class="text-gold">$1,000 MXN</span></h6>
+        </div>
+        <hr class="gray-separator">
+        <div class="content-flex width-100-mobile">
+          <form class="width-100-mobile">
+            <div class="content-flex content-row content-column-mobile content-vertical-center vertical-start-mobile margin-horizontal-24px-mobile">
+              <h5 class="text-base text-black conekta-text width-180px margin-bottom-13px-mobile">Nombre del titular</h5>
+              <div class="content-relative width-100-mobile">
+                <input class="conekta-input-base input-large" type="" name="">
+                <i class="fa fa-lock conekta-icon-lock"></i>
+              </div>
+            </div>
+            <div class="content-flex content-row content-column-mobile content-vertical-center vertical-start-mobile margin-vertical-30px margin-horizontal-24px-mobile">
+              <h5 class="text-base text-black conekta-text width-180px margin-bottom-13px-mobile">Número de la tarjeta</h5>
+              <input class="conekta-input-base input-large text-base" placeholder="0000/0000/0000/0000" type="" name="">
+            </div>
+            <div class="content-flex content-row content-vertical-center vertical-start-mobile margin-horizontal-24px-mobile content-relative-mobile vertical-end-mobile">
+              <h5 class="text-base text-black conekta-text width-180px margin-bottom-13px-mobile content-absolute-mobile absolute-left-0px-mobile top-0px">Fecha de vencimiento</h5>
+              <div class="content-relative width-100-mobile">
+                <input class="conekta-input-base input-small text-base" placeholder="MM" type="" name="">
+              </div>
+              <div class="content-relative width-100-mobile margin-horizontal-16px-14px">
+                <input class="conekta-input-base input-small text-base" placeholder="AA" type="" name="">
+              </div>
+              <div class="content-relative content-flex content-row content-column-mobile width-100-mobile vertical-start-mobile content-vertical-center">
+                <h5 class="text-base text-black conekta-text margin-bottom-13px-mobile">CCV</h5>
+                <input class="conekta-input-base input-medium margin-left-10px margin-left-0px-mobile text-base" placeholder="000" type="" name="">
+              </div>
+            </div>
+            <div class="content-flex horizontal-end horizontal-center-mobile">
+              <thanks-purchase-modal id="thanks-purchase-content" simple-modal="show.two-way: showModal" css="${showModal ? 'display: block' : 'display: none'}" item.bind="currentItem"  go-next.call="nextItem()" go-prev.call="previousItem()" close.call="closeModal()"></thanks-purchase-modal>
+              <input type="submit" value="Pagar" name="" class="button-golden margin-top-30px" click.trigger="openModal()">
+            </div>
+          </form>
+        </div>
+        <div class="content-flex content-vertical-center return-config content-static-mobile margin-bottom-40px-mobile">
+          <a href="#/posiblesclientes/pagos">
+            <div class="content-flex content-vertical-center horizontal-center content-row">
+              <div class="payment-leads-circle content-flex content-vertical-center horizontal-center">
+                <img class="payment-leads-arrow" src="/src/assets/images/icons/left-arrow.png">
+              </div>
+              <h6 class="text-base payment-leads-text-return">Regresar</h6>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</template>

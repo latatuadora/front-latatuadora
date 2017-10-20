@@ -1,0 +1,118 @@
+<template>
+  <require from="./homepage.css"></require>
+  <require from="../../resources/elements/tattoo-artist/tattoo-artist"></require>
+  <require from="../../resources/elements/tattoo-style/tattoo-style"></require>
+  <div class="homepage-hero">
+    <div class="homepage-hero__left">
+      <a class="homepage-hero__small-item cover" route-href="route: inspirate">
+        <div class="vertical-center">
+          <div class="homepage-hero__small-item-content">
+            <span class="homepage-hero__visit">Galería </span>
+            <span class="homepage-hero__visit">de </span>
+            <span class="homepage-hero__visit-tattoos">tatuajes</span>
+          </div>
+        </div>
+      </a>
+      <a class="homepage-hero__small-item cover">
+        <div class="vertical-center">
+          <div class="homepage-hero__small-item-content">
+            <span class="homepage-hero__visit">Venta de</span>
+            <span class="homepage-hero__visit-flashes">diseños únicos</span>
+          </div>
+        </div>
+      </a>
+    </div>
+    <div class="homepage-hero__middle cover" id="homepage::hero">
+      <div class="homepage-hero__middle__layer"></div>
+      <div class="homepage-hero__middle-content">
+        <img class="homepage-hero__logo" src="src/assets/images/logos/logo-white.png" alt="La tatuadora" />
+        <div class="homepage-hero__middle-text">
+          <span class="homepage-hero__middle-text-1">Cotiza</span>
+          <span class="homepage-hero__middle-text-2">tu próximo tatuaje</span>
+        </div>
+        <a route-href="route: quotation" class="site-button">Cotizar</a>
+      </div>
+
+    </div>
+    <div class="homepage-hero__right">
+      <a class="homepage-hero__small-item cover">
+        <div class="vertical-center">
+          <div class="homepage-hero__small-item-content">
+            <span class="homepage-hero__city-span-1">Directorio</span>
+            <span class="homepage-hero__city-span-1">de</span>
+            <span class="homepage-hero__city-span-2"></span>
+            <span class="homepage-hero__city-span-3">Tatuadores</span>
+          </div>
+        </div>
+      </a>
+      <a class="homepage-hero__small-item cover" route-href="route: search_artist">
+        <div class="vertical-center">
+          <div class="homepage-hero__small-item-content">
+            <span class="homepage-hero__city-span-1">Directorio</span>
+            <span class="homepage-hero__city-span-1">de</span>
+            <span class="homepage-hero__city-span-2"></span>
+            <span class="homepage-hero__city-span-3">Tatuadores</span>
+          </div>
+        </div>
+      </a>
+      <a class="homepage-hero__small-item cover" route-href="route: news">
+        <div class="vertical-center">
+          <div class="homepage-hero__small-item-content">
+            <span class="homepage-hero__discover-span-1">Adéntrate </span>
+            <span class="homepage-hero__discover-span-1">en el </span>
+            <span class="homepage-hero__discover-span-2">mundo del tatuaje</span>
+          </div>
+        </div>
+      </a>
+    </div>
+  </div>
+
+  <section class="homepage-trending">
+    <h2 class="homepage-subtitle">Lo <span class="golden-text">más</span> buscado</h2>
+    <div class="trending__gallery">
+      <tattoo-style repeat.for="style of styles" style.bind="style" class="trending__item"></tattoo-style>
+    </div>
+    <a route-href="route: inspirate" class="site-button homepage-featured__main-button">Ver todos los tatuajes</a>
+  </section>
+
+  <hr class="special-hr homepage-divider">
+
+  <section class="homepage-featured">
+    <h2 class="homepage-subtitle">Tatuadores destacados y <span class="golden-text">nuevos</span>.</h2>
+    <div class="homepage__featured" id="homepage-featured-items">
+      <tattoo-artist repeat.for="artist of artists" artist.bind="artist" class="homepage__featured__item"></tattoo-artist>
+    </div>
+  </section>
+
+  <hr class="special-hr homepage-divider" if.bind="!session.authService.authenticated">
+
+  <section class="homepage-want-to" if.bind="!session.authService.authenticated">
+    <div class="homepage-want-to__inner">
+      <div class="homepage-want-to__buttons">
+        <button type="button" click.delegate="changeIWantTo(1)" class="site-button ${iWantTo == 1 ? 'active' : ''}">Quiero tatuarme</button>
+        <button type="button" click.delegate="changeIWantTo(2)" class="site-button homepage-want-to__button ${iWantTo == 2 ? 'active' : ''}">Soy tatuador</button>
+      </div>
+      <div class="homepage-want-to__div ${iWantTo == 1 ? 'active' : ''}">
+        <h2 class="homepage-want-to__title">Quiero tatuarme<span class="golden-text">.</span></h2>
+        <p class="homepage-want-to__text">
+          Encuentra el tatuaje que siempre haz querido, agenda una cita en el mejor estudio con los mejores artistas tatuadores.
+        </p>
+        <a route-href="route: signup-user" class="site-button">Registrarme</a>
+      </div>
+      <div class="homepage-want-to__div ${iWantTo == 2 ? 'active' : ''}">
+        <h2 class="homepage-want-to__title">Soy tatuador<span class="golden-text">.</span></h2>
+        <p class="homepage-want-to__text"></p>
+        <a route-href="route: signup" class="site-button">Registrarme</a>
+      </div>
+      <img src="src/assets/images/logos/logo-home.png" alt="La tatuadora" class="homepage-want-to__img">
+    </div>
+  </section>
+  <div class="homepage-bottom-cover cover vertical-center">
+    <div class="homepage-bottom-cover__text">
+      <div>
+        <span class="homepage-bottom-cover__quote">El cuerpo está destinado a ser visto</span>
+        <span class="homepage-bottom-cover__quote-author">Marilin Monroe</span>
+      </div>
+    </div>
+  </div>
+</template>

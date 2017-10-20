@@ -1,0 +1,137 @@
+@import '../../../assets/styles/vars'
+@import '../../../assets/styles/base'
+
+.my-tattoo
+  position relative
+  background-color #262626
+  width 222px
+  height 318px
+  margin 8px
+
+.my-tattoo:hover
+	border solid 4px $dustColor
+  
+.my-tattoo-flex-row
+  display flex
+  flex 1
+  flex-direction row
+  
+.my-tattoo__img
+  background-image url("src/assets/images/mock/group-copy-4.png");
+  background-size cover
+  background-repeat no-repeat
+  background-position center center
+  height 193px
+  
+.my-tattoo__block
+  /*height 126px*/
+  
+.my-tatto__block-info
+  margin 10px 0px 0px 10px
+  
+.my-tattoo__space-block
+  padding-left 10px
+  
+.my-tattoo__title
+  color: #fff
+  font-family 'Lato'
+  font-size 17px
+  font-weight $regular
+  margin 0px
+  padding 3px 0px
+  
+.my-tattoo__location
+  color #b09c6c
+  font-family 'Lato'
+  font-size 15px
+  font-weight $regular
+  margin 0px
+ 
+.my-tattoo__icon-heart
+  background-color #262626
+  color #fff
+  border none
+  font-size 11.4px
+  margin-left 30px
+  
+.my-tattoo__likes
+  font-family 'Lato'
+  font-weight $regular
+  font-size 9px
+  margin-left 5px
+  
+.my-tattoo__star
+  color #f7c42a
+  font-size 8px
+  
+.my-tattoo__tags
+  justify-content center
+  list-style none
+  padding-left 0px
+  margin 0px
+  
+.my-tattoo__tag-style
+  background-color #e5e5e5
+  border-radius 100px
+  height 18.1px
+  display flex
+  justify-content center
+  align-items center
+  margin 12px 2px 0px 2px
+  padding 0px 10px
+    
+.my-tattoo__tag-txt
+  font-size 8px
+  font-family 'Lato'
+  font-weight $regular
+  
+.my-tattoo-mar-rgt
+  margin-right 7px
+  
+@media screen and (max-width 975px)    
+  .my-tattoo
+    height 457px
+    margin 7.1px 0px
+    
+  .my-tattoo__img
+    background-image url("src/assets/images/mock/group-copy-4.png");
+    background-size cover
+    background-repeat no-repeat
+    background-position center center
+    height 280px
+    
+  .my-tatto__block-info
+    margin 25px 0px 0px 21.5px
+    
+  .my-tattoo__block-img
+    width 38px
+    
+  .my-tattoo__space-block
+    padding-left 12.5px
+
+  .my-tattoo__title
+    font-size 18px
+    
+  .my-tattoo__location
+    font-size 15px
+    padding 6.9px 0px
+    
+  .my-tattoo__star
+    font-size 9px
+    
+  .my-tattoo__tag-style
+    height 26.5px
+    margin 25.9px 2.6px 3px 2.6px
+    
+  .my-tattoo__tag-txt
+    font-size 10px
+    
+  .my-tattoo__icon-heart
+    font-size 16.8px
+    margin-left 60px
+    
+  .my-tattoo__likes
+    font-size 10px
+    
+  .my-tattoo
+    width: 100%

@@ -1,0 +1,28 @@
+<template>
+  <require from="./promote-me.css"></require>
+  <require from="resources/elements/menu-artist/menu-artist.css"></require>
+  <require from="resources/elements/menu-artist/menu-artist"></require>
+  <require from="resources/attributes/simple-modal"></require>
+  <require from="resources/elements/modals/promote-fb-modal/promote-fb-modal"></require>
+
+  <div class="c-flex c-row c-col--mob">
+    <menu-artist></menu-artist>
+    <div class="c-flex ver-cen c-col wdt-100">
+      <h1 class="base-txt-pay leads-payment__title">${promote}</h1>
+      <hr class="special-hr separator">
+      <div class="c-flex ver-cen hor-cen c-col wdt-100">
+        <div class="c-flex c-col ver-cen c-col--mob">
+          <h6 class="base-txt-pay txt-gold subt mar-0">Selecciona la opción deseada</h6>
+          <h5 class="base-txt-pay descript mar-ver-20-48 wdt-50 txt-cen">Si quieres que más clientes te conozcan, tienes la oportunidad de seleccionar cualquiera de las siguientes opciones y nos pondremos en contacto contigo</h5>
+        </div>
+        <div class="c-flex c-row mar--mobile">
+          <a href="#/promocionarme/blogspot">
+            <img class="frame-gold promote-img mar-rgt-18px" src="src/assets/images/mock/blogspot.png">
+          </a>
+          <promote-fb-modal id="promote-fb-content" simple-modal="show.two-way: showModal" css="${showModal ? 'display: block' : 'display: none'}" item.bind="currentItem"  go-next.call="nextItem()" go-prev.call="previousItem()" close.call="closeModal()"></promote-fb-modal>
+          <img class="frame-gold promote-img" src="src/assets/images/mock/fb-live.png" click.trigger="openModal()">
+        </div>
+      </div>
+    </div>
+  </div>
+</template>

@@ -1,0 +1,29 @@
+<template>
+<require from="./scheduling-item.css"></require>
+
+  <div class="scheduling">
+    <div class="scheduling__bg"></div>
+    <div class="scheduling__block">
+      <div class="scheduling__header">
+        <h4 class="scheduling__header-dd base-txt">${day}</h4>
+        <h4 class="scheduling__header-mm base-txt">${month}</h4>
+        <div class="scheduling__header-ln"></div>
+        <h5 class="scheduling__header-hrs base-txt">${hour}:00</h5>
+      </div>
+      <div>
+        <div class="scheduling_img-user">
+          <img class="scheduling__img" src="src/assets/images/mock//profile-circle.png">
+          <h5 class="scheduling__data base-txt">${schedule.client.name}</h5>
+        </div>
+        <h5 class="scheduling__data base-txt mar-ver-9">${schedule.client.email}</h5>
+        <h5 class="scheduling__data base-txt">${schedule.client.telephone}</h5>
+      </div>
+      <hr class="separator-gold">
+      <div>
+        <h5 class="scheduling__desc base-txt mar-bott-14">Descripción del <span class="scheduling__desc-gold">tatuaje</span></h5>
+        <h4 class="scheduling__desc-txt base-txt">"${schedule.comment}"</h4>
+      </div>
+      <hr class="separator-gold">
+    </div>
+  </div>
+</template>

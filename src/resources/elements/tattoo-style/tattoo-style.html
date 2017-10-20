@@ -1,0 +1,10 @@
+<template>
+  <require from="./tattoo-style.css"></require>
+    <a route-href="route: inspirate; params.bind: { style: style.id }">
+      <div class="style">
+        <img src="${style.image}" alt="" class="style__image">
+        <div class="style__layer"></div>
+        <div class="style__description">${style.description}</div>
+      </div>
+    </a>
+</template>

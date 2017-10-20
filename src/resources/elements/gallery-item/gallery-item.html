@@ -1,0 +1,48 @@
+
+<template>
+  <require from="./gallery-item.css"></require>
+  <require from="../../value-converters/currency"></require>
+  <div class="tattoos-grid__element ${type=='flash' ? 'flashes-grid__flash-element' : ''}">
+    <div class="tattoos-grid__element-thumbnail" click.delegate="open()">
+      <!-- <div class="tattoos-grid__element-thumbnail-actions">
+        <button type="button" class="fa fa-heart vote-btn"></button>
+        <button type="button" class="fa fa-share"></button>
+      </div> -->
+      <div if.one-time="originalSize" class="tattoos-grid__element-thumbnail-img-wrapper" click.delegate="open()">
+        <img class="tattoos-grid__element-thumbnail-img" src="${type == 'flash' ? item.sellImageUrl : item.image}" alt="Tatuaje de ${item.artist_name}">
+      </div>
+      <div if.one-time="!originalSize" class="tattoos-grid__element-thumbnail-img-wrapper cover" css="background-image: url(${type == 'flash' ? item.sellImageUrl : item.image})"></div>
+    </div>
+    <div class="tattoos-grid__element-info-wrapper">
+      <div class="tattoos-grid__element-info-top">
+        <a ><img class="tattoos-grid__element-author-pic circle" src="${artistItem.studio.profileImgUrl.avatarUrl || 'src/assets/images/mock/profile-post.png'}" alt="${item.artist_name}"></a>
+        <div class="tattoos-grid__element-info">
+          <a class="tattoos-grid__element-location">Autor: ${studio.name}</a> <!-- bind id -->
+          <span class="tattoos-grid__element-location">Tatuaje: ${item.name}</span>
+          <!-- <div class="tattoos-grid__element-stars">
+            <i repeat.for="i of 5" class="fa ${item.artist_rating > i ? (item.artist_rating > i + 0.9 ? 'fa-star' : 'fa-star-half-o') : 'fa-star-o'}"></i>
+          </div> -->
+        </div>
+        <!-- <button type="button" class="tattoos-grid__element-info-likes vote-btn fa fa-heart">${item.votes + ' Likes'}</button> -->
+      </div>
+      <div if.one-time="type!='flash'" class="tattoos-grid__element-tags">
+        <a repeat.for="tag of item.tags" href="#" class="tattoos-grid__element-tag">${tag}</a>
+      </div>
+      <div if.one-time="type=='flash'"  class="tattoos-grid__element-characteristics">
+        <div class="tattoos-grid__element-price">
+          <i class="fa fa-usd circle"></i>
+          <span>${item.amount | currency: 'mxn'}</span>
+        </div>
+        <div class="tattoos-grid__element-dimensions">
+          <i class="fa fa-arrows-alt"></i>
+          <span>${item.dimensionsY} x ${item.dimensionsX}</span>
+        </div>
+      </div>
+      <div class="tattoos-grid__element-buttons">
+        <a if.one-time="type!='flash'" if.bind="studio.user" route-href="route: quotation; params.bind: {artist: studio.user}" class="site-button">Cotizar tatuaje similar</a>
+        <a if.one-time="type!='flash'" if.bind="studio.user" route-href="route: studio; params.bind: {id: studio.user}" class="site-button">Ver perfil</a>
+        <a if.one-time="type=='flash'" href="/#comprar/flash" class="site-button site-button--black">Comprar flash</a>
+      </div>
+    </div>
+  </div>
+</template>

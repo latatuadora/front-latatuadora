@@ -1,0 +1,32 @@
+<template>
+  <require from="./my-tattoo-artist.css"></require>
+  <require from="resources/elements/menu-artist/menu-artist.css"></require>
+  <require from="resources/elements/menu-artist/menu-artist"></require>
+  <require from="resources/elements/artist-tattoo-item/artist-tattoo-item"></require>
+  <require from="resources/attributes/simple-modal"></require>
+  <require from="resources/elements/modals/new-tattoo-artist-modal/new-tattoo-artist-modal"></require>
+
+  <div class="content-flex content-row content-column-mobile">
+    <menu-artist></menu-artist>
+    <div class="content-flex content-column content-vertical-center margin-vertical-60px-100px width-100">
+      <h1 class="text-base title margin-0px">${artistTitle[0]} <span class="text-gold">${artistTitle[1]}</span></h1>
+      <hr class="special-hr separator margin-vertical-hr-55px margin-vertical-hr-35px-mobile">
+      <div class="show-mobile hide-desktop margin-bottom-27px-mobile">
+        <button class="content-flex content-row content-vertical-center horizontal-center button-base padding-horizontal-15px" click.trigger="openModal()">
+          <img class="margin-right-10px" src="src/assets/images/icons/plus_circle.svg">
+          Agregar nuevo tatuador
+        </button>
+      </div>
+      <div class="content-flex content-row content-wrap horizontal-center content-vertical-center-mobile content-column-mobile width-100-mobile">
+        <new-tattoo-artist-modal id="new-tattoo-artist-content" simple-modal="show.two-way: showModal" css="${showModal ? 'display: block' : 'display: none'}" item.bind="currentItem"  go-next.call="nextItem()" go-prev.call="previousItem()" close.call="closeModal()"></new-tattoo-artist-modal>
+        <div class="show-desktop hide-mobile">
+          <div class="content-flex content-column content-vertical-center horizontal-center new-tattoo-artist " click.trigger="openModal()">
+            <img src="src/assets/images/etc/new-plus.png">
+            <p class="text-base paragraph new-tattoo-artist-txt">Agregar <span class="text-gold">tatuador</span> nuevo</p>
+          </div>
+        </div>
+        <artist-tattoo-item repeat.for="artist of artists" currentindex.bind="$index" artist.bind="artist"></artist-tattoo-item>
+      </div>
+    </div>
+  </div>
+</template>

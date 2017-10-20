@@ -1,0 +1,741 @@
+@import '../../assets/styles/vars'
+@import '../../assets/styles/mixins'
+
+.homepage-hero
+  background $blackColor
+  display flex
+  flex-wrap wrap
+  height 486px
+  justify-content space-between
+  text-align center
+  color white
+  z-index 2
+
+.homepage-hero__left,
+.homepage-hero__right
+  flex-basis 234px
+
+.homepage-hero__small-item
+  height 234px
+
+  &:not(:first-child)
+    margin-top 16px
+
+a.homepage-hero__small-item
+  display block
+  color white
+
+  > div
+    height 100%
+    width 100%
+
+.homepage-hero__left .homepage-hero__small-item
+  &:first-child
+    background-image url('src/assets/images/backgrounds/home-hero-8.jpg')
+
+  &:last-child
+    background-image url('src/assets/images/backgrounds/home-hero-9.jpg')
+
+.homepage-hero__right .homepage-hero__small-item
+  &:first-child
+    background-image url('src/assets/images/backgrounds/home-hero-6.jpg')
+
+  &:nth-child(2)
+    background-image url('src/assets/images/backgrounds/home-hero-6.jpg')
+    display none
+
+  &:last-child
+    background-image url('src/assets/images/backgrounds/home-hero-7.jpg')
+
+.homepage-hero__middle
+  background-image url('src/assets/images/backgrounds/home-carousel-3.jpg')
+  transition: all 0.5s
+  display flex
+  align-items flex-end
+  justify-content center
+  padding-bottom remify(44)
+  flex-basis calc(100% - 518px)
+  position relative
+  z-index 2
+
+  .site-button
+    rfont-size 13px 767px 11px
+    letter-spacing 0.5px
+    padding 1.1em 3.8em 0.9em 3.8em
+    margin-top remify(39)
+    z-index 2
+
+.homepage-hero__logo
+  width 119px
+  z-index 2
+
+.homepage-hero__city-span-1,
+.homepage-hero__city-span-2,
+.homepage-hero__city-span-3,
+.homepage-hero__middle-text-1,
+.homepage-hero__middle-text-2,
+.homepage-hero__visit,
+.homepage-hero__visit-tattoos,
+.homepage-hero__visit-flashes,
+.homepage-hero__discover-span-1,
+.homepage-hero__discover-span-2
+  line-height 0.9
+  display block
+  color: #FFF
+
+.homepage-hero__city-span-3,
+.homepage-hero__discover-span-2
+  font-family 'Master of break'
+
+.homepage-hero__city-span-1,
+.homepage-hero__city-span-2,
+.homepage-hero__middle-text-1,
+.homepage-hero__middle-text-2,
+.homepage-hero__visit,
+.homepage-hero__visit-tattoos,
+.homepage-hero__visit-flashes,
+.homepage-hero__discover-span-1
+  font-family 'BebasNeue'
+  font-weight $bold
+
+.homepage-hero__city-span-3,
+.homepage-hero__discover-span-2
+  &::first-letter
+    text-transform uppercase
+
+.homepage-hero__left
+  .site-button
+    font-size 10px
+    letter-spacing 0.4px
+    padding 0.9em 1.8em
+    margin-top remify(48.7)
+
+.homepage-hero__city-span-1
+  rfont-size 45px 767px 42px
+
+.homepage-hero__city-span-2
+  rfont-size 62.5px 767px 58.5px
+
+.homepage-hero__city-span-3
+  rfont-size 33px 767px 31.5px
+  line-height 1.16
+  margin-top remify(6)
+
+.homepage-hero__middle-text-1
+  rfont-size 82px 767px 60px
+  margin-top remify(50)
+
+.homepage-hero__middle-text-2
+  rfont-size 46.5px 767px 33.5px
+  line-height 1
+
+.homepage-hero__visit
+  rfont-size 63px 767px 58px
+
+.homepage-hero__visit-tattoos
+  rfont-size 50px 767px 46px
+
+.homepage-hero__visit-flashes
+  rfont-size 55px 767px 49px
+
+.homepage-hero__discover-span-1
+  font-size 45px
+  line-height 1.2
+
+.homepage-hero__discover-span-2
+  font-size 25px
+  margin-top remify(6)
+
+.homepage-subtitle
+  width 90%
+  margin 0
+  center-block()
+  text-align center
+  font-size 22px
+  letter-spacing unit(-0.3/22, 'em')
+  color #1d1d1d
+  font-weight $regular
+
+  .golden-text
+    font-size inherit
+
+.homepage-divider
+  max-width 903px
+  width 85%
+
+.homepage-trending
+  margin-top: 6rem;
+  text-align center
+
+.homepage-trending__form
+  margin-top 17px
+  width 90%
+  center-block()
+  max-width 563px
+
+.homepage-trending__form-content
+  display flex
+  width 100%
+
+  .input-wrapper
+    flex-basis 428px
+
+.homepage-trending__input
+  width 100%
+  simple-border('all', 1px, #e6e6e6)
+  border-radius 4px 0 0 4px
+  rfont-size 17px 767px 14.5px
+  padding 1em 2em
+  color #898989
+
+.homepage-trending__button
+  rfont-size 15px 767px 13px
+  padding 1.25em 2.7em
+  border-radius 0 2px 2px 0
+
+.homepage-trending__items
+  margin-top 86px
+  display flex
+  flex-wrap wrap
+  justify-content space-between
+  width 100%
+  max-width 1024px
+  center-block()
+  margin-bottom remify(64)
+
+.homepage-trending__item
+  flex-basis 25%
+  height 25vw
+  max-height 248px
+  color white
+  font-family 'BebasNeue'
+  font-weight $bold
+  rfont-size remify(30) 479px 13px
+  letter-spacing unit(0.3/30, 'em')
+  line-height 1.23
+  cursor pointer
+
+  a
+    color inherit
+    padding 25px
+
+.homepage-trengind__item-layer
+  height 100%
+  background rgba(black, 0.4)
+
+.homepage-featured
+  margin-top 57px
+  margin-bottom 87px
+  text-align center
+
+  .homepage-subtitle
+    rfont-size 22px 767px 19px
+
+.homepage-featured__buttons
+  width 366px
+  center-block()
+  display flex
+  justify-content space-between
+  flex-wrap wrap
+
+.homepage-featured__button
+  background #e5e5e5
+  color #383838
+    margin 3rem 0
+  flex-basis 111px
+  font-size 11px
+  padding 1em 0.85em
+
+
+  &:hover, &.active, &:active
+    background #b5a274
+    color white
+
+.homepage-featured__items
+  margin-top remify(59)
+  display flex
+  flex-wrap wrap
+  justify-content space-between
+  center-block()
+  width 1024px
+
+.homepage-featured__main-button
+  margin 3rem 0
+  rfont-size 13px 767px 10px
+  padding 1.15em 1.7em 1em 1.7em
+  letter-spacing unit(0.5/13, 'em')
+
+.homepage-want-to
+  margin-top 67px
+  position relative
+
+.homepage-want-to__inner
+  center-block()
+  position relative
+  width 582px
+
+.homepage-want-to__buttons
+  display flex
+
+  .site-button
+    color #9b9b9b
+    background white
+    position relative
+    rfont-size 20px 600px 15px
+    padding 10px 20px 6px 20px
+    font-family 'BebasNeue'
+    simple-border('all', 1px, #e5e5e5)
+    width 161px
+
+    &:first-child
+      border-radius 2px 0 0 2px
+
+    &:last-child
+      border-radius 0 2px 2px 0
+
+    &:hover, &:active, &:focus, &.active
+      background $dustColor
+      simple-border('all', 1px, $dustColor)
+      color white
+
+      &::before
+        content ' '
+        background white
+        width 8.5px
+        height 8.5px
+        transform rotate(45deg) translate(-50%, -50%)
+        position absolute
+        top 0
+        left 50%
+
+.homepage-want-to__div
+  margin-top remify(64)
+
+  &.active
+    display block
+    animation fadeIn 0.7s
+
+  &:not(.active)
+    display none
+
+  .site-button
+    margin-top 64px
+    background #7e888e
+    rfont-size 11px 767px 12px
+    padding 1em 1.7em
+
+    &:hover, &:active, &:focus
+      background lightness(#7e888e, 44%)
+
+.homepage-want-to__title
+  rfont-size 45px 767px 44px
+  color $dustColor
+  font-family 'BebasNeue'
+  margin 0
+  width remify(168)
+  letter-spacing unit(0.1/45, 'em')
+  line-height 0.96
+
+.homepage-want-to__text
+  font-size 15px
+  line-height 1.4
+  margin-top 19px
+  margin-bottom 0
+  width remify(293)
+  simple-border('left', 1px, $dustColor)
+  padding-left remify(8)
+
+.homepage-want-to__img
+  position absolute
+  right 0
+  top remify(40)
+  height remify(289)
+  z-index -1
+
+.homepage-bottom-cover
+  background-image url('src/assets/images/backgrounds/home-bottom.jpg')
+  margin-top remify(112)
+  height 22.65vw
+  min-height 150px
+  max-height 232px
+
+.homepage-bottom-cover__text
+  color $dustColor
+  font-family 'Lato'
+  display flex
+  line-height 1.2
+  text-transform uppercase
+  align-items center
+  justify-content center
+  text-align center
+  width calc(100% - 62px)
+  center-block()
+  border 1px $dustColor solid
+  height calc(100% - 48px)
+
+  > div
+    flex-basis 100%
+
+.homepage-bottom-cover__quote,
+.homepage-bottom-cover__quote-author
+  color: $dustColor
+  display block
+
+.homepage-bottom-cover__quote
+  rfont-size remify(27) 740px 21px
+
+.homepage-bottom-cover__quote-author
+  rfont-size remify(19) 740px 14px
+  margin-top 8px
+
+  &::before
+    content '- '
+
+.home-bottom-search
+  display none
+
+@media screen and (max-width: 1023px)
+  .homepage-hero
+    height auto
+
+  .homepage-hero__middle
+    padding-top remify(44)
+    order -1
+
+  .homepage-hero__left,
+  .homepage-hero__middle,
+  .homepage-hero__right
+    flex-basis 100%
+
+  .homepage-hero__left,
+  .homepage-hero__right
+    display flex
+    flex-wrap wrap
+
+  .homepage-hero__small-item
+    flex-basis 50%
+
+    &:not(:first-child)
+      margin-top 0
+
+  .homepage-featured__items
+    .artist-item:nth-child(n+5)
+      display none
+
+@media screen and (max-width: 1007px)
+  .homepage-featured__items
+    width 508px
+
+  .homepage-want-to__inner
+    padding-right 233px
+    width 530px
+
+@media screen and (max-width: 767px)
+  .homepage-hero__logo
+    width 96px
+
+  .homepage-hero__middle
+    background-image url('src/assets/images/backgrounds/home-hero-3-responsive.jpg')
+
+  .homepage-hero__middle-text-1
+    margin-top 23px
+
+  .homepage-hero__middle .site-button
+    margin-top 17px
+
+  .homepage-hero__left .site-button
+    margin-top 11px
+
+  .homepage-hero__discount-text
+    line-height 0.9
+
+  .homepage-divider
+    display none
+
+  .homepage-trending__form
+    margin-top 24px
+
+  .homepage-trending__input
+    padding 1.15em
+
+    &::placeholder
+      opacity 0
+
+  .homepage-trending__button
+    padding 1.425em 1.3em
+
+  .homepage-trending__items
+    margin-top 46.7px
+    max-width initial
+
+  .homepage-trending__item
+    margin-top 0
+    flex-basis 33.3333333333%
+    height 33.333333333333vw
+
+    &:nth-child(n+7)
+      display none
+
+    a
+      padding 15px
+
+  .homepage-featured
+    margin-top 59px
+
+  .homepage-featured__buttons
+    margin-top 33px
+
+  .homepage-featured__main-button
+    margin: 3rem 0
+
+    padding 15px 12.7px 13.2px 12.7px
+
+  .homepage-want-to
+    margin-top 108px
+
+  .homepage-want-to__inner
+    width 293px
+    padding-right 0
+
+  .homepage-want-to__title
+    color black
+
+  .homepage-want-to__text
+    padding-left 0
+    border none
+    width 100%
+
+  .homepage-want-to__img
+    height 139px
+    bottom -50px
+    right -10px
+    top initial
+
+  .home-bottom-search
+    display block
+    margin-top 75px
+    center-block()
+    display flex
+    width 90%
+    max-width 450px
+
+  .home-bottom-search__input
+    flex-basis calc(100% - 91.2px)
+    max-width calc(100% - 91.2px)
+    border-radius 4px 0 0 4px
+    simple-border('all', 1px, #e6e6e6)
+    padding 1em 1.4em
+    font-size 14.5px
+    color  #898989
+    font-family 'Lato'
+
+  .home-bottom-search__button
+    height 51.3px
+    line-height 1
+    flex-basis 91.2px
+    border-radius 0 4px 4px 0
+    font-size 13px
+    letter-spacing 0.2px
+
+  .homepage-bottom-cover
+    margin-top 67.7px
+
+@media screen and (max-width: 600px)
+  .homepage-want-to-button
+    width 146px
+
+@media screen and (max-width: 530px)
+  .homepage-featured__buttons
+    width 240px
+
+  .homepage-featured__button
+    &:nth-child(3)
+      order -2
+
+    &:nth-child(1)
+     order 1
+
+  .homepage-featured__items
+    margin-top 47.7px
+    width 320px
+
+    .artist-item
+      flex-basis 158px
+      height 158px
+      margin-top 4.3px
+
+    .artist-item__back
+      padding 30px 16px 10px 16px
+
+    .artist-item__stars
+      margin-top 4px
+
+      .fa
+        font-size 7px
+
+    .artist-item__location
+      margin-top 4px
+      font-size 12px
+
+    .artist-item__tags
+      margin-top 0
+      font-size 8.3px
+
+    .artist-item__top-like-button
+      font-size 9.5px
+      top 10px
+      right 6px
+
+    .artist-item__bottom-like-button
+      font-size 9px
+      margin-top 6px
+
+      &::before
+        font-size 9.5px
+
+
+
+@media screen and (max-width: 479px)
+  .homepage-hero__right
+    order -1
+
+  .homepage-hero__small-item
+    flex-basis 100%
+    height 176px
+
+  .homepage-bottom-cover
+    background-image url('src/assets/images/backgrounds/home-bottom-responsive.png')
+    height 224px
+
+  .homepage-bottom-cover__text
+    width calc(100% - 38px)
+    height calc(100% - 40px)
+
+  .homepage-hero__left .homepage-hero__small-item
+    &:first-child
+      background-image url('src/assets/images/backgrounds/home-hero-8.jpg')
+
+    &:last-child
+      background-image url('src/assets/images/backgrounds/home-hero-9.jpg')
+
+  .homepage-hero__right .homepage-hero__small-item
+    &:first-child
+      display none
+
+    &:nth-child(2)
+      display block
+
+    &:last-child
+      background-image url('src/assets/images/backgrounds/home-hero-7.jpg')
+
+
+// STYLES TO TRENDING GALERY
+.trending
+
+  &__layer
+    z-index 1
+    height 100%
+    width 100%
+    top 0
+    position absolute
+    background rgba(black, 0.2)
+
+  &__gallery
+    margin 6rem auto 3rem auto
+    width 320px
+    display grid
+    grid-template-columns repeat(auto-fill, 160px)
+
+  &__item
+    width 160px
+    height 160px
+    object-fit cover
+    object-position center
+    background-position center
+    background-size cover
+    position relative
+
+  &__image
+    max-width 100%
+    max-height 100%
+    width 100%
+    height 100%
+
+  &__description
+    z-index 2
+    transform translate3d(-50%, -50%, 0);
+    position absolute
+    top 50%
+    left 50%
+
+    font-family 'BebasNeue'
+    font-size 2.5rem
+    text-align center
+    text-transform uppercase
+    color #FFF
+
+  @media screen and (min-width 48rem)
+
+    &__gallery
+      width 500px
+      grid-template-columns repeat(2, 250px)
+
+    &__item
+      width 250px
+      height 250px
+
+  @media screen and (min-width 64rem)
+
+    &__gallery
+      width 1000px
+      grid-template-columns repeat(4, 250px)
+
+    &__item
+      width 250px
+      height 250px
+
+// HOMER PAGE LAYER
+.homepage-hero__middle-content
+  z-index 2
+.homepage-hero__middle
+  position relative
+
+  &__layer
+    z-index 1
+    height 100%
+    width 100%
+    top 0
+    position absolute
+    background rgba(0,0,0,0.4)
+
+.homepage__featured
+  margin 6rem auto 3rem auto
+  width 320px
+  display grid
+  grid-gap: 0
+  grid-template-columns repeat(auto-fill, 160px)
+
+  &__item
+    width 160px
+    height 160px
+
+  @media screen and (min-width 48rem)
+
+    &
+      width 500px
+      grid-gap: 0.5rem;
+      grid-template-columns repeat(2, 250px)
+
+    &__item
+      width 250px
+      height 250px
+
+  @media screen and (min-width 64rem)
+
+    &
+      width 1000px
+      grid-template-columns repeat(4, 250px)
+
+    &__item
+      width 250px
+      height 250px

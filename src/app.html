@@ -1,3 +1,12 @@
 <template>
-  <h1>${message}</h1>
+  <require from="./main.css"></require>
+  <require from="./resources/elements/navbar/navbar"></require>
+  <require from="./resources/elements/site-footer/site-footer"></require>
+  <div id="page" class="page">
+    <navbar class="site-navbar-wrapper"></navbar>
+    <main id="main">
+      <router-view containerless></router-view>
+    </main>
+    <site-footer></site-footer>
+  </div>
 </template>

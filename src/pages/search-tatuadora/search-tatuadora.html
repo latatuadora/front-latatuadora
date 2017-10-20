@@ -1,0 +1,19 @@
+<template>
+  <require from="./search-tatuadora.css"></require>
+
+  <require from="resources/elements/search-item/search-item"></require>
+
+  <div class="content-flex content-column content-vertical-center margin-vertical-76px margin-vertical-60px-mobile width-100">
+    <div class="width-80">
+      <form>
+        <input class="text-base title search-input" placeholder="Buscar en La Tatuadora..." type="" name="">
+      </form>
+      <h1 class="text-base text-black title margin-vertical-88px-70px margin-vertical-64px-42px-mobile">${searchTatuadora.title}</h1>
+      <div>
+        <h1 class="text-base text-black subtitle lineheight-30px lineheight-24px-mobile margin-0px">Tu búsqueda no obtuvo resultados</h1>
+        <h2 class="text-base text-black text-gray-subtitle bullets lineheight-30px lineheight-24px-mobile margin-0px">Lamentable, pero nada coincidió con tus términos de búsqueda. Por favor intente otra vez con algunas palabras clave diferentes.</h2>
+      </div>
+      <search-item repeat.for="item of 6"></search-item>
+    </div>
+  </div>
+</template>

@@ -1,0 +1,144 @@
+@import '../../../assets/styles/vars'
+@import '../../../assets/styles/mixins'
+
+.quotation-instructions__input-file-container
+  display block
+  center-block()
+  height 291px
+  margin-top 70px
+  max-width 345px
+  width 82.6%
+
+  &.no-file
+    background-color $dustColor
+    background-image none
+
+    .quotation-instructions__input-file
+      background rgba($dustColor, 60%)
+
+.quotation-instructions__main-icon
+  margin-bottom 38.6px
+  margin-top 63px
+  width 47.2px
+
+.quotation-instructions__input-file
+  background rgba(black, 60%)
+  color white
+  height 100%
+  width 100%
+  position relative
+  letter-spacing 0.1px
+  font-size 17px
+
+  img
+    display block
+    center-block()
+
+  .site-button
+    padding 14px 20px
+    text-transform none
+    margin-top 33px
+    display inline-block
+
+  input
+    cursor pointer
+    display block
+    height 100%
+    width 100%
+    opacity 0
+    position absolute
+    top 0
+    left 0
+
+.quotation-step-4__error
+  margin-top 15px
+  font-size 15px
+  display block
+  width 75%
+  center-block()
+
+.quotation-instructions__input-file-span
+  display block
+  margin-top 12px
+
+.quotation-instructions__input-note
+  font-size 16px
+  letter-spacing 0.1px
+  display block
+  color white
+  text-align left
+  margin-top 14px
+
+.quotation-instructions__file-note
+  margin-top 19px
+  center-block()
+  max-width 345px
+  width 82.6%
+
+.quotation-instructions__comment-icon
+  margin-top 86px
+  display inline-block
+  margin-bottom 27px
+  width 63px
+
+.quotation-instructions__message-input-container > textarea
+  font-family 'Lato'
+
+.quotation-instructions__message-input-container
+  margin-top 55px
+  center-block()
+  max-width 516px
+  width 82.6%
+  font-family 'Lato'
+
+.quotation-instructions__message-input
+  background #d8d8d8
+  height 219px
+  color #949494
+  font-size 17px
+  letter-spacing 0.1px
+  padding 19px 24px
+  width 100%
+
+.quotation-instructions__input-error
+  margin-top 8.5px
+  color white
+  display block
+  text-align left
+  font-size 14px
+
+@media (-moz-touch-enabled: 1), (pointer: coarse), (pointer: none)
+  .quotation-instructions__input-file-span
+    display none
+
+@media screen and (max-width: 767px)
+  .quotation-instructions__input-file-span
+    display none
+
+  .quotation-instructions__main-icon
+    margin-top 46px
+    margin-bottom 30px
+
+  .quotation-instructions--step-4-main,
+  .quotation-instructions--step-4-comment
+    font-size 18px
+
+  .quotation-instructions__input-file-container
+    margin-top 39px
+    height 235px
+
+  .quotation-instructions__input-note
+    font-size 14px
+    margin-top 9px
+
+  .quotation-instructions__comment-icon
+    margin-top 47px
+    margin-bottom 20px
+
+  .quotation-instructions__message-input-container
+    margin-top 37px
+
+  .quotation-instructions__message-input
+    font-size 13px
+    padding 13px
+    height 132px

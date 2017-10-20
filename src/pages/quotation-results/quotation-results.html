@@ -1,0 +1,68 @@
+<template>
+  <require from="../quotation/quotation.css"></require>
+  <require from="./quotation-results.css"></require>
+  <require from="../../resources/attributes/tooltip-message"></require>
+  <require from="../../resources/attributes/swiper-carousel"></require>
+  <require from="../../resources/elements/gallery-item/gallery-item"></require>
+  <require from="../../resources/attributes/simple-modal"></require>
+  <require from="../../resources/elements/gallery-modal/gallery-modal"></require>
+  <require from="../../resources/value-converters/currency"></require>
+  <div class="quotation-container quotation-results cover">
+    <div class="quotation-title quotation-title__responsive">Cotiza</div>
+    <div if.one-time="results.artist" class="quotation-results--artist">
+      <h1 class="quotation-title quotation-results__title">
+        Gracias por cotizar con <span class="golden-text">${results.artist.name}</span>
+      </h1>
+      <div class="quotation-instructions">¡Listo!</div>
+      <img src="src/assets/images/icons/check-nocircle.svg" class="quotation-results__main-icon" alt="Icon">
+      <h2 class="quotation-instructions quotation-results__artist-range">
+        El estudio te contactará lo más pronto posible.
+      </h2>
+    </div>
+    <div if.one-time="!results.artist" class="quotation-results--no-artist">
+      <h1 class="quotation-title quotation-results__title">
+        Gracias por <span class="golden-text">cotizar</span> con nosotros
+      </h1>
+      <img src="src/assets/images/icons/check-nocircle.svg" class="quotation-results__main-icon" alt="Icon">
+      <h2 class="quotation-instructions quotation-results__price-range-title">
+        <i class="fa fa-info at-left" title="Con base en tus ideas de tatuaje, vas a recibir un correo electrónico con el estudio especializado en el estilo que buscas" tooltip-message></i>
+        ¡Listo! tu <span class="golden-text">tatuaje</span> está entre:
+      </h2>
+      <div class="quotation-results__range">
+        <div class="quotation-results__range-item">${results.minAmount | currency:'mxn':true}</div>
+        <img src="src/assets/images/icons/fork.svg" alt="Results">
+        <div class="quotation-results__range-item">${results.maxAmount | currency:'mxn':true}</div>
+      </div>
+      <div class="quotation-instructions quotation-results__price-range-bottom">
+        Seleccionaremos <span class="golden-text">el mejor estudio</span> para que te contacte
+      </div>
+      <p class="quotation-results__price-range-info">
+          ${results.styleText}
+      </p>
+      <p class="quotation-results__price-range-info">
+        El precio es un promedio de lo que costaria tu tatuaje si cotizas con un artista de la plataforma.<br>
+        El precio definitivo lo fija el artista tatuador.
+      </p>
+    </div>
+    <hr class="special-hr">
+    <div class="quotation-instructions quotation-results__flashes-instructions">
+      Compra tu próximo diseño, pruébalo y agenda tu cita para tatuártelo de manera definitiva
+    </div>
+    <hr class="special-hr">
+    <h2 class="quotation-title quotation-results__subtitle quotation-results__subtitle--inspirate">Inspírate</h2>
+    <div class="quotation-instructions quotation-results__inspirate-instructions">
+      Sigue inspirándote en nuestra galería de tatuajes
+    </div>
+    <gallery-modal id="tattoos-modal" simple-modal="show.two-way: groups.tattoos.showModal" css="${groups.tattoos.showModal ? 'display: block' : 'display: none'}" item.bind="groups.tattoos.currentItem" go-next.call="changeItem(true, 'tattoos')" go-prev.call="changeItem(false, 'tattoos')" close.call="closeModal('tattoos')"></gallery-modal>
+    <div class="quotation-results--gallery" swiper-carousel="options.one-time: swiperOptions; init.bind: groups.tattoos.initCarousel">
+      <div class="swiper-wrapper">
+        <gallery-item class="swiper-slide ${$index > 2 ? 'hide-desktop' : ''}" repeat.for="item of groups.tattoos.items" item.bind="item" original-size.one-time="false"></gallery-item>
+      </div>
+      <div class="swiper-pagination"></div>
+    </div>
+    <a if.one-time="results.artist" route-href="route: inspirate; params.bind: {artist: artist.id}" class="site-button quotation-results__inspirate-button">Inspírate</a>
+    <a if.one-time="!results.artist" route-href="route: inspirate" class="site-button quotation-results__inspirate-button">Inspírate</a>
+    <hr class="special-hr">
+    <a route-href="route: search_artist" class="site-button quotation-results__appointment-button">Busca un tatuador</a>
+  </div>
+</template>

@@ -1,0 +1,37 @@
+<template>
+  <require from="./favourites.css"></require>
+  <require from="../../../resources/attributes/masonry-grid"></require>
+  <require from="../../../resources/attributes/infinite-scroll"></require>
+  <require from="../../../resources/elements/gallery-item/gallery-item"></require>
+  <require from="../../../resources/elements/dropdown-modal/dropdown-modal"></require>
+  <div class="user__favourites">
+    <h1 class="gallery-title user__favourites-title">Me gusta</h1>
+    <span class="gallery-subtitle user__favourites-subtitle">Aquí encontrarás <span class="golden-text">tatuajes y estudios</span> que te han gustado a lo largo del tiempo</span>
+    <hr class="special-hr user__favourites-hr">
+    <button type="button" click.delegate="toggleFilters()" class="gallery-filters-toggle site-button">
+      <span>${showFilters ? 'Ocultar filtros' : 'Filtrar'}</span>
+      <img src="src/assets/images/icons/filter.svg" alt="Filtrar">
+    </button>
+    <div class="gallery-filters user__favourites-filters ${showFilters ? 'show' : 'hide'}">
+      <div class="gallery-filter-wrapper ${params.type1 || allEmpty ? 'active' : ''}">
+        <div click.delegate="toggleDropdown('type1')" ref="type1Filter" class="gallery-filter">${params.type1 ? params.type1 : 'Tipo'}</div>
+        <dropdown-modal type="list" active-id.bind="activeIds.type1" list.bind="lists.type1" item-name="name" on-click.bind="setType1" ref-element.bind="type1Filter" visible.bind="showDropdowns.type1" close.call="toggleDropdown('type1')" top-reference=".site-navbar" center-at="633"></dropdown-modal>
+      </div>
+      <div class="gallery-filter-wrapper ${params.type2 || allEmpty ? 'active' : ''}">
+        <div click.delegate="toggleDropdown('type2')" ref="type2Filter" class="gallery-filter">${params.type2 ? params.type2 : 'Tipo'}</div>
+        <dropdown-modal type="list" active-id.bind="activeIds.type2" list.bind="lists.type2" item-name="name" on-click.bind="setType2" ref-element.bind="type2Filter" visible.bind="showDropdowns.type2" close.call="toggleDropdown('type2')" top-reference=".site-navbar" center-at="633"></dropdown-modal>
+      </div>
+      <div class="gallery-filter-wrapper all-filter no-arrow ${allEmpty ? 'active' : ''}">
+        <div class="gallery-filter" click.delegate="resetFilters()">Todos</div>
+      </div>
+    </div>
+    <section class="tattoos-grid-container user__favourites-grid-container">
+      <div class="tattoos-grid user__favourites-grid" masonry-grid infinite-scroll="callback.call: loadMore()">
+        <gallery-item repeat.for="item of items" open.call="openModal($index)" item.bind="item">
+        </gallery-item>
+      </div>
+      <div if.bind="showLoader" class="tattoos-grid-loader cp-spinner cp-eclipse"></div>
+      <img class="tattoos-grid-icon" src="src/assets/images/icons/tattoos-gallery-icon.svg" alt="Favoritos">
+    </section>
+  </div>
+</template>

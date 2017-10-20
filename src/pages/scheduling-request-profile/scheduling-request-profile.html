@@ -1,0 +1,13 @@
+<template>
+  <require from="./scheduling-request-profile.css"></require>
+  <require from="resources/elements/scheduling-profile-item/scheduling-profile-item"></require>
+
+	<div class="content-flex content-column content-vertical-center margin-vertical-60px-100px">
+		<h1 class="text-base text-black title margin-vertical-30px">${schedulingProfile.titleWhite} <span class="text-gold">${schedulingProfile.titleGold}</span></h1>
+		<h2 class="text-base text-black subtitle text-center margin-0px margin-horizontal-25px-mobile">${schedulingProfile.subtitleFirst} <span class="text-gold">${schedulingProfile.subtitleSecond} </span>${schedulingProfile.subtitleThird}</h2>
+		<hr class="special-hr separator margin-vertical-47px-86px">
+		<div class="content-flex content-row horizontal-center content-wrap content-vertical-center-mobile width-100">
+		<scheduling-profile-item repeat.for="item of 4"></scheduling-profile-item>
+		</div>
+	</div>
+</template>

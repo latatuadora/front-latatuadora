@@ -1,0 +1,65 @@
+@import '../../../assets/styles/vars'
+@import '../../../assets/styles/mixins'
+
+.quotation-step-5__icon-main
+  margin-top 61px
+  margin-bottom 32px
+  width 38px
+
+.quotation-step-5__inputs-section
+  margin-top 10px
+  margin-bottom 36px
+  max-width 406px
+  width 78%
+  overflow hidden
+  center-block()
+
+.quotation-step-5__input-row
+  flex-wrap wrap
+  display flex
+  margin-top 96px
+  align-items center
+  justify-content space-between
+  width 100%
+
+.quotation-step-5__input-icon
+  flex-basis 34px
+
+.quotation-step-5__input
+  background transparent
+  box-sizing border-box
+  font-family 'Lato'
+  font-size 17px
+  color #b8b8b8
+  padding 0 7px 6px 7px
+  margin-left 19px
+  flex-grow 1
+  max-width calc(100% - 54px)
+  border none
+  simple-border('bottom', 2px, #979797)
+
+.quotation-step-5__errors
+  flex-basis 100%
+  padding-left 54px
+  color white
+  font-size 15px
+  text-align left
+
+.quotation-step-5__input-error
+  width 100%
+  margin-top 4px
+
+@media screen and (max-width: 767px)
+  .quotation-step-5__icon-main
+    margin-top 48px
+    margin-bottom 20px
+
+  .quotation-instructions__step-5-main
+    font-size 20px
+
+  .quotation-step-5__inputs-section
+    margin-top 12px
+    margin-bottom 0
+
+  .quotation-step-5__input-row
+    margin-top 70px

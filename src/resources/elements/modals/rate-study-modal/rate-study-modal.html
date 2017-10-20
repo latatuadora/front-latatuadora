@@ -1,0 +1,31 @@
+<template>
+  <require from="./rate-study-modal.css"></require>
+  <div class="tattoo-modal">
+    <div class="tattoo-modal__header">
+      <img class="tattoo-modal__close" src="src/assets/images/icons/close.png" click.delegate="close()">
+    </div>
+    <div class="tattoos-grid__element tattoo-modal__element width-auto max-width-489px">
+      <div class="tattoos-grid__element-info-wrapper margin-horizontal-12px-mobile padding-50px-80px padding-40px-mobile">
+        <div class="content-flex content-column content-vertical-center width-100">
+					<h1 class="text-base text-white subtitle text-center margin-bottom-35px">Califica el estudio</h1>
+					<h6 class="text-base text-gold text-center bullets margin-0px">Hola Roberto<br>Para nosotros es muy importante saber cómo ha sido tu experiencia de cliente con el estudio Matatto, esto nos ayuda a fortalecer la calidad en el servicio.</h6>
+					<div class="succes-separator rate-gold-hr"></div>
+					<div>
+						<img class="study-logo" src="src/assets/images/logos/bad-tattoo.png" alt="">
+						<div class="content-flex content-row horizontal-center margin-35px-30px">
+							<img class="rate-star-image" src="src/assets/images/icons/lead-star.png" alt="" repeat.for="star of 5">
+						</div>
+					</div>
+					<form class="width-100" action="">
+						<div>
+							<textarea class="text-base text-white paragraph commentary" name="" id="" placeholder="Deja un comentario"></textarea>
+							<div class="content-flex horizontal-end">
+								<input class="button-base rate-button margin-top-30px" type="submit" value="Enviar">
+							</div>
+						</div>
+					</form>
+				</div>
+      </div>
+    </div>
+  </div>
+</template>

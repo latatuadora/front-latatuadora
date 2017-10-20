@@ -1,0 +1,986 @@
+@import '../../assets/styles/vars'
+@import '../../assets/styles/mixins'
+
+.studio__hero
+  background-image url('/src/assets/images/backgrounds/studio.jpg')
+  text-align center
+  color white
+  padding-top 59px
+  padding-bottom 68px
+
+.studio__logo
+  width 210px
+
+.studio__title
+  font-size 29px
+  letter-spacing -0.3px
+  margin-top 11px
+  font-weight $regular
+  center-block()
+
+.studio__hero-right
+  margin-left 15%
+
+studio__hero-left
+  margin-right 15%
+
+.studio__hero-inner
+  display flex
+  justify-content center
+  max-width 780px
+  width 83%
+  position relative
+  margin-top 61px
+  padding 20px 0 19px 0
+  center-block()
+
+  .site-button
+    font-size 13px
+    letter-spacing 0.5px
+    padding 16px
+    width 188px
+    margin-top 41px
+
+.studio__hero-right::before
+  position absolute
+  background $dustColor
+  content ' '
+  height 100%
+  top 0
+  left calc(50% - 0.5px)
+  width 1px
+
+.studio__hero-subtitle
+  font-family 'BebasNeue'
+  rfont-size 55px 767px 40px
+  letter-spacing 0.1px
+  margin 0
+
+.studio__hero-subtext
+  font-family 'Master of break'
+  display block
+  font-weight normal
+  line-height 1.14
+  rfont-size 43px 767px 27px
+
+.studio__subtitle
+  color white
+  rfont-size 35px 767px 28px
+  letter-spacing -0.3px
+  margin 0
+  font-weight $regular
+  text-align center
+  width 90%
+  center-block()
+
+.studio__hr
+  width 83%
+  max-width 903px
+  margin-top 53px
+
+.studio__tattoos-subtitle
+  margin-top 53px
+  color #171717
+
+.studio__tattoos
+  margin-top 91px
+  position relative
+  width 956px
+  overflow hidden
+  center-block()
+
+  &::after,
+  &::before
+    content ' '
+    background white
+    position absolute
+    top 0
+    height 100%
+    width 59px
+    z-index 2
+
+  &::before
+    left 0
+
+  &::after
+    right 0
+
+  .swiper-wrapper
+    margin-left -104px
+
+  .swiper-slide
+    width auto
+
+  .swiper-button-prev,
+  .swiper-button-next
+    width 16px
+
+  .swiper-button-prev
+    left 0
+
+  .swiper-button-next
+    right 0
+
+  .swiper-pagination
+    display none
+
+  .tattoos-grid__element
+    margin 0
+    width 205px
+
+  .tattoos-grid__element-thumbnail-img-wrapper
+    height 177px
+
+  .tattoos-grid__element-info-wrapper
+    padding 18px 19px 26px 19px
+
+  .tattoos-grid__element-author-pic
+    width 24px
+    height 24px
+
+  .tattoos-grid__element-info-likes
+    font-size 7.5px
+    margin-right -10px
+    margin-left 5px
+
+    &::before
+      font-size 12px
+      margin-right 5px
+
+  .tattoos-grid__element-info
+    margin-left 7px
+
+  .tattoos-grid__element-author
+    font-size 14.3px
+
+  .tattoos-grid__element-location
+    font-size 11px
+
+  .tattoos-grid__element-stars
+    font-size 7px
+    margin-top 4.5px
+
+  .tattoos-grid__element-tags
+    font-size 9px
+    margin-top 15px
+
+  .tattoos-grid__element-buttons
+    font-size 9px
+    margin-top 14px
+
+  .site-button
+    width 118px
+
+    &:nth-child(2)
+      display none
+
+.studio__gallery-button
+  font-size 13px
+  display block !important
+  padding 17px
+  margin-top 57px
+  margin-bottom 80px
+  text-align center
+  width 188px
+  center-block()
+
+.studio__flashes
+  background-image url('/src/assets/images/backgrounds/studio-flashes.jpg')
+  padding-top 34px
+  padding-bottom 61px
+  text-align center
+
+  .gallery-subtitle
+    color white
+    rfont-size 25px 767px 21px
+    margin-top 28px
+
+  .site-button
+    font-size 13px
+    padding 16px
+    margin-top 59px
+    width 188px
+
+.studio__flashes-carousel
+  width 1024px
+  margin-top 60px
+  overflow hidden
+  position relative
+  center-block()
+
+  .swiper-wrapper
+    flex-wrap wrap
+
+  .artist-item
+    margin-top 0
+    height 263px
+    width 257px
+
+  .swiper-pagination
+    display none
+
+.studio__carousel
+  overflow hidden
+
+  .swiper-button-prev,
+  .swiper-button-next
+    background none
+
+  .swiper-pagination-bullet
+    background #d8d8d8
+    opacity 1
+    width 5px
+    height 5px
+    margin 0 2.5px !important
+
+  .swiper-pagination-bullet-active
+    background $dustColor
+
+.studio__photos-carousel
+  position relative
+  height 41vw
+
+  .swiper-pagination
+    bottom 26px
+
+  .swiper-pagination-bullet
+    width 6.2px
+    height 6.2px
+
+    &:not(.swiper-pagination-bullet-active)
+      background #ffffff
+
+  .swiper-button-prev,
+  .swiper-button-next
+    width 11px
+    height 20px
+
+  .swiper-button-prev
+    left 34px
+
+  .swiper-button-next
+    right 34px
+
+.studio__evaluations-hr
+  width 83.75%
+  max-width 903px
+  margin-top 42px
+  margin-bottom 61px
+
+.studio__evaluations-artists
+  display flex
+  text-align center
+  align-items flex-start
+
+.studio__evaluations,
+.studio__artists
+  flex-basis 50%
+  overflow hidden
+  position relative
+
+.studio__evaluations .site-button
+  rfont-size 13px 767px 9px
+  letter-spacing 0.3px
+  padding 15px
+  width 188px
+  margin-top 20px
+
+.studio__evaluations-inner
+  position relative
+  background #1d1c1c
+  color white
+  padding 57px 114px 97px 114px
+
+.studio__evaluations-title
+  font-weight $regular
+  margin 0
+  display inline-block
+  rfont-size 22px 767px 15px
+  letter-spacing -0.2px
+  padding 0 2px 5.5px 2px
+  simple-border('bottom', 1px, $dustColor)
+
+.studio__evaluations-carousel
+  margin-top 48px
+
+  &::after
+    content ' '
+    display block
+    margin-top 24px
+    height 1px
+    background $dustColor
+    width 94.5%
+    center-block()
+
+  .swiper-button-prev,
+  .swiper-button-next
+    width 11px
+    height auto
+
+  .swiper-button-prev
+    left 51px
+
+  .swiper-button-next
+    right 51px
+
+  .swiper-pagination
+    bottom 50px
+
+.studio__evaluation-title
+  font-weight $regular
+  margin 0
+  rfont-size 22px 767px 16px
+  letter-spacing -0.2px
+
+.studio__evaluation-stars
+  font-size 12px
+  color $dustColor
+  margin-top 19px
+
+  .fa
+    margin 0 1.5px
+
+.studio__evaluation-content
+  line-height 1.42
+  font-size 12px
+  margin-top 14px
+  margin-bottom 0
+
+.studio__artists-title
+  font-weight $regular
+  margin 15px 0 0
+  rfont-size 35px 767px 28px
+  letter-spacing -0.3px
+
+.studio__artists-carousel
+  margin-top 36px
+  padding 0 60px 41px 60px
+  center-block()
+  width 500px
+
+  &::before,
+  &::after
+    display block
+    content ' '
+    background white
+    position absolute
+    top 0
+    height 100%
+    width 60px
+    z-index 2
+
+  &::before
+    left 0
+
+  &::after
+    right 0
+
+  .swiper-wrapper
+    z-index 1
+
+  .swiper-slide
+    position relative
+
+    &::after
+      background transparent
+      content ' '
+      position absolute
+      top 0
+      left 0
+      width 100%
+      visibility hidden
+      height 100%
+      transition background 0.2s, visibility 0.2s
+
+    &:not(.swiper-slide-active)::after
+      background rgba(black, 0.6)
+      visibility visible
+
+  .swiper-button-prev,
+  .swiper-button-next
+    width 11px
+    height auto
+    z-index 3
+
+  .swiper-button-prev
+    left 27px
+
+  .swiper-button-next
+    right 27px
+
+  .swiper-pagination
+    bottom 0
+
+  .swiper-pagination-bullet
+    width 7px
+    height 7px
+    margin 0 3.5px !important
+
+    &:not(.swiper-pagination-bullet-active)
+      background #171616
+
+.studio__artist-item
+  background #1d1d1d
+  color white
+  flex-basis 253px
+
+  a
+    color inherit
+
+.studio__artist-name
+  rfont-size 22px 767px 18px
+  letter-spacing -0.3px
+  font-weight $regular
+  margin 23px 15px
+
+.studio__artist-image
+  width 100%
+  height 237px
+
+.studio__wall
+  margin-top 92px
+  text-align center
+
+.studio__wall-title
+  color #1d1c1c
+  font-weight $regular
+  margin 0
+  font-size 26px
+
+.studio__wall-wrapper
+  margin-top 36px
+  display flex
+  justify-content center
+  background $dustColor
+  position relative
+  simple-border('top', 1px, #e5e5e5)
+
+  &::after
+    background white
+    position absolute
+    content ' '
+    height 100%
+    width 50%
+    right 0
+    z-index 0
+
+.studio__wall-inner
+  background white
+  flex-basis 622px
+  max-height 834px
+  padding 61px 88px 40px 81px
+  z-index 1
+
+  &::-webkit-scrollbar
+    width 6px
+
+  &::-webkit-scrollbar-thumb
+    background $dustColor
+
+    &:window-inactive
+    	background rgba($dustColor, 80%)
+
+.studio__wall-item
+  text-align left
+  padding-bottom 36px
+  simple-border('bottom', 1px, #e5e5e5)
+
+  &:not(:first-child)
+    margin-top 35px
+
+.studio__wall-item-header
+  display flex
+  align-items center
+
+.studio__wall-item-avatar
+  flex-basis 69px
+  height 69px
+
+.studio__wall-item-data
+  margin-left 23px
+  max-width calc(100% - 92px)
+
+.studio__wall-item-author
+  display block
+  font-size 23px
+  color #1d1c1c
+
+.studio__wall-item-date
+  font-size 11px
+  display block
+  color #bdbdbd
+
+.studio__wall-item-content
+  margin-top 27px
+  font-size 12px
+  color #898989
+  margin-bottom 20px
+
+.studio__wall-item-newcomment
+  border 1px #d9d9d9 solid
+  padding 8px 10px
+  font-size 10px
+  text-align right
+
+  textarea
+    font-size inherit
+    font-family inherit
+    display block
+    width 100%
+    border none
+    padding 0
+    text-align left
+
+  .site-button
+    font-size 9px
+    padding 7.5px
+    margin-top 5px
+    width 65px
+
+@media screen and (max-width: 1023px)
+  .studio__tattoos
+    width 705px
+
+    &::before,
+    &::after
+      width 40px
+
+    .swiper-wrapper
+      margin-left 0
+
+  .studio__flashes-carousel
+    width 514px
+
+    .swiper-pagination
+      display block
+
+  .studio__evaluations-artists
+    flex-wrap wrap
+
+  .studio__evaluations,
+  .studio__artists
+    flex-basis 100%
+
+  .studio__evaluations
+    margin-top 64px
+
+    .site-button
+      margin-top 25px
+
+  .studio__artists
+    order -1
+
+  .studio__artists-title
+    margin-top 0
+
+  .studio__wall
+    margin-top 56px
+
+@media screen and (max-width: 900px)
+  .studio__hero-right::before
+    content ''
+    display none
+
+@media screen and (max-width: 855px)
+  .studio__tattoos .tattoos-grid__element-buttons .site-button
+    font-size inherit
+    width 148px
+
+@media screen and (max-width: 767px)
+  .studio__hero-inner
+    max-width 460px
+    padding 0
+
+    .site-button
+      padding 12px
+      margin-top 24px
+      width 138px
+
+  .studio__photos-carousel
+    display none
+
+  .studio__evaluations-hr
+    margin-top 56px
+    margin-bottom 33px
+
+  .studio__evaluations-inner
+    padding 39px 68px 71px 68px
+
+  .studio__evaluations-carousel
+    margin-top 36px
+
+    .swiper-button-prev
+      left 28px
+
+    .swiper-button-next
+      right 28px
+
+    .swiper-pagination
+      bottom 32px
+
+  .studio__evaluation-stars
+    margin-top 19px
+    font-size 8px
+
+  .studio__evaluation-content
+    margin-top 9.2px
+
+  .studio__evaluations .site-button
+    width 138px
+    margin-top 18.3px
+
+  .studio__wall-title
+    display none
+
+  .studio__hr
+    display none
+
+  .studio__tattoos
+    margin-top 50px
+    width 320px
+
+    .swiper-button-prev,
+    .swiper-button-next,
+    &::before,
+    &::after
+      display none
+
+    .swiper-wrapper
+      margin-bottom 40px
+
+    .swiper-pagination
+      display block
+
+    .tattoos-grid__element
+      width 320px
+
+    .tattoos-grid__element-thumbnail-actions
+      top 20px
+
+      .fa
+        font-size 20px
+
+    .tattoos-grid__element-thumbnail-img-wrapper
+      height 268px
+
+    .tattoos-grid__element-info-wrapper
+      padding 25px 17px 40px 17px
+
+    .tattoos-grid__element-author-pic
+      width 38px
+      height 38px
+
+    .tattoos-grid__element-info-likes
+      font-size 10px
+      margin-right 0
+      margin-left 10px
+
+      &::before
+        font-size 19px
+        margin-right 6px
+
+    .tattoos-grid__element-info
+      margin-left 12px
+
+    .tattoos-grid__element-author
+      font-size 19px
+
+    .tattoos-grid__element-location
+      font-size 16px
+      margin-top 2.5px
+
+    .tattoos-grid__element-stars
+      font-size 11px
+      margin-top 8.5px
+
+      .fa:not(:first-child)
+        margin-left 3px
+
+    .tattoos-grid__element-tags
+      font-size 10px
+      margin-top 31px
+
+    .tattoos-grid__element-buttons
+      font-size 11px
+      margin-top 22.5px
+
+      .site-button
+        width 185px
+
+  .studio__gallery-button
+    margin-top 22px
+    margin-bottom 50px
+
+  .studio__flashes
+    padding-top 40px
+    padding-bottom 55px
+
+    .gallery-subtitle
+      margin-top 15px
+
+  .studio__flashes-carousel
+    margin-top 50px
+
+  .studio__wall
+    background white
+    width 83.75%
+    margin-top 25px
+    center-block()
+
+    &::after
+      content ''
+      display none
+
+  .studio__wall-inner
+    padding 25px 12px 25px 0
+    flex-basis 100%
+
+@media screen and (max-width: 580px)
+  .studio__flashes .site-button
+    margin-top 10px
+
+  .studio__flashes-carousel
+    width 322px
+    padding-bottom 46px
+
+    .flash-square-item
+      flex-basis 160px
+      width 160px
+      height 171px
+
+      .artist-item__back-content
+        padding 24px 15px 15px
+
+      .fa-usd,
+      .fa-arrows-alt
+        margin-right 5.5px
+
+      .fa-usd
+        width 17px
+        height 17px
+        padding .35px 6px
+
+        &::before
+          font-size 8.5px
+
+      .fa-arrows-alt
+        font-size 15px
+
+      .artist-item__tag
+        padding 4px 8px
+
+      .artist-item__top-like-button,
+      .artist-item__top-share-button
+        font-size 11px
+        top 9px
+
+      .artist-item__top-share-button
+        right 8px
+
+      .artist-item__top-like-button
+        right 28px
+
+  .studio__artists-carousel
+    width 320px
+    padding-bottom 0
+
+    &::before,
+    &::after
+      width 44px
+
+    .swiper-pagination
+      display none
+
+    .swiper-button-prev,
+    .swiper-button-next
+      width 8px
+      margin-top -6px
+
+  .studio__artist-item
+    flex-basis 144px
+
+  .studio__artist-name
+    margin 16px
+
+  .studio__artist-image
+    height 138px
+
+  .studio__wall
+    max-height none
+    margin-top 16px
+
+  .studio__wall-inner
+    padding-right 0
+
+  .studio__wall-item
+    padding-bottom 29px
+
+    &:not(:first-child)
+      display none
+
+  .studio__wall-item-data
+    margin-left 16px
+
+  .studio__wall-item-date
+    margin-top 2px
+
+  .studio__wall-item-content
+    margin-top 21px
+
+@media screen and (max-width: 420px)
+  .studio__hero
+    padding-top 61px
+    padding-bottom 54px
+
+  .studio__hero-inner
+    flex-wrap wrap
+    justify-content center
+    align-items flex-start
+
+  .studio__hero-left,
+  .studio__hero-right
+    flex-basis 100%
+
+  .studio__hero-right
+    margin-top 40px
+    padding-top 42px
+    position relative
+    simple-border('top', 1px, $dustColor)
+
+    &::before,
+    &::after
+      position absolute
+      background transparent
+      display block
+      content ' '
+      border-radius 50%
+      top -4px
+      width 5px
+      height 5px
+      simple-border('all', 1px, $dustColor)
+
+    &::before
+      left -6px
+
+    &::after
+      right -6px
+
+@media screen and (max-width: 399px)
+  .studio__tattoos-subtitle
+    display none
+
+  .studio__tattoos
+    margin-top 0
+
+  .studio__gallery-button
+    margin-bottom 30px
+
+.studio_info
+  margin auto
+  width 39%
+
+  .div-line
+    height 1px
+    border-bottom 1px solid #b09c6c
+    width 70px
+
+  .studio__info-title
+    font-size 25px
+    letter-spacing -0.2px
+    color #1d1c1c
+    text-align left
+    margin-top 15px
+
+  .studio__tattoos-info-subtitle
+    margin-top 29px
+    color #171717
+    width 100%
+    text-align left
+
+  .studio_info-networks img
+    width 17%
+    margin-top 12px 
+
+  .studio__info-content
+    font-size 15px
+    color #959595
+    margin-top 32px
+    margin-bottom 40px
+
+  .studio__info-address-content
+    font-size 14px
+    color #959595
+    margin-top 0
+    margin-bottom 30px
+
+    p
+      margin 0
+
+  button.address-button
+    background #b09c6c
+    color #ffffff
+    border none
+    font-size 11px
+    padding 9px 19px 9px 19px
+    border-radius 2px
+    cursor pointer 
+
+  .studio__info-time-title
+    margin-top 65px
+    margin-bottom 60px
+
+    span
+      color #b19d69
+
+  .studio__info-time-content
+    margin-bottom 80px  
+
+
+    .titles
+      display flex
+      color #b09c6c  
+
+      span
+        font-size 13px
+        margin-left 30px
+
+      .content-titles-info
+        margin-left 65px
+        font-size 13px
+
+    .schedule__item-info
+      width 60%
+      margin 1.5rem
+      display flex
+      justify-content space-between
+      align-items center
+      
+    .input__group-row
+      margin 25px 0 0 0
+      max-width 600px
+
+    .schedule__item-info
+      width 60%
+
+      .input--hour
+        padding-left 0.5rem
+        width 4rem
+        height 2rem 
+
+  .studio__info-button-content
+    margin-bottom 30%
+
+    a
+      border-radius 2px
+      color #ffffff
+      border none
+      font-size 12px
+      padding 17px 28px 17px 28px
+      margin-right 20px
+      cursor pointer
+
+    .quote-button  
+      background-color #b09c6c
+
+    .schedule-button
+      background-color #7e888e

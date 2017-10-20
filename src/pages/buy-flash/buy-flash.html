@@ -1,0 +1,59 @@
+<template>
+  <require from="./buy-flash.css"></require>
+  <require from="resources/elements/buy-flash-item/buy-flash-item"></require>
+
+  <div class="content-flex content-column content-vertical-center margin-horizontal-66px-100px width-100">
+    <h1 class="text-base text-black title margin-0px">${buyFlash.title}</h1>
+    <div class="special-hr gold-hr margin-vertical-44px"></div>
+    <h2 class="text-base text-black text-center subtitle margin-0px margin-horizontal-39px-mobile">Estás comprando este flash de estudio ${buyFlash.studie}</h2>
+    <h3 class="text-base text-black bullets margin-vertical-22px-40px">Un total de: <span class="text-gold">$${buyFlash.totalPrice} MXN</span></h3>
+    <div>
+      <buy-flash-item></buy-flash-item>
+    </div>
+    <div class="content-flex content-vertical-center horizontal-center content-column width-100">
+      <h5 class="text-base text-black payment-leads-select">Selecciona el <span class="text-gold">método de pago</span> que deseas utilizar:</h5>
+      <div class="content-flex content-row content-relative content-column-mobile width-100-mobile content-vertical-center-mobile">
+        <hr class="gray-separator hide-desktop show-mobile">
+        <div class="content-flex content-column content-row-mobile content-vertical-center-mobile payment-leads-select margin-bottom-10px">
+          <div class="content-flex content-vertical-center horizontal-center payment-leads-card">
+            <img class="payment-leads-card-img" src="src/assets/images/logos/paypal.png">
+          </div>
+          <div class="content-flex horizontal-center">
+            <p class="text-base text-black payment-leads-method">Pago por medio de PayPal</p>
+          </div>
+        </div>
+        <hr class="gray-separator hide-desktop show-mobile">
+        <div class="content-flex content-column content-row-mobile content-vertical-center-mobile payment-leads-select margin-bottom-10px">
+          <a href="#/comprar/flash/conekta">
+            <div class="content-flex content-vertical-center horizontal-center payment-leads-card">
+              <img class="payment-leads-card-img" src="src/assets/images/logos/conekta.png">
+            </div>
+          </a>
+          <div class="content-flex horizontal-center">
+            <p class="text-base text-black payment-leads-method">Pago con tarjeta de crédito o debito</p>
+          </div>
+        </div>
+        <hr class="gray-separator hide-desktop show-mobile">
+        <div class="content-flex content-column content-row-mobile content-vertical-center-mobile payment-leads-select margin-bottom-10px">
+          <div class="content-flex content-vertical-center horizontal-center payment-leads-card">
+            <img class="payment-leads-card-img" src="src/assets/images/logos/compro-pago.png">
+          </div>
+          <div class="content-flex horizontal-center">
+            <p class="text-base text-black payment-leads-method">Pago en efectivo en más de 87 sucursales</p>
+          </div>
+        </div>
+        <hr class="gray-separator hide-desktop show-mobile">
+        <div class="payment-leads-return content-absolute absolute-left-0px-bottom-45px-negative content-static-mobile margin-top-46px-mobile">
+          <a href="#/flashes">
+          <div class="content-flex content-vertical-center horizontal-center content-row">
+            <div class="payment-leads-circle content-flex content-vertical-center horizontal-center">
+              <img class="payment-leads-arrow" src="/src/assets/images/icons/left-arrow.png">
+            </div>
+            <h6 class="text-base payment-leads-text-return">Regresar</h6>
+          </div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</template>

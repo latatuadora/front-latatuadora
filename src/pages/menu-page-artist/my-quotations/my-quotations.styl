@@ -1,0 +1,103 @@
+@import '../../../assets/styles/vars'
+@import '../../../assets/styles/mixins'
+
+.flex-row
+  display flex
+  flex 1
+  flex-direction row
+  
+.flash-opt__block
+  margin-bottom 55px
+  
+.flash-opt
+  font-family 'Lato'
+  font-size 21px
+  font-weight $regular
+  margin 0px
+  
+.flash-opt__select
+  color #b09c6c
+
+.flash-opt__normal
+  color #262626
+  
+.flash-opt__margin
+  margin 0px 25px 0px 25px
+
+.wrapper-desktop
+
+.menu-page-content
+  display flex
+  width 100%
+  align-items center
+  flex-direction column
+  min-height 700px
+
+.menu-page-title
+  color: #1d1c1c
+  font-family 'Lato'
+  font-weight $regular
+  margin 68px 0px 50.6px 0px
+  
+.menu-page-description
+  color: #b09c6c;
+  
+.menu-page-tattoo
+  display flex
+  flex-direction row
+  flex-wrap wrap
+  justify-content center
+
+.new-flash
+  display flex
+  justify-content center
+  align-items center
+  width 222px
+  height 353px
+  background-color #1d1c1c
+  margin 8px 8px 0px 8px
+
+.new-tattoo--mobile
+  display none
+  
+@media screen and (max-width: 975px)
+  .flex-row
+    display flex
+    flex 1
+    flex-direction column
+    
+  .flash-opt__block
+    display none
+
+  .new-flash
+    display none
+    
+  .menu-page-tattoo
+    width: 100%
+      
+  .menu-page-tattoo
+    flex-direction column
+    
+  .new-tattoo--mobile
+    display flex
+    flex-direction row
+    justify-content center
+    align-items center
+    background-color #b09c6c
+    cursor pointer
+    margin 0px 32px 48px 32px
+    border-radius 2px
+    border none
+    height 47.9px
+    
+  .new-tattoo--mobile__icon
+    color: #fff
+    font-size 20px
+    margin-right 12px
+    
+  .new-tattoo--mobile__txt
+    color #fff
+    font-family 'Lato'
+    font-size 13px
+    font-weight $regular
+    text-transform uppercase

@@ -1,0 +1,29 @@
+<template>
+  <require from="./blogspot.css"></require>
+
+  <require from="resources/elements/menu-artist/menu-artist.css"></require>
+  <require from="resources/elements/menu-artist/menu-artist"></require>
+
+  <div class="content-flex content-row content-column-mobile">
+    <menu-artist></menu-artist>
+    <div class="content-flex content-vertical-center content-column width-100">
+      <h1 class="text-base leads-payment-title">${blogspot}</h1>
+      <hr class="special-hr separator">
+      <h6 class="text-base text-gold subtitle margin-0px">Escribir en en Blog</h6>
+      <h5 class="text-base text-description margin-vertical-20-48px width-50 width-70 text-center">Si quieres que más clientes te conozcan, tienes la oportunidad de seleccionar cualquiera de las siguientes opciones y nos pondremos en contacto contigo</h5>
+      <div class="content-flex content-vertical-center horizontal-center content-column width-100">
+        <div class="blogspot-post"></div>
+      </div>
+      <div class="content-flex content-vertical-center return-config margin-bottom-40px-mobile">
+      <a href="#/promocionarme">
+        <div class="content-flex content-vertical-center horizontal-center content-row">
+          <div class="payment-leads-circle content-flex content-vertical-center horizontal-center">
+            <img class="payment-leads-arrow" src="/src/assets/images/icons/left-arrow.png">
+          </div>
+          <h6 class="text-base payment-leads-text-return">Regresar</h6>
+        </div>
+      </a>
+    </div>
+    </div>
+  </div>
+</template>

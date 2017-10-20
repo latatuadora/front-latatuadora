@@ -1,0 +1,132 @@
+<template>
+  <require from="./new-flash-modal.css"></require>
+  <require from="resources/elements/artist-tattoo-item-modal/artist-tattoo-item-modal"></require>
+  <require from="resources/attributes/tooltip-message"></require>
+  <require from="resources/attributes/range-slider"></require>
+
+  <div class="tattoo-modal">
+    <div class="tattoo-modal__header">
+      <img class="tattoo-modal__close" src="src/assets/images/icons/close.png" click.delegate="close()">
+    </div>
+    <div class="tattoos-grid__element tattoo-modal__element">
+      <div class="tattoos-grid__element-info-wrapper margin-horizontal-12px-mobile padding-0px">
+        <form class="width-100" action="" enctype="multiplart/form-data">
+          <div class="content-flex content-column width-100">
+            <h1 class="text-base text-white title text-center margin-vertical-30px">Nuevo <span class="text-gold">flash</span></h1>
+            <div class="content-flex content-row content-column-mobile height-434px height-auto-mobile">
+              <div class="content-flex content-column content-vertical-center horizontal-center backgroundg-img preview width-100 height-132px-mobile">
+                <div class="content-flex content-vertical-center horizontal-center circle-photo">
+                  <p class="text-base text-white text-circle magin-0px">45°</p>
+                </div>
+                <div class="content-flex content-vertical-center margin-top-40px margin-top-10px-mobile">
+                  <label class="text-base text-gold bullets margin-right-10px" for="photo-preview">Subir foto vista previa</label>
+                  <input class="hide-input" id="photo-preview" type="file">
+                  <img class="upload-info" src="src/assets/images/icons/information.png"  title="Mueve el botón hacia la derecha o izquierda para seleccionar la medida de tu tatuaje" tooltip-message>
+                </div>
+              </div>
+              <div class="vertical-lg-gold height-434px show-desktop hide-mobile"></div>
+              <div class="horizontal-lg-gold-mobile hide-desktop show-mobile"></div>
+              <div class="content-flex content-column content-vertical-center horizontal-center backgroundg-img complete width-100 height-132px-mobile">
+                <div class="content-flex content-vertical-center horizontal-center circle-photo">
+                  <p class="text-base text-white text-circle margin-0px">90°</p>
+                </div>
+                <div class="content-flex content-vertical-center margin-top-40px margin-top-10px-mobile">
+                  <label class="text-base text-gold bullets margin-right-10px" for="photo-complete">Subir foto completa</label>
+                  <input class="hide-input" id="photo-complete" type="file">
+                  <img class="upload-info" src="src/assets/images/icons/information.png"  title="Mueve el botón hacia la derecha o izquierda para seleccionar la medida de tu tatuaje" tooltip-message>
+                </div>
+              </div>
+            </div>
+            <div class="align-self-start padding-43px-95x padding-29-25px-mobile width-100">
+              <div class="content-flex content-column content-vertical-center-mobile">
+                <select class="margin-bottom-20px" name="" id="" value.bind="changedValue" change.delegate="saveRemoveStyles(changedValue, 'style')">
+                  <option repeat.for="style of styles" model.bind="style">${ style.name }</option>
+                </select>
+                <div repeat.for="style of stylesToShow" class="content-flex content-row content-vertical-center horizontal-center gray-tag">
+                  <p class="text-base text-white bullets margin-0px">${ style.name }</p>
+                  <img class="close-tag-img" src="src/assets/images/icons/close.png" alt="" click.delegate="saveRemoveStyles(style, 'style')">
+                </div>
+              </div>
+              <div class="gray-line margin-vertical-30px width-100"></div>
+              <div class="content-flex content-column content-vertical-center-mobile">
+                <select class="margin-bottom-20px" name="" id="" value.bind="changedValue2" change.delegate="saveRemoveElements(changedValue2, 'element')">
+                  <option repeat.for="element of elements" model.bind="element">${ element.name }</option>
+                </select>
+                <div repeat.for="element of elementsToShow" class="content-flex content-row content-vertical-center horizontal-center gray-tag">
+                  <p class="text-base text-white bullets margin-0px">${ element.name }</p>
+                  <img class="close-tag-img" src="src/assets/images/icons/close.png" alt="" click.delegate="saveRemoveElements(element, 'element')">
+                </div>
+              </div>
+              <div class="gray-line margin-vertical-30px width-100"></div>
+              <div>
+                <h2 class="text-base text-white title text-center margin-vertical-10px-65px">Tamaño del tatuaje <span class="text-gold">sugerido</span></h2>
+                <div class="content-flex content-row content-vertical-center">
+                  <div class="content-flex content-column content-vertical-center width-100">
+                    <div class="content-flex content-row content-vertical-center">
+                      <h3 class="text-base text-white bullets margin-right-10px">Alto</h3>
+                      <img src="src/assets/images/icons/info.png" title="Mueve el botón hacia la derecha o izquierda para seleccionar la medida de tu tatuaje" tooltip-message>
+                    </div>
+                    <div class="range-slider" range-slider="update.bind: shared.changeHeight; min.bind: 1; max.bind: 25; start.bind: 5; unit: cm"></div>
+                  </div>
+                  <div class="content-flex content-column content-vertical-center width-100">
+                    <div class="content-flex content-row content-vertical-center">
+                      <h3 class="text-base text-white bullets margin-right-10px">Ancho</h3>
+                      <img src="src/assets/images/icons/info.png" title="Mueve el botón hacia la derecha o izquierda para seleccionar la medida de tu tatuaje" tooltip-message>
+                    </div>
+                    <div class="range-slider" range-slider="update.bind: shared.changeWidth; min.bind: 1; max.bind: 25; start.bind: 5; unit: cm"></div>
+                  </div>
+                </div>
+              </div>
+              <div class="gray-line margin-vertical-30px width-100"></div>
+              <div class="content-flex content-row content-vertical-center horizontal-center">
+                <input id="copyrigth" type="checkbox" click.bind="toggleAll()">
+                <label class="text-base text-white bullets" for="copyrigth">Este Flash cuenta con derechos de autor</label>
+              </div>
+              <div class="gray-line margin-vertical-30px width-100"></div>
+              <div class="content-flex content-column">
+                <h1 if.bind="user.artist.length > 0" class="text-base text-white title text-center">Selecciona el tatuador que<br>diseñó el Flash</h1>
+                <h1 if.bind="user.artist.length == 0" class="text-base text-white title text-center">Debes agregar tatuadores<br>a tu estudio</h1>
+                <div class="content-flex content-row content-wrap item-translate-14">
+                  <div class="artist-radio-button" repeat.for="artist of artists">
+                    <input class="hide-input" type="radio" value.bind="artist.id" id="selection-artist-${artist.id}" name="new-flash-artist" checked.bind="currentFlash.artist">
+                    <label for="selection-artist-${artist.id}">
+                      <artist-tattoo-item-modal artist.bind="artist"></artist-tattoo-item-modal>
+                    </label>
+                  </div>
+                </div>
+              </div>
+              <div class="gray-line margin-vertical-30px width-100"></div>
+              <div class="content-flex content-column content-vertical-center">
+                <h1 class="text-base text-white title text-center margin-bottom-42px">Breve explicación del <span class="text-gold">diseño</span></h1>
+                <textarea class="new-input margin-bottom-59px" placeholder="Escribir nueva entrada" value.bind="currentFlash.significant"></textarea>
+                <div class="content-flex content-row content-column-mobile content-vertical-center horizontal-center width-100">
+                  <div class="hide-desktop show-mobile width-100-mobile">
+                    <div class="horizontal-hr-gold margin-vertical-33px-mobile"></div>
+                  </div>
+                  <div class="content-flex content-column content-vertical-center width-100">
+                    <p class="text-base text-white subtitle text-center height-60px margin-0px">Precio final</p>
+                    <input class="input-price text-base text-white text-center subtitle" type="text" value.bind="currentFlash.final_price">
+                  </div>
+                  <div class="show-desktop hide-mobile">
+                    <div class="vertical-hr-gold margin-horizontal-28px"></div>
+                  </div>
+                  <div class="hide-desktop show-mobile width-100-mobile">
+                    <div class="horizontal-hr-gold margin-vertical-33px-mobile"></div>
+                  </div>
+                  <div class="content-flex content-column content-vertical-center width-100">
+                    <p class="text-base text-white subtitle text-center height-60px margin-0px">Precio si te tatúas en nuestro estudio</p>
+                    <input class="input-price text-base text-white text-center subtitle" type="text" value.bind="currentFlash.price_with_jobber">
+                  </div>
+                </div>
+              </div>
+              <success-tattoo-modal id="new-tattoo-content" simple-modal="show.two-way: showModal" css="${showModal ? 'display: block' : 'display: none'}" item.bind="currentItem"  go-next.call="nextItem()" go-prev.call="previousItem()" close.call="closeModal()"></success-tattoo-modal>
+              <div class="content-flex horizontal-end horizontal-center-mobile margin-top-69px">
+                <button class="button-base" click.trigger="submit()">Guardar cambios</button>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</template>

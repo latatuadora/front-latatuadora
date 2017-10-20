@@ -1,0 +1,66 @@
+<template>
+  <!-- Require css -->
+  <require from='./user.css'></require>
+  <header class="header">
+    <h1 class="heading">Regístrate</h1>
+    <hr class="separator">
+  </header>
+  <main class="main">
+    <form  class="form" submit.delegate="submit()">
+
+      <div class="form-group" validation-errors.bind="nameErrors">
+        <label for="name" class="paragraph">Nombre</label>
+        <div class="input--group">
+          <input type="text" value.bind='user.name & validate' name="name" class="input">
+          <span class="validation-error" repeat.for="error of nameErrors">${error.error.message}</span>
+        </div>
+      </div>
+
+      <div class="form-group" validation-errors.bind="lastNameErrors">
+        <label for="lastname" class="paragraph">Apellidos</label>
+        <div class="input--group">
+          <input type="text" value.bind='user.lastName & validate' name="lastname" class="input">
+          <span class="validation-error" repeat.for="error of lastNameErrors">${error.error.message}</span>
+        </div>
+      </div>
+
+      <div class="form-group" validation-errors.bind="emailErrors">
+        <label for="email" class="paragraph">Correo Electrónico</label>
+        <div class="input--group">
+          <input type="email" value.bind='user.email & validate' name="email" class="input">
+          <span class="validation-error" repeat.for="error of emailErrors">${error.error.message}</span>
+        </div>
+      </div>
+
+      <div class="form-group" validation-errors.bind="passwordErrors">
+        <label for="password" class="paragraph">Contraseña</label>
+        <div class="input--group">
+          <input type="password" value.bind='user.password & validate' change.delegate="user.confirm = ''" name="password" class="input">
+          <span class="validation-error" repeat.for="error of passwordErrors">${error.error.message}</span>
+        </div>
+      </div>
+
+      <div class="form-group" validation-errors.bind="confirmErrors">
+        <label for="confirm" class="paragraph">Confirmar Contraseña</label>
+        <div class="input--group">
+          <input type="password" value.bind='user.confirm & validate' name="confirm" class="input">
+          <span class="validation-error" repeat.for="error of confirmErrors">${error.error.message}</span>
+        </div>
+      </div>
+
+      <!-- <div class="form-group reverse">
+          <input type="checkbox" checked.bind='remember' name="remember" class="input--checkbox">
+          <label for="remember" class="paragraph">Recordar contraseña</label>
+      </div> -->
+
+      <div class="form-group reverse"><span class="paragraph">¿Ya tienes cuenta? <a route-href="route: login" class="under"> Inicia sesión</a></div>
+
+      <div class="form-group reverse center column">
+        <button type="submit" class="button">Regístrate</button>
+        <span class="validation-error" if.bind="error" >${error}</span>
+      </div>
+
+    </form>
+    <img src="src/assets/images/logos/logo-golden.png" class="footer-logo">
+  </main>
+</template>

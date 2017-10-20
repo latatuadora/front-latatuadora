@@ -1,0 +1,205 @@
+<template>
+  <require from="./studio.css"></require>
+  <require from="../../resources/attributes/swiper-carousel"></require>
+  <require from="../../resources/value-converters/date"></require>
+  <require from="../../resources/elements/gallery-item/gallery-item"></require>
+  <require from="../../resources/elements/gallery-modal/gallery-modal"></require>
+  <require from="../../resources/elements/flash-square-item/flash-square-item"></require>
+  <require from="resources/attributes/simple-modal"></require>
+  <require from="resources/elements/switch/switch"></require>
+  <require from="resources/elements/modals/rate-study-modal/rate-study-modal"></require>
+
+  <section class="studio__hero cover">
+    <img src="/image/${studio.logo}" if.bind="studio.logo" alt="Estudio" class="studio__logo">
+    <h1 if.bind="!studio.logo" class="studio__hero-subtitle">${studio.name}</h1>
+    <h1 class="studio__title">Estudio de <span class="golden-text">tatuaje</span></h1>
+    <div class="studio__hero-inner">
+      <div class="studio__hero-left">
+        <h2 class="studio__hero-subtitle">Cotiza tu <span class="studio__hero-subtext">próximo tatuaje</span></h2>
+        <a if.bind="studio" route-href="route: quotation; params.bind: {artist: studio.userId.id}" class="site-button">Cotiza aquí</a>
+      </div>
+      <div class="studio__hero-right">
+        <h2 class="studio__hero-subtitle">Agenda tu <span class="studio__hero-subtext">próxima cita</span></h2>
+        <a route-href="route: scheduling; params.bind: { artist: studio.userId.id }" class="site-button">Agenda aquí</a>
+      </div>
+    </div>
+  </section>
+  <hr class="special-hr studio__hr">
+  <gallery-modal id="tattoos-modal" simple-modal="show.two-way: showModal" css="${showModal ? 'display: block' : 'display: none'}" item.bind="currentItem" go-next.call="changeItem(true)" go-prev.call="changeItem(false)" close.call="closeModal()"></gallery-modal>
+  <h2 class="studio__subtitle studio__tattoos-subtitle">Galería de tatuajes</h2>
+  <div class="studio__tattoos studio__carousel" swiper-carousel="init.bind: tattoosCarousel.init; options.one-time: tattoosCarousel.options">
+    <div class="swiper-wrapper">
+      <gallery-item class="swiper-slide" repeat.for="item of tattoos" item.bind="item" original-size.one-time="false" open.call="openModal($index)"></gallery-item>
+    </div>
+    <div class="swiper-pagination"></div>
+    <img class="swiper-button-prev" src="/src/assets/images/icons/arrow-golden-left.svg">
+    <img class="swiper-button-next" src="/src/assets/images/icons/arrow-golden-right.svg">
+
+  </div>
+  <a if.bind="studio" route-href="route: inspirate; params.bind: { artist: studio.id }" class="site-button studio__gallery-button">Ver galería</a>
+  <!-- <section class="studio__flashes cover">
+    <h2 class="studio__subtitle">Flashes</h2>
+    <span class="gallery-subtitle">Diseños <span class="golden-text">únicos y exclusivos</span></span>
+    <div class="studio__flashes-carousel studio__carousel" swiper-carousel="init.bind: flashesCarousel.init; options.one-time: flashesCarousel.options">
+      <div class="swiper-wrapper">
+        <flash-square-item repeat.for="item of flashes" item.bind="item" in-carousel="true"></flash-square-item>
+      </div>
+      <div class="swiper-pagination"></div>
+    </div>
+    <a class="site-button" route-href="route: flashes; params.bind: {artist: studio.id}">Ver catálogo</a>
+  </section> -->
+  <hr class="special-hr studio__evaluations-hr">
+  <!-- <section class="studio__evaluations-artists"> -->
+    <!-- <div class="studio__evaluations">
+      <div class="studio__evaluations-inner">
+        <h2 class="studio__evaluations-title">Evaluaciones</h2>
+        <div class="studio__evaluations-carousel studio__carousel" swiper-carousel="init.bind: evaluationsCarousel.init; options.one-time: evaluationsCarousel.options">
+        <div class="swiper-wrapper">
+          <div class="studio__evaluation-item swiper-slide" repeat.for="item of studio.evaluations">
+            <h3 class="studio__evaluation-title">${item.author}</h3>
+            <div class="studio__evaluation-stars">
+              <i repeat.for="i of 5" class="fa ${item.stars > i ? (item.stars > i + 0.9 ? 'fa-star' : 'fa-star-half-o') : 'fa-star-o'}"></i>
+            </div>
+            <p class="studio__evaluation-content">
+              "${item.content}"
+            </p>
+          </div>
+        </div>
+        <div class="swiper-pagination"></div>
+        <img class="swiper-button-prev" src="/src/assets/images/icons/left-arrow.png">
+        <img class="swiper-button-next" src="/src/assets/images/icons/right-arrow.png">
+      </div>
+      </div>
+      <rate-study-modal id="rate-study-content" simple-modal="show.two-way: showModal" css="${showModal ? 'display: block' : 'display: none'}" item.bind="currentItem"  go-next.call="nextItem()" go-prev.call="previousItem()" close.call="closeModal()"></rate-study-modal>
+      <a route-href="route: home" class="site-button" click.trigger="openModal()">Calificar estudio</a>
+    </div> -->
+    <!-- <div class="studio__artists">
+      <h2 class="studio__artists-title">Tatuadores</h2>
+      <div class="studio__artists-carousel studio__carousel" swiper-carousel="init.bind: artistsCarousel.init; options.one-time: artistsCarousel.options">
+        <div class="swiper-wrapper">
+          <div class="studio__artist-item swiper-slide" repeat.for="item of studio.artist">
+            <a >
+              <h3 class="studio__artist-name">${item.name}</h3>
+              <img class="studio__artist-image" src="${item.imageURL}" alt="${item.name}">
+            </a>
+          </div>
+        </div>
+        <div class="swiper-pagination"></div>
+        <img class="swiper-button-prev" src="/src/assets/images/icons/arrow-golden-left.svg">
+        <img class="swiper-button-next" src="/src/assets/images/icons/arrow-golden-right.svg">
+      </div>
+    </div>
+  </section> -->
+  <!-- <section class="studio__wall">
+    <h2 class="studio__wall-title">Lo último de ${studio.name}</h2>
+    <div class="studio__wall-wrapper">
+      <div class="studio__wall-inner scrollable">
+        <div class="studio__wall-item" repeat.for="item of studio.posts">
+          <div class="studio__wall-item-header">
+            <img class="studio__wall-item-avatar circle" src="${item.authorImage}" alt="${item.author}">
+            <div class="studio__wall-item-data">
+              <span class="studio__wall-item-author">${item.author}</span>
+              <span class="studio__wall-item-date">${item.publicationDate | date}</span>
+            </div>
+          </div>
+          <div class="studio__wall-item-content">
+            ${item.content}
+          </div>
+          <div class="studio__wall-item-comments"></div>
+          <div class="studio__wall-item-newcomment">
+            <textarea placeholder="Escribir un comentario"></textarea>
+            <button class="site-button">Enviar</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section> -->
+  <!-- <div class="studio__photos-carousel studio__carousel" swiper-carousel="init.bind: photosCarousel.init; options.one-time: photosCarousel.options">
+    <div class="swiper-wrapper">
+      <img class="swiper-slide" repeat.for="item of studio.images" src="${item}" alt="Estudio">
+    </div>
+    <div class="swiper-pagination"></div>
+    <img class="swiper-button-prev" src="/src/assets/images/icons/left-arrow.png">
+    <img class="swiper-button-next" src="/src/assets/images/icons/right-arrow.png">
+  </div> -->
+  <section class="studio_info">
+    <div class="div-line"></div>
+    <h2 class="studio__subtitle studio__tattoos-info-subtitle">Información del estudio</h2>
+    <h2 class="studio__info-title">${studio.telephone}</h2>
+    <div class="studio_info-networks">
+      <img src="/src/assets/images/icons/group-48@3x.png">
+    </div>
+    <div class="studio__info-content">
+      <p>${studio.about}</p>
+    </div>
+    <h3 class="studio__info-address-title">Ubicación</h3>
+    <div class="studio__info-address-content">
+      <p>Col ${studio.addressId.townId.name} #${studio.addressId.numExt} ${studio.addressId.stateId.name}</p>
+      <p>${studio.addressId.street}, Colonia ${studio.addressId.townId.name}</p>
+      <p>Delegacion/Municipio ${studio.addressId.suburbId.name} C.P. ${studio.addressId.zc} ${studio.addressId.stateId.name}</p>
+    </div>
+    <button class="address-button">VER MAPA</button>
+    <h3 class="studio__info-time-title">Horario de <span>trabajo</span></h3>
+    <div class="studio__info-time-content">
+      <div class="schedule__item  titles">
+        <span class="schedule__title" >Dia</span>
+        <div class="content-titles-info">
+          <span class="schedule__title" >Apertura</span> <span class="schedule__title" >Cierre</span>
+        </div>
+      </div>
+      <div class="schedule__item-info input__group-row">
+        <switch able="Lunes" disable="Lunes" switch.two-way="monday"></switch>
+        <div show.bind="monday" class="schedule__item-info-content">
+          <input value.bind="mondayStartHour" class="input--hour" hour  type="text">
+          <input value.bind="mondayEndHour" class="input--hour" hour type="text">
+        </div>
+      </div>
+      <div class="schedule__item-info input__group-row">
+        <switch able="Martes" disable="Martes" switch.two-way="tuesday"></switch>
+        <div show.bind="tuesday" class="schedule__item-info-content">
+          <input value.bind="tuesdayStartHour" class="input--hour" hour  type="text">
+          <input value.bind="tuesdayEndHour" class="input--hour" hour type="text">
+        </div>
+      </div>
+      <div class="schedule__item-info input__group-row">
+        <switch able="Miércoles" disable="Miércoles" switch.two-way="wednesday"></switch>
+        <div show.bind="wednesday" class="schedule__item-info-content">
+          <input value.bind="wednesdayStartHour" class="input--hour" hour  type="text">
+          <input value.bind="wednesdayEndHour" class="input--hour" hour type="text">
+        </div>
+      </div>
+      <div class="schedule__item-info input__group-row">
+        <switch able="Jueves" disable="Jueves" switch.two-way="thursday"></switch>
+        <div show.bind="thursday" class="schedule__item-info-content">
+          <input value.bind="thursdayStartHour" class="input--hour" hour  type="text">
+          <input value.bind="thursdayEndHour" class="input--hour" hour type="text">
+        </div>
+      </div>
+      <div class="schedule__item-info input__group-row">
+        <switch able="Viernes" disable="Viernes" switch.two-way="friday"></switch>
+        <div show.bind="friday" class="schedule__item-info-content">
+          <input value.bind="fridayStartHour" class="input--hour" hour  type="text">
+          <input value.bind="fridayEndHour" class="input--hour" hour type="text">
+        </div>
+      </div>
+      <div class="schedule__item-info input__group-row">
+        <switch able="Sábado" disable="Sábado" switch.two-way="saturday"></switch>
+        <div show.bind="saturday" class="schedule__item-info-content">
+          <input value.bind="saturdayStartHour" class="input--hour" hour  type="text">
+          <input value.bind="saturdayEndHour" class="input--hour" hour type="text">
+        </div>
+      </div>
+      <div class="schedule__item-info input__group-row">
+        <switch able="Domingo" disable="Domingo" switch.two-way="sunday"></switch>
+        <div show.bind="sunday" class="schedule__item-info-content">
+          <input value.bind="sundayStartHour" class="input--hour" hour  type="text">
+          <input value.bind="sundayEndHour" class="input--hour" hour type="text">
+        </div>
+      </div>
+    </div>
+    <div class="studio__info-button-content">
+      <a route-href="route: quotation; params.bind: {artist: studio.id}" class="quote-button">COTIZAR</a>
+      <a route-href="route: quotation; params.bind: {artist: studio.id}" class="schedule-button">AGENDAR CITA</a>
+    </div>
+  </section>
+</template>

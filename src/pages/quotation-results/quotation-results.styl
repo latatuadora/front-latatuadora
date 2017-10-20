@@ -1,0 +1,258 @@
+@import '../../assets/styles/vars'
+@import '../../assets/styles/mixins'
+
+.quotation-results--gallery
+  width 100%
+  position relative
+
+  gallery-item
+    width auto
+
+  .tattoos-grid__element
+    width 257px !important
+
+    &:not(.flashes-grid__flash-element) .tattoos-grid__element-buttons
+      .site-button:first-child
+        display none
+
+  .tattoos-grid__element-thumbnail-img-wrapper
+    height 237px
+
+  .swiper-pagination
+    bottom -35px
+
+  .swiper-pagination-bullet
+    background #e5e5e5
+    opacity 1
+    height 9px
+    width 9px
+    margin 0 2.5px !important
+
+  .swiper-pagination-bullet-active
+    background $dustColor
+
+.quotation-results
+  text-align center
+  padding 88px 0 53px 0
+
+  .special-hr
+    width 82.5%
+    max-width 899px
+
+.quotation-results--artist
+  .quotation-results__title
+    margin-bottom 45px
+
+  .quotation-results__main-icon
+    margin-bottom 16px
+
+.quotation-results--no-artist
+  .quotation-results__main-icon
+    margin-bottom 45px
+
+.quotation-title__responsive
+  display none
+
+.quotation-results__title
+  font-size 35px
+  width 86%
+  max-width 340px
+  center-block()
+
+.quotation-results__main-icon
+  margin-top 39px
+  width 47px
+
+.quotation-results__range
+  display flex
+  align-items center
+  justify-content space-between
+  margin-top 69px
+  margin-bottom 94px
+  width 88%
+  max-width 768px
+  center-block()
+
+  img
+    flex-basis 63px
+
+.quotation-results__artist-range
+  margin-bottom 112px
+  width 303px
+  center-block()
+
+.quotation-results__range-item
+  background $dustColor
+  color white
+  line-height 161px
+  font-size 37px
+  flex-basis 41%
+
+.quotation-results__price-range-bottom
+  width 303px
+  center-block()
+
+.quotation-results__price-range-info
+  color white
+  rfont-size 17px 767px 15px
+  line-height 1.41
+  margin-bottom 69px
+  margin-top 69px
+  width 86%
+  center-block()
+
+.quotation-results__subtitle
+  font-size 30px
+
+.quotation-results__subtitle--flashes
+  margin-top 49px
+  margin-bottom 26px
+
+.quotation-results__subtitle--inspirate
+  margin-top 59px
+  margin-bottom 21px
+
+.quotation-results__flashes-instructions
+  width 493px
+  center-block()
+
+.quotation-results--gallery
+  margin-top 62px
+
+.quotation-results__flashes-button
+  margin-top 59px
+  margin-bottom 48px
+  padding 16px 25px
+  letter-spacing 0.5px
+  font-size 13px
+
+.quotation-results__inspirate-button
+  margin-top 66px
+  margin-bottom 71px
+  letter-spacing 0.5px
+  font-size 13px
+  padding 16px 32px
+
+.quotation-results__appointment-button
+  letter-spacing 0.5px
+  font-size 13px
+  margin-top 55px
+  padding 16px 40px
+
+
+@media screen and (min-width: 910px)
+  .quotation-results--gallery
+    .swiper-wrapper
+      width 855px
+      transform none !important
+      center-block()
+
+    .swiper-slide.hide-desktop
+      visibility hidden
+
+    .swiper-pagination
+      visibility hidden
+      transition visibility 0s
+
+    .tattoos-grid__element-thumbnail-img-wrapper
+      height 204px
+
+@media screen and (max-width:767px)
+  .quotation-results--gallery
+    .swiper-pagination
+      bottom -20px
+
+  .quotation-results
+    padding-top 56px
+    padding-bottom 72px
+
+  .quotation-results--artist
+    .quotation-results__main-icon
+      margin-top 59px
+
+    .quotation-results__title
+      margin-top 34px
+
+    .quotation-instructions
+      font-size 20px
+
+  .quotation-results--no-artist
+    .quotation-results__main-icon
+      margin-top 27px
+
+    .quotation-results__title
+      margin-top 19px
+
+  .quotation-title__responsive
+    display block
+
+  .quotation-results__title
+    font-size 20px
+    max-width 190px
+
+  .quotation-results__artist-range
+    margin-bottom 94px
+    width 223px
+
+  .quotation-results__price-range-title
+    font-size 18px
+
+  .quotation-results__range
+    margin-top 24px
+    flex-wrap wrap
+    margin-top 24px
+    justify-content center
+    margin-bottom 52px
+
+    img
+      flex-basis 49px
+      flex-basis 100%
+      margin-bottom 29px
+      order -1
+
+  .quotation-results__range-item
+    font-size 21px
+    line-height 77px
+    flex-basis auto
+    padding 0 6px
+    min-width 30%
+    margin 0 2.5%
+
+  .quotation-results__price-range-bottom
+    font-size 17px
+    margin-bottom 38px
+    width 238px
+
+  .quotation-results__subtitle--flashes
+    margin-bottom 27px
+    margin-top 37px
+
+  .quotation-results__subtitle--inspirate
+    margin-bottom 20px
+    margin-top 35px
+
+  .quotation-results__flashes-instructions,
+  .quotation-results__inspirate-instructions
+    font-size 17px
+    letter-spacing -0.2px
+
+  .quotation-results__flashes-instructions
+    width 238px
+
+  .quotation-results__inspirate-instructions
+    width 208px
+    center-block()
+
+  .quotation-results--gallery
+    margin-top 42px
+
+  .quotation-results__flashes-button
+    margin-top 62px
+    margin-bottom 52px
+
+  .quotation-results__inspirate-button
+    margin-top 60px
+    margin-bottom 44px
+
+  .quotation-results__appointment-button
+    margin-top 48px

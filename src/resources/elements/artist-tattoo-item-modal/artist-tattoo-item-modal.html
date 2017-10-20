@@ -1,0 +1,9 @@
+<template>
+  <require from="./artist-tattoo-item-modal.css"></require>
+
+  <div class="artist-tattoo-modal">
+    <img if.bind="artist.avatarUrl" class="artist-tattoo__img" src="${artist.avatarUrl}">
+    <div class="artist-tattoo__background"></div>
+    <h5 class="artist-tattoo__name"><span class="artist-tattoo__last-name">${artist.name}</span></h5>
+  </div>
+</template>

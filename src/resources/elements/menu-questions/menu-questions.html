@@ -1,0 +1,13 @@
+<template>
+  <require from="./menu-questions.css"></require>
+
+  <div class="menu-questions margin-left-71px margin-left-0px-mobile width-100">
+    <ul class="menu-question-list width-100">
+      <li class="text-base text-black paragraph margin-0px" repeat.for="item of menu">
+        <a class="content-flex menu-question-anchor" href="#/${item.routePage}">
+          ${item.text}
+        </a>
+      </li>
+    </ul>
+  </div>
+</template>
