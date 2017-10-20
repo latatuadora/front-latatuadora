@@ -40,6 +40,11 @@ export class CalendarCustomAttribute {
             }
           }
         });
+        if (that.schedules.length === 0) {
+          for(let i = 9; i <= 21; i++) {
+            that.schedules.push(i);
+          }
+        }
         clearInterval(that.intervalId);
       }
     });
