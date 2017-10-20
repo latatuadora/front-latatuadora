@@ -7,6 +7,8 @@
   color #1d1d1d
   margin-top 65px
   width 86%
+  margin-right auto !important
+  margin-left auto !important
   center-block()
 
 .scheduling__subtitle
@@ -14,9 +16,13 @@
   letter-spacing -0.3px
   text-align center
   color #1d1d1d
+  margin 0 auto !important
+
+.hide-input
+  display none
 
 .scheduling__subtitle--first
-  margin-top 54px
+  margin-top 54px !important
   width 86%
   center-block()
 
@@ -26,6 +32,7 @@
 
 .scheduling__main
   text-align center
+  margin-top 50px
 
   .artist-item
     display inline-block
@@ -159,12 +166,23 @@
   width 26px
   height 26px
 
+.scheduling__subtitle--reference
+  margin-top 60px !important
+
+.content-button
+  margin 0 auto
+  width 20%
+
 .scheduling__schedules
   rfont-size 20px 767px 14px
   letter-spacing -0.15px
   display flex
   align-items center
   justify-content space-around
+  max-width 499px
+  overflow scroll
+  height 60px
+  padding-left 32px
 
 .scheduling__schedule
   margin 0 5.5px
@@ -245,6 +263,8 @@
 @media screen and (max-width: 767px)
   .scheduling__title
     margin-top 43px
+    margin-right auto !important
+    margin-left auto !important
 
   .scheduling__hr
     &::before,
