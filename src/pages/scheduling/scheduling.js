@@ -102,7 +102,7 @@ export class Scheduling extends BaseModal {
     data.append("jobber", this.artist.id);
     data.append("client", this.client.id);
     data.append("comment", this.fields.comment);
-    data.append("image", document.querySelector('#photo-preview').files[0]);
+    //data.append("image", document.querySelector('#photo-preview').files[0]);
     if (!this.fields.timeErrors) {
       this.schedule.schedule(data)
         .then(response => {
