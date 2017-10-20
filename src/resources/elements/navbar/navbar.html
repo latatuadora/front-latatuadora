@@ -1,6 +1,7 @@
 <template>
   <require from="./navbar.css"></require>
   <require from="../../value-converters/routes-filter"></require>
+  <require from="../menu-user-logged/menu-user-logged"></require>
   <nav class="site-navbar">
     <div class="site-navbar__desktop-logo-container">
       <a route-href="route: home"><img src="src/assets/images/logos/logo-text-golden.png" alt="La Tatuadora"></a>
@@ -12,14 +13,23 @@
       <div class="site-navbar__mobile-logo-container">
         <a route-href="route: home"><img src="src/assets/images/logos/logo-golden.png" alt="La Tatuadora"></a>
       </div>
-      <div class="site-navbar__menu">
+      <div if.bind="session.role !== 3" class="site-navbar__menu">
         <a repeat.for="item of router.navigation | routesFilter" href.bind="item.href" class="site-navbar__menu-link ${item.isActive ? 'active' : ''}" if.bind="!(item.config.name == 'login' && session.authService.authenticated)">${item.title}</a>
       </div>
-      <form action="." method="post" class="site-navbar__search" id="navbar-search-form">
-        <input id="navbar-search-input" class="site-navbar__search-input" type="search" name="search" placeholder="Buscar...">
-        <button type="submit" class="site-navbar__search-button fa fa-search" name="submit"></button>
-      </form>
-      <a if.bind="!session.authService.authenticated" route-href="route: signup" class="site-button site-navbar__signup-button">Regístrate</a>
+      <div if.bind="session.role === 3" class="site-navbar__menu">
+        <a if.bind="session.authService.authenticated" route-href="route: home" class="site-navbar__menu-link ${item.isActive ? 'active' : ''}">Inicio</a>
+      </div>
+      <a if.bind="!session.authService.authenticated" route-href="route: login" class="site-navbar__menu-link ${item.isActive ? 'active' : ''}">Iniciar sesión</a>
+      <a if.bind="!session.authService.authenticated" route-href="route: signup-user" class="site-button site-navbar__signup-button">Regístrate</a>
+      <div if.bind="session.role === 1 || session.role === 2 || session.role === 3" class="user-logged-container" id="menudropdown-user-logged" data-preventclose="">
+        <div class="user-name-content" data-preventclose="">
+          <div class="user-photo" style="background:URL('${currentUser.avatar}')" data-preventclose="">
+          </div>
+          <span data-preventclose="">${currentUser.name}</span>
+        </div>
+        <div class="arrow-content" data-preventclose=""></div>
+      </div>
+      <menu-user-logged base-element="menudropdown-user-logged" if.bind="currentUser !== undefined"></menu-user-logged>
     </div>
   </nav>
 </template>

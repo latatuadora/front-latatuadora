@@ -8,30 +8,28 @@
   <div class="my-flash">
     <div class="my-flash__options">
       <div>
-        <edit-flash-modal id="delete-flash-content" simple-modal="show.two-way: showModal" css="${showModal ? 'display: block' : 'display: none'}" flash.bind="flash"  go-next.call="nextItem()" go-prev.call="previousItem()" close.call="closeModal()"></edit-flash-modal>
-        <a click.trigger="openModal()">
+        <edit-flash-modal id="edit-flash-content-${currentindex}" simple-modal="show.two-way: showModal; superid.two-way: superid" css="${showModal ? 'display: block' : 'display: none'}" flash.bind="flash"  go-next.call="nextItem()" go-prev.call="previousItem()" close.call="closeModal()"></edit-flash-modal>
+        <a click.trigger="openModal(currentindex, 'edit-flash-content')">
           <img class="my-flash__options-icon my-flash-mar-rgt" src="src/assets/images/icons/pencilin.png">
         </a>
       </div>
       <div>
-        <delete-flash-modal id="delete-flash-content" simple-modal="show.two-way: showModal" css="${showModal ? 'display: block' : 'display: none'}" flash.bind="flash"  go-next.call="nextItem()" go-prev.call="previousItem()" close.call="closeModal()"></delete-flash-modal>
-        <a click.trigger="openModal()">
+        <delete-flash-modal id="delete-flash-content-${currentindex}" simple-modal="show.two-way: showModal; superid.two-way: superid"  css="${showModal ? 'display: block' : 'display: none'}" flash.bind="flash"  go-next.call="nextItem()" go-prev.call="previousItem()" close.call="closeModal()"></delete-flash-modal>
+        <a click.trigger="openModal(currentindex, 'delete-flash-content')">
           <img class="my-flash__options-icon" src="src/assets/images/icons/trashflash.png">
         </a>
       </div>
     </div>
-    <div class="my-flash__img"></div>
+    <div class="image-flash-item">
+      <img src="/_assets/Flash/images/${image[image.length-1]}">
+    </div>
     <div class="my-flash__block">
       <div class="my-flash-flex-row my-flash__block-info">
-        <div>
-          <img class="my-flash__block-img" src="src/assets/images/mock/group-11.png">
-        </div>
         <div class="my-flash__space-block">
           <div class="my-flash-flex-row">
-            <h4 class="my-flash__title">Stay down</h4>
-            <button class="my-flash__icon-heart fa fa-heart"> <span class="my-flash__likes">13 Likes</span></button>
+            <h4 class="my-flash__title">${flash.significant}</h4>
+            <button class="my-flash__icon-heart fa fa-heart"> <span class="my-flash__likes">${flash.likes} Likes</span></button>
           </div>
-          <h5 class="my-flash__location">Ciudad de México</h5>
           <div class="my-flash__block-star">
             <i class="my-flash__star fa fa-star"></i>
             <i class="my-flash__star fa fa-star"></i>
@@ -41,11 +39,11 @@
           </div>
           <div class="my-flash-flex-row my-flash__vertical-center">
             <i class="my-flash__icons fa fa-arrows-alt"></i>
-            <h5 class="my-flash__price">${flash.precio}</h5>
+            <h5 class="my-flash__price">${flash.amount}</h5>
           </div>
           <div class="my-flash-flex-row my-flash__vertical-center">
             <i class="my-flash__icons fa fa-circle"></i>
-            <h5 class="my-flash__measure">12 cm x 12 cm</h5>
+            <h5 class="my-flash__measure">${flash.sizeId.width} cm x ${flash.sizeId.height} cm</h5>
           </div>
         </div>
       </div>      

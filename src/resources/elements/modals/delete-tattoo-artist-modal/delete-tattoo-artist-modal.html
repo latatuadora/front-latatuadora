@@ -4,24 +4,24 @@
   <require from="resources/elements/modals/success-delete-artist-modal/success-delete-artist-modal"></require>
 
   <div class="tattoo-modal">
-	<div class="tattoo-modal__header">
-	  <img class="tattoo-modal__close" src="src/assets/images/icons/close.png" click.delegate="close()">
-	</div>
-	<div class="tattoos-grid__element tattoo-modal__element width-auto">
-	  <div class="tattoos-grid__element-info-wrapper margin-horizontal-12px-mobile padding-vertical-94px padding-vertical-40px-25-mobile">
-		<div class="content-flex content-column content-vertical-center width-100">
-					<img class="success-img margin-bottom-34px" src="src/assets/images/icons/remove.png" alt="">
-					<h1 class="text-base text-white subtitle text-center margin-0px">¿Estás seguro que deseas eliminar este tatuador?</h1>
-					<div class="succes-separator"></div>
-					<form action="">
-			<success-delete-artist-modal id="success-delete-artist-content" simple-modal="show.two-way: showModal" css="${showModal ? 'display: block' : 'display: none'}" flash.bind="flash"  go-next.call="nextItem()" go-prev.call="previousItem()" close.call="closeModal()"></success-delete-artist-modal>
-			<div class="content-flex content-row">
-			  <input class="button-base buttons-delete margin-right-15px" type="submit" value="Eliminar" click.trigger="openModal()">
-			  <button class="button-base buttons-delete button-cancel">Cancelar</button>
-			</div>
-		  </form>
-				</div>
-	  </div>
-	</div>
+    <div class="tattoo-modal__header">
+      <img class="tattoo-modal__close" src="src/assets/images/icons/close.png" click.delegate="close()">
+    </div>
+    <div class="tattoos-grid__element tattoo-modal__element width-auto">
+      <div class="tattoos-grid__element-info-wrapper margin-horizontal-12px-mobile padding-vertical-94px padding-vertical-40px-25-mobile">
+        <div class="content-flex content-column content-vertical-center width-100">
+          <img class="success-img margin-bottom-34px" src="src/assets/images/icons/remove.png" alt="">
+          <h1 class="text-base text-white subtitle text-center margin-0px">¿Estás seguro que deseas eliminar este tatuador?</h1>
+          <div class="succes-separator"></div>
+          <form action="">
+            <success-delete-artist-modal id="success-delete-artist-content" simple-modal="show.two-way: showModal" css="${showModal ? 'display: block' : 'display: none'}" flash.bind="flash"  go-next.call="nextItem()" go-prev.call="previousItem()" close.call="closeModal()"></success-delete-artist-modal>
+            <div class="content-flex content-row">
+              <input class="button-base buttons-delete margin-right-15px" type="submit" value="Eliminar" click.trigger="openModal()">
+              <button class="button-base buttons-delete button-cancel" click.trigger="close()">Cancelar</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
   </div>
 </template>

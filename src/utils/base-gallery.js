@@ -1,3 +1,8 @@
+import {inject} from 'aurelia-framework';
+import {Controller} from  'controller/controller';
+
+@inject(Controller)
+
 export class BaseGallery {
   constructor(api) {
     this.api = api;
@@ -63,9 +68,10 @@ export class BaseGallery {
   }
 
   getArtist(id) {
-    this.api.getArtist(id)
+    this.controller.artist.artist(id)
       .then(artist => {
         this.artist = artist;
+        console.log(artist)
       });
   }
 
@@ -140,7 +146,7 @@ export class BaseGallery {
   loadMore() {
     if (!this.showLoader && this.params.page != null) {
       this.showLoader = true;
-      this.api[this.apiMethod](this.params)
+      this.api.getTattoos(true, this.params)
         .then(items => {
           items.forEach(item => {
             this.addItem(item);
@@ -160,7 +166,7 @@ export class BaseGallery {
       item.sellImageUrl = '/src/assets/images/mock/tattoo3.png';
     }
     if (!item.image || !item.image.includes('http')) {
-      item.image = '/src/assets/images/mock/tattoo3.png';
+      item.image =  item.image
     }
     if (!item.artist_picture) {
       item.artist_picture = '/src/assets/images/mock/artist3.png';

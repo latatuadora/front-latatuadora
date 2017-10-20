@@ -9,7 +9,7 @@
   <div class="content-flex content-row content-column-mobile">
     <menu-artist></menu-artist>
     <div class="content-flex content-column content-vertical-center margin-vertical-60px-100px width-100">
-      <h1 class="text-base title margin-0px">${artist[0]} <span class="text-gold">${artist[1]}</span></h1>
+      <h1 class="text-base title margin-0px">${artistTitle[0]} <span class="text-gold">${artistTitle[1]}</span></h1>
       <hr class="special-hr separator margin-vertical-hr-55px margin-vertical-hr-35px-mobile">
       <div class="show-mobile hide-desktop margin-bottom-27px-mobile">
         <button class="content-flex content-row content-vertical-center horizontal-center button-base padding-horizontal-15px" click.trigger="openModal()">
@@ -25,7 +25,7 @@
             <p class="text-base paragraph new-tattoo-artist-txt">Agregar <span class="text-gold">tatuador</span> nuevo</p>
           </div>
         </div>
-        <artist-tattoo-item repeat.for="item of 5"></artist-tattoo-item>
+        <artist-tattoo-item repeat.for="artist of artists" currentindex.bind="$index" artist.bind="artist"></artist-tattoo-item>
       </div>
     </div>
   </div>

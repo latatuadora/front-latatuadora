@@ -8,4 +8,13 @@ export class GalleryModal {
   @bindable goPrev;
   @bindable goNext;
   @bindable close;
+
+  constructor() {
+    console.log('GALLERY MODAL', this.item);
+  }
+
+  bind() {
+    console.log('GALLERY MODAL', this.item)
+  }
+
 }

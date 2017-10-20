@@ -2,6 +2,7 @@
   <require from="./new-flash-modal.css"></require>
   <require from="resources/elements/artist-tattoo-item-modal/artist-tattoo-item-modal"></require>
   <require from="resources/attributes/tooltip-message"></require>
+  <require from="resources/attributes/range-slider"></require>
 
   <div class="tattoo-modal">
     <div class="tattoo-modal__header">
@@ -38,28 +39,22 @@
             </div>
             <div class="align-self-start padding-43px-95x padding-29-25px-mobile width-100">
               <div class="content-flex content-column content-vertical-center-mobile">
-                <select class="margin-bottom-20px" name="" id="">
-                  <option value="">Estilo</option>
+                <select class="margin-bottom-20px" name="" id="" value.bind="changedValue" change.delegate="saveRemoveStyles(changedValue, 'style')">
+                  <option repeat.for="style of styles" model.bind="style">${ style.name }</option>
                 </select>
-                <div class="content-flex content-row content-vertical-center horizontal-center gray-tag">
-                  <p class="text-base text-white bullets margin-0px">Skull</p>
-                  <img class="close-tag-img" src="src/assets/images/icons/close.png" alt="">
+                <div repeat.for="style of stylesToShow" class="content-flex content-row content-vertical-center horizontal-center gray-tag">
+                  <p class="text-base text-white bullets margin-0px">${ style.name }</p>
+                  <img class="close-tag-img" src="src/assets/images/icons/close.png" alt="" click.delegate="saveRemoveStyles(style, 'style')">
                 </div>
               </div>
               <div class="gray-line margin-vertical-30px width-100"></div>
               <div class="content-flex content-column content-vertical-center-mobile">
-                <select class="margin-bottom-20px" name="" id="">
-                  <option value="">Elemento</option>
-                  <option value="">Elemento</option>
-                  <option value="">Elemento</option>
-                  <option value="">Elemento</option>
-                  <option value="">Elemento</option>
-                  <option value="">Elemento</option>
-                  <option value="">Elemento</option>
+                <select class="margin-bottom-20px" name="" id="" value.bind="changedValue2" change.delegate="saveRemoveElements(changedValue2, 'element')">
+                  <option repeat.for="element of elements" model.bind="element">${ element.name }</option>
                 </select>
-                <div class="content-flex content-row content-vertical-center horizontal-center gray-tag">
-                  <p class="text-base text-white bullets margin-0px">Skull</p>
-                  <img class="close-tag-img" src="src/assets/images/icons/close.png" alt="">
+                <div repeat.for="element of elementsToShow" class="content-flex content-row content-vertical-center horizontal-center gray-tag">
+                  <p class="text-base text-white bullets margin-0px">${ element.name }</p>
+                  <img class="close-tag-img" src="src/assets/images/icons/close.png" alt="" click.delegate="saveRemoveElements(element, 'element')">
                 </div>
               </div>
               <div class="gray-line margin-vertical-30px width-100"></div>
@@ -71,45 +66,46 @@
                       <h3 class="text-base text-white bullets margin-right-10px">Alto</h3>
                       <img src="src/assets/images/icons/info.png" title="Mueve el botón hacia la derecha o izquierda para seleccionar la medida de tu tatuaje" tooltip-message>
                     </div>
+                    <div class="range-slider" range-slider="update.bind: shared.changeHeight; min.bind: 1; max.bind: 25; start.bind: 5; unit: cm"></div>
                   </div>
                   <div class="content-flex content-column content-vertical-center width-100">
                     <div class="content-flex content-row content-vertical-center">
                       <h3 class="text-base text-white bullets margin-right-10px">Ancho</h3>
-                      <img src="src/assets/images/icons/info.png"  title="Mueve el botón hacia la derecha o izquierda para seleccionar la medida de tu tatuaje" tooltip-message>
+                      <img src="src/assets/images/icons/info.png" title="Mueve el botón hacia la derecha o izquierda para seleccionar la medida de tu tatuaje" tooltip-message>
                     </div>
+                    <div class="range-slider" range-slider="update.bind: shared.changeWidth; min.bind: 1; max.bind: 25; start.bind: 5; unit: cm"></div>
                   </div>
                 </div>
               </div>
               <div class="gray-line margin-vertical-30px width-100"></div>
               <div class="content-flex content-row content-vertical-center horizontal-center">
-                <input id="copyright" type="checkbox">
-                <label class="text-base text-white bullets" for="copyright">Este Flash cuenta con derechos de autor</label>
+                <input id="copyrigth" type="checkbox" click.bind="toggleAll()">
+                <label class="text-base text-white bullets" for="copyrigth">Este Flash cuenta con derechos de autor</label>
               </div>
               <div class="gray-line margin-vertical-30px width-100"></div>
               <div class="content-flex content-column">
-                <h1 class="text-base text-white title text-center">Selecciona el tatuador que<br>diseñó el Flash</h1>
+                <h1 if.bind="user.artist.length > 0" class="text-base text-white title text-center">Selecciona el tatuador que<br>diseñó el Flash</h1>
+                <h1 if.bind="user.artist.length == 0" class="text-base text-white title text-center">Debes agregar tatuadores<br>a tu estudio</h1>
                 <div class="content-flex content-row content-wrap item-translate-14">
-                  <artist-tattoo-item-modal repeat.for="item of 5"></artist-tattoo-item-modal>
+                  <div class="artist-radio-button" repeat.for="artist of artists">
+                    <input class="hide-input" type="radio" value.bind="artist.id" id="selection-artist-${artist.id}" name="new-flash-artist" checked.bind="currentFlash.artist">
+                    <label for="selection-artist-${artist.id}">
+                      <artist-tattoo-item-modal artist.bind="artist"></artist-tattoo-item-modal>
+                    </label>
+                  </div>
                 </div>
               </div>
               <div class="gray-line margin-vertical-30px width-100"></div>
               <div class="content-flex content-column content-vertical-center">
                 <h1 class="text-base text-white title text-center margin-bottom-42px">Breve explicación del <span class="text-gold">diseño</span></h1>
-                <textarea class="new-input margin-bottom-59px" placeholder="Escribir nueva entrada"></textarea>
+                <textarea class="new-input margin-bottom-59px" placeholder="Escribir nueva entrada" value.bind="currentFlash.significant"></textarea>
                 <div class="content-flex content-row content-column-mobile content-vertical-center horizontal-center width-100">
-                  <div class="content-flex content-column content-vertical-center width-100">
-                    <p class="text-base text-white subtitle text-center height-60px margin-0px">Precio recomendado</p>
-                    <input class="input-price text-base text-white text-center subtitle" type="text">
-                  </div>
-                  <div class="show-desktop hide-mobile">
-                    <div class="vertical-hr-gold margin-horizontal-28px"></div>
-                  </div>
                   <div class="hide-desktop show-mobile width-100-mobile">
                     <div class="horizontal-hr-gold margin-vertical-33px-mobile"></div>
                   </div>
                   <div class="content-flex content-column content-vertical-center width-100">
                     <p class="text-base text-white subtitle text-center height-60px margin-0px">Precio final</p>
-                    <input class="input-price text-base text-white text-center subtitle"  type="text">
+                    <input class="input-price text-base text-white text-center subtitle" type="text" value.bind="currentFlash.final_price">
                   </div>
                   <div class="show-desktop hide-mobile">
                     <div class="vertical-hr-gold margin-horizontal-28px"></div>
@@ -118,14 +114,14 @@
                     <div class="horizontal-hr-gold margin-vertical-33px-mobile"></div>
                   </div>
                   <div class="content-flex content-column content-vertical-center width-100">
-                    <p class="text-base text-white subtitle text-center height-60px margin-0px">Precio si te tatúas con José</p>
-                    <input class="input-price text-base text-white text-center subtitle"  type="text">
+                    <p class="text-base text-white subtitle text-center height-60px margin-0px">Precio si te tatúas en nuestro estudio</p>
+                    <input class="input-price text-base text-white text-center subtitle" type="text" value.bind="currentFlash.price_with_jobber">
                   </div>
                 </div>
               </div>
               <success-tattoo-modal id="new-tattoo-content" simple-modal="show.two-way: showModal" css="${showModal ? 'display: block' : 'display: none'}" item.bind="currentItem"  go-next.call="nextItem()" go-prev.call="previousItem()" close.call="closeModal()"></success-tattoo-modal>
               <div class="content-flex horizontal-end horizontal-center-mobile margin-top-69px">
-                <input class="button-base" value="Guardar cambios" type="submit" click.trigger="openModal()">
+                <button class="button-base" click.trigger="submit()">Guardar cambios</button>
               </div>
             </div>
           </div>

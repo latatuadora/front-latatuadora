@@ -10,6 +10,9 @@ export default function processCSS() {
   return gulp.src(project.cssProcessor.source)
     .pipe(changedInPlace({firstPass: true}))
     .pipe(sourcemaps.init())
-    .pipe(stylus({use: [autoprefixerStylus('last 2 versions')]}))
+    .pipe(stylus({use: [autoprefixerStylus('last 10 versions')]})).on('error', function(error) {
+      console.error(error.message);
+      this.emit('end');
+    })
     .pipe(build.bundle());
 }

@@ -41,11 +41,6 @@ $typography
 
 
 // Reset and Initialization
-
-*,:after,:before
-  @extends $reset
-  @extends $typography $paragraph
-
 .heading
   @extends $typography $heading
 
@@ -60,7 +55,24 @@ $typography
     color: $silver
     text-decoration: underline;
 
+.tatuadora-flex-column
+  display flex
+  flex-wrap wrap
+  width 700px
+  justify-content center
+  margin 70px 0px
 
+.tatuadora-checkbox-tag
+  padding 10px
+  margin 15px 5px
+  background $silver
+  border-radius 25px
+  min-width 130px
+  cursor pointer
+  user-select none
+.active
+  background $gold!important
+  color white
 // Input Behavior
 .input
   width 250px
@@ -261,6 +273,31 @@ $divider
     margin 50px 0
     max-width 600px
 
+.schedule
+
+
+  .input__group-row.schedule__item
+    margin: 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+  .input__group-row.titles
+    justify-content: space-around;
+
+  .input__group-row
+    margin: 0 1rem;
+
+  .input--hour
+    padding-left: 0.5rem;
+    margin: 0 1rem;
+    width: 4rem
+    height: 2rem
+
+  &__title
+    margin: 1.5rem;
+    text-align: center
+    color: $gold;
 
 .photo
 
@@ -283,15 +320,159 @@ $divider
 
 .margin-vertical-0px
   margin 0px !important
-  
+
 .margin-bottom-37px
   margin-bottom 37px
-  
+
 .margin-bottom-16px
   margin-bottom 16px
-  
+
 .margin-bottom-63px
   margin-bottom 63px
-  
+
 .width-118
   width 118%
+
+
+
+
+///// user styles
+
+/**
+* typography
+**/
+
+.heading
+  color $blackColor
+  font-size 2em
+  font-weight 400
+  letter-spacing -0.3px
+
+  @media screen and (min-width 32em)
+    font-size 2em
+
+.paragraph
+  color $loudBlack
+  font-size 1em
+  letter-spacing -0.2px
+
+.separator
+  background-color $borderColor
+  border none
+  height 1px
+  width 320px
+
+
+// Header styles
+.header
+  font-size 16px
+
+  .heading
+    margin 1.75em 0
+    text-align center
+
+.main
+  font-size 16px
+  display flex
+  flex-direction column
+  align-items center
+  margin-top 3.5em
+
+  .form
+    display flex
+    flex-direction: column
+    align-items flex-end
+
+  .form-group
+    margin: 1.25em 0
+    display: flex
+    flex-direction: column
+    align-items: flex-start
+
+    @media screen and (min-width 32em)
+      flex-direction row
+
+  .input--group
+    display flex
+    flex-direction column
+
+    @media screen and (min-width 32em)
+      flex-direction column
+
+  .reverse
+    flex-direction row
+    align-self flex-start
+    justify-content center
+    align-items: center
+
+    @media screen and (min-width 32em)
+      align-self center;
+
+  .column
+    flex-direction column
+
+  .center
+    align-self center;
+
+    .paragraph
+      margin 0 0.5em
+
+  .input
+    border thin solid $borderColor
+    height 3em
+    width 17em
+
+    @media screen and (min-width 32em)
+      width 21em
+
+  .input--checkbox
+    appearance none
+    width 20px
+    min-width: 20px
+    height 20px
+    border 1px solid $borderColor
+    margin: 0 10px
+    transition: 0.5s
+
+  .input--checkbox:checked
+    background-color $dustColor
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &:before
+      content: url('src/assets/images/icons/radio.svg')
+
+  .paragraph
+    margin 0.75em
+
+  .under
+    color: #000;
+    text-decoration none
+    box-shadow: 0 1px 0  #000
+
+  .button
+    border none;
+    border-radius: 2px
+    background-color $dustColor
+    color #FFF
+    font-size 0.75em
+    height 48px
+    width 272px
+    text-transform uppercase
+
+    @media screen and (min-width 32em)
+      width 336px
+
+.validation-error
+  transition: all 0.5s
+  color: salmon
+  padding: 0.5rem 0.5rem
+  width 17em
+
+  @media screen and (min-width 32em)
+    width 21em
+
+.footer-logo
+  margin 6rem 0

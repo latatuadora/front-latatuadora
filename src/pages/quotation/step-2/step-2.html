@@ -6,7 +6,7 @@
   </h2>
   <div class="quotation-step-2__items">
     <div repeat.for="item of items" class="quotation-step-2__item" click.delegate="changeStyle($index)">
-      <div class="quotation-step-2__item-image cover vertical-center" css="background-image: url(${item.image})">
+      <div class="quotation-step-2__item-image cover vertical-center" css="background-image: url(${item.imgUrl || item.img})">
         <img src="src/assets/images/icons/check.svg" if.bind="activeIndex == $index" class="quotation-step-2__check">
       </div>
       <span class="quotation-step-2__item-text">${item.name}</span>

@@ -1,12 +1,15 @@
 import {inject} from 'aurelia-framework';
 import {Router} from 'aurelia-router';
-import {BaseMultiStep} from 'utils/base-multi-step';
-import {WebAPI} from 'utils/web-api';
+import {Controller} from 'controller/controller'
 
-@inject(Router, WebAPI)
+import {MockAPI} from 'utils/mock-api';
+import {BaseMultiStep} from 'utils/base-multi-step';
+
+@inject(Router, MockAPI, Controller)
 export class Quotation extends BaseMultiStep {
-  constructor(router, api) {
+  constructor(router, api, controller) {
     super();
+    this.controller = controller;
     this.router = router;
     this.api = api;
     this.completeDestination = 'quotation_results';
@@ -54,12 +57,11 @@ export class Quotation extends BaseMultiStep {
   }
 
   getArtist(id) {
-    this.api.getArtist(id)
+    this.controller.studio.getDataUser({user: id})
       .then(artist => {
         this.shared.artist = artist;
       });
   }
-
   next() {
     this.isValidView()
       .then(valid => {
@@ -98,10 +100,14 @@ export class Quotation extends BaseMultiStep {
       email: this.shared.userData.email,
       city: this.shared.userData.city,
       reference: this.shared.referenceFile.file,
-      comments: this.shared.additionalComment,
-      studioId: this.shared.artist ? this.shared.artist.id : null
+      comments: this.shared.additionalComment
     };
-    this.api.postQuotationRequest(request)
+    if (this.shared.artist.userType.id === 4) {
+      request["freelancer"] = this.shared.artist.freelancer.id;
+    } else {
+      request["studio"] = this.shared.artist.studio.id;
+    }
+    this.controller.quotation.quotation(request)
       .then(results => {
         this.goToResults(results);
       });

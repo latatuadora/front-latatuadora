@@ -1,12 +1,6 @@
 import fetch from 'whatwg-fetch';
 import environment from './environment';
-
-let authConfig = {
-  endpoint: 'login',
-  loginUrl: 'login',
-  loginRedirect: '#/dashboard',
-  loginRoute: '#/login'
-};
+require('node_modules/babel-polyfill/dist/polyfill.js')
 
 export function configure(aurelia) {
   aurelia.use
@@ -14,11 +8,18 @@ export function configure(aurelia) {
     .feature('resources')
     .plugin('aurelia-validation')
     .plugin('aurelia-api', config => {
-      config.registerEndpoint('login', 'http://35.161.232.194:1337/')
-        .setDefaultEndpoint('login');
+      config.registerEndpoint('api', 'http://sandbox.latatuadora.getmore.mx:1337/')
+        .setDefaultEndpoint('api');
     })
     .plugin('aurelia-authentication', baseConfig => {
-      baseConfig.configure(authConfig);
+      baseConfig.configure({
+        endpoint: 'api',
+        loginUrl: 'login',
+        loginRoute: '#/login',
+        logoutRedirect: '#/login',
+        loginRedirect: '#/dashboard',
+        logoutUrl: '#/logout'
+      });
     })
     .plugin('aurelia-files');
 

@@ -2,8 +2,8 @@
   <require from="./artist-tattoo-item-modal.css"></require>
 
   <div class="artist-tattoo-modal">
-    <img class="artist-tattoo__img" src="src/assets/images/mock/group-11.png">
+    <img if.bind="artist.avatarUrl" class="artist-tattoo__img" src="${artist.avatarUrl}">
     <div class="artist-tattoo__background"></div>
-    <h5 class="artist-tattoo__name">Raúl <span class="artist-tattoo__last-name">Ontiveros Landera</span></h5>
+    <h5 class="artist-tattoo__name"><span class="artist-tattoo__last-name">${artist.name}</span></h5>
   </div>
 </template>

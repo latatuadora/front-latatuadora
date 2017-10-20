@@ -2,7 +2,6 @@ import {inject} from 'aurelia-framework';
 import {Redirect} from 'aurelia-router';
 import {AuthenticateStep} from 'aurelia-authentication';
 import {Session} from 'utils/session';
-
 export class App {
   constructor(session) {
     this.errorRoute = {
@@ -26,7 +25,7 @@ export class App {
         nav: true
       },
       {
-        route: 'news',
+        route: 'http://latatuadora.com/blog/',
         name: 'news',
         moduleId: 'pages/homepage/homepage',
         redirections: {
@@ -41,11 +40,6 @@ export class App {
         route: 'inspirate/:artist?',
         name: 'inspirate',
         moduleId: 'pages/inspirate/inspirate',
-        redirections: {
-          2: 'dashboard',
-          3: 'dashboard',
-          others: false
-        },
         title: 'Inspírate',
         href: '/inspirate',
         nav: true
@@ -61,17 +55,12 @@ export class App {
         },
         title: 'Flashes',
         href: '/flashes',
-        nav: true
+        nav: false
       },
       {
         route: 'buscartatuador',
         name: 'search_artist',
         moduleId: 'pages/search-artist/search-artist',
-        redirections: {
-          2: 'dashboard',
-          3: 'dashboard',
-          others: false
-        },
         title: 'Busca un tatuador',
         nav: true
       },
@@ -79,11 +68,6 @@ export class App {
         route: 'tatuate',
         name: 'tatuate',
         moduleId: 'pages/tatuate/tatuate',
-        redirections: {
-          2: 'dashboard',
-          3: 'dashboard',
-          others: false
-        },
         title: 'Tatúate',
         nav: true
       },
@@ -96,7 +80,7 @@ export class App {
           others: 'dashboard'
         },
         title: 'Iniciar Sesión',
-        nav: true
+        nav: false
       },
       {
         route: 'cotizar/:artist?',
@@ -109,7 +93,7 @@ export class App {
         },
         title: 'Cotiza',
         href: '/cotizar',
-        nav: false
+        nav: true
       },
       {
         route: 'cotizar/resultados',
@@ -124,11 +108,11 @@ export class App {
         nav: false
       },
       {
-        route: 'agendar/:id',
+        route: 'agendar/:artist?',
         name: 'scheduling',
         moduleId: 'pages/scheduling/scheduling',
         redirections: {
-          2: 'dashboard',
+          0: 'login',
           3: 'dashboard',
           others: false
         },
@@ -144,12 +128,19 @@ export class App {
         roles: [0]
       },
       {
-        route: 'estudio/:id',
+        route: 'signup/user',
+        name: 'signup-user',
+        moduleId: 'pages/signup/user/user',
+        title: 'Regístrate',
+        nav: false,
+        roles: [0]
+      },
+      {
+        route: 'estudio/:id?',
         name: 'studio',
         moduleId: 'pages/artist/studio',
         title: 'Perfil de estudio',
         nav: false,
-        roles: [0]
       },
       {
         route: 'mistatuajes',
@@ -157,7 +148,7 @@ export class App {
         moduleId: 'pages/menu-page-artist/my-tattoos/my-tattoos',
         title: 'Mis tatuajes',
         nav: false,
-        roles: [0]
+        roles: [3]
       },
       {
         route: 'misflashes',
@@ -165,7 +156,7 @@ export class App {
         moduleId: 'pages/menu-page-artist/my-flashes/my-flashes',
         title: 'Mis Flashes',
         nav: false,
-        roles: [0]
+        roles: [3]
       },
       {
         route: 'miscotizaciones',
@@ -173,7 +164,7 @@ export class App {
         moduleId: 'pages/menu-page-artist/my-quotations/my-quotations',
         title: 'Mis cotizaciones',
         nav: false,
-        roles: [0]
+        roles: [3]
       },
       {
         route: 'posiblesclientes',
@@ -181,7 +172,7 @@ export class App {
         moduleId: 'pages/menu-page-artist/possible-client/possible-client/possible-client',
         title: 'Posibles Clientes',
         nav: false,
-        roles: [0]
+        roles: [3]
       },
       {
         route: 'posiblesclientes/paquetes',
@@ -189,7 +180,7 @@ export class App {
         moduleId: 'pages/menu-page-artist/possible-client/leads-packages/leads-packages',
         title: 'Paquetes',
         nav: false,
-        roles: [0]
+        roles: [3]
       },
       {
         route: 'posiblesclientes/pagos',
@@ -197,7 +188,7 @@ export class App {
         moduleId: 'pages/menu-page-artist/possible-client/leads-payment/leads-payment',
         title: 'Pago',
         nav: false,
-        roles: [0]
+        roles: [3]
       },
       {
         route: 'posiblesclientes/conekta',
@@ -205,7 +196,7 @@ export class App {
         moduleId: 'pages/menu-page-artist/possible-client/payment-conekta/payment-conekta',
         title: 'Pago - Conekta',
         nav: false,
-        roles: [0]
+        roles: [3]
       },
       {
         route: 'mistatuadores',
@@ -213,7 +204,7 @@ export class App {
         moduleId: 'pages/menu-page-artist/my-tattoo-artist/my-tattoo-artist',
         title: 'Mis tatuadores',
         nav: false,
-        roles: [0]
+        roles: [3]
       },
       {
         route: 'promocionarme',
@@ -221,7 +212,7 @@ export class App {
         moduleId: 'pages/menu-page-artist/promote-me/promote-me/promote-me',
         title: 'Promocionarme',
         nav: false,
-        roles: [0]
+        roles: [3]
       },
       {
         route: 'promocionarme/blogspot',
@@ -229,7 +220,7 @@ export class App {
         moduleId: 'pages/menu-page-artist/promote-me/blogspot/blogspot',
         title: 'Promocionarme',
         nav: false,
-        roles: [0]
+        roles: [3]
       },
       {
         route: 'evaluaciones',
@@ -237,7 +228,7 @@ export class App {
         moduleId: 'pages/menu-page-artist/evaluations/evaluations',
         title: 'Evaluaciones',
         nav: false,
-        roles: [0]
+        roles: [3]
       },
       {
         route: 'agendacion/solicitud',
@@ -245,7 +236,7 @@ export class App {
         moduleId: 'pages/menu-page-artist/scheduling-request/scheduling-request',
         title: 'Solicitudes de agendación',
         nav: false,
-        roles: [0]
+        roles: [3]
       },
       {
         route: 'editarperfil',
@@ -253,7 +244,7 @@ export class App {
         moduleId: 'pages/edit-profile/edit-profile',
         title: 'Editar perfil',
         nav: false,
-        roles: [0]
+        roles: [3]
       },
       {
         route: 'galeriaimagen',
@@ -264,7 +255,7 @@ export class App {
         roles: [0]
       },
       {
-        route: 'news/blog',
+        route: 'news',
         name: 'news-blog',
         moduleId: 'pages/news-blog/news-blog',
         title: 'News Blog',
@@ -377,7 +368,9 @@ export class App {
         auth: true,
         moduleId: 'pages/homepage/homepage',
         redirections: {
-          3: 'dashboard/perfil/editar'
+          1: 'dashboard/perfil/editar',
+          2: 'dashboard/perfil/editar',
+          3: 'miscotizaciones'
         }
       },
       {
@@ -402,7 +395,7 @@ export class App {
       },
       {
         route: 'dashboard/perfil/editar',
-        name: 'edit_profile',
+        name: 'edit_profile_user',
         moduleId: 'dashboards/user/edit/edit',
         modules: {
           1: '...',
@@ -414,14 +407,13 @@ export class App {
         nav: true,
         level: 1,
         auth: true,
-        roles: [1,2,3,4]
+        roles: [1, 2, 3, 4]
       }
     ];
   }
-
-  configureRouter (config, router) {
+  
+  configureRouter(config, router) {
     this.router = router;
-
     config.addPostRenderStep(PostRenderStep);
     config.addPipelineStep('authorize', AuthenticateStep);
     config.addPipelineStep('authorize', RoleStep);
@@ -431,13 +423,12 @@ export class App {
     config.mapUnknownRoutes(this.errorRoute);
   }
 }
-
 @inject(Session)
 class RoleStep {
   constructor(session) {
     this.session = session;
   }
-
+  
   run(instruction, next) {
     if (instruction.config.roles) {
       let role = this.session.role.toString();
@@ -449,18 +440,17 @@ class RoleStep {
     return next();
   }
 }
-
 @inject(Session)
 class PolymorphicStep {
   constructor(session) {
     this.session = session;
   }
-
+  
   run(instruction, next) {
     let role = this.session.role.toString();
     if (instruction.config.redirections) {
-      if (instruction.config.redirections[role] == undefined) {
-        if (instruction.config.redirections.others == undefined) {
+      if (instruction.config.redirections[role] === undefined) {
+        if (instruction.config.redirections.others === undefined) {
           throw new Error('There is no redirection defined for this role.');
         } else if (instruction.config.redirections.others) {
           return next.cancel(new Redirect(instruction.config.redirections.others));
@@ -469,7 +459,7 @@ class PolymorphicStep {
         return next.cancel(new Redirect(instruction.config.redirections[role]));
       }
     } else if (instruction.config.modules) {
-      if (instruction.config.modules[role] == undefined) {
+      if (instruction.config.modules[role] === undefined) {
         throw new Error('There is no module defined for this role.');
       } else {
         instruction.config.moduleId = instruction.config.modules[role];
@@ -478,7 +468,6 @@ class PolymorphicStep {
     return next();
   }
 }
-
 class PostRenderStep {
   run(instruction, next) {
     window.scrollTo(0, 0);

@@ -1,0 +1,45 @@
+.display-inline
+  display inline
+menu-user-logged
+  position fixed
+  background #e9e9e9
+  width 148px
+  display none
+  &:before
+    position absolute
+    content ""
+    width 0
+    height 0
+    border-left 5px solid transparent
+    border-right 5px solid transparent
+    border-bottom 5px solid #e9e9e9
+    margin 0 auto
+    right 15px
+    border-top 5px solid transparent
+    top -10px
+  .menu-icon
+    background-size contain!important
+    width 20px
+    height 20px
+    margin 0px 12px
+  div > ul > li > a
+    display flex
+    align-items center
+    padding 10px 0px
+    color black
+    cursor pointer
+    transition all 0.5s ease
+    &:hover
+      background #b09c6c
+      color white
+  div > ul > li
+    list-style none
+    padding 0px
+    width 100%
+    font-size 14px
+  div > ul
+    display flex
+    flex-direction column
+    align-items flex-start
+    padding 0
+    margin 0

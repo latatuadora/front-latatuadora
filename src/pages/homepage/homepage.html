@@ -1,96 +1,91 @@
 <template>
   <require from="./homepage.css"></require>
-  <require from="../../resources/elements/artist-item/artist-item"></require>
+  <require from="../../resources/elements/tattoo-artist/tattoo-artist"></require>
+  <require from="../../resources/elements/tattoo-style/tattoo-style"></require>
   <div class="homepage-hero">
     <div class="homepage-hero__left">
       <a class="homepage-hero__small-item cover" route-href="route: inspirate">
         <div class="vertical-center">
           <div class="homepage-hero__small-item-content">
-            <span class="homepage-hero__visit">Visitar</span>
+            <span class="homepage-hero__visit">Galería </span>
+            <span class="homepage-hero__visit">de </span>
             <span class="homepage-hero__visit-tattoos">tatuajes</span>
           </div>
         </div>
       </a>
-      <a class="homepage-hero__small-item cover" route-href="route: flashes">
+      <a class="homepage-hero__small-item cover">
         <div class="vertical-center">
           <div class="homepage-hero__small-item-content">
-            <span class="homepage-hero__visit">Visitar</span>
-            <span class="homepage-hero__visit-flashes">flashes</span>
+            <span class="homepage-hero__visit">Venta de</span>
+            <span class="homepage-hero__visit-flashes">diseños únicos</span>
           </div>
         </div>
       </a>
     </div>
-    <div class="homepage-hero__middle cover">
+    <div class="homepage-hero__middle cover" id="homepage::hero">
+      <div class="homepage-hero__middle__layer"></div>
       <div class="homepage-hero__middle-content">
         <img class="homepage-hero__logo" src="src/assets/images/logos/logo-white.png" alt="La tatuadora" />
         <div class="homepage-hero__middle-text">
-          <span class="homepage-hero__middle-text-1">Cotiza tu</span>
-          <span class="homepage-hero__middle-text-2">próximo tatuaje</span>
+          <span class="homepage-hero__middle-text-1">Cotiza</span>
+          <span class="homepage-hero__middle-text-2">tu próximo tatuaje</span>
         </div>
         <a route-href="route: quotation" class="site-button">Cotizar</a>
       </div>
+
     </div>
     <div class="homepage-hero__right">
-      <a class="homepage-hero__small-item cover" href="#">
+      <a class="homepage-hero__small-item cover">
         <div class="vertical-center">
           <div class="homepage-hero__small-item-content">
-            <span class="homepage-hero__city-span-1">Los mejores</span>
-            <span class="homepage-hero__city-span-2">estudios</span>
-            <span class="homepage-hero__city-span-3">en tu ciudad</span>
+            <span class="homepage-hero__city-span-1">Directorio</span>
+            <span class="homepage-hero__city-span-1">de</span>
+            <span class="homepage-hero__city-span-2"></span>
+            <span class="homepage-hero__city-span-3">Tatuadores</span>
           </div>
         </div>
       </a>
-      <a class="homepage-hero__small-item cover" route-href="route: inspirate">
+      <a class="homepage-hero__small-item cover" route-href="route: search_artist">
         <div class="vertical-center">
           <div class="homepage-hero__small-item-content">
-            <span class="homepage-hero__discover-span-1">Inspírate</span>
+            <span class="homepage-hero__city-span-1">Directorio</span>
+            <span class="homepage-hero__city-span-1">de</span>
+            <span class="homepage-hero__city-span-2"></span>
+            <span class="homepage-hero__city-span-3">Tatuadores</span>
           </div>
         </div>
       </a>
-      <a class="homepage-hero__small-item cover" href="#">
+      <a class="homepage-hero__small-item cover" route-href="route: news">
         <div class="vertical-center">
           <div class="homepage-hero__small-item-content">
-            <span class="homepage-hero__discover-span-1">Descubre el</span>
+            <span class="homepage-hero__discover-span-1">Adéntrate </span>
+            <span class="homepage-hero__discover-span-1">en el </span>
             <span class="homepage-hero__discover-span-2">mundo del tatuaje</span>
           </div>
         </div>
       </a>
     </div>
   </div>
+
   <section class="homepage-trending">
     <h2 class="homepage-subtitle">Lo <span class="golden-text">más</span> buscado</h2>
-    <form id="homepage-trending-form" class="homepage-trending__form" action="." method="post">
-      <div class="homepage-trending__form-content">
-        <div class="input-wrapper">
-          <input id="homepage-trending-input" name="arg" class="homepage-trending__input" type="text" required placeholder="Escribe el tatuaje que deseas encontrar">
-        </div>
-        <div class="button-wrapper">
-          <button class="site-button homepage-trending__button" type="submit" name="submit">Buscar</button>
-        </div>
-      </div>
-    </form>
-    <div class="homepage-trending__items">
-      <div repeat.for="tattoo of tattoos" class="homepage-trending__item cover" css="background-image: url(${tattoo.image})">
-        <a if.bind="$index == 0 || $index == 5 || $index == 6" route-href="route: inspirate; params.bind: {style: tattoo.style.id}" class="homepage-trengind__item-layer vertical-center">${tattoo.style.name}</a>
-        <a if.bind="$index == 1 || $index == 3" route-href="route: inspirate; params.bind: {element: tattoo.element.id}" class="homepage-trengind__item-layer vertical-center">${tattoo.element.name}</a>
-        <a if.bind="$index == 2 || $index == 4 || $index == 7" route-href="route: inspirate; params.bind: {part: tattoo.partbody.id}" class="homepage-trengind__item-layer vertical-center">${tattoo.partbody.name}</a>
-      </div>
+    <div class="trending__gallery">
+      <tattoo-style repeat.for="style of styles" style.bind="style" class="trending__item"></tattoo-style>
     </div>
+    <a route-href="route: inspirate" class="site-button homepage-featured__main-button">Ver todos los tatuajes</a>
   </section>
+
   <hr class="special-hr homepage-divider">
+
   <section class="homepage-featured">
     <h2 class="homepage-subtitle">Tatuadores destacados y <span class="golden-text">nuevos</span>.</h2>
-    <div class="homepage-featured__buttons">
-      <button type="button" click.delegate="getFeaturedArtists()" class="homepage-featured__button site-button ${featuredOption == 1 ? 'active' : ''}">Destacados</button>
-      <button type="button" click.delegate="getFeaturedArtists('newest')" class="homepage-featured__button site-button ${featuredOption == 2 ? 'active' : ''}">Nuevos</button>
-      <button type="button" click.delegate="getFeaturedArtists('closest')" class="homepage-featured__button site-button ${featuredOption == 3 ? 'active' : ''}">Cercanos</button>
+    <div class="homepage__featured" id="homepage-featured-items">
+      <tattoo-artist repeat.for="artist of artists" artist.bind="artist" class="homepage__featured__item"></tattoo-artist>
     </div>
-    <div class="homepage-featured__items" id="homepage-featured-items">
-      <artist-item repeat.for="artist of featuredArtists" artist.bind="artist"></artist-item>
-    </div>
-    <a route-href="route: search_artist; params.bind: {type: 'Estudio'}" class="site-button homepage-featured__main-button">Ver todos los estudios</a>
   </section>
+
   <hr class="special-hr homepage-divider" if.bind="!session.authService.authenticated">
+
   <section class="homepage-want-to" if.bind="!session.authService.authenticated">
     <div class="homepage-want-to__inner">
       <div class="homepage-want-to__buttons">
@@ -102,24 +97,20 @@
         <p class="homepage-want-to__text">
           Encuentra el tatuaje que siempre haz querido, agenda una cita en el mejor estudio con los mejores artistas tatuadores.
         </p>
-        <a route-href="route: signup" class="site-button">Registrarme</a>
+        <a route-href="route: signup-user" class="site-button">Registrarme</a>
       </div>
       <div class="homepage-want-to__div ${iWantTo == 2 ? 'active' : ''}">
         <h2 class="homepage-want-to__title">Soy tatuador<span class="golden-text">.</span></h2>
         <p class="homepage-want-to__text"></p>
-        <a href="#" class="site-button"></a>
+        <a route-href="route: signup" class="site-button">Registrarme</a>
       </div>
       <img src="src/assets/images/logos/logo-home.png" alt="La tatuadora" class="homepage-want-to__img">
     </div>
   </section>
-  <form action="." method="post" class="home-bottom-search" id="home-bottom-search">
-    <input id="home-bottom-search-input" class="home-bottom-search__input" type="search" name="search">
-    <button type="submit" class="site-button home-bottom-search__button" name="submit">Buscar</button>
-  </form>
   <div class="homepage-bottom-cover cover vertical-center">
     <div class="homepage-bottom-cover__text">
       <div>
-        <span class="homepage-bottom-cover__quote">El cuerpo esta destinado a ser visto</span>
+        <span class="homepage-bottom-cover__quote">El cuerpo está destinado a ser visto</span>
         <span class="homepage-bottom-cover__quote-author">Marilin Monroe</span>
       </div>
     </div>

@@ -1,17 +1,16 @@
 import {inject} from 'aurelia-framework';
-import {MockAPI} from 'utils/mock-api';
+import { Static } from 'controller/static'
 
-@inject(MockAPI)
-export class Step2 {
-  constructor(api) {
-    this.api = api;
+export class Step2 extends Static {
+  constructor() {
+    super()
     this.items = [];
     this.activeIndex = 0;
   }
 
   activate(model) {
     this.model = model;
-    this.getItems();
+    this.getStyles()
   }
 
   changeStyle(index) {
@@ -19,17 +18,20 @@ export class Step2 {
     this.activeIndex = index;
   }
 
-  getItems() {
-    this.api.getStyles()
-      .then((styles) => {
-        styles.forEach((style, index) => {
-          if (this.model.style == style.id) {
-            this.activeIndex = index;
-          }
-          this.items.push(style);
-        });
-      });
+  getStyles() {
+    this.styles = this.__preStyles()
+    this.styles.map((style, index) => {
+
+      if( this.model.style === style.id ) {
+        this.activeIndex = index
+      }
+      
+      this.items.push(style)
+
+    })
+
   }
+
 
   isValid() {
     return typeof this.items[this.activeIndex] != 'undefined';

@@ -1,10 +1,8 @@
 import {inject} from 'aurelia-framework';
-import {MockAPI} from 'utils/mock-api';
+import {Static} from 'controller/static';
 
-@inject(MockAPI)
 export class Step3 {
   constructor(api) {
-    this.api = api;
     this.bodyParts = {};
     this.showModal = false;
     this.activeType = 'front';
@@ -22,10 +20,11 @@ export class Step3 {
       this.activeType = model.bodyPart.type;
       this.images[model.bodyPart.type] = model.bodyPart.image;
     }
-    this.getBodyParts();
+    this.bodyParts = new Static('QUOTATION::BODYPARTS')
   }
 
   selectPart = (part) => {
+    console.log(part);
     this.images[this.activeType] = part.image;
     this.images[this.activeType == 'front' ? 'back' : 'front'] = this.defaultImage;
     this.model.changePart(this.activeType, part.id, part.image);
@@ -45,13 +44,6 @@ export class Step3 {
         changeType();
       }
     }
-  }
-
-  getBodyParts() {
-    this.api.getBodyParts()
-      .then(data => {
-        this.bodyParts = data;
-      });
   }
 
   toggleList() {

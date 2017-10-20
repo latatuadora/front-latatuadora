@@ -5,19 +5,19 @@
   <require from="resources/elements/modals/delete-tattoo-artist-modal/delete-tattoo-artist-modal"></require>
 
   <div class="artist-tattoo">
-    <img class="artist-tattoo__img" src="src/assets/images/mock/group-11.png">
+    <img if.bind="image" class="artist-tattoo__img" src="/_assets/Artist/images/${image[image.length-1]}">
     <div class="artist-tattoo__background"></div>
-    <h5 class="artist-tattoo__name">Raúl <span class="artist-tattoo__last-name">Ontiveros Landera</span></h5>
+    <h5 class="artist-tattoo__name"><span class="artist-tattoo__last-name">${artist.name}</span></h5>
     <hr class="artist-tattoo__separator">
-    <p class="artist-tattoo__description">Artista plástico egresado de la ENPEG.<br>Tatuador en potencia. Comprometido, bailador y amante del Jazz</p>
+    <p class="artist-tattoo__description">${artist.bio}</p>
     <div class="artist-tattoo__opts">
-      <edit-tattoo-artist-modal id="edit-tattoo-artist-content" simple-modal="show.two-way: showModal" css="${showModal ? 'display: block' : 'display: none'}" item.bind="currentItem"  go-next.call="nextItem()" go-prev.call="previousItem()" close.call="closeModal()"></edit-tattoo-artist-modal>
-      <a click.trigger="openModal()">
+      <edit-tattoo-artist-modal id="edit-tattoo-artist-content-${currentindex}" simple-modal="show.two-way: showModal; superid.two-way: superid" css="${showModal ? 'display: block' : 'display: none'}" artist.bind="artist"  go-next.call="nextItem()" go-prev.call="previousItem()" close.call="closeModal()"></edit-tattoo-artist-modal>
+      <a click.trigger="openModal(currentindex, 'edit-tattoo-artist-content')">
         <div class="artist-tattoo__icon edit-artist"></div>
       </a>
-      <delete-tattoo-artist-modal id="delete-tattoo-artist-content" simple-modal="show.two-way: showModal" css="${showModal ? 'display: block' : 'display: none'}" item.bind="currentItem"  go-next.call="nextItem()" go-prev.call="previousItem()" close.call="closeModal()"></delete-tattoo-artist-modal>
-      <a click.trigger="openModal()">
-        <div class="artist-tattoo__icon delete-artist" click.trigger="openModal()"></div>
+      <delete-tattoo-artist-modal id="delete-tattoo-artist-content-${currentindex}" simple-modal="show.two-way: showModal; superid.two-way: superid" css="${showModal ? 'display: block' : 'display: none'}" item.bind="artist"  go-next.call="nextItem()" go-prev.call="previousItem()" close.call="closeModal()"></delete-tattoo-artist-modal>
+      <a click.trigger="openModal(currentindex, 'delete-tattoo-artist-content')">
+        <div class="artist-tattoo__icon delete-artist"></div>
       </a>
     </div>
   </div>

@@ -1,6 +1,9 @@
-import {inject} from 'aurelia-framework';
 import {MockAPI} from 'utils/mock-api';
+import {Flash} from 'controller/flash';
+import { Router } from 'aurelia-router';
+import {inject} from 'aurelia-framework';
 import {BaseModal} from 'utils/base-modal';
+import {Controller} from 'controller/controller';
 
 class CarouselOptions extends BaseModal {
   constructor(includeArrows) {
@@ -13,23 +16,33 @@ class CarouselOptions extends BaseModal {
     this.slidesPerView = 'auto';
     this.loop = false;
     this.paginationClickable = true;
-
+    
     this.showModal = false;
     this.currentItem = null;
   }
-};
+}
 
-@inject(MockAPI)
+@inject(Flash, Router, MockAPI, Controller)
 export class Studio {
-  constructor(api) {
+  constructor(flash, router, api, controller) {
     this.api = api;
+    this.tattoos = [];
+    this.flashes = [];
+    this.flash = flash;
+    this.router = router;
+    this.controller = controller;
+    
+    this.photosCarousel = {
+      init: false,
+      options: new CarouselOptions(true)
+    };
     this.tattoosCarousel = {
       init: false,
       options: new CarouselOptions(true)
     };
     this.tattoosCarousel.options.spaceBetween = 5;
     this.tattoosCarousel.options.centeredSlides = true;
-
+  
     this.flashesCarousel = {
       init: false,
       options: new CarouselOptions(false)
@@ -41,98 +54,82 @@ export class Studio {
         slidesPerView: 2
       }
     };
-
-    this.evaluationsCarousel = {
-      init: false,
-      options: new CarouselOptions(true)
-    };
-    this.evaluationsCarousel.options.slidesPerView = 1;
-
-    this.artistsCarousel = {
-      init: false,
-      options: new CarouselOptions(true)
-    };
-    this.artistsCarousel.options.centeredSlides = true;
-    this.artistsCarousel.options.effect = 'coverflow';
-    this.artistsCarousel.options.coverflow = {
-      rotate: 0,
-      stretch: 90,
-      depth: 500,
-      modifier: 1,
-      slideShadows : false
-    };
-    this.artistsCarousel.options.breakpoints = {
-      580: {
-        coverflow: {
-          rotate: 0,
-          stretch: 60,
-          depth: 400,
-          modifier: 1,
-          slideShadows : false
-        }
-      }
-    };
-
-    this.photosCarousel = {
-      init: false,
-      options: new CarouselOptions(true)
-    };
-
-    this.tattoos = [];
-    this.flashes = [];
   }
-
-  activate(params, routeConfig) {
-    this.getStudio(parseInt(params.id));
-  }
-
+  
   getTattoos() {
-    this.api.getTattoos()
-      .then(tattoos => {
-        this.tattoos = tattoos;
+    this.controller.tattoo.get(this.studio.id)
+      .then(artist => {
+        this.tattoos = artist.splice(0, 12);
         this.tattoosCarousel.init = true;
       });
   }
-
-  getFlashes() {
-    this.api.getTattoos()
-      .then(flashes => {
-        this.flashes = flashes;
-        this.flashesCarousel.init = true;
-      });
+  
+  schedule(studio) {
+    let that = this;
+    studio.schedule.forEach(function(schedule) {
+      if (schedule.dayId === 1) {
+        that.monday = true;
+        that.mondayStartHour = schedule.start;
+        that.mondayEndHour = schedule.end;
+      }
+      if (schedule.dayId === 2) {
+        that.tuesday = true;
+        that.tuesdayStartHour = schedule.start;
+        that.tuesdayEndHour = schedule.end;
+      }
+      if (schedule.dayId === 3) {
+        that.wednesday = true;
+        that.wednesdayStartHour = schedule.start;
+        that.wednesdayEndHour = schedule.end;
+      }
+      if (schedule.dayId === 4) {
+        that.thursday = true;
+        that.thursdayStartHour = schedule.start;
+        that.thursdayEndHour = schedule.end;
+      }
+      if (schedule.dayId === 5) {
+        that.friday = true;
+        that.fridayStartHour = schedule.start;
+        that.fridayEndHour = schedule.end;
+      }
+      if (schedule.dayId === 6) {
+        that.saturday = true;
+        that.saturdayStartHour = schedule.start;
+        that.saturdayEndHour = schedule.end;
+      }
+      if (schedule.dayId === 7) {
+        that.sunday = true;
+        that.sundayStartHour = schedule.start;
+        that.sundayEndHour = schedule.end;
+      }
+    });
   }
-
+  
   getStudio(id) {
-    this.api.getStudio(id)
-      .then(studio => {
-        this.studio = studio;
+    this.controller.studio.getDataUser({user: id})
+      .then(apiResult => {
+        let result = apiResult;
+        if(this.isFreelancer(result)) {
+          this.studio = this.joinObjects(result, result.freelancer);
+        } else {
+          this.studio = this.joinObjects(result, result.studio);
+        }
+        this.schedule(this.studio);
         this.photosCarousel.init = true;
-        this.evaluationsCarousel.init = true;
-        this.artistsCarousel.init = true;
         this.getTattoos();
-        this.getFlashes();
       });
   }
-
-  openModal(index) {
-    this.showModal = true;
-    this.currentItem = this.tattoos[index];
+  
+  isFreelancer(result) {
+    return result.userType.id === 4;
   }
-
-  closeModal(group) {
-    this.showModal = false;
+  
+  attached() {
+    let id = this.router.currentInstruction.params.id;
+    this.getStudio(id);
   }
-
-  changeItem(next, group) {
-    let lastItem = this.tattoos.length - 1;
-    let currentItem = this.currentItem.index;
-    let newIndex = 0;
-    if (next) {
-      newIndex = currentItem < lastItem ? currentItem + 1 : 0;
-    } else {
-      newIndex = currentItem > 0 ? currentItem - 1 : lastItem;
-    }
-    this.currentItem = this.tattoos[newIndex];
-    this.currentItem.index = newIndex;
+  
+  joinObjects(Object1, Object2) {
+    return Object.assign(Object1, Object2);
   }
 }

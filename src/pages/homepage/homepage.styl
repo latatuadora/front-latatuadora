@@ -9,6 +9,7 @@
   justify-content space-between
   text-align center
   color white
+  z-index 2
 
 .homepage-hero__left,
 .homepage-hero__right
@@ -30,38 +31,43 @@ a.homepage-hero__small-item
 
 .homepage-hero__left .homepage-hero__small-item
   &:first-child
-    background-image url('src/assets/images/backgrounds/home-hero-1.jpg')
+    background-image url('src/assets/images/backgrounds/home-hero-8.jpg')
 
   &:last-child
-    background-image url('src/assets/images/backgrounds/home-hero-2.jpg')
+    background-image url('src/assets/images/backgrounds/home-hero-9.jpg')
 
 .homepage-hero__right .homepage-hero__small-item
   &:first-child
-    background-image url('src/assets/images/backgrounds/home-hero-4.jpg')
+    background-image url('src/assets/images/backgrounds/home-hero-6.jpg')
 
   &:nth-child(2)
-    background-image url('src/assets/images/backgrounds/home-hero-4-responsive.jpg')
+    background-image url('src/assets/images/backgrounds/home-hero-6.jpg')
     display none
 
   &:last-child
-    background-image url('src/assets/images/backgrounds/home-hero-5.jpg')
+    background-image url('src/assets/images/backgrounds/home-hero-7.jpg')
 
 .homepage-hero__middle
-  background-image url('src/assets/images/backgrounds/home-hero-3.jpg')
+  background-image url('src/assets/images/backgrounds/home-carousel-3.jpg')
+  transition: all 0.5s
   display flex
   align-items flex-end
   justify-content center
   padding-bottom remify(44)
   flex-basis calc(100% - 518px)
+  position relative
+  z-index 2
 
   .site-button
     rfont-size 13px 767px 11px
     letter-spacing 0.5px
     padding 1.1em 3.8em 0.9em 3.8em
     margin-top remify(39)
+    z-index 2
 
 .homepage-hero__logo
   width 119px
+  z-index 2
 
 .homepage-hero__city-span-1,
 .homepage-hero__city-span-2,
@@ -75,6 +81,7 @@ a.homepage-hero__small-item
 .homepage-hero__discover-span-2
   line-height 0.9
   display block
+  color: #FFF
 
 .homepage-hero__city-span-3,
 .homepage-hero__discover-span-2
@@ -149,12 +156,16 @@ a.homepage-hero__small-item
   color #1d1d1d
   font-weight $regular
 
+  .golden-text
+    font-size inherit
+
 .homepage-divider
   max-width 903px
   width 85%
 
 .homepage-trending
-  padding-top remify(94)
+  margin-top: 6rem;
+  text-align center
 
 .homepage-trending__form
   margin-top 17px
@@ -222,7 +233,6 @@ a.homepage-hero__small-item
 
 .homepage-featured__buttons
   width 366px
-  margin-top 49px
   center-block()
   display flex
   justify-content space-between
@@ -231,10 +241,11 @@ a.homepage-hero__small-item
 .homepage-featured__button
   background #e5e5e5
   color #383838
+    margin 3rem 0
   flex-basis 111px
   font-size 11px
   padding 1em 0.85em
-  margin-top 14px
+
 
   &:hover, &.active, &:active
     background #b5a274
@@ -249,7 +260,7 @@ a.homepage-hero__small-item
   width 1024px
 
 .homepage-featured__main-button
-  margin-top 88px
+  margin 3rem 0
   rfont-size 13px 767px 10px
   padding 1.15em 1.7em 1em 1.7em
   letter-spacing unit(0.5/13, 'em')
@@ -367,6 +378,7 @@ a.homepage-hero__small-item
 
 .homepage-bottom-cover__quote,
 .homepage-bottom-cover__quote-author
+  color: $dustColor
   display block
 
 .homepage-bottom-cover__quote
@@ -474,7 +486,8 @@ a.homepage-hero__small-item
     margin-top 33px
 
   .homepage-featured__main-button
-    margin-top 46px
+    margin: 3rem 0
+
     padding 15px 12.7px 13.2px 12.7px
 
   .homepage-want-to
@@ -580,6 +593,8 @@ a.homepage-hero__small-item
       &::before
         font-size 9.5px
 
+
+
 @media screen and (max-width: 479px)
   .homepage-hero__right
     order -1
@@ -598,10 +613,10 @@ a.homepage-hero__small-item
 
   .homepage-hero__left .homepage-hero__small-item
     &:first-child
-      background-image url('src/assets/images/backgrounds/home-hero-2-responsive.jpg')
+      background-image url('src/assets/images/backgrounds/home-hero-8.jpg')
 
     &:last-child
-      background-image url('src/assets/images/backgrounds/home-hero-1-responsive.jpg')
+      background-image url('src/assets/images/backgrounds/home-hero-9.jpg')
 
   .homepage-hero__right .homepage-hero__small-item
     &:first-child
@@ -611,4 +626,116 @@ a.homepage-hero__small-item
       display block
 
     &:last-child
-      background-image url('src/assets/images/backgrounds/home-hero-5-responsive.jpg')
+      background-image url('src/assets/images/backgrounds/home-hero-7.jpg')
+
+
+// STYLES TO TRENDING GALERY
+.trending
+
+  &__layer
+    z-index 1
+    height 100%
+    width 100%
+    top 0
+    position absolute
+    background rgba(black, 0.2)
+
+  &__gallery
+    margin 6rem auto 3rem auto
+    width 320px
+    display grid
+    grid-template-columns repeat(auto-fill, 160px)
+
+  &__item
+    width 160px
+    height 160px
+    object-fit cover
+    object-position center
+    background-position center
+    background-size cover
+    position relative
+
+  &__image
+    max-width 100%
+    max-height 100%
+    width 100%
+    height 100%
+
+  &__description
+    z-index 2
+    transform translate3d(-50%, -50%, 0);
+    position absolute
+    top 50%
+    left 50%
+
+    font-family 'BebasNeue'
+    font-size 2.5rem
+    text-align center
+    text-transform uppercase
+    color #FFF
+
+  @media screen and (min-width 48rem)
+
+    &__gallery
+      width 500px
+      grid-template-columns repeat(2, 250px)
+
+    &__item
+      width 250px
+      height 250px
+
+  @media screen and (min-width 64rem)
+
+    &__gallery
+      width 1000px
+      grid-template-columns repeat(4, 250px)
+
+    &__item
+      width 250px
+      height 250px
+
+// HOMER PAGE LAYER
+.homepage-hero__middle-content
+  z-index 2
+.homepage-hero__middle
+  position relative
+
+  &__layer
+    z-index 1
+    height 100%
+    width 100%
+    top 0
+    position absolute
+    background rgba(0,0,0,0.4)
+
+.homepage__featured
+  margin 6rem auto 3rem auto
+  width 320px
+  display grid
+  grid-gap: 0
+  grid-template-columns repeat(auto-fill, 160px)
+
+  &__item
+    width 160px
+    height 160px
+
+  @media screen and (min-width 48rem)
+
+    &
+      width 500px
+      grid-gap: 0.5rem;
+      grid-template-columns repeat(2, 250px)
+
+    &__item
+      width 250px
+      height 250px
+
+  @media screen and (min-width 64rem)
+
+    &
+      width 1000px
+      grid-template-columns repeat(4, 250px)
+
+    &__item
+      width 250px
+      height 250px

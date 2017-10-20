@@ -14,6 +14,9 @@
 .tattoo-modal__close
   cursor pointer
 
+.validation-error
+  margin-top 20px
+
 .tattoo-modal__close
   height 25.5px
   width 25.5px
@@ -24,6 +27,12 @@
   top 50%
   height 36px
   width 18px
+
+.hide-input
+  display none
+
+.tattoo-selection input[type="checkbox"]:checked+label .my-tattoo
+  border solid 4px #b09c6c
 
 .tattoo-modal__prev
   left -26px
@@ -406,7 +415,8 @@
 .star-prize
   height 10px
   left -20px
-  top 21px
+  margin-top 20px
+  top auto !important
   width 10px
 
 .margin-vertical-35px
@@ -424,6 +434,33 @@
 	height 48px
 	padding 15px
 	width: 510px
+
+select
+  height 40px
+  width 170px
+  -webkit-appearance none
+  padding-left 10px
+
+.content-gray-tag
+  margin 0 auto
+
+.awards-and-styles
+  max-width 100%
+
+.content-flex.content-row.content-vertical-center.horizontal-center.gray-tag
+  background-color #bec3c6
+  width 150px
+  border-radius 35px
+  height 37px
+  margin-top 15px
+  margin-right 12px
+
+.content-flex.content-row.content-vertical-center.horizontal-center.gray-tag p
+  font-size 15px
+
+.content-flex.content-row.content-vertical-center.horizontal-center.gray-tag img
+  width 10%
+  margin-left 10px      
 
 .textarea-height-146px
   height 146px
