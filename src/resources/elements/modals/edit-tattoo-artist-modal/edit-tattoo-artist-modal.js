@@ -68,11 +68,15 @@ export class EditTattooArtistModal extends BaseModal {
     this.styles = await this.catalogs.getCatalogStyles();
     this.tattoos = await this.tattoo.get(this.dataUser.id);
     this.currentArtist = await this.api.get(this.artist.id);
-    this.awardsList = this.currentArtist.awards;
-    this.currentArtist.styles.forEach(function(style) {
-      that.stylesToShow.push({name: style.name, id: style.id});
-      that.styleList.push({styleId: style.id});
-    });
+    if (this.currentArtist.styles) {
+      this.currentArtist.styles.forEach(function(style) {
+        that.stylesToShow.push({name: style.name, id: style.id});
+        that.styleList.push({styleId: style.id});
+      });
+    }
+    if (this.currentArtist.awards) {
+      this.awardsList = this.currentArtist.awards;
+    }
   }
   
   getAwards() {
