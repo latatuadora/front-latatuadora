@@ -16,21 +16,22 @@ export class Scheduling extends BaseModal {
     this.router = router;
     this.studio = studio;
     this.session = session;
-    this.validator = validator;
     this.schedule = schedule;
-    this.controller = controller;
-    //this.setRules();
-    this.controller.validateTrigger = validateTrigger.changeOrBlur;
     this.fileErrors = {
       type: false,
-      size: false
+      size: false,
+      timeErrors: false
     };
     this.fields = {
       date: new Date(),
       file: null,
       comment: '',
-      hour: null
+      hour: null,
     };
+    this.validator = validator;
+    this.controller = controller;
+    this.setRules();
+    this.controller.validateTrigger = validateTrigger.changeOrBlur;
 
   }
   
@@ -83,32 +84,33 @@ export class Scheduling extends BaseModal {
   }
   
   getDate() {
-    let date = this.fields.date[0];
-    let time = this.fields.hour;
-    let formatDate = date.getFullYear() + '-' + (date.getMonth() + 1) + '-' + date.getDate() + 'T' + time + ':00:00';
-    return formatDate;
+    try {
+      let date = this.fields.date[0];
+      let time = this.fields.hour;
+      let formatDate = (date.getFullYear() + '-' + (date.getMonth() + 1) + '-' + date.getDate() + 'T' + time + ':00:00Z');
+      return formatDate;
+    } catch (error) {
+      this.fields.timeErrors = true;
+    }
   }
 
   submit() {
-    let date = this.getDate();
-    let data = new FormData();
     let that = this;
+    let data = new FormData();
+    let date = this.getDate();
     data.append("datetime", date);
-    data.append("jobber", this.user.id);
+    data.append("jobber", this.artist.id);
     data.append("client", this.client.id);
     data.append("comment", this.fields.comment);
     data.append("image", document.querySelector('#photo-preview').files[0]);
-    this.controller.validate()
-      .then(result => {
-        if (result.valid) {
-          this.schedule.schedule(data)
-            .then(response => {
-              that.openModal(1, 'confirm-scheduling-modal');
-            })
-            .catch(response => {
-              this.error = response;
-            });
-        }
-      });
+    if (!this.fields.timeErrors) {
+      this.schedule.schedule(data)
+        .then(response => {
+          that.openModal(1, 'confirm-scheduling-modal');
+        })
+        .catch(response => {
+          this.error = response;
+        });
+    }
   }
 }

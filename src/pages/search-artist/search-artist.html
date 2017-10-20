@@ -15,8 +15,8 @@
       <dropdown-modal type="list" active-id.bind="params.type" list.bind="lists.types" item-name="name" on-click.bind="setType" ref-element.bind="typeFilter" visible.bind="showDropdowns.types" close.call="toggleDropdown('types')" top-reference=".site-navbar" center-at="633"></dropdown-modal>
     </div>
     <div class="gallery-search">
-      <input type="search" class="gallery-search__input" placeholder="Busca tu colonia">
-      <button type="button" class="site-button gallery-search__button">Buscar</button>
+      <input type="search" class="gallery-search__input" value.bind="params.neighborhood" placeholder="Busca tu colonia">
+      <button type="button" click.delegate="setNeighborhood(params.neighborhood)" class="site-button gallery-search__button">Buscar</button>
     </div>
     <div class="gallery-filter-wrapper no-arrow ${params.style || params.type ? '' : 'active'}">
       <div class="gallery-filter" click.delegate="resetFilters()">Todos</div>

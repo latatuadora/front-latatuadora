@@ -236,7 +236,7 @@ export class App {
         moduleId: 'pages/menu-page-artist/scheduling-request/scheduling-request',
         title: 'Solicitudes de agendación',
         nav: false,
-        roles: [0]
+        roles: [3]
       },
       {
         route: 'editarperfil',
