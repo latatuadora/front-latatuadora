@@ -16,12 +16,12 @@
     <div class="studio__hero-inner">
       <div class="studio__hero-left">
         <h2 class="studio__hero-subtitle">Cotiza tu <span class="studio__hero-subtext">próximo tatuaje</span></h2>
-        <a if.bind="studio" route-href="route: quotation; params.bind: {artist: studio.id}" class="site-button">Cotiza aquí</a>
+        <a if.bind="studio" route-href="route: quotation; params.bind: {artist: studio.userId.id}" class="site-button">Cotiza aquí</a>
       </div>
-      <!-- <div class="studio__hero-right">
+      <div class="studio__hero-right">
         <h2 class="studio__hero-subtitle">Agenda tu <span class="studio__hero-subtext">próxima cita</span></h2>
-        <a route-href="route: scheduling; params.bind: { id: studio.id }" class="site-button">Agenda aquí</a>
-      </div> -->
+        <a route-href="route: scheduling; params.bind: { artist: studio.userId.id }" class="site-button">Agenda aquí</a>
+      </div>
     </div>
   </section>
   <hr class="special-hr studio__hr">
@@ -130,14 +130,13 @@
       <img src="/src/assets/images/icons/group-48@3x.png">
     </div>
     <div class="studio__info-content">
-      <p>Sabemos que cada tatuaje es una historia plasmada en la piel. Cada tatuaje, sin importar su tamaño, simpleza o complejidad, deben ser creados con toda la dedicación y profesionalismo posibles.</p>
-      <p>Es así que nace La Tatuadora, una plataforma en la que recopilamos gran parte de los estudios y tatuadores alrededor de la República Mexicana, para que tú, de forma gratuita, contactes con el artista que mejor se adapte a las necesidades de tu próximo tatuaje.</p>
+      <p>${studio.about}</p>
     </div>
     <h3 class="studio__info-address-title">Ubicación</h3>
     <div class="studio__info-address-content">
-      <p>Col Roma Norte #1542 CDMX</p>
-      <p>Avenida Alvaro Obregon, 32 Colonia Roma Norte</p>
-      <p>Delegacion Cuahutemoc  D.P. 06700 CDMX</p>
+      <p>Col ${studio.addressId.townId.name} #${studio.addressId.numExt} ${studio.addressId.stateId.name}</p>
+      <p>${studio.addressId.street}, Colonia ${studio.addressId.townId.name}</p>
+      <p>Delegacion/Municipio ${studio.addressId.suburbId.name} C.P. ${studio.addressId.zc} ${studio.addressId.stateId.name}</p>
     </div>
     <button class="address-button">VER MAPA</button>
     <h3 class="studio__info-time-title">Horario de <span>trabajo</span></h3>
@@ -151,50 +150,50 @@
       <div class="schedule__item-info input__group-row">
         <switch able="Lunes" disable="Lunes" switch.two-way="monday"></switch>
         <div show.bind="monday" class="schedule__item-info-content">
-          <input class="input--hour" hour  type="text">
-          <input class="input--hour" hour type="text">
+          <input value.bind="mondayStartHour" class="input--hour" hour  type="text">
+          <input value.bind="mondayEndHour" class="input--hour" hour type="text">
         </div>
       </div>
       <div class="schedule__item-info input__group-row">
         <switch able="Martes" disable="Martes" switch.two-way="tuesday"></switch>
         <div show.bind="tuesday" class="schedule__item-info-content">
-          <input class="input--hour" hour  type="text">
-          <input class="input--hour" hour type="text">
+          <input value.bind="tuesdayStartHour" class="input--hour" hour  type="text">
+          <input value.bind="tuesdayEndHour" class="input--hour" hour type="text">
         </div>
       </div>
       <div class="schedule__item-info input__group-row">
         <switch able="Miércoles" disable="Miércoles" switch.two-way="wednesday"></switch>
         <div show.bind="wednesday" class="schedule__item-info-content">
-          <input class="input--hour" hour  type="text">
-          <input class="input--hour" hour type="text">
+          <input value.bind="wednesdayStartHour" class="input--hour" hour  type="text">
+          <input value.bind="wednesdayEndHour" class="input--hour" hour type="text">
         </div>
       </div>
       <div class="schedule__item-info input__group-row">
         <switch able="Jueves" disable="Jueves" switch.two-way="thursday"></switch>
         <div show.bind="thursday" class="schedule__item-info-content">
-          <input class="input--hour" hour  type="text">
-          <input class="input--hour" hour type="text">
+          <input value.bind="thursdayStartHour" class="input--hour" hour  type="text">
+          <input value.bind="thursdayEndHour" class="input--hour" hour type="text">
         </div>
       </div>
       <div class="schedule__item-info input__group-row">
         <switch able="Viernes" disable="Viernes" switch.two-way="friday"></switch>
         <div show.bind="friday" class="schedule__item-info-content">
-          <input class="input--hour" hour  type="text">
-          <input class="input--hour" hour type="text">
+          <input value.bind="fridayStartHour" class="input--hour" hour  type="text">
+          <input value.bind="fridayEndHour" class="input--hour" hour type="text">
         </div>
       </div>
       <div class="schedule__item-info input__group-row">
         <switch able="Sábado" disable="Sábado" switch.two-way="saturday"></switch>
         <div show.bind="saturday" class="schedule__item-info-content">
-          <input class="input--hour" hour  type="text">
-          <input class="input--hour" hour type="text">
+          <input value.bind="saturdayStartHour" class="input--hour" hour  type="text">
+          <input value.bind="saturdayEndHour" class="input--hour" hour type="text">
         </div>
       </div>
       <div class="schedule__item-info input__group-row">
         <switch able="Domingo" disable="Domingo" switch.two-way="sunday"></switch>
         <div show.bind="sunday" class="schedule__item-info-content">
-          <input class="input--hour" hour  type="text">
-          <input class="input--hour" hour type="text">
+          <input value.bind="sundayStartHour" class="input--hour" hour  type="text">
+          <input value.bind="sundayEndHour" class="input--hour" hour type="text">
         </div>
       </div>
     </div>
