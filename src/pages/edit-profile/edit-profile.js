@@ -5,16 +5,20 @@ import {Client} from '../../controller/client';
 import {Studio} from 'controller/studio';
 import {Tattoo} from 'controller/tattoo';
 import {Flash} from 'controller/flash';
+import {Artist} from 'controller/artist';
+import {Catalogs} from 'controller/catalogs';
 
-@inject(Session, Studio, Client, Tattoo, Flash)
+@inject(Session, Studio, Client, Tattoo, Flash, Artist, Catalogs)
 export class EditProfile extends BaseModal {
-  constructor(session, api, client, tattoo, flash) {
+  constructor(session, api, client, tattoo, flash, artist, catalogs) {
     super();
     this.api = api;
     this.client = client;
     this.session = session;
+    this.artist = artist;
     this.tattoo = tattoo;
     this.flash = flash;
+    this.catalogs = catalogs;
     this.registerFor = false;
     this.dataUser = this.session.getCurrentUser();
     this.dataStudioFree = this.session.getStudioFreelancer();
@@ -110,7 +114,7 @@ export class EditProfile extends BaseModal {
     this.api.edit(this.currentUser)
       .then(response => {
         this.session.setUser(this.dataUser.email);
-        //window.location.reload(true);
+        //window.location.reload();
       })
       .catch(response => {
         this.error = response;
@@ -141,9 +145,14 @@ export class EditProfile extends BaseModal {
       that.currentUser.styles.push({ styleId: style.styleId });
     });
   }
+  
+  async getArtist() {
+    this.artists = await this.artist.getArtists(this.dataStudioFree.id);
+  }
 
   attached() {
     let that = this;
+    this.getArtist();
     this.dataAssignment();
     this.client.simplePetition('style', 'GET')
       .then(styles => {
@@ -169,7 +178,7 @@ export class EditProfile extends BaseModal {
       });
     this.flash.get(this.dataStudioFree.id)
       .then(response => {
-        that.flashes = response;
+        that.flashes = response.slice(-3);
       })
       .catch(error => {
         this.error = response;
