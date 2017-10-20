@@ -8,22 +8,12 @@ export class TattooItem extends BaseModal {
   constructor() {
     super();
     let that = this;
-    this.waitFor(function() {
-      that.getInfo();
-    });
-  }
-  
-  getInfo() {
-    this.image = this.tattoo.image.split('/');
-  }
-  
-  waitFor(cb) {
-    let that = this, timer;
-    
-    timer = setInterval(function() {
+    let timer = setInterval(function() {
       if (that.tattoo !== null) {
+        if (that.tattoo.image) {
+          that.image = that.tattoo.image.split('/');
+        }
         clearInterval(timer);
-        cb();
       }
     });
   }
