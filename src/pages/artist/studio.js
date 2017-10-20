@@ -26,10 +26,10 @@ class CarouselOptions extends BaseModal {
 export class Studio {
   constructor(flash, router, api, controller) {
     this.api = api;
-    this.flash = flash;
-    this.router = router;
     this.tattoos = [];
     this.flashes = [];
+    this.flash = flash;
+    this.router = router;
     this.controller = controller;
     
     this.photosCarousel = {
@@ -64,6 +64,47 @@ export class Studio {
       });
   }
   
+  schedule(studio) {
+    let that = this;
+    studio.schedule.forEach(function(schedule) {
+      if (schedule.dayId === 1) {
+        that.monday = true;
+        that.mondayStartHour = schedule.start;
+        that.mondayEndHour = schedule.end;
+      }
+      if (schedule.dayId === 2) {
+        that.tuesday = true;
+        that.tuesdayStartHour = schedule.start;
+        that.tuesdayEndHour = schedule.end;
+      }
+      if (schedule.dayId === 3) {
+        that.wednesday = true;
+        that.wednesdayStartHour = schedule.start;
+        that.wednesdayEndHour = schedule.end;
+      }
+      if (schedule.dayId === 4) {
+        that.thursday = true;
+        that.thursdayStartHour = schedule.start;
+        that.thursdayEndHour = schedule.end;
+      }
+      if (schedule.dayId === 5) {
+        that.friday = true;
+        that.fridayStartHour = schedule.start;
+        that.fridayEndHour = schedule.end;
+      }
+      if (schedule.dayId === 6) {
+        that.saturday = true;
+        that.saturdayStartHour = schedule.start;
+        that.saturdayEndHour = schedule.end;
+      }
+      if (schedule.dayId === 7) {
+        that.sunday = true;
+        that.sundayStartHour = schedule.start;
+        that.sundayEndHour = schedule.end;
+      }
+    });
+  }
+  
   getStudio(id) {
     this.controller.studio.getDataUser({user: id})
       .then(apiResult => {
@@ -73,13 +114,14 @@ export class Studio {
         } else {
           this.studio = this.joinObjects(result, result.studio);
         }
+        this.schedule(this.studio);
         this.photosCarousel.init = true;
         this.getTattoos();
       });
   }
   
   isFreelancer(result) {
-    return result.studio.addressId.id === 0;
+    return result.userType.id === 4;
   }
   
   attached() {
