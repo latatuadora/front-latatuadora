@@ -19,15 +19,16 @@
         Selecciona un horario
         <div class="scheduling__time-inner">
           <img class="scheduling__time-icon" src="/src/assets/images/icons/clock-white.svg" alt="Horario">
-          <div class="scheduling__schedules" validation-errors.bind="timeErrors">
-            <!--input type="hidden" value.bind="fields.time & validate"-->
+          <div class="scheduling__schedules">
             <span class="scheduling__schedule ${item == fields.time ? 'active' : ''}" repeat.for="item of returnSchedules" click.delegate="setTime(item)">${item}:00</span>
           </div>
         </div>
       </div>
     </div>
   </section>
-  <span class="validation-error" repeat.for="error of timeErrors">${error.error.message}</span>
+  <div class="error-message">
+    <span class="validation-error" if.bind="fields.timeErrors">*Debes elegir un horario</span>
+  </div>
   <hr class="special-hr scheduling__hr scheduling__hr--data">
   <section class="scheduling__data">
     <h2 class="site-title scheduling__subtitle">Cuéntanos sobre tu <span class="golden-text">tatuaje</span></h2>
@@ -44,6 +45,7 @@
       </div>
     </div>
   </section>
+  <confirm-scheduling-modal id="confirm-scheduling-content" simple-modal="show.two-way: showModal" css="${showModal ? 'display: block' : 'display: none'}" item.bind="currentItem"  go-next.call="nextItem()" go-prev.call="previousItem()" close.call="closeModal()"></confirm-scheduling-modal>
   <div class="content-button">
     <button class="site-button scheduling__submit" type="submit" click.trigger="submit()">Solicitar cita</button>
   </div>
