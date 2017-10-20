@@ -14,29 +14,24 @@ export class GalleryItem extends Controller{
 
   constructor(address) {
     super();
-    this.address = address;
+    let that = this;
+    this.intervalId = setInterval(function() {
+      if (that.item) {
+        if (that.item.image) {
+          that.item.image = `http://sandbox.latatuadora.getmore.mx:1337/images/${that.item.image}`;
+        } else {
+          that.item.image = `http://sandbox.latatuadora.getmore.mx:1337/_assets/Tattoo/images/${that.item.image}`;
+        }
+        
+        if (that.item.freelancer) {
+          that.studio = that.item.freelancer;
+        }
+  
+        if (that.item.artist) {
+          that.studio = that.item.artist;
+        }
+      }
+      clearInterval(that.intervalId);
+    });
   }
-
-  bind() {
-    this.item.image = `http://sandbox.latatuadora.getmore.mx:1337/images/${this.item.image}`
-    this.getAddress();
-    //this.item.artist(this.item.artist || this.item.freelancer)
-    //  .then(artist => {
-    //    this.artistItem = artist
-    //    this.getAddress();
-    //  });
-  }
-
-  getAddress() {
-    const type = this.item.artist
-              ? 'STUDIO'
-              : 'FREELANCE';
-    let user = (this.item.artist || this.item.freelancer);
-     this.address.get(type, {id: user.id })
-      .then(address => {
-        this.addressItem = address;
-      });
-  }
-
-
 }
