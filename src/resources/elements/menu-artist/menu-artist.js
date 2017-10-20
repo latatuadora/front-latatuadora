@@ -33,13 +33,13 @@ export class MenuArtist {
       //   route: '/clientes',
       //   routePage: 'posiblesclientes'
       // },
-      // {
-      //   img: 'src/assets/images/icons/np-clock.png',
-      //   text: "Solicitudes de agendación",
-      //   title: ["solicitudes", "de agendación"],
-      //   route: '../../../pages/menu-page-artist/scheduling-request/scheduling-request',
-      //   routePage: 'agendacion/solicitud'
-      // },
+      {
+        img: 'src/assets/images/icons/np-clock.png',
+        text: "Solicitudes de agendación",
+        title: ["solicitudes", "de agendación"],
+        route: '../../../menu-page-artist/scheduling-request/scheduling-request',
+        routePage: 'agendacion/solicitud'
+      },
       {
         img: 'src/assets/images/icons/avatar.png',
         text: "Mis tatuadores",
