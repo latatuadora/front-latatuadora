@@ -10,6 +10,7 @@
   <require from="resources/elements/switch/switch"></require>
   <require from="resources/elements/modals/new-tattoo-modal/new-tattoo-modal"></require>
   <require from="resources/elements/modals/new-flash-modal/new-flash-modal"></require>
+  <require from="resources/elements/modals/new-tattoo-artist-modal/new-tattoo-artist-modal"></require>
 
   <div class="content-flex content-row content-column-mobile">
     <menu-artist></menu-artist>
@@ -18,10 +19,10 @@
         <img src="src/assets/images/logos/bad-tattoo.png">
         <h1 class="text-base text-white title margin-bottom-45px">${editProfile.titleWhite} <span class="text-gold">${editProfile.titleGold}</span></h1>
         <div class="content-flex content-row content-vertical-center content-column-mobile margin-left-negative-100px margin-0px-mobile">
-          <button class="button-base dust-button padding-horizontal-28px">Solicitudes de agendación</button>
+          <a route-href="route: scheduling-request"><button class="button-base dust-button padding-horizontal-28px">Solicitudes de agendación</button></a>
           <div class="vertical-separator show-desktop hide-mobile"></div>
           <div class="special-hr separator hide-desktop show-mobile margin-vertical-57px-37px-mobile"></div>
-          <button class="button-base dust-button padding-horizontal-28px">Cotizaciones</button>
+          <a route-href="route: my_quotations"><button class="button-base dust-button padding-horizontal-28px">Cotizaciones</button></a>
         </div>
       </div>
       <!--SECCIÓN MIS TATUAJES-->
@@ -47,7 +48,7 @@
         </div>
         <div class="content-flex content-row content-vertical-center margin-top-60px">
           <a if.bind="flashes.length > 0" route-href="route: my_flashes" class="button-base profile-button-mobile dust-button padding-horizontal-28px margin-right-27px margin-right-10px-mobile">Ver todos</a>
-          <button class="content-flex content-row content-vertical-center button-base dust-button padding-horizontal-28px profile-button-mobile" click.trigger="openModal(2, 'new-flash-modal')">
+          <button class="content-flex content-row content-vertical-center button-base dust-button padding-horizontal-28px profile-button-mobile" click.trigger="openModal(2, 'new-flash-content')">
             <new-flash-modal id="new-flash-content-2" simple-modal="show.two-way: showModal; superid.two-way: superid" css="${showModal ? 'display: block' : 'display: none'}" item.bind="currentItem"  go-next.call="nextItem()" go-prev.call="previousItem()" close.call="closeModal()"></new-flash-modal>
             <img class="button-icon-plus" src="src/assets/images/icons/plus_circle.svg">
             Agregar nuevo
@@ -109,8 +110,9 @@
           <artist-tattoo-item repeat.for="artist of artists" artist.bind="artist"></artist-tattoo-item>
         </div>
         <div class="content-flex content-row content-vertical-center margin-top-60px">
-          <button class="button-base profile-button-mobile dust-button padding-horizontal-28px margin-right-27px margin-right-10px-mobile">Ver todos</button>
-          <button class="content-flex content-row content-vertical-center button-base dust-button padding-horizontal-28px profile-button-mobile">
+          <a if.bind="tattoos.artists > 0" route-href="route: my-tattoo-artist"><button class="button-base profile-button-mobile dust-button padding-horizontal-28px margin-right-27px margin-right-10px-mobile">Ver todos</button></a>
+          <button class="content-flex content-row content-vertical-center button-base dust-button padding-horizontal-28px profile-button-mobile" click.trigger="openModal(3, 'new-tattoo-artist-content')">
+            <new-tattoo-artist-modal id="new-tattoo-artist-content-3" simple-modal="show.two-way: showModal; superid.two-way: superid" css="${showModal ? 'display: block' : 'display: none'}" item.bind="currentItem"  go-next.call="nextItem()" go-prev.call="previousItem()" close.call="closeModal()"></new-tattoo-artist-modal>
             <img class="button-icon-plus" src="src/assets/images/icons/plus_circle.svg">
             Agregar nuevo
           </button>
