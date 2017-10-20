@@ -99,7 +99,7 @@ export class Scheduling extends BaseModal {
     let data = new FormData();
     let date = this.getDate();
     data.append("datetime", date);
-    data.append("jobber", this.user.id);
+    data.append("jobber", this.artist.id);
     data.append("client", this.client.id);
     data.append("comment", this.fields.comment);
     data.append("image", document.querySelector('#photo-preview').files[0]);
