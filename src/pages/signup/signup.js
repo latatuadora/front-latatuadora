@@ -200,7 +200,6 @@ export default class Signup extends Client {
       .then(result => {
         if (result.valid) {
           let sendData = this.studioFreelance;
-          delete sendData.days;
           this.api.signOn(sendData)
             .then(response => {
               if (response.hasOwnProperty('name')) {
