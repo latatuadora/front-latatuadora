@@ -4,8 +4,9 @@ import {inject} from 'aurelia-framework';
 import {Catalogs} from 'controller/catalogs';
 import {Session} from 'utils/session';
 import {Flash} from 'controller/flash';
+import {Artist} from 'controller/artist';
 
-@inject(Catalogs, Session, Flash)
+@inject(Catalogs, Session, Flash, Artist)
 export class EditFlashModal extends BaseModal {
   @bindable flash;
   @bindable type = 'flash';
@@ -15,10 +16,11 @@ export class EditFlashModal extends BaseModal {
   @bindable goNext;
   @bindable close;
   
-  constructor(catalogs, session, api) {
+  constructor(catalogs, session, api, artist) {
     super();
     this.api = api;
     this.styleList = [];
+    this.artist = artist;
     this.elementList = [];
     this.stylesToShow = [];
     this.session = session;
@@ -31,7 +33,6 @@ export class EditFlashModal extends BaseModal {
       changeHeight: (height) => {this.shared.height = height;},
       changeWidth: (width) => {this.shared.width = width;}
     };
-    this.user = this.session.getStudioFreelancer();
   }
   
   toggleAll() {
@@ -82,6 +83,8 @@ export class EditFlashModal extends BaseModal {
     let that = this;
     this.styles = await this.catalogs.getCatalogStyles();
     this.elements = await this.catalogs.getCatalogElements();
+    let dataUser = this.session.getStudioFreelancer();
+    this.artists = await this.artist.getArtists(dataUser.id);
     this.currentFlash = await this.api.getFlash(this.flash.id);
     this.currentFlash.styles.forEach(function(style) {
       if (style !== null) {
