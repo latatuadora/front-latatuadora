@@ -59,18 +59,16 @@ export class Studio extends Client {
   }
 
   edit(data) {
-    const endpoint = 'edit'
-    return this.client
-      .fetch(`${endpoint}`,{
-        method: this.methods.put,
-        body: json(data)
-      })
-      .then(response => {
-        return response;
-      })
-      .catch(error => {
-        return error;
+    let that = this;
+    return new Promise (function(accept, reject) {
+      return that.simpleNativePetition('edit', 'PUT', JSON.parse(data), function(success, error) {
+        if (success) {
+          accept(success);
+        } else {
+          reject(error);
+        }
       });
+    });
   }
   
   getImages(id) {
@@ -83,16 +81,9 @@ export class Studio extends Client {
     });
   }
   
-  getUserAll(style, type) {
+  getUserAll(params, type) {
     let that = this;
-    if (type && style) {
-      this.url = 'user/all?style=' +  style + 'userType=' + type;
-    } else if (type) {
-      console.log(style, type);
-      this.url = 'user/all?userType=' + type;
-    } else if(style) {
-      this.url = 'user/all?style=' + style;
-    }
+    this.url = 'user/all?style=' +  params.style + '&userType=' + params.type + '&neighborhood=' + params.neighborhood;
     return new Promise (function(accept, reject) {
       return that.simplePetition(that.url, 'GET', null)
         .then(data => accept(data.result))
