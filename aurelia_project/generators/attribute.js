@@ -8,7 +8,7 @@ export default class AttributeGenerator {
     this.options = options;
     this.ui = ui;
   }
-
+  
   execute() {
     return this.ui
       .ensureAnswer(this.options.args[0], 'What would you like to call the custom attribute?')
